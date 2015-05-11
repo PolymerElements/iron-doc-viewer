@@ -58,7 +58,7 @@ with the same name as directory it is being served from.
         <header>Elements</header>
         <ul collection="elements" on-tap="_onTapNavItem">
           <!-- Polymer features are crazy special cased as `Polymer.Base`. -->
-          <template is="dom-repeat" items="[[_elements]]">
+          <template is="dom-repeat" items="[[_elements]]" sort="_alphaSort">
             <li abstract$="[[item.abstract]]">[[item.is]]</li>
           </template>
         </ul>
@@ -67,7 +67,7 @@ with the same name as directory it is being served from.
       <section hidden$="[[!_behaviors.length]]">
         <header>Behaviors</header>
         <ul collection="behaviors" on-tap="_onTapNavItem">
-          <template is="dom-repeat" items="[[_behaviors]]">
+          <template is="dom-repeat" items="[[_behaviors]]" sort="_alphaSort">
             <li>[[item.is]]</li>
           </template>
         </ul>
@@ -287,6 +287,9 @@ with the same name as directory it is being served from.
       this._activeContentType = 'demo';
     },
 
+    _alphaSort: function(a,b) {
+      return a.is.localeCompare(b.is);
+    },
     /**
      * Renders this element into static HTML for offline use.
      *
