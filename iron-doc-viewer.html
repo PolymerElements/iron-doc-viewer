@@ -122,6 +122,7 @@ with the same name as directory it is being served from.
        */
       src: {
         type:     String,
+        value: null,
         observer: '_srcChanged',
       },
 
@@ -192,13 +193,7 @@ with the same name as directory it is being served from.
       if (elements) {
         this._elements = elements;
         this._loading  = false;
-      } else {
-        // Make sure our change handlers trigger in all cases.
-        if (!this.src) {
-          this._srcChanged();
-        }
       }
-
     },
 
     /**
