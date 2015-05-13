@@ -27,7 +27,7 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         <span class="return" hidden$="{{!descriptor.return}}">➙ <span class="type">{{descriptor.return.type}}</span></span>
       </div>
       <div id="details">
-        <div id="meta">
+        <div id="meta" hidden$="{{_computeHideMeta(descriptor)}}">
           <span id="type" class="type">{{descriptor.type}}</span>
           <span id="default" hidden$="{{!descriptor.default}}">default: <span class="value">{{descriptor.default}}</span></span>
         </div>
@@ -164,6 +164,10 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         }
       }.bind(this));
     },
+
+    _computeHideMeta: function(descriptor) {
+      return descriptor.type === undefined &&  descriptor.default === undefined;
+    }
 
   });
 

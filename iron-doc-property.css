@@ -14,6 +14,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   padding: 16px;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .type:before {
   content: '\007b'; /* https://github.com/Polymer/polymer/issues/1291 */
 }

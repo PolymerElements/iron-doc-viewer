@@ -65,12 +65,14 @@ header {
 /* Property Sections */
 
 #properties,
-#methods {
+#methods,
+#events {
   border: 1px solid;
   margin: 16px 0;
 }
 #properties > header,
-#methods > header {
+#methods > header,
+#events > header {
   color: #ffffff;
   padding: 16px;
 }
@@ -95,6 +97,17 @@ header {
 #methods,
 #methods iron-doc-property {
   border-color: rgb(0, 190, 164);
+}
+
+#events {
+  background-color: rgba(197, 217, 251, 0.7);
+}
+#events > header {
+  background-color: rgb(65, 132, 243);
+}
+#events,
+#events iron-doc-property {
+  border-color: rgb(65, 132, 243);
 }
 
 iron-doc-property {

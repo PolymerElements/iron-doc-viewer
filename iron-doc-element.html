@@ -71,6 +71,13 @@ property.
       </template>
     </section>
 
+    <section id="events" hidden$="{{!_events.length}}">
+      <header>Events</header>
+      <template is="dom-repeat" items="{{_events}}">
+        <iron-doc-property descriptor="{{item}}"></iron-doc-property>
+      </template>
+    </section>
+
   </template>
 
 </dom-module>
@@ -84,6 +91,10 @@ property.
 
     properties: {
 
+      sample: {
+        type: Number,
+        value: 5
+      },
       /**
        * The [Hydrolysis](https://github.com/PolymerLabs/hydrolysis)-generated
        * element descriptor to display details for.
@@ -173,7 +184,7 @@ property.
       }
       this._properties = properties;
       this._methods    = methods;
-
+      this._events = this.descriptor.events;
       this.toggleAttribute('abstract', this.descriptor.abstract);
       this.setAttribute('type', this.descriptor.type);
     },
