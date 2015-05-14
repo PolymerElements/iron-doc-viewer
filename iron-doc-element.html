@@ -57,6 +57,12 @@ property.
       <a id="toggleCollapsed" on-tap="_toggleCollapsed">{{_collapseToggleLabel}}</a>
     </nav>
 
+    <section id="behaviors" hidden$="{{!_behaviors.length}}">
+      <header>Behaviors</header>
+      <template is="dom-repeat" items="{{_behaviors}}">
+        <p>{{item}}</p>
+      </template>
+    </section>
     <section id="properties" hidden$="{{!_properties.length}}">
       <header>Properties</header>
       <template is="dom-repeat" items="{{_properties}}">
@@ -185,6 +191,8 @@ property.
       this._properties = properties;
       this._methods    = methods;
       this._events = this.descriptor.events;
+      this._behaviors = this.descriptor.behaviors;
+
       this.toggleAttribute('abstract', this.descriptor.abstract);
       this.setAttribute('type', this.descriptor.type);
     },
