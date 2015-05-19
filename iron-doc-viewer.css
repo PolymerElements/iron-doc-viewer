@@ -14,10 +14,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   padding: 16px;
 }
 :host(.loaded) {
+  display: -webkit-flex;
   display: flex;
 }
 #content {
   @apply(--paper-font-body1);
+  -webkit-flex-basis: 100%;
   flex-basis: 100%;
   width: 48em;
   max-width: 48em;
