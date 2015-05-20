@@ -12,6 +12,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../prism-element/prism-highlighter.html">
 
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
 <link rel="import" href="iron-doc-element.html">
 
 <!--
@@ -46,6 +48,8 @@ with the same name as directory it is being served from.
   <link rel="import" type="css" href="iron-doc-viewer.css">
 
   <template>
+    <iron-ajax auto url="[[_githubApiUrl]]" on-response="_githubResponse" handle-as="json"></iron-ajax>
+
     <prism-highlighter></prism-highlighter>
     <hydrolysis-analyzer id="analyzer" src="[[_srcUrl]]" transitive="[[transitive]]" clean analyzer="{{_analyzer}}" loading="{{_loading}}"></hydrolysis-analyzer>
 
@@ -99,6 +103,10 @@ with the same name as directory it is being served from.
     return url.match(/^(.*?)\/?([^\/]+\.[^\/]+)?$/)[1] + '/';
   }
 
+  function _githubIDs(url) {
+    return url.match(/([^\/\.]+)\.github\.io\/([^\/]+)\/?([^\/]*)$/);
+  }
+
   Polymer({
 
     is: 'iron-doc-viewer',
@@ -143,7 +151,10 @@ with the same name as directory it is being served from.
 
       /** Whether the Demo link should be omitted. */
       noDemo: Boolean,
-
+      
+      /** The URL to the component's bower.json file */
+      _githubApiUrl: String,
+      
       /** The Hydrolysis element descriptors being rendered. */
       _elements: {
         type:     Array,
@@ -226,8 +237,8 @@ with the same name as directory it is being served from.
         throw error;
       }
     },
-
-    _srcChanged: function() {
+    
+    _computeSrc: function() {
       var docUrl = this.ownerDocument.baseURI;
       var srcUrl;
       if (this.src) {
@@ -236,20 +247,43 @@ with the same name as directory it is being served from.
         var base = _baseUrl(docUrl);
         srcUrl = new URL(base.match(/([^\/]*)\/$/)[1] + ".html", base).toString();
       }
+      return srcUrl;
+    },
 
-      // Rewrite gh-pages URLs to https://rawgit.com/
-      var match = srcUrl.match(/([^\/\.]+)\.github\.io\/([^\/]+)\/?([^\/]*)$/);
-      if (match) {
-        srcUrl = "https://cdn.rawgit.com/" + match[1] + "/" + match[2] + "/master/" + match[3];
-        // We'd love to support demos, but 99% of the time they require external
-        // dependencies ...so nope.
-        this.noDemo = true;
-      }
-
+    _updateSrcUrls: function(srcUrl) {
       this._baseUrl = _baseUrl(srcUrl);
       this._srcUrl  = srcUrl;
       this.$.analyzer.analyze();
       this.async(this._updateDemoUrl);
+    },
+
+    _githubResponse: function(request) {
+      var response = request.detail.response[0];
+      var srcUrl = this._computeSrc();
+      // Rewrite gh-pages URLs to https://rawgit.com/
+      var match = _githubIDs(srcUrl);
+      var tag = 'master';
+      if (typeof response !== 'undefined') {
+        tag = response.name;
+      }
+      if (match && tag) {
+        srcUrl = "https://cdn.rawgit.com/" + match[1] + "/" + match[2] + "/" + tag + "/" + match[3];
+        // We'd love to support demos, but 99% of the time they require external
+        // dependencies ...so nope.
+        this.noDemo = true;
+      }
+      this._updateSrcUrls(srcUrl);
+    },
+
+    _srcChanged: function() {
+      var srcUrl = this._computeSrc();
+      // Rewrite gh-pages URLs to https://rawgit.com/
+      var match = _githubIDs(srcUrl);
+      if (match) {
+        this._githubApiUrl = "https://api.github.com/repos/" + match[1] + "/" + match[2] + "/tags";
+        return;
+      }
+      this._updateSrcUrls(srcUrl);
     },
 
     _updateDemoUrl: function() {
