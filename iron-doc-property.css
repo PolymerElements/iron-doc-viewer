@@ -60,12 +60,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 #details {
+  -webkit-flex: 1;
   flex: 1;
 }
 
 /* Metadata */
 
 #meta {
+  -webkit-flex: 1;
   display: flex;
 }
 
@@ -74,6 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 #default {
+  -webkit-flex: 1;
   flex: 1;
   text-align: right;
 }

@@ -23,10 +23,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 #api {
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
 }
 #api header {
+  -webkit-flex: 1;
   flex: 1;
   padding-left: 16px;
   @apply(--paper-font-subhead);
