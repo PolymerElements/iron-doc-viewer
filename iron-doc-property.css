@@ -12,6 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   box-sizing: border-box;
   display: block;
   padding: 16px 24px;
+  position: relative;
 }
 
 .type:before {
@@ -24,6 +25,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 #transitionMask {
   position: relative;
   overflow: hidden;
+}
+
+.inherited-from {
+  font-size: 0.85em;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* HAX */
+  position: absolute;
+  top: 34px;
+  left: 24px;
+  width: 148px;
 }
 
 [hidden] {

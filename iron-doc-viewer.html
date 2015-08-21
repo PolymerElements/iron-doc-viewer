@@ -49,45 +49,84 @@ property.
 
   <template>
     <prism-highlighter></prism-highlighter>
-
-    <section id="summary" class="card" hidden$="[[!descriptor.desc]]">
-      <header>Documentation</header>
-      <marked-element markdown="{{descriptor.desc}}"></marked-element>
-    </section>
-
-    <nav id="api">
-      <header>API Reference</header>
-      <paper-button id="togglePrivate"
-        on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
+    <nav>
+      <section class="card">
+        <header><a href="#summary">{{ descriptor.is }}</a></header>
+        <li>
+          <paper-button id="togglePrivate"
+            on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
+        </li>
+        <header hidden$="{{_hideBehaviors(_behaviors)}}">
+          Behaviors
+        </header>
+        <ul hidden$="{{_hideBehaviors(_behaviors)}}">
+          <template is="dom-repeat" items="{{_behaviors}}">
+            <li on-click="_broadcastBehavior">{{item}}</li>
+          </template>
+        </ul>
+        <header hidden$="{{_noneToShow(_showPrivate, _properties)}}">
+          <a href="#properties">Properties</a>
+        </header>
+        <ul hidden$="{{_noneToShow(_showPrivate, _properties)}}">
+          <template is="dom-repeat" items="{{_properties}}" hidden$="{{!_properties.length}}">
+            <li><a href="{{_itemLink('property', item)}}">
+              <span>{{item.name}}</span>
+              <span class="inherited-from">{{item.__fromBehavior}}</span>
+            </a></li>
+          </template>
+        </ul>
+        <header hidden$="{{_noneToShow(_showPrivate, _methods)}}">
+          <a href="#methods">Methods</a>
+        </header>
+        <ul hidden$="{{_noneToShow(_showPrivate,_methods)}}">
+          <template is="dom-repeat" items="{{_methods}}" hidden$="{{!_methods.length}}">
+            <li><a href="{{_itemLink('method', item)}}">
+              <span>{{item.name}}</span>
+              <span class="inherited-from">{{ item.__fromBehavior }}</span>
+            </a></li>
+          </template>
+        </ul>
+        <header hidden$="{{_noneToShow(_showPrivate, _events)}}">
+          <a href="#events">Events</a>
+        </header>
+        <ul hidden$="{{_noneToShow(_showPrivate,_events)}}">
+          <template is="dom-repeat" items="{{_events}}" hidden$="{{!_events.length}}">
+            <li><a href="{{_itemLink('event', item)}}">
+              <span>{{item.name}}</span>
+              <span class="inherited-from">{{ item.__fromBehavior }}</span>
+            </a></li>
+          </template>
+        </ul>
+      </section>
     </nav>
+    <article>
 
-    <section id="properties" class="card" hidden$="{{_noneToShow(_showPrivate,_properties)}}">
-      <header>Properties</header>
-      <template is="dom-repeat" items="{{_properties}}" hidden$="{{!_properties.length}}">
-        <iron-doc-property descriptor="{{item}}"></iron-doc-property>
-      </template>
-    </section>
+      <section id="summary" class="card" hidden$="[[!descriptor.desc]]">
+        <header>Documentation</header>
+        <marked-element markdown="{{descriptor.desc}}"></marked-element>
+      </section>
 
-    <section id="methods" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
-      <header>Methods</header>
-      <template is="dom-repeat" items="{{_methods}}">
-        <iron-doc-property descriptor="{{item}}"></iron-doc-property>
-      </template>
-    </section>
+      <section id="properties" class="card" hidden$="{{_noneToShow(_showPrivate,_properties)}}">
+        <header>Properties</header>
+        <template is="dom-repeat" items="{{_properties}}" hidden$="{{!_properties.length}}">
+          <iron-doc-property id="{{_itemAnchor('property', item)}}"descriptor="{{item}}"></iron-doc-property>
+        </template>
+      </section>
 
-    <section id="events" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
-      <header>Events</header>
-      <template is="dom-repeat" items="{{_events}}">
-        <iron-doc-property descriptor="{{item}}"></iron-doc-property>
-      </template>
-    </section>
+      <section id="methods" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
+        <header>Methods</header>
+        <template is="dom-repeat" items="{{_methods}}">
+          <iron-doc-property id="{{_itemAnchor('method', item)}}"descriptor="{{item}}"></iron-doc-property>
+        </template>
+      </section>
 
-    <section id="behaviors" class="card" hidden$="{{_hideBehaviors(_behaviors)}}">
-      <header>Behaviors</header>
-      <template is="dom-repeat" items="{{_behaviors}}">
-        <p on-click="_broadcastBehavior">{{item}}</p>
-      </template>
-    </section>
+      <section id="events" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
+        <header>Events</header>
+        <template is="dom-repeat" items="{{_events}}">
+          <iron-doc-property id="{{_itemAnchor('event', item)}}"descriptor="{{item}}"></iron-doc-property>
+        </template>
+      </section>
+    </article>
 
   </template>
 
@@ -222,6 +261,14 @@ property.
         if (showPrivate || !items[i].private) return false;
       }
       return true;
+    },
+
+    _itemLink: function(section, item) {
+      return "#" + section + "-" + item.name;
+    },
+
+    _itemAnchor: function(section, item) {
+      return section + "-" + item.name;
     },
 
     _hideBehaviors: function(behaviors) {

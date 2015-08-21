@@ -49,6 +49,7 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         <marked-element id="desc" markdown="{{descriptor.desc}}" hidden$="{{!descriptor.desc}}"></marked-element>
       </div>
     </div>
+    <p class="inherited-from" on-click="_broadcastBehavior" hidden$="{{!descriptor.__fromBehavior}}">{{descriptor.__fromBehavior}}</p>
   </template>
 
 </dom-module>
@@ -185,6 +186,10 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
       if (def === '')
         return "''";
       return def;
+    },
+
+    _broadcastBehavior: function(ev) {
+      this.fire('iron-doc-viewer-component-selected', this.descriptor);
     }
 
   });
