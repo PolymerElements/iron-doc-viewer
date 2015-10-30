@@ -132,6 +132,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   @apply(--paper-font-code1);
 }
 
+#fromBehavior {
+    display: flex;
+}
+
+#fromBehavior p {
+    flex: 1;
+    text-align: right;
+}
+
+#fromBehavior p span {
+    cursor: pointer;
+}
+
 /* State Transitions */
 
 #transitionMask {

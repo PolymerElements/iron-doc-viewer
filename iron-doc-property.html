@@ -53,6 +53,9 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         <marked-element id="desc" markdown="{{descriptor.desc}}" hidden$="{{!descriptor.desc}}">
           <div class="markdown-html"></div>
         </marked-element>
+        <div id="fromBehavior" hidden$="{{!descriptor.__fromBehavior}}">
+            <p>Inherited from: <span on-tap="_tapBehavior">[[descriptor.__fromBehavior]]</span></p>
+        </div>
       </div>
     </div>
   </template>
@@ -96,6 +99,12 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
       },
 
     },
+
+    /**
+     * Fired when the behavior a property/method is inherited from is tapped
+     *
+     * @event behavior-selected
+     */
 
     listeners: {
       'transitionEnd':       '_onTransitionEnd',
@@ -191,6 +200,10 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
       if (def === '')
         return "''";
       return def;
+    },
+
+    _tapBehavior: function () {
+      this.fire('behavior-selected', this.descriptor.__fromBehavior);
     }
 
   });
