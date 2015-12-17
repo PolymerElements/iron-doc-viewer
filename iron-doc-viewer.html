@@ -65,29 +65,29 @@ property.
         on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
     </nav>
 
-    <section id="properties" class="card" hidden$="{{_noneToShow(_showPrivate,_properties)}}">
-      <header><a href="#properties" class="deeplink">Properties</a></header>
+    <section id="[[_formatAnchor(descriptor,'properties')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_properties)}}">
+      <header><a href="#[[_formatAnchor(descriptor,'properties')]]" class="deeplink">Properties</a></header>
       <template is="dom-repeat" items="{{_properties}}" hidden$="{{!_properties.length}}">
-        <iron-doc-property anchor-id="{{_formatAnchor('property', item.name)}}" descriptor="{{item}}"></iron-doc-property>
+        <iron-doc-property id$="[[_formatAnchor(descriptor,'property',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id="methods" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
-      <header><a href="#methods" class="deeplink">Methods</a></header>
+    <section id="[[_formatAnchor(descriptor,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
+      <header><a href="#[[_formatAnchor(descriptor,'methods')]]" class="deeplink">Methods</a></header>
       <template is="dom-repeat" items="{{_methods}}">
-        <iron-doc-property anchor-id="{{_formatAnchor('method', item.name)}}" descriptor="{{item}}"></iron-doc-property>
+        <iron-doc-property id$="[[_formatAnchor(descriptor,'method',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id="events" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
-      <header><a href="#events" class="deeplink">Events</a></header>
+    <section id="[[_formatAnchor(descriptor,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
+      <header><a href="#[[_formatAnchor(descriptor,'events')]" class="deeplink">Events</a></header>
       <template is="dom-repeat" items="{{_events}}">
-        <iron-doc-property anchor-id="{{_formatAnchor('event', item.name)}}" descriptor="{{item}}"></iron-doc-property>
+        <iron-doc-property id$="[[_formatAnchor(descriptor,'event',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id="behaviors" class="card" hidden$="{{_hideBehaviors(_behaviors)}}">
-      <header><a href="#behaviors" class="deeplink">Behaviors</a></header>
+    <section id="[[_formatAnchor(descriptor,'behaviors')]]" class="card" hidden$="{{_hideBehaviors(_behaviors)}}">
+      <header><a href="#[[_formatAnchor(descriptor,'behaviors')]]" class="deeplink">Behaviors</a></header>
       <template is="dom-repeat" items="{{_behaviors}}">
         <p on-click="_broadcastBehavior">{{item}}</p>
       </template>
@@ -117,6 +117,22 @@ property.
       descriptor: {
         type: Object,
         observer: '_descriptorChanged',
+      },
+
+      /**
+       * Set to true when running in the catalog.
+       *
+       * By default, hash link includes the component name,
+       * so links work when an `iron-component-page` is
+       * served statically. In the catalog, the component name
+       * is omitted because it's already included in a URL parameter.
+       *
+       * In the catalog, the app handles routing &
+       * scrolling to the selected anchor.
+       */
+      catalog: {
+        type: Boolean,
+        default: false
       },
 
       /** Whether private properties should be hidden or shown. */
@@ -195,28 +211,33 @@ property.
       this._behaviors  = this.descriptor.behaviors || [];
 
       this.toggleAttribute('abstract', this.descriptor.abstract);
-      this.scrollToSelected();
+
+      // On initial load, force position to the correct anchor.
+      // (This shouldn't be required in the catalog, but the catalog
+      // may scroll before content is fully loaded, so we try again here.)
+      this.scrollToAnchor();
     },
 
     /**
-     * Scrolls to the currently selected member, as identified
+     * Scrolls to the currently selected anchor, as identified
      * by the URL hash. Must called from the outside if the
      * hash changes but the selected element doesn't (for example,
      * the user clicks on a property name on the current page).
      */
-    scrollToSelected: function() {
-      // scroll to hash after data finishes loading
+    scrollToAnchor: function() {
+      // scroll to anchor after data finishes loading
       if (window.location.hash) {
-        // Need to wait for the dom-repeats to render.
-        // In testing, the 200ms delay made this work.
-        // ToDo: something more robust.
+        // ToDo: this async appears to be required
+        // on catalog, but it's unclear why.
         this.async(function() {
+          // ensure all dom-repeats have rendered.
+          Polymer.dom.flush();
           var anchorId = window.location.hash.slice(1);
-          var elementToFocus = this.$$('[anchor-id="' + anchorId + '"]');
+          var elementToFocus = this.$$('[id="' + anchorId + '"]');
           if (elementToFocus) {
             elementToFocus.scrollIntoView();
           }
-        }, 200);
+        });
       }
     },
 
@@ -250,10 +271,18 @@ property.
       return true;
     },
 
-    _formatAnchor: function(type, membername) {
+    _formatAnchor: function(descriptor, type, membername) {
       // ToDo: when running in the catalog, we could omit the parent object name,
       // because it's already passed as a URL parameter.
-      return this.descriptor.is + ':' + type + '.' + membername;
+      var prefix = '';
+      var suffix = '';
+      if (!this.catalog && descriptor.is) {
+        prefix = descriptor.is + ':';
+      }
+      if (membername) {
+        suffix = '-' + membername;
+      }
+      return prefix + type + suffix;
     },
 
     _hideBehaviors: function(behaviors) {
