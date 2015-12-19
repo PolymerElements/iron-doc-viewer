@@ -65,29 +65,29 @@ property.
         on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
     </nav>
 
-    <section id="[[_formatAnchor(descriptor,'properties')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_properties)}}">
-      <header><a href="#[[_formatAnchor(descriptor,'properties')]]" class="deeplink">Properties</a></header>
+    <section id="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_properties)}}">
+      <header><a href="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
       <template is="dom-repeat" items="{{_properties}}" hidden$="{{!_properties.length}}">
-        <iron-doc-property id$="[[_formatAnchor(descriptor,'property',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id="[[_formatAnchor(descriptor,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
-      <header><a href="#[[_formatAnchor(descriptor,'methods')]]" class="deeplink">Methods</a></header>
+    <section id="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
+      <header><a href="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
       <template is="dom-repeat" items="{{_methods}}">
-        <iron-doc-property id$="[[_formatAnchor(descriptor,'method',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id="[[_formatAnchor(descriptor,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
-      <header><a href="#[[_formatAnchor(descriptor,'events')]" class="deeplink">Events</a></header>
+    <section id="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
+      <header><a href="#[[_formatAnchor(prefix,'events')]" class="deeplink">Events</a></header>
       <template is="dom-repeat" items="{{_events}}">
-        <iron-doc-property id$="[[_formatAnchor(descriptor,'event',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id="[[_formatAnchor(descriptor,'behaviors')]]" class="card" hidden$="{{_hideBehaviors(_behaviors)}}">
-      <header><a href="#[[_formatAnchor(descriptor,'behaviors')]]" class="deeplink">Behaviors</a></header>
+    <section id="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="{{_hideBehaviors(_behaviors)}}">
+      <header><a href="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
       <template is="dom-repeat" items="{{_behaviors}}">
         <p on-click="_broadcastBehavior">{{item}}</p>
       </template>
@@ -120,20 +120,15 @@ property.
       },
 
       /**
-       * Set to true when running in the catalog.
        *
-       * By default, hash link includes the component name,
-       * so links work when an `iron-component-page` is
-       * served statically. In the catalog, the component name
-       * is omitted because it's already included in a URL parameter.
-       *
-       * In the catalog, the app handles routing &
-       * scrolling to the selected anchor.
+       * Prefix for fragment identifiers used in anchors.
+       * For static routing `iron-component-page` can
+       * set this to a string identifying the current object.
        */
-      catalog: {
-        type: Boolean,
-        default: false
-      },
+       prefix: {
+         type: String,
+         value: ''
+       },
 
       /** Whether private properties should be hidden or shown. */
       _showPrivate: {
@@ -211,33 +206,24 @@ property.
       this._behaviors  = this.descriptor.behaviors || [];
 
       this.toggleAttribute('abstract', this.descriptor.abstract);
-
-      // On initial load, force position to the correct anchor.
-      // (This shouldn't be required in the catalog, but the catalog
-      // may scroll before content is fully loaded, so we try again here.)
-      this.scrollToAnchor();
     },
 
     /**
      * Scrolls to the currently selected anchor, as identified
-     * by the URL hash. Must called from the outside if the
-     * hash changes but the selected element doesn't (for example,
-     * the user clicks on a property name on the current page).
+     * by the URL hash. Whichever element or script is in charge
+     * of routing should call this method on initial page load and
+     * on hashchange events.
      */
-    scrollToAnchor: function() {
-      // scroll to anchor after data finishes loading
-      if (window.location.hash) {
-        // ToDo: this async appears to be required
-        // on catalog, but it's unclear why.
-        this.async(function() {
-          // ensure all dom-repeats have rendered.
-          Polymer.dom.flush();
-          var anchorId = window.location.hash.slice(1);
-          var elementToFocus = this.$$('[id="' + anchorId + '"]');
-          if (elementToFocus) {
-            elementToFocus.scrollIntoView();
-          }
-        });
+    scrollToAnchor: function(hash) {
+      // ToDo: handle linking to private members
+      if (hash && hash.length > 1) {
+        // ensure all dom-repeats have rendered.
+        Polymer.dom.flush();
+        var anchorId = window.location.hash.slice(1);
+        var elementToFocus = this.$$('[anchor-id="' + anchorId + '"]');
+        if (elementToFocus) {
+          elementToFocus.scrollIntoView();
+        }
       }
     },
 
@@ -271,17 +257,8 @@ property.
       return true;
     },
 
-    _formatAnchor: function(descriptor, type, membername) {
-      // ToDo: when running in the catalog, we could omit the parent object name,
-      // because it's already passed as a URL parameter.
-      var prefix = '';
-      var suffix = '';
-      if (!this.catalog && descriptor.is) {
-        prefix = descriptor.is + ':';
-      }
-      if (membername) {
-        suffix = '-' + membername;
-      }
+    _formatAnchor: function(prefix, type, membername) {
+      var suffix = membername ? '-' + membername : '';
       return prefix + type + suffix;
     },
 
