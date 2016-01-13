@@ -43,7 +43,7 @@ either via binding...
 </iron-doc-viewer>
 ```
 
-However, be aware that due to current limitations in Polymer 0.8, _changes_ to
+However, be aware that due to current limitations in Polymer 0.8, *changes* to
 the text content will not be respected, only the initial value will be loaded.
 If you wish to update the documented element, please set it via the `descriptor`
 property.
