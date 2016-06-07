@@ -40,7 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           {
             "name": "marshal",
             "type": "Function",
-            "desc": "Renders this element into static HTML for offline use.\n\nThis is mostly useful for debugging and one-off documentation generation.\nIf you want to integrate doc generation into your build process, you\nprobably want to be calling `hydrolysis.Analyzer.analyze()` directly.\n",
+            "desc": "Renders this element into static HTML for offline use.\n\nThis is mostly useful for debugging and one-off documentation generation.\nIf you want to integrate doc generation into your build process, you\nprobably want to be calling `hydrolysis.Analyzer.analyze()` directly.\n\n    //This is a code sample in a method description.\n    // It should be highlighted.\n    var amIHighlighted = getSomeCode(iGuess);\n",
             "params": [],
             "function": true,
             "return": {
@@ -51,7 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           {
             "name": "src",
             "type": "string",
-            "desc": "The URL to an import that declares (or transitively imports) the\nelements that you wish to see documented.\n\nIf the URL is relative, it will be resolved relative to the master\ndocument.\n\nIf you change this value after the `&lt;iron-doc-viewer&gt;` has been\ninstantiated, you must call `load()`.\n      ",
+            "desc": "The URL to an import that declares (or transitively imports) the\nelements that you wish to see documented.\n\nIf the URL is relative, it will be resolved relative to the master\ndocument.\n\nIf you change this value after the `<iron-doc-viewer>` has been\ninstantiated, you must call `load()`.\n      ",
             "published": true
           },
           {
@@ -108,12 +108,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ],
             "private": true,
             "function": true
-          },
-          {
-            "name": "enableCustomStyleProperties",
-            "type": "boolean",
-            "private": true,
-            "configuration": true
           }
         ],
         "is": "doc-demo",

@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../marked-element/marked-element.html">
+<link rel="import" href="../prism-element/prism-style-import.html">
 <link rel="import" href="iron-doc-property-styles.html">
 
 <!--
@@ -21,6 +22,7 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
 <dom-module id="iron-doc-property">
   <template>
     <style include="iron-doc-property-styles"></style>
+    <style include="prism-styles"></style>
 
     <div id="transitionMask">
       <div id="signature">
