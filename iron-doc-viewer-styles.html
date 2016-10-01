@@ -36,14 +36,14 @@ Custom property | Description | Default
   <template>
     <style>
       :host {
-        @apply(--paper-font-body1);
+        @apply --paper-font-body1;
 
         color: var(--iron-doc-viewer-text-color, --paper-grey-900);
         display: block;
       }
 
       :host > header {
-        @apply(--paper-font-headline);
+        @apply --paper-font-headline;
 
         margin-bottom: 18px;
       }
@@ -67,13 +67,13 @@ Custom property | Description | Default
       }
 
       #api header {
-        @apply(--paper-font-title);
+        @apply --paper-font-title;
 
         flex: 1;
       }
 
       #api a {
-        @apply(--paper-font-button);
+        @apply --paper-font-button;
 
         color: var(--iron-doc-viewer-api-link-color, --paper-grey-800);
         cursor: pointer;
@@ -128,8 +128,8 @@ Custom property | Description | Default
       }
 
       #summary .markdown-html code {
-        @apply(--paper-font-code1);
-        background: var(--iron-doc-viewer-markdown-background, --paper-grey-200);
+        @apply --paper-font-code1;
+        background: var(--iron-doc-viewer-markdown-background, var(--paper-grey-200));
         padding: 3px;
         border-radius: 3px;
       }
@@ -140,26 +140,26 @@ Custom property | Description | Default
 
       #summary .markdown-html a {
         background: none;
-        @apply(--paper-font-body1);
-        color: var(--iron-doc-viewer-summary-link-color, --paper-indigo-a200);
+        @apply --paper-font-body1;
+        color: var(--iron-doc-viewer-summary-link-color, var(--paper-indigo-a200));
         font-weight: 500;
         text-decoration: none;
       }
 
       #summary .markdown-html h1 {
-        @apply(--paper-font-display1);
+        @apply --paper-font-display1;
       }
 
       #summary .markdown-html h2 {
-        @apply(--paper-font-headline);
+        @apply --paper-font-headline;
       }
 
       #summary .markdown-html h3 {
-        @apply(--paper-font-title);
+        @apply --paper-font-title;
       }
 
       #summary .markdown-html h4 {
-        @apply(--paper-font-subhead);
+        @apply --paper-font-subhead;
       }
 
       /* Property Sections */
@@ -176,7 +176,7 @@ Custom property | Description | Default
       }
 
       .card > header {
-        @apply(--iron-doc-viewer-header);
+        @apply --iron-doc-viewer-header;
       }
 
       nav {
