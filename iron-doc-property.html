@@ -32,7 +32,7 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
           <span id="type" class="type">{{descriptor.type}}</span>
           <span class="annotation">[[_getAnnotation(descriptor)]]</span>
         </div>
-        <ol id="params" hidden$="{{_computeHideParams(descriptor,return)}}">
+        <ol id="params" hidden$="{{_computeHideParams(descriptor)}}">
           <template is="dom-repeat" items="{{descriptor.params}}">
             <li hidden$="{{!item.type}}">
               <span class="name">{{item.name}}</span>
@@ -182,8 +182,8 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         },
 
         // hidden if no params, and no return value
-        _computeHideParams: function(descriptor,ret) {
-          return (!descriptor.params || descriptor.params.length === 0) && !ret;
+        _computeHideParams: function(descriptor) {
+          return (!descriptor.params || descriptor.params.length === 0);
         },
 
         _computeHideDefault: function(def) {
