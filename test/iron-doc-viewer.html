@@ -39,8 +39,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-doc-viewer id="doc" descriptor="{{descriptor}}" bound></iron-doc-viewer>
       </template>
       <script>
-        Polymer({
-          is: 'bound-fixture'
+        window.addEventListener('WebComponentsReady', function() {
+          Polymer({
+            is: 'bound-fixture'
+          });
         });
       </script>
     </dom-module>
