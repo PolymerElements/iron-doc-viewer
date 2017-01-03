@@ -46,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         overflow: hidden;
         text-overflow: ellipsis;
         width: 260px;
-        color: black;
+        color: var(--iron-doc-black, black);
       }
 
       #signature .name {
@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .annotation {
-        color: #666;
+        color: var(--paper-grey-700);
         float: right;
       }
 
@@ -94,7 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #default .value {
-        color: #999;
+        color: var(--paper-grey-500);
         font-size: 12px;
       }
 
@@ -147,6 +147,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       #desc .markdown-html code {
         @apply(--paper-font-code1);
+      }
+
+      #desc .markdown-html a {
+        color: var(--paper-indigo-a200);
+        text-decoration: none;
       }
 
       .return {
