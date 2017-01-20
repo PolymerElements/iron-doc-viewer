@@ -18,13 +18,13 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--iron-doc-viewer-deeplink-color` | Text color of clickable properties and events names | `currentcolor`
-`--iron-doc-viewer-deeplink-color--hover` | Text hover color of properties and events names | `--paper-pink-500`
-`--iron-doc-viewer-signature-color` | Text color of properties and events names | `black`
-`--iron-doc-viewer-annotation-color` | Text color of annotations | `--paper-grey-700`
-`--iron-doc-viewer-default-value-color` | Text color of default value | `--paper-grey-500`
-`--iron-doc-viewer-markdown-link-color` | Text color of markdown links in desc | `--paper-indigo-a200`
-`--iron-doc-viewer-meta-color` | Text color of meta types | `--paper-blue-500`
+`--iron-doc-viewer-property-deeplink-color` | Text color of clickable properties and events names | `currentcolor`
+`--iron-doc-viewer-property-deeplink-color--hover` | Text hover color of properties and events names | `--paper-pink-500`
+`--iron-doc-viewer-property-signature-color` | Text color of properties and events names | `black`
+`--iron-doc-viewer-property-annotation-color` | Text color of annotations | `--paper-grey-700`
+`--iron-doc-viewer-property-default-value-color` | Text color of default value | `--paper-grey-500`
+`--iron-doc-viewer-property-markdown-link-color` | Text color of markdown links in desc | `--paper-indigo-a200`
+`--iron-doc-viewer-property-meta-color` | Text color of meta types | `--paper-blue-500`
 
 -->
 
@@ -50,12 +50,12 @@ Custom property | Description | Default
       }
 
       .deeplink {
-        color: var(--iron-doc-viewer-deeplink-color, currentcolor);
+        color: var(--iron-doc-viewer-property-deeplink-color, currentcolor);
         text-decoration: none;
       }
 
       .deeplink:hover {
-        color: var(--iron-doc-viewer-deeplink-color--hover, --paper-pink-500);
+        color: var(--iron-doc-viewer-property-deeplink-color--hover, --paper-pink-500);
       }
 
       #signature {
@@ -65,7 +65,7 @@ Custom property | Description | Default
         overflow: hidden;
         text-overflow: ellipsis;
         width: 260px;
-        color: var(--iron-doc-viewer-signature-color, black);
+        color: var(--iron-doc-viewer-property-signature-color, black);
       }
 
       #signature .name {
@@ -100,7 +100,7 @@ Custom property | Description | Default
       }
 
       .annotation {
-        color: var(--iron-doc-viewer-annotation-color, --paper-grey-700);
+        color: var(--iron-doc-viewer-property-annotation-color, --paper-grey-700);
         float: right;
       }
 
@@ -113,7 +113,7 @@ Custom property | Description | Default
       }
 
       #default .value {
-        color: var(--iron-doc-viewer-default-value-color, --paper-grey-500);
+        color: var(--iron-doc-viewer-property-default-value-color, --paper-grey-500);
         font-size: 12px;
       }
 
@@ -169,7 +169,7 @@ Custom property | Description | Default
       }
 
       #desc .markdown-html a {
-        color: var(--iron-doc-viewer-markdown-link-color, --paper-indigo-a200);
+        color: var(--iron-doc-viewer-property-markdown-link-color, --paper-indigo-a200);
         text-decoration: none;
       }
 
@@ -184,7 +184,7 @@ Custom property | Description | Default
       }
       #meta {
         transition: opacity ease-in-out 150ms;
-        color: var(--iron-doc-viewer-meta-color, --paper-blue-500);
+        color: var(--iron-doc-viewer-property-meta-color, --paper-blue-500);
       }
       #desc {
         transition: transform ease-in-out 150ms, opacity  ease-in-out 150ms;
