@@ -6,7 +6,7 @@
       "description": "",
       "summary": "Polymer is a lightweight library built on top of the web\nstandards-based Web Components API's, and makes it easy to build your\nown custom HTML elements.",
       "sourceRange": {
-        "file": "src/utils/boot.html",
+        "file": "lib/utils/boot.html",
         "start": {
           "line": 17,
           "column": 2
@@ -22,13 +22,13 @@
       "description": "Module with utilities for converting between \"dash-case\" and \"camelCase\"\nidentifiers.",
       "summary": "Module that provides utilities for converting between \"dash-case\"\n  and \"camelCase\".",
       "sourceRange": {
-        "file": "src/utils/case-map.html",
+        "file": "lib/utils/case-map.html",
         "start": {
           "line": 26,
           "column": 2
         },
         "end": {
-          "line": 60,
+          "line": 58,
           "column": 4
         }
       }
@@ -38,7 +38,7 @@
       "description": "Module with utilities for resolving relative URL's.",
       "summary": "Module with utilities for resolving relative URL's.",
       "sourceRange": {
-        "file": "src/utils/resolve-url.html",
+        "file": "lib/utils/resolve-url.html",
         "start": {
           "line": 115,
           "column": 4
@@ -54,7 +54,7 @@
       "description": "Module with utilities for collection CSS text from `<templates>`, external\nstylesheets, and `dom-module`s.",
       "summary": "Module with utilities for collection CSS text from various sources.",
       "sourceRange": {
-        "file": "src/utils/style-gather.html",
+        "file": "lib/utils/style-gather.html",
         "start": {
           "line": 32,
           "column": 2
@@ -70,7 +70,7 @@
       "description": "Module with utilities for manipulating structured data path strings.",
       "summary": "Module with utilities for manipulating structured data path strings.",
       "sourceRange": {
-        "file": "src/utils/path.html",
+        "file": "lib/utils/path.html",
         "start": {
           "line": 22,
           "column": 2
@@ -86,7 +86,7 @@
       "description": "Module that provides a number of strategies for enqueuing asynchronous\ntasks.  Each sub-module provides a standard `run(fn)` interface that returns a\nhandle, and a `cancel(handle)` interface for canceling async tasks before\nthey run.",
       "summary": "Module that provides a number of strategies for enqueuing asynchronous\ntasks.",
       "sourceRange": {
-        "file": "src/utils/async.html",
+        "file": "lib/utils/async.html",
         "start": {
           "line": 54,
           "column": 2
@@ -102,7 +102,7 @@
       "description": "Module for adding listeners to a node for the following normalized\ncross-platform \"gesture\" events:\n- `down` - mouse or touch went down\n- `up` - mouse or touch went up\n- `tap` - mouse click or finger tap\n- `track` - mouse drag or touch move",
       "summary": "Module for adding cross-platform gesture event listeners.",
       "sourceRange": {
-        "file": "src/utils/gestures.html",
+        "file": "lib/utils/gestures.html",
         "start": {
           "line": 210,
           "column": 2
@@ -118,7 +118,7 @@
       "description": "Module for scheduling flushable pre-render and post-render tasks.",
       "summary": "Module for scheduling flushable pre-render and post-render tasks.",
       "sourceRange": {
-        "file": "src/utils/render-status.html",
+        "file": "lib/utils/render-status.html",
         "start": {
           "line": 63,
           "column": 2
@@ -134,7 +134,7 @@
       "description": "",
       "summary": "Module that provides utilities for diffing arrays.",
       "sourceRange": {
-        "file": "src/utils/array-splice.html",
+        "file": "lib/utils/array-splice.html",
         "start": {
           "line": 265,
           "column": 2
@@ -150,7 +150,7 @@
       "description": "Module for preparing and stamping instances of templates that utilize\nPolymer's data-binding and declarative event listener features.\n\nExample:\n\n    // Get a template from somewhere, e.g. light DOM\n    let template = this.querySelector('template');\n    // Prepare the template\n    let TemplateClass = Polymer.Tempaltize.templatize(template);\n    // Instance the template with an initial data model\n    let instance = new TemplateClass({myProp: 'initial'});\n    // Insert the instance's DOM somewhere, e.g. element's shadow DOM\n    this.shadowRoot.appendChild(instance.root);\n    // Changing a property on the instance will propagate to bindings\n    // in the template\n    instance.myProp = 'new value';\n\nThe `options` dictionary passed to `templatize` allows for customizing\nfeatures of the generated template class, including how outer-scope host\nproperties should be forwarded into template instances, how any instance\nproperties added into the template's scope should be notified out to\nthe host, and whether the instance should be decorated as a \"parent model\"\nof any event handlers.\n\n    // Customze property forwarding and event model decoration\n    let TemplateClass = Polymer.Tempaltize.templatize(template, this, {\n      parentModel: true,\n      instanceProps: {...},\n      forwardHostProp(property, value) {...},\n      notifyInstanceProp(instance, property, value) {...},\n    });",
       "summary": "Module for preparing and stamping instances of templates\n  utilizing Polymer templating features.",
       "sourceRange": {
-        "file": "src/utils/templatize.html",
+        "file": "lib/utils/templatize.html",
         "start": {
           "line": 314,
           "column": 4
@@ -166,7 +166,7 @@
     {
       "description": "The `dom-module` element registers the dom it contains to the name given\nby the module's id attribute. It provides a unified database of dom\naccessible via any dom-module element. Use the `import(id, selector)`\nmethod to locate dom within this database. For example,\n\n    <dom-module id=\"foo\">\n      <img src=\"stuff.png\">\n    </dom-module>\n\nThen in code in some other location that cannot access the dom-module above\n\n    let img = document.createElement('dom-module').import('foo', 'img');",
       "summary": "A container of DOM nodes that can be looked up by id.",
-      "path": "src/elements/dom-module.html",
+      "path": "lib/elements/dom-module.html",
       "attributes": [
         {
           "name": "id",
@@ -210,7 +210,7 @@
     {
       "description": "Custom element to allow using Polymer's template features (data binding,\ndeclarative event listeners, etc.) in the main document without defining\na new custom element.\n\n`<template>` tags utilizing bindings may be wrapped with the `<dom-bind>`\nelement, which will immediately stamp the wrapped template into the main\ndocument and bind elements to the `dom-bind` element itself as the\nbinding scope.",
       "summary": "",
-      "path": "src/elements/dom-bind.html",
+      "path": "lib/elements/dom-bind.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -236,9 +236,36 @@
       "superclass": "HTMLElement"
     },
     {
+      "description": "",
+      "summary": "",
+      "path": "polymer-element.html",
+      "attributes": [],
+      "properties": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "demos": [],
+      "slots": [],
+      "events": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 8,
+          "column": 2
+        },
+        "end": {
+          "line": 8,
+          "column": 60
+        }
+      },
+      "classname": "Polymer.Element",
+      "superclass": "HTMLElement"
+    },
+    {
       "description": "The `<dom-repeat>` element will automatically stamp and binds one instance\nof template content to each object in a user-provided array.\n`dom-repeat` accepts an `items` property, and one instance of the template\nis stamped for each item into the DOM at the location of the `dom-repeat`\nelement.  The `item` property will be set on each instance's binding\nscope, thus templates should bind to sub-properties of `item`.\n\nExample:\n\n```html\n<dom-module id=\"employee-list\">\n\n  <template>\n\n    <div> Employee list: </div>\n    <template is=\"dom-repeat\" items=\"{{employees}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n    </template>\n\n  </template>\n\n  <script>\n    Polymer({\n      is: 'employee-list',\n      ready: function() {\n        this.employees = [\n            {first: 'Bob', last: 'Smith'},\n            {first: 'Sally', last: 'Johnson'},\n            ...\n        ];\n      }\n    });\n  &lt;/script&gt;\n\n</dom-module>\n```\n\nNotifications for changes to items sub-properties will be forwarded to template\ninstances, which will update via the normal structured data notification system.\n\nMutations to the `items` array itself should me made using the Array\nmutation API's on `Polymer.Base` (`push`, `pop`, `splice`, `shift`,\n`unshift`), and template instances will be kept in sync with the data in the\narray.\n\nEvents caught by event handlers within the `dom-repeat` template will be\ndecorated with a `model` property, which represents the binding scope for\neach template instance.  The model is an instance of Polymer.Base, and should\nbe used to manipulate data on the instance, for example\n`event.model.set('item.checked', true);`.\n\nAlternatively, the model for a template instance for an element stamped by\na `dom-repeat` can be obtained using the `modelForElement` API on the\n`dom-repeat` that stamped it, for example\n`this.$.domRepeat.modelForElement(event.target).set('item.checked', true);`.\nThis may be useful for manipulating instance data of event targets obtained\nby event handlers on parents of the `dom-repeat` (event delegation).\n\nA view-specific filter/sort may be applied to each `dom-repeat` by supplying a\n`filter` and/or `sort` property.  This may be a string that names a function on\nthe host, or a function may be assigned to the property directly.  The functions\nshould implemented following the standard `Array` filter/sort API.\n\nIn order to re-run the filter or sort functions based on changes to sub-fields\nof `items`, the `observe` property may be set as a space-separated list of\n`item` sub-fields that should cause a re-filter/sort when modified.  If\nthe filter or sort function depends on properties not contained in `items`,\nthe user should observe changes to those properties and call `render` to update\nthe view based on the dependency change.\n\nFor example, for an `dom-repeat` with a filter of the following:\n\n```js\nisEngineer: function(item) {\n    return item.type == 'engineer' || item.manager.type == 'engineer';\n}\n```\n\nThen the `observe` property should be configured as follows:\n\n```html\n<template is=\"dom-repeat\" items=\"{{employees}}\"\n          filter=\"isEngineer\" observe=\"type manager.type\">\n```",
       "summary": "",
-      "path": "src/elements/dom-repeat.html",
+      "path": "lib/elements/dom-repeat.html",
       "attributes": [
         {
           "name": "items",
@@ -630,7 +657,7 @@
     {
       "description": "The `<dom-if>` element will stamp a light-dom `<template>` child when\nthe `if` property becomes truthy, and the template can use Polymer\ndata-binding and declarative event features when used in the context of\na Polymer element's template.\n\nWhen `if` becomes falsey, the stamped content is hidden but not\nremoved from dom. When `if` subsequently becomes truthy again, the content\nis simply re-shown. This approach is used due to its favorable performance\ncharacteristics: the expense of creating template content is paid only\nonce and lazily.\n\nSet the `restamp` property to true to force the stamped content to be\ncreated / destroyed when the `if` condition changes.",
       "summary": "",
-      "path": "src/elements/dom-if.html",
+      "path": "lib/elements/dom-if.html",
       "attributes": [
         {
           "name": "if",
@@ -737,9 +764,228 @@
       "superclass": "HTMLElement"
     },
     {
+      "description": "Element implementing the `Polymer.ArraySelector` mixin, which records\ndynamic associations between item paths in a master `items` array and a\n`selected` array such that path changes to the master array (at the host)\nelement or elsewhere via data-binding) are correctly propagated to items\nin the selected array and vice-versa.\n\nThe `items` property accepts an array of user data, and via the\n`select(item)` and `deselect(item)` API, updates the `selected` property\nwhich may be bound to other parts of the application, and any changes to\nsub-fields of `selected` item(s) will be kept in sync with items in the\n`items` array.  When `multi` is false, `selected` is a property\nrepresenting the last selected item.  When `multi` is true, `selected`\nis an array of multiply selected items.\n\nExample:\n\n```html\n<dom-module id=\"employee-list\">\n\n  <template>\n\n    <div> Employee list: </div>\n    <template is=\"dom-repeat\" id=\"employeeList\" items=\"{{employees}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n        <button on-click=\"toggleSelection\">Select</button>\n    </template>\n\n    <array-selector id=\"selector\" items=\"{{employees}}\" selected=\"{{selected}}\" multi toggle></array-selector>\n\n    <div> Selected employees: </div>\n    <template is=\"dom-repeat\" items=\"{{selected}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n    </template>\n\n  </template>\n\n</dom-module>\n```\n\n```js\nPolymer({\n  is: 'employee-list',\n  ready() {\n    this.employees = [\n        {first: 'Bob', last: 'Smith'},\n        {first: 'Sally', last: 'Johnson'},\n        ...\n    ];\n  },\n  toggleSelection(e) {\n    var item = this.$.employeeList.itemForElement(e.target);\n    this.$.selector.select(item);\n  }\n});\n```",
+      "summary": "",
+      "path": "lib/elements/array-selector.html",
+      "attributes": [
+        {
+          "name": "items",
+          "description": "An array containing items from which selection will be made.",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 10
+            },
+            "end": {
+              "line": 47,
+              "column": 11
+            }
+          },
+          "type": "Array",
+          "metadata": {}
+        },
+        {
+          "name": "multi",
+          "description": "When `true`, multiple items may be selected at once (in this case,\n`selected` is an array of currently selected items).  When `false`,\nonly one item may be selected at a time.",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 10
+            },
+            "end": {
+              "line": 57,
+              "column": 11
+            }
+          },
+          "type": "boolean",
+          "metadata": {}
+        },
+        {
+          "name": "selected",
+          "description": "When `multi` is true, this is an array that contains any selected.\nWhen `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
+          "sourceRange": {
+            "start": {
+              "line": 64,
+              "column": 10
+            },
+            "end": {
+              "line": 67,
+              "column": 11
+            }
+          },
+          "type": "Object",
+          "metadata": {}
+        },
+        {
+          "name": "selected-item",
+          "description": "When `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
+          "sourceRange": {
+            "start": {
+              "line": 73,
+              "column": 10
+            },
+            "end": {
+              "line": 76,
+              "column": 11
+            }
+          },
+          "type": "Object",
+          "metadata": {}
+        },
+        {
+          "name": "toggle",
+          "description": "When `true`, calling `select` on an item that is already selected\nwill deselect the item.",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 10
+            },
+            "end": {
+              "line": 85,
+              "column": 11
+            }
+          },
+          "type": "boolean",
+          "metadata": {}
+        }
+      ],
+      "properties": [
+        {
+          "name": "items",
+          "type": "Array",
+          "description": "An array containing items from which selection will be made.",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 10
+            },
+            "end": {
+              "line": 47,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "multi",
+          "type": "boolean",
+          "description": "When `true`, multiple items may be selected at once (in this case,\n`selected` is an array of currently selected items).  When `false`,\nonly one item may be selected at a time.",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 10
+            },
+            "end": {
+              "line": 57,
+              "column": 11
+            }
+          },
+          "defaultValue": "false",
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "selected",
+          "type": "Object",
+          "description": "When `multi` is true, this is an array that contains any selected.\nWhen `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
+          "sourceRange": {
+            "start": {
+              "line": 64,
+              "column": 10
+            },
+            "end": {
+              "line": 67,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "selectedItem",
+          "type": "Object",
+          "description": "When `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
+          "sourceRange": {
+            "start": {
+              "line": 73,
+              "column": 10
+            },
+            "end": {
+              "line": 76,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "toggle",
+          "type": "boolean",
+          "description": "When `true`, calling `select` on an item that is already selected\nwill deselect the item.",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 10
+            },
+            "end": {
+              "line": 85,
+              "column": 11
+            }
+          },
+          "defaultValue": "false",
+          "metadata": {
+            "polymer": {}
+          }
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "demos": [],
+      "slots": [],
+      "events": [
+        {
+          "name": "selected-changed",
+          "description": "Fired when the `selected` property changes.",
+          "type": "CustomEvent",
+          "metadata": {}
+        },
+        {
+          "name": "selected-item-changed",
+          "description": "Fired when the `selectedItem` property changes.",
+          "type": "CustomEvent",
+          "metadata": {}
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 390,
+          "column": 2
+        },
+        "end": {
+          "line": 394,
+          "column": 3
+        }
+      },
+      "tagname": "array-selector",
+      "classname": "Polymer.ArraySelector",
+      "superclass": "HTMLElement"
+    },
+    {
       "description": "Custom element for defining styles in the main document that can take\nadvantage of several special features of Polymer's styling system:\n\n- Document styles defined in a custom-style are shimmed to ensure they\n  do not leak into local DOM when running on browsers without native\n  Shadow DOM.\n- Custom properties used by Polymer's shim for cross-scope styling may\n  be defined in an custom-style. Use the :root selector to define custom\n  properties that apply to all custom elements.\n\nTo use, simply wrap an inline `<style>` tag in the main document whose\nCSS uses these features with a `<custom-style>` element.",
       "summary": "",
-      "path": "src/elements/custom-style.html",
+      "path": "lib/elements/custom-style.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -769,7 +1015,7 @@
     {
       "description": "Element class mixin that provides basic meta-programming for creating one\nor more property accessors (getter/setter pair) that enqueue an async\n(batched) `_propertiesChanged` callback.\n\nFor basic usage of this mixin, simply declare attributes to observe via\nthe standard `static get observedAttributes()`, implement `_propertiesChanged`\non the class, and then call `MyClass.createPropertiesForAttributes()` once\non the class to generate property accessors for each observed attribute\nprior to instancing.  Any `observedAttributes` will automatically be\ndeserialized via `attributeChangedCallback` and set to the associated\nproperty using `dash-case`-to-`camelCase` convention.",
       "summary": "",
-      "path": "src/mixins/property-accessors.html",
+      "path": "lib/mixins/property-accessors.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -795,7 +1041,7 @@
     {
       "description": "Element mixin that provides basic template parsing and stamping, including\nthe following template-related features for stamped templates:\n\n- Declarative event listeners (`on-eventname=\"listener\"`)\n- Map of node id's to stamped node instances (`this.$.id`)\n- Nested template content caching/removal and re-installation (performance\n  optimization)\n- Relative URL's relative to original template location\n- Template binding annotation parsing (note that this library only parses\n  template bindings and provides annotation metadata; see\n  `Polymer.PropertyEffects` for a full implementation of data-binding)",
       "summary": "",
-      "path": "src/mixins/template-stamp.html",
+      "path": "lib/mixins/template-stamp.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -821,7 +1067,7 @@
     {
       "description": "Element class mixin that provides meta-programming for Polymer's template\nbinding and data observation (collectively, \"property effects\") system.\n\nThis mixin uses provides the following key methods for adding property effects\nto this element:\n- `_createPropertyObserver`\n- `_createMethodObserver`\n- `_createNotifyingProperty`\n- `_createReadOnlyProperty`\n- `_createReflectedProperty`\n- `_createComputedProperty`\n- `_bindTemplate`\n\nEach method creates one or more property accessors, along with metadata\nused by this mixin's implementation of `_propertiesChanged` to perform\nthe property effects.  These methods may be called on element instances,\nbut are designed to be called on element prototypes such that the work to\nset up accessors and effect metadata are done once per element class.",
       "summary": "",
-      "path": "src/mixins/property-effects.html",
+      "path": "lib/mixins/property-effects.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -847,7 +1093,7 @@
     {
       "description": "Element class mixin that provides the core API for Polymer's meta-programming\nfeatures including template stamping, data-binding, attribute deserialization,\nand property change observation.",
       "summary": "",
-      "path": "src/mixins/element-mixin.html",
+      "path": "lib/mixins/element-mixin.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -873,7 +1119,7 @@
     {
       "description": "Element class mixin that provides API for adding Polymer's cross-platform\ngesture events to nodes.\n\nThe API is designed to be compatible with override points implemented\nin `Polymer.TemplateStamp` such that declarative event listeners in\ntemplates will support gesture events when this mixin is applied along with\n`Polymer.TemplateStamp`.",
       "summary": "",
-      "path": "src/mixins/gesture-event-listeners.html",
+      "path": "lib/mixins/gesture-event-listeners.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -899,7 +1145,7 @@
     {
       "description": "Element class mixin that provides Polymer's \"legacy\" API intended to be\nbackward-compatible to the greatest extent possible with the API\nfound on the Polymer 1.x `Polymer.Base` prototype applied to all elements\ndefined using the `Polymer({...})` function.",
       "summary": "",
-      "path": "src/legacy/legacy-element-mixin.html",
+      "path": "lib/legacy/legacy-element-mixin.html",
       "attributes": [],
       "properties": [],
       "styling": {
@@ -925,7 +1171,7 @@
     {
       "description": "Element mixin for recording  dynamic associations between item paths in a\nmaster `items` array and a `selected` array such that path changes to the\nmaster array (at the host) element or elsewhere via data-binding) are\ncorrectly propagated to items in the selected array and vice-versa.\n\nThe `items` property accepts an array of user data, and via the\n`select(item)` and `deselect(item)` API, updates the `selected` property\nwhich may be bound to other parts of the application, and any changes to\nsub-fields of `selected` item(s) will be kept in sync with items in the\n`items` array.  When `multi` is false, `selected` is a property\nrepresenting the last selected item.  When `multi` is true, `selected`\nis an array of multiply selected items.",
       "summary": "",
-      "path": "src/elements/array-selector.html",
+      "path": "lib/elements/array-selector.html",
       "attributes": [
         {
           "name": "items",
