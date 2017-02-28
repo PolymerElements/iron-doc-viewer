@@ -55,35 +55,24 @@ property.
 
     <prism-highlighter></prism-highlighter>
 
+    <h1>Namespace [[_namespaceName]]</h1>
+
     <section id="summary" class="card" hidden$="[[!descriptor.desc]]">
       <marked-element markdown="{{descriptor.desc}}">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
 
-    <nav id="api">
+    <!--<nav id="api">
       <header>[[descriptor.name]] API Reference</header>
-    </nav>
-
-    <section id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.namespaces)}}">
-      <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
-      <div hidden$="{{!descriptor.namespaces.length}}">
-        <template is="dom-repeat" items="{{descriptor.namespaces}}">
-        <iron-doc-summary
-          name="[[item.name]]"
-          description="[[item.shortDescription]]"
-          href="/namespaces/[[item.name]]">
-        </iron-doc-summary>
-        </template>
-      </div>
-    </section>
+    </nav>-->
 
     <section id$="[[_formatAnchor(prefix,'elements')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,descriptor.elements)]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Elements</a></header>
       <template is="dom-repeat" items="[[descriptor.elements]]">
         <iron-doc-summary
           name="[[item.tagname]]"
-          description="[[item.shortDescription]]"
+          description="[[item.summary]]"
           href="/elements/[[item.tagname]]">
         </iron-doc-summary>
       </template>
@@ -94,7 +83,7 @@ property.
       <template is="dom-repeat" items="{{descriptor.mixins}}">
         <iron-doc-summary
           name="[[item.name]]"
-          description="[[item.shortDescription]]"
+          description="[[item.summary]]"
           href="/mixins/[[item.tagname]]">
         </iron-doc-summary>
       </template>
@@ -106,6 +95,22 @@ property.
         <p on-click="_broadcastBehavior">{{item}}</p>
       </template>
     </section>
+
+    <section id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.namespaces)}}">
+      <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
+      <div hidden$="{{!descriptor.namespaces.length}}">
+        <dom-repeat items="{{descriptor.namespaces}}" filter="_showNamespace">
+          <template>
+          <iron-doc-summary
+            name="[[item.name]]"
+            description="[[item.summary]]"
+            href="/namespaces/[[item.name]]">
+          </iron-doc-summary>
+          </template>
+        </dom-repeat>
+      </div>
+    </section>
+
   </template>
 
   <script>
@@ -126,6 +131,14 @@ property.
           descriptor: {
             type: Object,
             // observer: '_descriptorChanged',
+          },
+
+          rootNamespace: {
+            type: String,
+          },
+
+          _namespaceName: {
+            computed: '_computeNamespaceName(descriptor.name, rootNamespace)',
           },
 
           /**
@@ -157,7 +170,6 @@ property.
         },
 
         ready: function() {
-          console.log('iron-doc-namespace ready');
           var jsonDescriptor = this._loadJson();
           // Note that this is only an error during element creation. You are free
           // to stomp over the descriptor after it is ready.
@@ -174,6 +186,14 @@ property.
           if (jsonDescriptor) {
             this.descriptor = jsonDescriptor;
           }
+        },
+
+        _computeNamespaceName(name, rootNamespace) {
+          return name || rootNamespace;
+        },
+
+        _showNamespace(namespace) {
+          return namespace.name != this.rootNamespace;
         },
 
         /**

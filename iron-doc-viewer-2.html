@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../prism-element/prism-theme-default.html">
 <link rel="import" href="iron-doc-namespace.html">
 <link rel="import" href="iron-doc-element.html">
+<link rel="import" href="iron-doc-mixin.html">
 <!--<link rel="import" href="iron-doc-viewer-styles.html">-->
 
 <!--
@@ -54,20 +55,24 @@ property.
 <dom-module id="iron-doc-viewer">
   <template>
     <style include="iron-doc-viewer-styles prism-theme-default"></style>
+
     <app-location route="{{route}}"></app-location>
-    <app-route
-        route="{{route}}"
-        pattern="/:descriptorType/:name"
-        data="{{_routeData}}">
-    </app-route>
-    <div>route: [[_jsonString(route)]]</div>
-    <div>_routeData: [[_jsonString(_routeData)]]</div>
+
+    <!--<div>route: [[_jsonString(route)]]</div>
     <div>_descriptorType: [[_descriptorType]]</div>
+    <div>_descriptorName: [[_descriptorName]]</div>-->
+
     <dom-if if="[[_equal(_descriptorType,'namespaces')]]" restamp="true"><template>
-      <iron-doc-namespace descriptor="[[_currentDescriptor]]"></iron-doc-namespace>
+      <iron-doc-namespace
+          descriptor="[[_currentDescriptor]]"
+          root-namespace="[[rootNamespace]]">
+      </iron-doc-namespace>
     </template></dom-if>
     <dom-if if="[[_equal(_descriptorType,'elements')]]" restamp="true"><template>
       <iron-doc-element descriptor="[[_currentDescriptor]]"></iron-doc-element>
+    </template></dom-if>
+    <dom-if if="[[_equal(_descriptorType,'mixins')]]" restamp="true"><template>
+      <iron-doc-mixin descriptor="[[_currentDescriptor]]"></iron-doc-mixin>
     </template></dom-if>
   </template>
 
@@ -90,6 +95,10 @@ property.
             type: Object,
           },
 
+          rootNamespace: {
+            type: String,
+          },
+
           _currentDescriptor: {
             type: Object,
             // observer: '_descriptorChanged',
@@ -97,9 +106,9 @@ property.
 
           _descriptorType: String,
 
-          _routeData: {
-            type: Object,
-          },
+          // _routeData: {
+          //   type: Object,
+          // },
 
           /**
            * Prefix for fragment identifiers used in anchors.
@@ -139,7 +148,7 @@ property.
            */
         },
 
-        observers: ['_dataChanged(descriptor, _routeData)'],
+        observers: ['_dataChanged(descriptor,route.path)'],
 
         ready: function() {
           var jsonDescriptor = this._loadJson();
@@ -164,13 +173,19 @@ property.
           return a == b;
         },
 
-        _dataChanged(descriptor, routeData) {
-          console.log('_dataChanged', descriptor != null, routeData);
+        _dataChanged(descriptor, routePath) {
+          // console.log('_dataChanged', descriptor != null, routePath);
+          let descriptorType, name;
+          if (routePath) {
+            let parts = routePath.split('/');
+            if (parts.length > 1) {
+              [, descriptorType, name] = parts;
+            }
+          }
           if (!this.descriptor) {
             return;
           }
-          const {descriptorType, name} = routeData;
-          console.log('descriptorType:', descriptorType, 'name:', name);
+
           if (!descriptorType) {
             this._descriptorType = 'namespaces';
             this._currentDescriptor = descriptor;

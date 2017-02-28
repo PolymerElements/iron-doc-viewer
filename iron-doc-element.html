@@ -54,18 +54,24 @@ property.
 
     <prism-highlighter></prism-highlighter>
 
-    <h1>[[descriptor.tagname]]</h1>
-    <section id="summary" class="card" hidden$="[[!descriptor.description]]">
+    <h1>Element [[descriptor.tagname]]</h1>
+    <h2 hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</h2>
+
+    <div hidden$="[[!descriptor.classname]]">class: [[descriptor.classname]]</div>
+    <div hidden$="[[!descriptor.superclass]]">extends: [[descriptor.superclass]]</div>
+    <div hidden$="[[!descriptor.path]]">path: [[descriptor.path]]</div>
+
+    <section id="description" class="card" hidden$="[[!descriptor.description]]">
       <marked-element markdown="{{descriptor.description}}">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
 
-    <!--<nav id="api">
-      <header>Element [[descriptor.tagname]] API Reference</header>
+    <nav id="api">
+      <header>API Reference</header>
       <paper-button id="togglePrivate"
         on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
-    </nav>-->
+    </nav>
 
     <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.properties)}}">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
@@ -76,33 +82,36 @@ property.
       </div>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="{{_hideBehaviors(descriptor.mixins)}}">
+    <section id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.mixins)}}">
       <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
       <template is="dom-repeat" items="{{descriptor.mixins}}">
         <p on-click="_broadcastMixin">{{item}}</p>
       </template>
     </section>
 
-    <!--<section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,_methods)}}">
+    <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,descriptor.methods)}}">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
-      <template is="dom-repeat" items="{{_methods}}">
+      <template is="dom-repeat" items="{{descriptor.methods}}">
         <iron-doc-property anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
-    </section>-->
+    </section>
 
-    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,_events)}}">
+    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.events)}}">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
-      <template is="dom-repeat" items="{{_events}}">
+      <template is="dom-repeat" items="{{descriptor.events}}">
         <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="{{item}}"></iron-doc-property>
       </template>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="{{_hideBehaviors(_behaviors)}}">
+    <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.behaviors)}}">
       <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
-      <template is="dom-repeat" items="{{_behaviors}}">
+      <template is="dom-repeat" items="{{descriptor.behaviors}}">
         <p on-click="_broadcastBehavior">{{item}}</p>
       </template>
     </section>
+
+    <!--<pre>[[_jsonString(descriptor)]]</pre>-->
+
   </template>
 
   <script>
@@ -170,6 +179,10 @@ property.
           if (jsonDescriptor) {
             this.descriptor = jsonDescriptor;
           }
+        },
+
+        _jsonString(data) {
+          return JSON.stringify(data, null, 2);
         },
 
         /**
