@@ -8,8 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../app-route/app-location.html">
-<link rel="import" href="../app-route/app-route.html">
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../marked-element/marked-element.html">
 <link rel="import" href="../paper-button/paper-button.html">
@@ -18,10 +16,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../paper-styles/typography.html">
 <link rel="import" href="../prism-element/prism-highlighter.html">
 <link rel="import" href="../prism-element/prism-theme-default.html">
-<link rel="import" href="iron-doc-namespace.html">
-<link rel="import" href="iron-doc-element.html">
-<link rel="import" href="iron-doc-mixin.html">
-<!--<link rel="import" href="iron-doc-viewer-styles.html">-->
+<link rel="import" href="iron-doc-property.html">
+<link rel="import" href="iron-doc-viewer-styles.html">
 
 <!--
 Renders documentation describing an element's API.
@@ -52,34 +48,74 @@ property.
 @demo demo/index.html Basic Demo
 -->
 
-<dom-module id="iron-doc-viewer">
+<dom-module id="iron-doc-mixin">
   <template>
     <style include="iron-doc-viewer-styles prism-theme-default"></style>
 
-    <app-location route="{{route}}"></app-location>
+    <prism-highlighter></prism-highlighter>
 
-    <!--<div>route: [[_jsonString(route)]]</div>
-    <div>_descriptorType: [[_descriptorType]]</div>
-    <div>_descriptorName: [[_descriptorName]]</div>-->
+    <h1>Mixin [[descriptor.name]]</h1>
+    <h2 hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</h2>
 
-    <dom-if if="[[_equal(_descriptorType,'namespaces')]]" restamp="true"><template>
-      <iron-doc-namespace
-          descriptor="[[_currentDescriptor]]"
-          root-namespace="[[rootNamespace]]">
-      </iron-doc-namespace>
-    </template></dom-if>
-    <dom-if if="[[_equal(_descriptorType,'elements')]]" restamp="true"><template>
-      <iron-doc-element descriptor="[[_currentDescriptor]]"></iron-doc-element>
-    </template></dom-if>
-    <dom-if if="[[_equal(_descriptorType,'mixins')]]" restamp="true"><template>
-      <iron-doc-mixin descriptor="[[_currentDescriptor]]"></iron-doc-mixin>
-    </template></dom-if>
+    <div hidden$="[[!descriptor.path]]">path: [[descriptor.path]]</div>
+
+    <section id="description" class="card" hidden$="[[!descriptor.description]]">
+      <marked-element markdown="{{descriptor.description}}">
+        <div slot="markdown-html" class="markdown-html"></div>
+      </marked-element>
+    </section>
+
+    <nav id="api">
+      <header>API Reference</header>
+      <paper-button id="togglePrivate"
+        on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
+    </nav>
+
+    <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.properties)}}">
+      <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
+      <div hidden$="{{!descriptor.properties.length}}">
+        <template is="dom-repeat" items="{{descriptor.properties}}">
+          <iron-doc-property anchor-id="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+        </template>
+      </div>
+    </section>
+
+    <section id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.mixins)}}">
+      <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
+      <template is="dom-repeat" items="{{descriptor.mixins}}">
+        <p on-click="_broadcastMixin">{{item}}</p>
+      </template>
+    </section>
+
+    <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,descriptor.methods)}}">
+      <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
+      <template is="dom-repeat" items="{{descriptor.methods}}">
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+      </template>
+    </section>
+
+    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.events)}}">
+      <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
+      <template is="dom-repeat" items="{{descriptor.events}}">
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+      </template>
+    </section>
+
+    <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.behaviors)}}">
+      <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
+      <template is="dom-repeat" items="{{descriptor.behaviors}}">
+        <p on-click="_broadcastBehavior">{{item}}</p>
+      </template>
+    </section>
+
+    <!--<pre>[[_jsonString(descriptor)]]</pre>-->
+
   </template>
 
   <script>
     (function() {
       Polymer({
-        is: 'iron-doc-viewer',
+        is: 'iron-doc-mixin',
 
         properties: {
           /**
@@ -93,42 +129,18 @@ property.
            */
           descriptor: {
             type: Object,
-          },
-
-          rootNamespace: {
-            type: String,
-          },
-
-          _currentDescriptor: {
-            type: Object,
             // observer: '_descriptorChanged',
           },
-
-          _descriptorType: String,
-
-          // _routeData: {
-          //   type: Object,
-          // },
 
           /**
            * Prefix for fragment identifiers used in anchors.
            * For static routing `iron-component-page` can
            * set this to a string identifying the current component.
            */
-          fragmentPrefix: {
+          prefix: {
             type: String,
             value: ''
           },
-
-          data: {
-            type: String,
-            // observer: '_dataChanged',
-          },
-
-          // dataString: {
-          //   type: String,
-          //   computed: '_computeDataString(first, last)',
-          // },
 
           /** Whether private properties should be hidden or shown. */
           _showPrivate: {
@@ -148,8 +160,6 @@ property.
            */
         },
 
-        observers: ['_dataChanged(descriptor,route.path)'],
-
         ready: function() {
           var jsonDescriptor = this._loadJson();
           // Note that this is only an error during element creation. You are free
@@ -166,53 +176,6 @@ property.
 
           if (jsonDescriptor) {
             this.descriptor = jsonDescriptor;
-          }
-        },
-
-        _equal(a, b) {
-          return a == b;
-        },
-
-        _dataChanged(descriptor, routePath) {
-          // console.log('_dataChanged', descriptor != null, routePath);
-          let descriptorType, name;
-          if (routePath) {
-            let parts = routePath.split('/');
-            if (parts.length > 1) {
-              [, descriptorType, name] = parts;
-            }
-          }
-          if (!this.descriptor) {
-            return;
-          }
-
-          if (!descriptorType) {
-            this._descriptorType = 'namespaces';
-            this._currentDescriptor = descriptor;
-            return;
-          }
-          this._descriptorType = descriptorType;
-          if (descriptorType === 'namespaces') {
-            const namespaces = descriptor.namespaces || []
-            if (!namespaces) {
-              return;
-            }
-            const matches = namespaces.filter((namespace) => namespace.name === name);
-            this._currentDescriptor = matches[0];
-          } else if (descriptorType === 'elements') {
-            const elements = descriptor.elements || []
-            if (!elements) {
-              return;
-            }
-            const matches = elements.filter((element) => element.tagname === name);
-            this._currentDescriptor = matches[0];
-          } else if (descriptorType === 'mixins') {
-            const mixins = descriptor.mixins || []
-            if (!mixins) {
-              return;
-            }
-            const matches = mixins.filter((mixin) => mixin.name === name);
-            this._currentDescriptor = matches[0];
           }
         },
 
@@ -242,7 +205,7 @@ property.
           }
         },
 
-        /** Converts `descriptor` into our template-friendly `_model`. */
+        // /** Converts `descriptor` into our template-friendly `_model`. */
         // _descriptorChanged: function() {
         //   if (!this.descriptor) return;
 
