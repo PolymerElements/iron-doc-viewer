@@ -69,9 +69,9 @@ property.
 
     <section id$="[[_formatAnchor(prefix,'elements')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,descriptor.elements)]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Elements</a></header>
-      <template is="dom-repeat" items="[[descriptor.elements]]">
+      <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareElements">
         <iron-doc-summary
-          name="[[item.tagname]]"
+          name="[[_getElementName(item)]]"
           description="[[item.summary]]"
           href="/elements/[[item.tagname]]">
         </iron-doc-summary>
@@ -194,6 +194,26 @@ property.
 
         _showNamespace(namespace) {
           return namespace.name != this.rootNamespace;
+        },
+
+        _getElementName(element) {
+          let name = '';
+          if (element.tagname) {
+            name += `<${element.tagname}>`;
+            if (element.classname) {
+              name += ` (${element.classname})`;
+            }
+          } else if (element.classname) {
+            name += element.classname;
+          }
+          return name;
+        },
+
+        _compareElements(a, b) {
+          if (a.tagname === b.tagname) {
+            return a.classname == null ? -1 : a.classname.localeCompare(b.classname);
+          }
+          return a.tagname == null ? -1 : b.tagname == null ? 1 : a.tagname.localeCompare(b.tagname);
         },
 
         /**

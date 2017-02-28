@@ -45,7 +45,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       const docViewer = document.querySelector('#doc-viewer');
 
       ajax.addEventListener('response', (e) => {
-        console.log('response', e);
         docViewer.descriptor = ajax.lastResponse;
       });
     </script>
