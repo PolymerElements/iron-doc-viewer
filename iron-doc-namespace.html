@@ -101,15 +101,13 @@ property.
     <section id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.namespaces)}}">
       <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
       <div hidden$="{{!descriptor.namespaces.length}}">
-        <dom-repeat items="{{descriptor.namespaces}}" filter="_showNamespace">
-          <template>
+        <template is="dom-repeat" items="{{descriptor.namespaces}}" filter="_showNamespace">
           <iron-doc-summary
             name="[[item.name]]"
             description="[[item.summary]]"
             href="/namespaces/[[item.name]]">
           </iron-doc-summary>
-          </template>
-        </dom-repeat>
+        </template>
       </div>
     </section>
 
