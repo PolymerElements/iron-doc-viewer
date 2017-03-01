@@ -50,7 +50,7 @@ Custom property | Description | Default
       }
 
       .deeplink {
-        color: var(--iron-doc-viewer-property-deeplink-color, currentcolor);
+        color: var(--iron-doc-viewer-property-deeplink-color, var(currentcolor));
         text-decoration: none;
       }
 
@@ -169,7 +169,7 @@ Custom property | Description | Default
       }
 
       #desc .markdown-html a {
-        color: var(--iron-doc-viewer-property-markdown-link-color, --paper-indigo-a200);
+        color: var(--iron-doc-viewer-property-markdown-link-color, var(--paper-indigo-a200));
         text-decoration: none;
       }
 
@@ -184,7 +184,7 @@ Custom property | Description | Default
       }
       #meta {
         transition: opacity ease-in-out 150ms;
-        color: var(--iron-doc-viewer-property-meta-color, --paper-blue-500);
+        color: var(--iron-doc-viewer-property-meta-color, var(--paper-blue-500));
       }
       #desc {
         transition: transform ease-in-out 150ms, opacity  ease-in-out 150ms;
