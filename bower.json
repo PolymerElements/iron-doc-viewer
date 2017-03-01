@@ -30,9 +30,9 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
-    "test-fixture": "PolymerElements/test-fixture#^2.0.0",
-    "web-component-tester": "v6.0.0-prerelease.5",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#v1"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#1.0.0-rc.1",
+    "test-fixture": "PolymerElements/test-fixture#^3.0.0-rc.1",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0-prerelease.6"
   },
   "variants": {
     "1.x": {
@@ -50,10 +50,5 @@
         "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
       }
     }
-  },
-  "resolutions": {
-    "polymer": "2.0-preview",
-    "webcomponentsjs": "v1",
-    "test-fixture": "^2.0.0"
   }
 }
