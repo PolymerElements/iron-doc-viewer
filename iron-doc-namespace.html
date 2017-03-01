@@ -75,7 +75,7 @@ property.
         <iron-doc-summary
           name="[[_getElementName(item)]]"
           description="[[item.summary]]"
-          href="[[_getElementHref(item)]]">
+          href="[[baseHref]]/elements/[[_getElementId(item)]]">
         </iron-doc-summary>
       </template>
     </section>
@@ -86,7 +86,7 @@ property.
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
-          href="/mixins/[[item.name]]">
+          href="[[baseHref]]/mixins/[[item.name]]">
         </iron-doc-summary>
       </template>
     </section>
@@ -105,7 +105,7 @@ property.
           <iron-doc-summary
             name="[[item.name]]"
             description="[[item.summary]]"
-            href="/namespaces/[[item.name]]">
+            href="[[baseHref]]/namespaces/[[item.name]]">
           </iron-doc-summary>
         </template>
       </div>
@@ -135,6 +135,12 @@ property.
 
           rootNamespace: {
             type: String,
+          },
+
+          /** The base href where this doc viewer is located */
+          baseHref: {
+            type: String,
+            value: ''
           },
 
           _namespaceName: {
@@ -209,8 +215,8 @@ property.
           return name;
         },
 
-        _getElementHref(element) {
-          return element.tagname ? `/elements/${element.tagname}` : `/elements/${element.classname}`;
+        _getElementId(element) {
+          return element.tagname || element.classname;
         },
 
         _compareElements(a, b) {
