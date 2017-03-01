@@ -26,7 +26,7 @@ Renders documentation describing an element's API.
 [Hydrolysis](https://github.com/PolymerLabs/hydrolysis). You can provide them
 either via binding...
 
-    <iron-doc-viewer descriptor="{{elementDescriptor}}"></iron-doc-viewer>
+    <iron-doc-viewer descriptor="[[elementDescriptor]]"></iron-doc-viewer>
 
 ...or by placing the element descriptor in JSON as the text content of an
 `iron-doc-viewer`:
@@ -57,23 +57,28 @@ property.
     <h1>Element [[_getElementName(descriptor)]]</h1>
     <h2 hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</h2>
 
-    <dl>
-      <dt hidden$="[[!descriptor.classname]]">Class</dt>
-      <dd hidden$="[[!descriptor.classname]]">[[descriptor.classname]]</dd>
-      <dt hidden$="[[!descriptor.superclass]]">Extends</dt>
-      <dd hidden$="[[!descriptor.superclass]]">[[descriptor.superclass]]</dd>
-      <dt hidden$="[[!descriptor.mixins]]">Mixins</dt>
-      <dd hidden$="[[!descriptor.mixins]]">
+    <div class="metadata code">
+      class <span class="name">[[descriptor.classname]]</span>
+      extends 
+      <a class="name deeplink" 
+          target$="[[_superclassTarget(descriptor.superclass)]]" 
+          href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
+      <span hidden$="[[!descriptor.mixins]]">with 
         <template is="dom-repeat" items="[[descriptor.mixins]]">
-          <a href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
+          <a class="name deeplink" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
         </template>
-      </dd>
-      <dt hidden$="[[!descriptor.path]]">Path</dt>
-      <dd hidden$="[[!descriptor.path]]">[[descriptor.path]]</dd>
-    </dl>
+      </span>
+    </div>
+
+    <div class="metadata">Path: <span class="code">[[descriptor.path]]</span></div>
+    <div class="metadata" hidden$="[[!descriptor.behaviors]]">Behaviors:
+      <template is="dom-repeat" items="[[descriptor.behaviors]]">
+        <a class="name deeplink" href$="[[baseHref]]/behaviors/[[item]]">[[item]]</a>
+      </template>
+    </div>
 
     <section id="description" class="card" hidden$="[[!descriptor.description]]">
-      <marked-element markdown="{{descriptor.description}}">
+      <marked-element markdown="[[descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
@@ -81,40 +86,31 @@ property.
     <nav id="api">
       <header>API Reference</header>
       <paper-button id="togglePrivate"
-        on-tap="_togglePrivate">{{_privateToggleLabel}}</paper-button>
+        on-tap="_togglePrivate">[[_privateToggleLabel]]</paper-button>
     </nav>
 
-    <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.properties)}}">
+    <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.properties)]]">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
-      <div hidden$="{{!descriptor.properties.length}}">
-        <template is="dom-repeat" items="{{descriptor.properties}}">
-          <iron-doc-property anchor-id="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+      <div hidden$="[[!descriptor.properties.length]]">
+        <template is="dom-repeat" items="[[descriptor.properties]]">
+          <iron-doc-property anchor-id="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="[[item]]"></iron-doc-property>
         </template>
       </div>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="{{_noneToShow(_showPrivate,descriptor.methods)}}">
+    <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,descriptor.methods)]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
-      <template is="dom-repeat" items="{{descriptor.methods}}">
-        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+      <template is="dom-repeat" items="[[descriptor.methods]]">
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-property>
       </template>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.events)}}">
+    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.events)]]">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
-      <template is="dom-repeat" items="{{descriptor.events}}">
-        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="{{item}}"></iron-doc-property>
+      <template is="dom-repeat" items="[[descriptor.events]]">
+        <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property>
       </template>
     </section>
-
-    <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.behaviors)}}">
-      <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
-      <template is="dom-repeat" items="{{descriptor.behaviors}}">
-        <p on-click="_broadcastBehavior">{{item}}</p>
-      </template>
-    </section>
-
-    <!--<pre>[[_jsonString(descriptor)]]</pre>-->
 
   </template>
 
@@ -208,6 +204,20 @@ property.
           return name;
         },
 
+        _superclassUrl(superclass) {
+          if (superclass === 'HTMLElement') {
+            return `https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement`;
+          }
+          return  `${this.baseHref}/mixins/${superclass}`;
+        },
+
+        _superclassTarget(superclass) {
+          if (superclass === 'HTMLElement') {
+            return `_blank`;
+          }
+          return ``;
+        },
+
         /**
          * Loads a hydrolysis element descriptor (as JSON) from the text content of
          * this element, if present.
@@ -229,25 +239,6 @@ property.
             throw error;
           }
         },
-
-        // /** Converts `descriptor` into our template-friendly `_model`. */
-        // _descriptorChanged: function() {
-        //   if (!this.descriptor) return;
-
-        //   // Split the documented properties between functions and other types.
-        //   var properties = [];
-        //   var methods    = [];
-
-        //   for (var i = 0, property; property = this.descriptor.properties[i]; i++) {
-        //     (property.type === 'Function' ? methods : properties).push(property);
-        //   }
-        //   this._properties = properties;
-        //   this._methods    = methods;
-        //   this._events     = this.descriptor.events || [];
-        //   this._behaviors  = this.descriptor.behaviors || [];
-
-        //   this.toggleAttribute('abstract', this.descriptor.abstract);
-        // },
 
         /**
          * Scrolls to the currently selected anchor, as identified
@@ -292,7 +283,7 @@ property.
         },
 
         _noneToShow: function(showPrivate, items) {
-          if (showPrivate === undefined || items === undefined) {
+          if (showPrivate === undefined || items === undefined || items.length === 0) {
             return true;
           }
 
@@ -307,17 +298,6 @@ property.
           return prefix + type + suffix;
         },
 
-        _hideBehaviors: function(behaviors) {
-          if (behaviors === undefined) {
-            return true;
-          }
-
-          return behaviors === null || behaviors.length === 0;
-        },
-
-        _broadcastBehavior: function(ev) {
-          this.fire('iron-doc-viewer-component-selected', ev.target._templateInstance.item);
-        }
       });
     })();
   </script>

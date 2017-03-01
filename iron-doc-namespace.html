@@ -27,7 +27,7 @@ Renders documentation describing an element's API.
 [Hydrolysis](https://github.com/PolymerLabs/hydrolysis). You can provide them
 either via binding...
 
-    <iron-doc-viewer descriptor="{{elementDescriptor}}"></iron-doc-viewer>
+    <iron-doc-viewer descriptor="[[elementDescriptor]]"></iron-doc-viewer>
 
 ...or by placing the element descriptor in JSON as the text content of an
 `iron-doc-viewer`:
@@ -56,16 +56,17 @@ property.
     <prism-highlighter></prism-highlighter>
 
     <h1>Namespace [[_namespaceName]]</h1>
+    <h2 hidden$="[[!_namespaceSummary]]">[[_namespaceSummary]]</h2>
 
-    <section id="description" class="card" hidden$="[[!descriptor.desc]]">
-      <marked-element markdown="{{descriptor.desc}}">
+    <section id="description" class="card" hidden$="[[!_namespaceDescripton]]">
+      <marked-element markdown="[[_namespaceDescripton]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
 
-    <!--<nav id="api">
-      <header>[[descriptor.name]] API Reference</header>
-    </nav>-->
+    <nav id="api">
+      <header>[[_namespaceName]] API Reference</header>
+    </nav>
 
     <section id$="[[_formatAnchor(prefix,'elements')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.elements)]]">
       <header>
@@ -80,9 +81,9 @@ property.
       </template>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.mixins)}}">
+    <section id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.mixins)]]">
       <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
-      <template is="dom-repeat" items="{{descriptor.mixins}}">
+      <template is="dom-repeat" items="[[descriptor.mixins]]">
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
@@ -91,17 +92,32 @@ property.
       </template>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="{{_hideBehaviors(descriptor.behaviors)}}">
+    <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(descriptor.behaviors)]]">
       <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
-      <template is="dom-repeat" items="{{descriptor.behaviors}}">
-        <p on-click="_broadcastBehavior">{{item}}</p>
+      <template is="dom-repeat" items="[[descriptor.behaviors]]">
+        <iron-doc-summary
+          name="[[item.name]]"
+          description="[[item.summary]]"
+          href="[[baseHref]]/behaviors/[[item.name]]">
+        </iron-doc-summary>
       </template>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="{{_noneToShow(_showPrivate,descriptor.namespaces)}}">
+    <section id$="[[_formatAnchor(prefix,'functions')]]" class="card" hidden$="[[_noneToShow(descriptor.functions)]]">
+      <header><a href$="#[[_formatAnchor(prefix,'functions')]]" class="deeplink">Functions</a></header>
+      <template is="dom-repeat" items="[[descriptor.functions]]">
+        <iron-doc-summary
+          name="[[item.name]]"
+          description="[[item.summary]]"
+          href="[[baseHref]]/functions/[[item.name]]">
+        </iron-doc-summary>
+      </template>
+    </section>
+
+    <section id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.namespaces)]]">
       <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
-      <div hidden$="{{!descriptor.namespaces.length}}">
-        <template is="dom-repeat" items="{{descriptor.namespaces}}" filter="_showNamespace">
+      <div hidden$="[[!descriptor.namespaces.length]]">
+        <template is="dom-repeat" items="[[descriptor.namespaces]]" filter="_showNamespace">
           <iron-doc-summary
             name="[[item.name]]"
             description="[[item.summary]]"
@@ -144,7 +160,11 @@ property.
           },
 
           _namespaceName: {
-            computed: '_computeNamespaceName(descriptor.name, rootNamespace)',
+            computed: '_computeNamespaceName(descriptor, rootNamespace)',
+          },
+
+          _namespaceSummary: {
+            computed: '_computeNamespaceSummary(descriptor, rootNamespace)',
           },
 
           /**
@@ -194,8 +214,32 @@ property.
           }
         },
 
-        _computeNamespaceName(name, rootNamespace) {
-          return name || rootNamespace;
+        _computeNamespaceName(descriptor, rootNamespace) {
+          return descriptor.name || rootNamespace;
+        },
+
+        _computeNamespaceSummary(descriptor, rootNamespace) {
+          if (descriptor.name) {
+            return descriptor.summary;
+          }
+          if (descriptor.namespaces) {
+            const namespaces = descriptor.namespaces.filter((n) => n.name === rootNamespace);
+            if (namespaces.length > 0) {
+              return namespaces[0].summary;
+            }
+          }
+        },
+
+        _computeNamespaceDescription(descriptor, rootNamespace) {
+          if (descriptor.name) {
+            return descriptor.description;
+          }
+          if (descriptor.namespaces) {
+            const namespaces = descriptor.namespaces.filter((n) => n.name === rootNamespace);
+            if (namespaces.length > 0) {
+              return namespaces[0].description;
+            }
+          }
         },
 
         _showNamespace(namespace) {
