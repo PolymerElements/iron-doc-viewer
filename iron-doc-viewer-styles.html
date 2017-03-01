@@ -38,7 +38,7 @@ Custom property | Description | Default
       :host {
         @apply --paper-font-body1;
 
-        color: var(--iron-doc-viewer-text-color, var(--paper-grey-900));
+        color: var(--iron-doc-viewer-text-color, --paper-grey-900);
         display: block;
       }
 
@@ -53,12 +53,16 @@ Custom property | Description | Default
       }
 
       .deeplink {
+<<<<<<< HEAD
         color: var(--iron-doc-viewer-title-link, var(currentColor));
+=======
+        color: var(--iron-doc-viewer-title-link, currentcolor);
+>>>>>>> parent of 6015b93... found some more old var syntax
         text-decoration: none;
       }
 
       .deeplink:hover {
-        color: var(--iron-doc-viewer-title-link-hover, var(--paper-pink-500));
+        color: var(--iron-doc-viewer-title-link-hover, --paper-pink-500);
       }
 
       #api {
@@ -75,7 +79,7 @@ Custom property | Description | Default
       #api a {
         @apply --paper-font-button;
 
-        color: var(--iron-doc-viewer-api-link-color, var(--paper-grey-800));
+        color: var(--iron-doc-viewer-api-link-color, --paper-grey-800);
         cursor: pointer;
         display: block;
         padding: 4px 16px;
@@ -88,7 +92,7 @@ Custom property | Description | Default
       }
 
       #summary .markdown-html pre {
-        background-color: var(--iron-doc-viewer-markdown-background, var(--paper-grey-200));
+        background-color: var(--iron-doc-viewer-markdown-background, --paper-grey-200);
         border-radius: 3px;
         font-size: 15px;
         overflow-x: auto;
@@ -97,7 +101,7 @@ Custom property | Description | Default
       }
 
       #summary .markdown-html table {
-        background-color: var(--iron-doc-viewer-markdown-background, var(--paper-grey-200));
+        background-color: var(--iron-doc-viewer-markdown-background, --paper-grey-200);
         border-collapse: collapse;
         margin: 12px 0;
         width: 100%;
@@ -123,7 +127,7 @@ Custom property | Description | Default
       }
 
       #summary .markdown-html td:first-child > code {
-        color: var(--iron-doc-viewer-td-color, var(black));
+        color: var(--iron-doc-viewer-td-color, black);
         font-weight: bold;
       }
 
@@ -180,11 +184,11 @@ Custom property | Description | Default
       }
 
       nav {
-        border-bottom: 1px solid var(--iron-doc-viewer-nav-border, var(--paper-grey-200));
+        border-bottom: 1px solid var(--iron-doc-viewer-nav-border, --paper-grey-200);
       }
 
       iron-doc-property {
-        background: var(--iron-doc-viewer-property-background, var(--paper-grey-200));
+        background: var(--iron-doc-viewer-property-background, --paper-grey-200);
       }
 
       iron-doc-property:first-of-type {
@@ -205,7 +209,7 @@ Custom property | Description | Default
 
       :host(.show-private) iron-doc-property[private] {
         display: block;
-        background: var(--iron-doc-viewer-private-property-background, var(--paper-grey-300));
+        background: var(--iron-doc-viewer-private-property-background, --paper-grey-300);
       }
 
       iron-doc-property[configuration] {
@@ -224,7 +228,7 @@ Custom property | Description | Default
       }
 
       paper-button:hover {
-        color: var(--iron-doc-viewer-button-hover, var(--paper-pink-500));
+        color: var(--iron-doc-viewer-button-hover, --paper-pink-500);
       }
     </style>
   </template>
