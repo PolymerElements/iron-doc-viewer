@@ -204,7 +204,7 @@ property.
             if (!elements) {
               return;
             }
-            const matches = elements.filter((element) => element.tagname === name);
+            const matches = elements.filter((element) => (element.tagname || element.classname) === name);
             this._currentDescriptor = matches[0];
           } else if (descriptorType === 'mixins') {
             const mixins = descriptor.mixins || []

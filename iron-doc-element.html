@@ -54,12 +54,17 @@ property.
 
     <prism-highlighter></prism-highlighter>
 
-    <h1>Element [[descriptor.tagname]]</h1>
+    <h1>Element [[_getElementName(descriptor)]]</h1>
     <h2 hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</h2>
 
-    <div hidden$="[[!descriptor.classname]]">class: [[descriptor.classname]]</div>
-    <div hidden$="[[!descriptor.superclass]]">extends: [[descriptor.superclass]]</div>
-    <div hidden$="[[!descriptor.path]]">path: [[descriptor.path]]</div>
+    <dl>
+      <dt hidden$="[[!descriptor.classname]]">Class</dt>
+      <dd hidden$="[[!descriptor.classname]]">[[descriptor.classname]]</dd>
+      <dt hidden$="[[!descriptor.superclass]]">Extends</dt>
+      <dd hidden$="[[!descriptor.superclass]]">[[descriptor.superclass]]</dd>
+      <dt hidden$="[[!descriptor.path]]">Path</dt>
+      <dd hidden$="[[!descriptor.path]]">[[descriptor.path]]</dd>
+    </dl>
 
     <section id="description" class="card" hidden$="[[!descriptor.description]]">
       <marked-element markdown="{{descriptor.description}}">
@@ -183,6 +188,19 @@ property.
 
         _jsonString(data) {
           return JSON.stringify(data, null, 2);
+        },
+
+        _getElementName(element) {
+          let name = '';
+          if (element.tagname) {
+            name += `<${element.tagname}>`;
+            if (element.classname) {
+              name += ` (${element.classname})`;
+            }
+          } else if (element.classname) {
+            name += element.classname;
+          }
+          return name;
         },
 
         /**

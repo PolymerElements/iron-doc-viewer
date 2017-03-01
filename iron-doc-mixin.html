@@ -57,7 +57,10 @@ property.
     <h1>Mixin [[descriptor.name]]</h1>
     <h2 hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</h2>
 
-    <div hidden$="[[!descriptor.path]]">path: [[descriptor.path]]</div>
+    <dl>
+      <dt hidden$="[[!descriptor.path]]">Path</dt>
+      <dd hidden$="[[!descriptor.path]]">[[descriptor.path]]</dd>
+    </dl>
 
     <section id="description" class="card" hidden$="[[!descriptor.description]]">
       <marked-element markdown="{{descriptor.description}}">
