@@ -54,20 +54,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
   </template>
 
-  <script>{
-    class IronDocSummary extends Polymer.Element {
+  <script>
+    (function() {
+      Polymer({
 
-      static get is() { return 'iron-doc-summary'; }
+      is: 'iron-doc-summary',
 
-      static get properties() {
-        return {
-          name: String,
-          description: String,
-          href: String,
-        };
-      }
-    }
-
-    customElements.define(IronDocSummary.is, IronDocSummary);
-  }</script>
+      properties: {
+        name: String,
+        description: String,
+        href: String,
+      },
+    });
+  })();
+  </script>
 </dom-module>

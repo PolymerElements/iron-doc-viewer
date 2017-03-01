@@ -62,18 +62,18 @@ property.
     <div>_descriptorType: [[_descriptorType]]</div>
     <div>_descriptorName: [[_descriptorName]]</div>-->
 
-    <dom-if if="[[_equal(_descriptorType,'namespaces')]]" restamp="true"><template>
+    <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp="true">
       <iron-doc-namespace
           descriptor="[[_currentDescriptor]]"
           root-namespace="[[rootNamespace]]">
       </iron-doc-namespace>
-    </template></dom-if>
-    <dom-if if="[[_equal(_descriptorType,'elements')]]" restamp="true"><template>
+    </template>
+    <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp="true">
       <iron-doc-element descriptor="[[_currentDescriptor]]"></iron-doc-element>
-    </template></dom-if>
-    <dom-if if="[[_equal(_descriptorType,'mixins')]]" restamp="true"><template>
+    </template>
+    <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp="true">
       <iron-doc-mixin descriptor="[[_currentDescriptor]]"></iron-doc-mixin>
-    </template></dom-if>
+    </template>
   </template>
 
   <script>
@@ -151,6 +151,7 @@ property.
         observers: ['_dataChanged(descriptor,route.path)'],
 
         ready: function() {
+          // console.log('ready');
           var jsonDescriptor = this._loadJson();
           // Note that this is only an error during element creation. You are free
           // to stomp over the descriptor after it is ready.
@@ -174,7 +175,7 @@ property.
         },
 
         _dataChanged(descriptor, routePath) {
-          // console.log('_dataChanged', descriptor != null, routePath);
+          // console.log('_dataChanged', descriptor);
           let descriptorType, name;
           if (routePath) {
             let parts = routePath.split('/');
