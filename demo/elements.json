@@ -233,6 +233,9 @@
       },
       "tagname": "dom-bind",
       "classname": "Polymer.DomBind",
+      "mixins": [
+        "Polymer.PropertyEffects"
+      ],
       "superclass": "HTMLElement"
     },
     {
@@ -260,6 +263,9 @@
         }
       },
       "classname": "Polymer.Element",
+      "mixins": [
+        "Polymer.ElementMixin"
+      ],
       "superclass": "HTMLElement"
     },
     {
@@ -979,6 +985,9 @@
         }
       },
       "classname": "Polymer.ArraySelector",
+      "mixins": [
+        "Polymer.ArraySelectorMixin"
+      ],
       "superclass": "HTMLElement"
     },
     {
