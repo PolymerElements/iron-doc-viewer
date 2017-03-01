@@ -65,7 +65,7 @@ property.
       <dt hidden$="[[!descriptor.mixins]]">Mixins</dt>
       <dd hidden$="[[!descriptor.mixins]]">
         <template is="dom-repeat" items="[[descriptor.mixins]]">
-          <a href$="/mixins/[[item]]">[[item]]</a>
+          <a href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
         </template>
       </dd>
       <dt hidden$="[[!descriptor.path]]">Path</dt>
@@ -144,6 +144,12 @@ property.
            * set this to a string identifying the current component.
            */
           prefix: {
+            type: String,
+            value: ''
+          },
+
+          /** The base href where this doc viewer is located */
+          baseHref: {
             type: String,
             value: ''
           },
