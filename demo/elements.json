@@ -98,6 +98,22 @@
       }
     },
     {
+      "name": "Polymer.telemetry",
+      "description": "Provides basic tracking of element definitions (registrations) and\ninstance counts.",
+      "summary": "",
+      "sourceRange": {
+        "file": "lib/mixins/element-mixin.html",
+        "start": {
+          "line": 697,
+          "column": 2
+        },
+        "end": {
+          "line": 729,
+          "column": 4
+        }
+      }
+    },
+    {
       "name": "Polymer.Gestures",
       "description": "Module for adding listeners to a node for the following normalized\ncross-platform \"gesture\" events:\n- `down` - mouse or touch went down\n- `up` - mouse or touch went up\n- `tap` - mouse click or finger tap\n- `track` - mouse drag or touch move",
       "summary": "Module for adding cross-platform gesture event listeners.",
@@ -185,6 +201,28 @@
         }
       ],
       "properties": [],
+      "methods": [
+        {
+          "name": "register",
+          "description": "Registers the dom-module at a given id. This method should only be called\nwhen a dom-module is imperatively created. For\nexample, `document.createElement('dom-module').register('foo')`.",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 4
+            },
+            "end": {
+              "line": 114,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "id"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -213,6 +251,939 @@
       "path": "lib/elements/dom-bind.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides `Polymer.PropertyAccessors` implementation to initialize\nadditional property-effect related properties.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1225,
+              "column": 6
+            },
+            "end": {
+              "line": 1247,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_initializeProtoProperties",
+          "description": "Overrides `Polymer.PropertyAccessors` implementation to provide a\nmore efficient implementation of initializing properties from\nthe prototype on the instance.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1256,
+              "column": 6
+            },
+            "end": {
+              "line": 1260,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "props"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_addPropertyEffect",
+          "description": "Ensures an accessor exists for the specified property, and adds\nto a list of \"property effects\" that will run when the accessor for\nthe specified property is set.  Effects are grouped by \"type\", which\nroughly corresponds to a phase in effect processing.  The effect\nmetadata should be in the following form:\n\n  {\n    fn: effectFunction, // Reference to function to call to perform effect\n    info: { ... }       // Effect metadata passed to function\n    // path: '...'      // Will be set by this method based on path arg\n  }\n\nEffect functions are called with the following signature:\n\n  effectFunction(inst, property, currentValue, oldValue, info)\n\nThis method may be called either on the prototype of a class\nusing the PropertyEffects mixin (for best performance), or on\nan instance to add dynamic effects.  When called on an instance or\nsubclass of a class that has already had property effects added to\nits prototype, the property effect lists will be cloned and added as\nown properties of the caller.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1293,
+              "column": 6
+            },
+            "end": {
+              "line": 1309,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "effect"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasPropertyEffect",
+          "description": "Returns whether the current prototype/instance has a property effect\nof a certain type.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1320,
+              "column": 6
+            },
+            "end": {
+              "line": 1323,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "type"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasReadOnlyEffect",
+          "description": "Returns whether the current prototype/instance has a \"read only\"\naccessor for the given property.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1333,
+              "column": 6
+            },
+            "end": {
+              "line": 1335,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasNotifyEffect",
+          "description": "Returns whether the current prototype/instance has a \"notify\"\nproperty effect for the given property.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1345,
+              "column": 6
+            },
+            "end": {
+              "line": 1347,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasReflectEffect",
+          "description": "Returns whether the current prototype/instance has a \"reflect to attribute\"\nproperty effect for the given property.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1357,
+              "column": 6
+            },
+            "end": {
+              "line": 1359,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasComputedEffect",
+          "description": "Returns whether the current prototype/instance has a \"computed\"\nproperty effect for the given property.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1369,
+              "column": 6
+            },
+            "end": {
+              "line": 1371,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setPendingPropertyOrPath",
+          "description": "Sets a pending property or path.  If the root property of the path in\nquestion had no accessor, the path is set, otherwise it is enqueued\nvia `_setPendingProperty`.\n\nThis function isolates relatively expensive functionality necessary\nfor the public API (`set`, `setProperties`, `notifyPath`, and property\nchange listeners via {{...}} bindings), such that it is only done\nwhen paths enter the system, and not at every propagation step.  It\nalso sets a `__dataHasPaths` flag on the instance which is used to\nfast-path slower path-matching code in the property effects host paths.\n\n`path` can be a path string or array of path parts as accepted by the\npublic API.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1401,
+              "column": 6
+            },
+            "end": {
+              "line": 1434,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "shouldNotify"
+            },
+            {
+              "name": "isPathNotification"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setUnmanagedPropertyToNode",
+          "description": "Applies a value to a non-Polymer element/node's property.\n\nThe implementation makes a best-effort at binding interop:\nSome native element properties have side-effects when\nre-setting the same value (e.g. setting <input>.value resets the\ncursor position), so we do a dirty-check before setting the value.\nHowever, for better interop with non-Polymer custom elements that\naccept objects, we explicitly re-set object changes coming from the\nPolymer world (which may include deep object changes without the\ntop reference changing), erring on the side of providing more\ninformation.\n\nUsers may override this method to provide alternate approaches.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1456,
+              "column": 6
+            },
+            "end": {
+              "line": 1464,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            },
+            {
+              "name": "prop"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setPendingProperty",
+          "description": "Overrides the `PropertyAccessors` implementation to introduce special\ndirty check logic depending on the property & value being set:\n\n1. Any value set to a path (e.g. 'obj.prop': 42 or 'obj.prop': {...})\n   Stored in `__dataTemp`, dirty checked against `__dataTemp`\n2. Object set to simple property (e.g. 'prop': {...})\n   Stored in `__dataTemp` and `__data`, dirty checked against\n   `__dataTemp` by default implementation of `_shouldPropertyChange`\n3. Primitive value set to simple property (e.g. 'prop': 42)\n   Stored in `__data`, dirty checked against `__data`\n\nThe dirty-check is important to prevent cycles due to two-way\nnotification, but paths and objects are only dirty checked against any\nprevious value set during this turn via a \"temporary cache\" that is\ncleared when the last `_propertiesChaged` exits. This is so:\na. any cached array paths (e.g. 'array.3.prop') may be invalidated\n   due to array mutations like shift/unshift/splice; this is fine\n   since path changes are dirty-checked at user entry points like `set`\nb. dirty-checking for objects only lasts one turn to allow the user\n   to mutate the object in-place and re-set it with the same identity\n   and have all sub-properties re-propagated in a subsequent turn.\n\nThe temp cache is not necessarily sufficient to prevent invalid array\npaths, since a splice can happen during the same turn (with pathological\nuser code); we could introduce a \"fixup\" for temporarily cached array\npaths if needed: https://github.com/Polymer/polymer/issues/4227",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1496,
+              "column": 6
+            },
+            "end": {
+              "line": 1527,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "shouldNotify"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setProperty",
+          "description": "Overrides base implementation to ensure all accessors set `shouldNotify`\nto true, for per-property notification tracking.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1535,
+              "column": 6
+            },
+            "end": {
+              "line": 1539,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_shouldPropertyChange",
+          "description": "Overrides default `PropertyAccessors` implementation to pull the value\nto dirty check against from the `__dataTemp` cache (rather than the\nnormal `__data` cache) for Objects.  Since the temp cache is cleared\nat the end of a turn, this implementation allows side-effects of deep\nobject changes to be processed by re-setting the same object (using\nthe temp cache as a backstop to prevent cycles due to 2-way\nnotification).\n\nOverride this to provide more strict dirty checking, i.e. immutable\n(`value === old`) or based on type.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1559,
+              "column": 6
+            },
+            "end": {
+              "line": 1565,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "old"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_invalidateProperties",
+          "description": "Overrides `PropertyAccessor`'s default async queuing of\n`_propertiesChanged`: if `__dataInitialized` is false (has not yet been\nmanually flushed), the function no-ops; otherwise flushes\n`_propertiesChanged` synchronously.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1575,
+              "column": 6
+            },
+            "end": {
+              "line": 1579,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_enqueueClient",
+          "description": "Enqueues the given client on a list of pending clients, whose\npending property changes can later be flushed via a call to\n`_flushClients`.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1589,
+              "column": 6
+            },
+            "end": {
+              "line": 1594,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "client"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_flushClients",
+          "description": "Flushes any clients previously enqueued via `_enqueueClient`, causing\ntheir `_flushProperties` method to run.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1602,
+              "column": 6
+            },
+            "end": {
+              "line": 1617,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "setProperties",
+          "description": "Sets a bag of property changes to this instance, and\nsynchronously processes all effects of the properties as a batch.\n\nProperty names must be simple properties, not paths.  Batched\npath propagation is not supported.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1630,
+              "column": 6
+            },
+            "end": {
+              "line": 1641,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "props"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_flushProperties",
+          "description": "Overrides PropertyAccessor's default async queuing of\n`_propertiesChanged`, to instead synchronously flush\n`_propertiesChanged` unless the `this._asyncEffects` property is true.\n\nIf this is the first time properties are being flushed, the `ready`\ncallback will be called.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1653,
+              "column": 6
+            },
+            "end": {
+              "line": 1663,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "ready",
+          "description": "Polymer-specific lifecycle callback called the first time properties\nare being flushed.  Prior to `ready`, all property sets through\naccessors are queued and their effects are flushed after this method\nreturns.\n\nUsers may override this function to implement behavior that is\ndependent on the element having its properties initialized, e.g.\nfrom defaults (initialized from `constructor`, `_initializeProperties`),\n`attributeChangedCallback`, or binding values propagated from host\n\"binding effects\".  `super.ready()` must be called to ensure the\ndata system becomes enabled.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1680,
+              "column": 6
+            },
+            "end": {
+              "line": 1695,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Perform any initial setup on client dom. Called before the first\n`_flushProperties` call on client dom and before any element\nobservers are called.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1704,
+              "column": 6
+            },
+            "end": {
+              "line": 1706,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_stampTemplate",
+          "description": "Stamps the provided template and performs instance-time setup for\nPolymer template features, including data bindings, declarative event\nlisteners, and the `this.$` map of `id`'s to nodes.  A document fragment\nis returned containing the stamped DOM, ready for insertion into the\nDOM.\n\nNote that for host data to be bound into the stamped DOM, the template\nmust have been previously bound to the prototype via a call to\n`_bindTemplate`, which performs one-time template binding work.\n\nNote that this method currently only supports being called once per\ninstance.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1726,
+              "column": 6
+            },
+            "end": {
+              "line": 1730,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_propertiesChanged",
+          "description": "Implements `PropertyAccessors`'s properties changed callback.\n\nRuns each class of effects for the batch of changed properties in\na specific order (compute, propagate, reflect, observe, notify).",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1740,
+              "column": 6
+            },
+            "end": {
+              "line": 1771,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "currentProps"
+            },
+            {
+              "name": "changedProps"
+            },
+            {
+              "name": "oldProps"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "linkPaths",
+          "description": "Aliases one data path as another, such that path notifications from one\nare routed to the other.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1782,
+              "column": 6
+            },
+            "end": {
+              "line": 1787,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "to"
+            },
+            {
+              "name": "from"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "unlinkPaths",
+          "description": "Removes a data path alias previously established with `_linkPaths`.\n\nNote, the path to unlink should be the target (`to`) used when\nlinking the paths.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1799,
+              "column": 6
+            },
+            "end": {
+              "line": 1804,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "notifySplices",
+          "description": "Notify that an array has changed.\n\nExample:\n\n    this.items = [ {name: 'Jim'}, {name: 'Todd'}, {name: 'Bill'} ];\n    ...\n    this.items.splice(1, 1, {name: 'Sam'});\n    this.items.push({name: 'Bob'});\n    this.notifySplices('items', [\n      { index: 1, removed: [{name: 'Todd'}], addedCount: 1, obect: this.items, type: 'splice' },\n      { index: 3, removed: [], addedCount: 1, object: this.items, type: 'splice'}\n    ]);",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1835,
+              "column": 6
+            },
+            "end": {
+              "line": 1839,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "splices"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "get",
+          "description": "Convenience method for reading a value from a path.\n\nNote, if any part in the path is undefined, this method returns\n`undefined` (this method does not throw when dereferencing undefined\npaths).",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1861,
+              "column": 6
+            },
+            "end": {
+              "line": 1863,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "root"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "set",
+          "description": "Convenience method for setting a value to a path and notifying any\nelements bound to the same path.\n\nNote, if any part in the path except for the last is undefined,\nthis method does nothing (this method does not throw when\ndereferencing undefined paths).",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1886,
+              "column": 6
+            },
+            "end": {
+              "line": 1896,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "root"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "push",
+          "description": "Adds items onto the end of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1913,
+              "column": 6
+            },
+            "end": {
+              "line": 1922,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "...items"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "pop",
+          "description": "Removes an item from the end of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1938,
+              "column": 6
+            },
+            "end": {
+              "line": 1947,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "splice",
+          "description": "Starting from the start index specified, removes 0 or more items\nfrom the array and inserts 0 or more new items in their place.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.splice`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 1967,
+              "column": 6
+            },
+            "end": {
+              "line": 1984,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "start"
+            },
+            {
+              "name": "deleteCount"
+            },
+            {
+              "name": "...items"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "shift",
+          "description": "Removes an item from the beginning of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2000,
+              "column": 6
+            },
+            "end": {
+              "line": 2009,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "unshift",
+          "description": "Adds items onto the beginning of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2026,
+              "column": 6
+            },
+            "end": {
+              "line": 2034,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "...items"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "notifyPath",
+          "description": "Notify that a path has changed.\n\nExample:\n\n    this.item.user.name = 'Bob';\n    this.notifyPath('item.user.name');",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2048,
+              "column": 6
+            },
+            "end": {
+              "line": 2065,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createReadOnlyProperty",
+          "description": "Creates a read-only accessor for the given property.\n\nTo set the property, use the protected `_setProperty` API.\nTo create a custom protected setter (e.g. `_setMyProp()` for\nproperty `myProp`), pass `true` for `protectedSetter`.\n\nNote, if the property will have other property effects, this method\nshould be called first, before adding other effects.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2082,
+              "column": 6
+            },
+            "end": {
+              "line": 2089,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "protectedSetter"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createPropertyObserver",
+          "description": "Creates a single-property observer for the given property.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2100,
+              "column": 6
+            },
+            "end": {
+              "line": 2110,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "methodName"
+            },
+            {
+              "name": "dynamicFn"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createMethodObserver",
+          "description": "Creates a multi-property \"method observer\" based on the provided\nexpression, which should be a string in the form of a normal Javascript\nfunction signature: `'methodName(arg1, [..., argn])'`.  Each argument\nshould correspond to a property or path in the context of this\nprototype (or instance), or may be a literal string or number.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2124,
+              "column": 6
+            },
+            "end": {
+              "line": 2130,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "expression"
+            },
+            {
+              "name": "dynamicFns"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createNotifyingProperty",
+          "description": "Causes the setter for the given property to dispatch `<property>-changed`\nevents to notify of changes to the property.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2139,
+              "column": 6
+            },
+            "end": {
+              "line": 2147,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createReflectedProperty",
+          "description": "Causes the setter for the given property to reflect the property value\nto a (dash-cased) attribute of the same name.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2156,
+              "column": 6
+            },
+            "end": {
+              "line": 2169,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createComputedProperty",
+          "description": "Creates a computed property whose value is set to the result of the\nmethod described by the given `expression` each time one or more\narguments to the method changes.  The expression should be a string\nin the form of a normal Javascript function signature:\n`'methodName(arg1, [..., argn])'`",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2184,
+              "column": 6
+            },
+            "end": {
+              "line": 2190,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "expression"
+            },
+            {
+              "name": "dynamicFns"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_bindTemplate",
+          "description": "Creates \"binding\" property effects for all binding bindings\nin the provided template that forward host properties into DOM stamped\nfrom the template via `_stampTemplate`.",
+          "sourceRange": {
+            "file": "../mixins/property-effects.html",
+            "start": {
+              "line": 2205,
+              "column": 6
+            },
+            "end": {
+              "line": 2224,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            },
+            {
+              "name": "dynamicFns"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "render",
+          "description": "Forces the element to render its content. This is typically only\nnecessary to call if HTMLImports with the async attribute are used.",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
+              "line": 89,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -244,6 +1215,169 @@
       "path": "polymer-element.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 524,
+              "column": 6
+            },
+            "end": {
+              "line": 551,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "connectedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 563,
+              "column": 6
+            },
+            "end": {
+              "line": 568,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 576,
+              "column": 6
+            },
+            "end": {
+              "line": 576,
+              "column": 31
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 587,
+              "column": 6
+            },
+            "end": {
+              "line": 592,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_attachDom",
+          "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 607,
+              "column": 6
+            },
+            "end": {
+              "line": 622,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 635,
+              "column": 6
+            },
+            "end": {
+              "line": 643,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "updateStyles",
+          "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 661,
+              "column": 6
+            },
+            "end": {
+              "line": 665,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "properties"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "resolveUrl",
+          "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
+          "sourceRange": {
+            "file": "lib/mixins/element-mixin.html",
+            "start": {
+              "line": 678,
+              "column": 6
+            },
+            "end": {
+              "line": 684,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "base"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -527,6 +1661,46 @@
           }
         },
         {
+          "name": "sort",
+          "type": "Function",
+          "description": "A function that should determine the sort order of the items.  This\nproperty should either be provided as a string, indicating a method\nname on the element's host, or else be an actual function.  The\nfunction should match the sort function passed to `Array.sort`.\nUsing a sort function has no effect on the underlying `items` array.",
+          "sourceRange": {
+            "start": {
+              "line": 175,
+              "column": 8
+            },
+            "end": {
+              "line": 178,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"__sortChanged\""
+            }
+          }
+        },
+        {
+          "name": "filter",
+          "type": "Function",
+          "description": "A function that can be used to filter items out of the view.  This\nproperty should either be provided as a string, indicating a method\nname on the element's host, or else be an actual function.  The\nfunction should match the sort function passed to `Array.filter`.\nUsing a filter function has no effect on the underlying `items` array.",
+          "sourceRange": {
+            "start": {
+              "line": 187,
+              "column": 8
+            },
+            "end": {
+              "line": 190,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"__filterChanged\""
+            }
+          }
+        },
+        {
           "name": "observe",
           "type": "string",
           "description": "When using a `filter` or `sort` function, the `observe` property\nshould be set to a space-separated list of the names of item\nsub-fields that should trigger a re-sort or re-filter when changed.\nThese should generally be fields of `item` that the sort or filter\nfunction depends on.",
@@ -623,6 +1797,277 @@
           "metadata": {
             "polymer": {}
           }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 524,
+              "column": 6
+            },
+            "end": {
+              "line": 551,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 587,
+              "column": 6
+            },
+            "end": {
+              "line": 592,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_attachDom",
+          "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 607,
+              "column": 6
+            },
+            "end": {
+              "line": 622,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 635,
+              "column": 6
+            },
+            "end": {
+              "line": 643,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "updateStyles",
+          "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 661,
+              "column": 6
+            },
+            "end": {
+              "line": 665,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "properties"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "resolveUrl",
+          "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 678,
+              "column": 6
+            },
+            "end": {
+              "line": 684,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "base"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "__debounceRender",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 450,
+              "column": 4
+            },
+            "end": {
+              "line": 456,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "fn"
+            },
+            {
+              "name": "delay"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "render",
+          "description": "Forces the element to render its content. Normally rendering is\nasynchronous to a provoking change. This is done for efficiency so\nthat multiple changes trigger only a single render. The render method\nshould be called if, for example, template rendering is required to\nvalidate application state.",
+          "sourceRange": {
+            "start": {
+              "line": 465,
+              "column": 4
+            },
+            "end": {
+              "line": 470,
+              "column": 5
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_showHideChildren",
+          "description": "Implements extension point from Templatize mixin",
+          "sourceRange": {
+            "start": {
+              "line": 582,
+              "column": 4
+            },
+            "end": {
+              "line": 586,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "hidden"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "__handleItemPath",
+          "description": "responsible for notifying item.<path> changes to inst for key",
+          "sourceRange": {
+            "start": {
+              "line": 590,
+              "column": 4
+            },
+            "end": {
+              "line": 612,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "itemForElement",
+          "description": "Returns the item associated with a given element stamped by\nthis `dom-repeat`.\n\nNote, to modify sub-properties of the item,\n`modelForElement(el).set('item.<sub-prop>', value)`\nshould be used.",
+          "sourceRange": {
+            "start": {
+              "line": 626,
+              "column": 4
+            },
+            "end": {
+              "line": 629,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "el"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "indexForElement",
+          "description": "Returns the inst index for a given element stamped by this `dom-repeat`.\nIf `sort` is provided, the index will reflect the sorted order (rather\nthan the original array order).",
+          "sourceRange": {
+            "start": {
+              "line": 641,
+              "column": 4
+            },
+            "end": {
+              "line": 644,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "el"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "modelForElement",
+          "description": "Returns the template \"model\" associated with a given element, which\nserves as the binding scope for the template instance the element is\ncontained in. A template model is an instance of `Polymer.Base`, and\nshould be used to manipulate data associated with this template instance.\n\nExample:\n\n  var model = modelForElement(el);\n  if (model.index < 10) {\n    model.set('item.checked', true);\n  }",
+          "sourceRange": {
+            "start": {
+              "line": 664,
+              "column": 4
+            },
+            "end": {
+              "line": 666,
+              "column": 5
+            }
+          },
+          "params": [
+            {
+              "name": "el"
+            }
+          ],
+          "metadata": {}
         }
       ],
       "styling": {
@@ -738,6 +2183,151 @@
               "observer": "\"__debounceRender\""
             }
           }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 524,
+              "column": 6
+            },
+            "end": {
+              "line": 551,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 587,
+              "column": 6
+            },
+            "end": {
+              "line": 592,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_attachDom",
+          "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 607,
+              "column": 6
+            },
+            "end": {
+              "line": 622,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 635,
+              "column": 6
+            },
+            "end": {
+              "line": 643,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "updateStyles",
+          "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 661,
+              "column": 6
+            },
+            "end": {
+              "line": 665,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "properties"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "resolveUrl",
+          "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 678,
+              "column": 6
+            },
+            "end": {
+              "line": 684,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "base"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "render",
+          "description": "Forces the element to render its content. Normally rendering is\nasynchronous to a provoking change. This is done for efficiency so\nthat multiple changes trigger only a single render. The render method\nshould be called if, for example, template rendering is required to\nvalidate application state.",
+          "sourceRange": {
+            "start": {
+              "line": 138,
+              "column": 4
+            },
+            "end": {
+              "line": 140,
+              "column": 5
+            }
+          },
+          "params": [],
+          "metadata": {}
         }
       ],
       "styling": {
@@ -953,26 +2543,312 @@
           }
         }
       ],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 524,
+              "column": 6
+            },
+            "end": {
+              "line": 551,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "connectedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 563,
+              "column": 6
+            },
+            "end": {
+              "line": 568,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 576,
+              "column": 6
+            },
+            "end": {
+              "line": 576,
+              "column": 31
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 587,
+              "column": 6
+            },
+            "end": {
+              "line": 592,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_attachDom",
+          "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 607,
+              "column": 6
+            },
+            "end": {
+              "line": 622,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 635,
+              "column": 6
+            },
+            "end": {
+              "line": 643,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "updateStyles",
+          "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 661,
+              "column": 6
+            },
+            "end": {
+              "line": 665,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "properties"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "resolveUrl",
+          "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
+          "sourceRange": {
+            "file": "../mixins/element-mixin.html",
+            "start": {
+              "line": 678,
+              "column": 6
+            },
+            "end": {
+              "line": 684,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "base"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "clearSelection",
+          "description": "Clears the selection state.",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 6
+            },
+            "end": {
+              "line": 207,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "isSelected",
+          "description": "Returns whether the item is currently selected.",
+          "sourceRange": {
+            "start": {
+              "line": 216,
+              "column": 6
+            },
+            "end": {
+              "line": 218,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "isIndexSelected",
+          "description": "Returns whether the item is currently selected.",
+          "sourceRange": {
+            "start": {
+              "line": 227,
+              "column": 6
+            },
+            "end": {
+              "line": 229,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "idx"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "deselect",
+          "description": "Deselects the given item if it is already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 256,
+              "column": 6
+            },
+            "end": {
+              "line": 271,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "deselectIndex",
+          "description": "Deselects the given index if it is already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 279,
+              "column": 6
+            },
+            "end": {
+              "line": 281,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "idx"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "select",
+          "description": "Selects the given item.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 290,
+              "column": 6
+            },
+            "end": {
+              "line": 292,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "selectIndex",
+          "description": "Selects the given index.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 301,
+              "column": 6
+            },
+            "end": {
+              "line": 317,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "idx"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
       },
       "demos": [],
       "slots": [],
-      "events": [
-        {
-          "name": "selected-changed",
-          "description": "Fired when the `selected` property changes.",
-          "type": "CustomEvent",
-          "metadata": {}
-        },
-        {
-          "name": "selected-item-changed",
-          "description": "Fired when the `selectedItem` property changes.",
-          "type": "CustomEvent",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "metadata": {},
       "sourceRange": {
         "start": {
@@ -996,6 +2872,24 @@
       "path": "lib/elements/custom-style.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "getStyle",
+          "description": "Returns the light-DOM `<style>` child this element wraps.  Upon first\ncall any style modules referenced via the `include` attribute will be\nconcatenated to this element's `<style>`.",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 4
+            },
+            "end": {
+              "line": 66,
+              "column": 5
+            }
+          },
+          "params": [],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1022,10 +2916,365 @@
   "mixins": [
     {
       "description": "Element class mixin that provides basic meta-programming for creating one\nor more property accessors (getter/setter pair) that enqueue an async\n(batched) `_propertiesChanged` callback.\n\nFor basic usage of this mixin, simply declare attributes to observe via\nthe standard `static get observedAttributes()`, implement `_propertiesChanged`\non the class, and then call `MyClass.createPropertiesForAttributes()` once\non the class to generate property accessors for each observed attribute\nprior to instancing.  Any `observedAttributes` will automatically be\ndeserialized via `attributeChangedCallback` and set to the associated\nproperty using `dash-case`-to-`camelCase` convention.",
-      "summary": "",
+      "summary": "Element class mixin for reacting to property changes from\n  generated property accessors.",
       "path": "lib/mixins/property-accessors.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Initializes the local storage for property accessors.\n\nProvided as an override point for performing any setup work prior\nto initializing the property accessor system.",
+          "sourceRange": {
+            "start": {
+              "line": 128,
+              "column": 6
+            },
+            "end": {
+              "line": 139,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_initializeProtoProperties",
+          "description": "Called at instance time with bag of properties that were overwritten\nby accessors on the prototype when accessors were created.\n\nThe default implementation sets these properties back into the\nsetter at instance time.  This method is provided as an override\npoint for customizing or providing more efficient initialization.",
+          "sourceRange": {
+            "start": {
+              "line": 153,
+              "column": 6
+            },
+            "end": {
+              "line": 157,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "props"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_ensureAttribute",
+          "description": "Ensures the element has the given attribute. If it does not,\nassigns the given value to the attribute.",
+          "sourceRange": {
+            "start": {
+              "line": 168,
+              "column": 6
+            },
+            "end": {
+              "line": 172,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "attribute"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_attributeToProperty",
+          "description": "Deserializes an attribute to its associated property.\n\nThis method calls the `_deserializeValue` method to convert the string to\na typed value.",
+          "sourceRange": {
+            "start": {
+              "line": 185,
+              "column": 6
+            },
+            "end": {
+              "line": 191,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "attribute"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "type"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_propertyToAttribute",
+          "description": "Serializes a property to its associated attribute.",
+          "sourceRange": {
+            "start": {
+              "line": 201,
+              "column": 6
+            },
+            "end": {
+              "line": 207,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "attribute"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_valueToNodeAttribute",
+          "description": "Sets a typed value to an HTML attribute on a node.\n\nThis method calls the `_serializeValue` method to convert the typed\nvalue to a string.  If the `_serializeValue` method returns `undefined`,\nthe attribute will be removed (this is the default for boolean\ntype `false`).",
+          "sourceRange": {
+            "start": {
+              "line": 222,
+              "column": 6
+            },
+            "end": {
+              "line": 229,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "attribute"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_serializeValue",
+          "description": "Converts a typed JavaScript value to a string.\n\nThis method is called by Polymer when setting JS property values to\nHTML attributes.  Users may override this method on Polymer element\nprototypes to provide serialization for custom types.",
+          "sourceRange": {
+            "start": {
+              "line": 242,
+              "column": 6
+            },
+            "end": {
+              "line": 262,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_deserializeValue",
+          "description": "Converts a string to a typed JavaScript value.\n\nThis method is called by Polymer when reading HTML attribute values to\nJS properties.  Users may override this method on Polymer element\nprototypes to provide deserialization for custom `type`s.  Note,\nthe `type` argument is the value of the `type` field provided in the\n`properties` configuration object for a given property, and is\nby convention the constructor for the type to deserialize.\n\nNote: The return value of `undefined` is used as a sentinel value to\nindicate the attribute should be removed.",
+          "sourceRange": {
+            "start": {
+              "line": 282,
+              "column": 6
+            },
+            "end": {
+              "line": 324,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "type"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createPropertyAccessor",
+          "description": "Creates a setter/getter pair for the named property with its own\nlocal storage.  The getter returns the value in the local storage,\nand the setter calls `_setProperty`, which updates the local storage\nfor the property and enqueues a `_propertiesChanged` callback.\n\nThis method may be called on a prototype or an instance.  Calling\nthis method may overwrite a property value that already exists on\nthe prototype/instance by creating the accessor.  When calling on\na prototype, any overwritten values are saved in `__dataProto`,\nand it is up to the subclasser to decide how/when to set those\nproperties back into the accessor.  When calling on an instance,\nthe overwritten value is set via `_setPendingProperty`, and the\nuser should call `_invalidateProperties` or `_flushProperties`\nfor the values to take effect.",
+          "sourceRange": {
+            "start": {
+              "line": 348,
+              "column": 6
+            },
+            "end": {
+              "line": 358,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "readOnly"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setProperty",
+          "description": "Updates the local storage for a property (via `_setPendingProperty`)\nand enqueues a `_proeprtiesChanged` callback.",
+          "sourceRange": {
+            "start": {
+              "line": 368,
+              "column": 6
+            },
+            "end": {
+              "line": 372,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setPendingProperty",
+          "description": "Updates the local storage for a property, records the previous value,\nand adds it to the set of \"pending changes\" that will be passed to the\n`_propertiesChanged` callback.  This method does not enqueue the\n`_propertiesChanged` callback.",
+          "sourceRange": {
+            "start": {
+              "line": 384,
+              "column": 6
+            },
+            "end": {
+              "line": 399,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_isPropertyPending",
+          "description": "Returns true if the specified property has a pending change.",
+          "sourceRange": {
+            "start": {
+              "line": 408,
+              "column": 6
+            },
+            "end": {
+              "line": 410,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "prop"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_invalidateProperties",
+          "description": "Marks the properties as invalid, and enqueues an async\n`_propertiesChanged` callback.",
+          "sourceRange": {
+            "start": {
+              "line": 418,
+              "column": 6
+            },
+            "end": {
+              "line": 428,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_flushProperties",
+          "description": "Calls the `_propertiesChanged` callback with the current set of\npending changes (and old values recorded when pending changes were\nset), and resets the pending set of changes.",
+          "sourceRange": {
+            "start": {
+              "line": 437,
+              "column": 6
+            },
+            "end": {
+              "line": 444,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_propertiesChanged",
+          "description": "Callback called when any properties with accessors created via\n`_createPropertyAccessor` have been set.",
+          "sourceRange": {
+            "start": {
+              "line": 457,
+              "column": 6
+            },
+            "end": {
+              "line": 458,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "currentProps"
+            },
+            {
+              "name": "changedProps"
+            },
+            {
+              "name": "oldProps"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_shouldPropertyChange",
+          "description": "Method called to determine whether a property value should be\nconsidered as a change and cause the `_propertiesChanged` callback\nto be enqueued.\n\nThe default implementation returns `true` for primitive types if a\nstrict equality check fails, and returns `true` for all Object/Arrays.\nThe method always returns false for `NaN`.\n\nOverride this method to e.g. provide stricter checking for\nObjects/Arrays when using immutable patterns.",
+          "sourceRange": {
+            "start": {
+              "line": 479,
+              "column": 6
+            },
+            "end": {
+              "line": 486,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "old"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1048,10 +3297,52 @@
     },
     {
       "description": "Element mixin that provides basic template parsing and stamping, including\nthe following template-related features for stamped templates:\n\n- Declarative event listeners (`on-eventname=\"listener\"`)\n- Map of node id's to stamped node instances (`this.$.id`)\n- Nested template content caching/removal and re-installation (performance\n  optimization)\n- Relative URL's relative to original template location\n- Template binding annotation parsing (note that this library only parses\n  template bindings and provides annotation metadata; see\n  `Polymer.PropertyEffects` for a full implementation of data-binding)",
-      "summary": "",
+      "summary": "Element mixin that provides basic template parsing and stamping",
       "path": "lib/mixins/template-stamp.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "_stampTemplate",
+          "description": "Clones the provided template content and returns a document fragment\ncontaining the cloned dom.\n\nThe template is parsed (once and memoized) using this library's\ntemplate parsing features, which identify nodes with declarative\nevent listeners (`on-...``), `id`'s, `<template>`s, and bindings\n(`{{...}}` and `[[...]]`).  This template metadata (\"notes\")\nare stored as `this.__templateNotes`, and any nodes identified in\nnotes are collected for this instance into `__templateNodes` in\nthe same order as the notes array.\n\nFinally, this method generates an \"id map\" for all nodes with id's\nunder `this.$`, passes template content back to templates as `_content`\n(a performance optimization to avoid deep template cloning), and\ninstalls declarative event listeners.\n\nNote that the memoized template parsing process is destructive to the\ntemplate: attributes for bindings and declarative event listeners are\nremoved after being noted in notes, and any nested <template>.content\nis removed and stored in notes as well.\n\nNote that this method may only be called once per instance (it does\nnot support stamping multiple templates per element instance).",
+          "sourceRange": {
+            "start": {
+              "line": 491,
+              "column": 6
+            },
+            "end": {
+              "line": 510,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_parseTemplateAnnotations",
+          "description": "a supplied list of callbacks.",
+          "sourceRange": {
+            "start": {
+              "line": 519,
+              "column": 6
+            },
+            "end": {
+              "line": 521,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1074,10 +3365,887 @@
     },
     {
       "description": "Element class mixin that provides meta-programming for Polymer's template\nbinding and data observation (collectively, \"property effects\") system.\n\nThis mixin uses provides the following key methods for adding property effects\nto this element:\n- `_createPropertyObserver`\n- `_createMethodObserver`\n- `_createNotifyingProperty`\n- `_createReadOnlyProperty`\n- `_createReflectedProperty`\n- `_createComputedProperty`\n- `_bindTemplate`\n\nEach method creates one or more property accessors, along with metadata\nused by this mixin's implementation of `_propertiesChanged` to perform\nthe property effects.  These methods may be called on element instances,\nbut are designed to be called on element prototypes such that the work to\nset up accessors and effect metadata are done once per element class.",
-      "summary": "",
+      "summary": "Element class mixin that provides meta-programming for Polymer's\ntemplate binding and data observation system.",
       "path": "lib/mixins/property-effects.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides `Polymer.PropertyAccessors` implementation to initialize\nadditional property-effect related properties.",
+          "sourceRange": {
+            "start": {
+              "line": 1225,
+              "column": 6
+            },
+            "end": {
+              "line": 1247,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_initializeProtoProperties",
+          "description": "Overrides `Polymer.PropertyAccessors` implementation to provide a\nmore efficient implementation of initializing properties from\nthe prototype on the instance.",
+          "sourceRange": {
+            "start": {
+              "line": 1256,
+              "column": 6
+            },
+            "end": {
+              "line": 1260,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "props"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_addPropertyEffect",
+          "description": "Ensures an accessor exists for the specified property, and adds\nto a list of \"property effects\" that will run when the accessor for\nthe specified property is set.  Effects are grouped by \"type\", which\nroughly corresponds to a phase in effect processing.  The effect\nmetadata should be in the following form:\n\n  {\n    fn: effectFunction, // Reference to function to call to perform effect\n    info: { ... }       // Effect metadata passed to function\n    // path: '...'      // Will be set by this method based on path arg\n  }\n\nEffect functions are called with the following signature:\n\n  effectFunction(inst, property, currentValue, oldValue, info)\n\nThis method may be called either on the prototype of a class\nusing the PropertyEffects mixin (for best performance), or on\nan instance to add dynamic effects.  When called on an instance or\nsubclass of a class that has already had property effects added to\nits prototype, the property effect lists will be cloned and added as\nown properties of the caller.",
+          "sourceRange": {
+            "start": {
+              "line": 1293,
+              "column": 6
+            },
+            "end": {
+              "line": 1309,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "effect"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasPropertyEffect",
+          "description": "Returns whether the current prototype/instance has a property effect\nof a certain type.",
+          "sourceRange": {
+            "start": {
+              "line": 1320,
+              "column": 6
+            },
+            "end": {
+              "line": 1323,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "type"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasReadOnlyEffect",
+          "description": "Returns whether the current prototype/instance has a \"read only\"\naccessor for the given property.",
+          "sourceRange": {
+            "start": {
+              "line": 1333,
+              "column": 6
+            },
+            "end": {
+              "line": 1335,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasNotifyEffect",
+          "description": "Returns whether the current prototype/instance has a \"notify\"\nproperty effect for the given property.",
+          "sourceRange": {
+            "start": {
+              "line": 1345,
+              "column": 6
+            },
+            "end": {
+              "line": 1347,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasReflectEffect",
+          "description": "Returns whether the current prototype/instance has a \"reflect to attribute\"\nproperty effect for the given property.",
+          "sourceRange": {
+            "start": {
+              "line": 1357,
+              "column": 6
+            },
+            "end": {
+              "line": 1359,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_hasComputedEffect",
+          "description": "Returns whether the current prototype/instance has a \"computed\"\nproperty effect for the given property.",
+          "sourceRange": {
+            "start": {
+              "line": 1369,
+              "column": 6
+            },
+            "end": {
+              "line": 1371,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setPendingPropertyOrPath",
+          "description": "Sets a pending property or path.  If the root property of the path in\nquestion had no accessor, the path is set, otherwise it is enqueued\nvia `_setPendingProperty`.\n\nThis function isolates relatively expensive functionality necessary\nfor the public API (`set`, `setProperties`, `notifyPath`, and property\nchange listeners via {{...}} bindings), such that it is only done\nwhen paths enter the system, and not at every propagation step.  It\nalso sets a `__dataHasPaths` flag on the instance which is used to\nfast-path slower path-matching code in the property effects host paths.\n\n`path` can be a path string or array of path parts as accepted by the\npublic API.",
+          "sourceRange": {
+            "start": {
+              "line": 1401,
+              "column": 6
+            },
+            "end": {
+              "line": 1434,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "shouldNotify"
+            },
+            {
+              "name": "isPathNotification"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setUnmanagedPropertyToNode",
+          "description": "Applies a value to a non-Polymer element/node's property.\n\nThe implementation makes a best-effort at binding interop:\nSome native element properties have side-effects when\nre-setting the same value (e.g. setting <input>.value resets the\ncursor position), so we do a dirty-check before setting the value.\nHowever, for better interop with non-Polymer custom elements that\naccept objects, we explicitly re-set object changes coming from the\nPolymer world (which may include deep object changes without the\ntop reference changing), erring on the side of providing more\ninformation.\n\nUsers may override this method to provide alternate approaches.",
+          "sourceRange": {
+            "start": {
+              "line": 1456,
+              "column": 6
+            },
+            "end": {
+              "line": 1464,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            },
+            {
+              "name": "prop"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setPendingProperty",
+          "description": "Overrides the `PropertyAccessors` implementation to introduce special\ndirty check logic depending on the property & value being set:\n\n1. Any value set to a path (e.g. 'obj.prop': 42 or 'obj.prop': {...})\n   Stored in `__dataTemp`, dirty checked against `__dataTemp`\n2. Object set to simple property (e.g. 'prop': {...})\n   Stored in `__dataTemp` and `__data`, dirty checked against\n   `__dataTemp` by default implementation of `_shouldPropertyChange`\n3. Primitive value set to simple property (e.g. 'prop': 42)\n   Stored in `__data`, dirty checked against `__data`\n\nThe dirty-check is important to prevent cycles due to two-way\nnotification, but paths and objects are only dirty checked against any\nprevious value set during this turn via a \"temporary cache\" that is\ncleared when the last `_propertiesChaged` exits. This is so:\na. any cached array paths (e.g. 'array.3.prop') may be invalidated\n   due to array mutations like shift/unshift/splice; this is fine\n   since path changes are dirty-checked at user entry points like `set`\nb. dirty-checking for objects only lasts one turn to allow the user\n   to mutate the object in-place and re-set it with the same identity\n   and have all sub-properties re-propagated in a subsequent turn.\n\nThe temp cache is not necessarily sufficient to prevent invalid array\npaths, since a splice can happen during the same turn (with pathological\nuser code); we could introduce a \"fixup\" for temporarily cached array\npaths if needed: https://github.com/Polymer/polymer/issues/4227",
+          "sourceRange": {
+            "start": {
+              "line": 1496,
+              "column": 6
+            },
+            "end": {
+              "line": 1527,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "shouldNotify"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_setProperty",
+          "description": "Overrides base implementation to ensure all accessors set `shouldNotify`\nto true, for per-property notification tracking.",
+          "sourceRange": {
+            "start": {
+              "line": 1535,
+              "column": 6
+            },
+            "end": {
+              "line": 1539,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_shouldPropertyChange",
+          "description": "Overrides default `PropertyAccessors` implementation to pull the value\nto dirty check against from the `__dataTemp` cache (rather than the\nnormal `__data` cache) for Objects.  Since the temp cache is cleared\nat the end of a turn, this implementation allows side-effects of deep\nobject changes to be processed by re-setting the same object (using\nthe temp cache as a backstop to prevent cycles due to 2-way\nnotification).\n\nOverride this to provide more strict dirty checking, i.e. immutable\n(`value === old`) or based on type.",
+          "sourceRange": {
+            "start": {
+              "line": 1559,
+              "column": 6
+            },
+            "end": {
+              "line": 1565,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "old"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_invalidateProperties",
+          "description": "Overrides `PropertyAccessor`'s default async queuing of\n`_propertiesChanged`: if `__dataInitialized` is false (has not yet been\nmanually flushed), the function no-ops; otherwise flushes\n`_propertiesChanged` synchronously.",
+          "sourceRange": {
+            "start": {
+              "line": 1575,
+              "column": 6
+            },
+            "end": {
+              "line": 1579,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_enqueueClient",
+          "description": "Enqueues the given client on a list of pending clients, whose\npending property changes can later be flushed via a call to\n`_flushClients`.",
+          "sourceRange": {
+            "start": {
+              "line": 1589,
+              "column": 6
+            },
+            "end": {
+              "line": 1594,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "client"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_flushClients",
+          "description": "Flushes any clients previously enqueued via `_enqueueClient`, causing\ntheir `_flushProperties` method to run.",
+          "sourceRange": {
+            "start": {
+              "line": 1602,
+              "column": 6
+            },
+            "end": {
+              "line": 1617,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "setProperties",
+          "description": "Sets a bag of property changes to this instance, and\nsynchronously processes all effects of the properties as a batch.\n\nProperty names must be simple properties, not paths.  Batched\npath propagation is not supported.",
+          "sourceRange": {
+            "start": {
+              "line": 1630,
+              "column": 6
+            },
+            "end": {
+              "line": 1641,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "props"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_flushProperties",
+          "description": "Overrides PropertyAccessor's default async queuing of\n`_propertiesChanged`, to instead synchronously flush\n`_propertiesChanged` unless the `this._asyncEffects` property is true.\n\nIf this is the first time properties are being flushed, the `ready`\ncallback will be called.",
+          "sourceRange": {
+            "start": {
+              "line": 1653,
+              "column": 6
+            },
+            "end": {
+              "line": 1663,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "ready",
+          "description": "Polymer-specific lifecycle callback called the first time properties\nare being flushed.  Prior to `ready`, all property sets through\naccessors are queued and their effects are flushed after this method\nreturns.\n\nUsers may override this function to implement behavior that is\ndependent on the element having its properties initialized, e.g.\nfrom defaults (initialized from `constructor`, `_initializeProperties`),\n`attributeChangedCallback`, or binding values propagated from host\n\"binding effects\".  `super.ready()` must be called to ensure the\ndata system becomes enabled.",
+          "sourceRange": {
+            "start": {
+              "line": 1680,
+              "column": 6
+            },
+            "end": {
+              "line": 1695,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Perform any initial setup on client dom. Called before the first\n`_flushProperties` call on client dom and before any element\nobservers are called.",
+          "sourceRange": {
+            "start": {
+              "line": 1704,
+              "column": 6
+            },
+            "end": {
+              "line": 1706,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_stampTemplate",
+          "description": "Stamps the provided template and performs instance-time setup for\nPolymer template features, including data bindings, declarative event\nlisteners, and the `this.$` map of `id`'s to nodes.  A document fragment\nis returned containing the stamped DOM, ready for insertion into the\nDOM.\n\nNote that for host data to be bound into the stamped DOM, the template\nmust have been previously bound to the prototype via a call to\n`_bindTemplate`, which performs one-time template binding work.\n\nNote that this method currently only supports being called once per\ninstance.",
+          "sourceRange": {
+            "start": {
+              "line": 1726,
+              "column": 6
+            },
+            "end": {
+              "line": 1730,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_propertiesChanged",
+          "description": "Implements `PropertyAccessors`'s properties changed callback.\n\nRuns each class of effects for the batch of changed properties in\na specific order (compute, propagate, reflect, observe, notify).",
+          "sourceRange": {
+            "start": {
+              "line": 1740,
+              "column": 6
+            },
+            "end": {
+              "line": 1771,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "currentProps"
+            },
+            {
+              "name": "changedProps"
+            },
+            {
+              "name": "oldProps"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "linkPaths",
+          "description": "Aliases one data path as another, such that path notifications from one\nare routed to the other.",
+          "sourceRange": {
+            "start": {
+              "line": 1782,
+              "column": 6
+            },
+            "end": {
+              "line": 1787,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "to"
+            },
+            {
+              "name": "from"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "unlinkPaths",
+          "description": "Removes a data path alias previously established with `_linkPaths`.\n\nNote, the path to unlink should be the target (`to`) used when\nlinking the paths.",
+          "sourceRange": {
+            "start": {
+              "line": 1799,
+              "column": 6
+            },
+            "end": {
+              "line": 1804,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "notifySplices",
+          "description": "Notify that an array has changed.\n\nExample:\n\n    this.items = [ {name: 'Jim'}, {name: 'Todd'}, {name: 'Bill'} ];\n    ...\n    this.items.splice(1, 1, {name: 'Sam'});\n    this.items.push({name: 'Bob'});\n    this.notifySplices('items', [\n      { index: 1, removed: [{name: 'Todd'}], addedCount: 1, obect: this.items, type: 'splice' },\n      { index: 3, removed: [], addedCount: 1, object: this.items, type: 'splice'}\n    ]);",
+          "sourceRange": {
+            "start": {
+              "line": 1835,
+              "column": 6
+            },
+            "end": {
+              "line": 1839,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "splices"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "get",
+          "description": "Convenience method for reading a value from a path.\n\nNote, if any part in the path is undefined, this method returns\n`undefined` (this method does not throw when dereferencing undefined\npaths).",
+          "sourceRange": {
+            "start": {
+              "line": 1861,
+              "column": 6
+            },
+            "end": {
+              "line": 1863,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "root"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "set",
+          "description": "Convenience method for setting a value to a path and notifying any\nelements bound to the same path.\n\nNote, if any part in the path except for the last is undefined,\nthis method does nothing (this method does not throw when\ndereferencing undefined paths).",
+          "sourceRange": {
+            "start": {
+              "line": 1886,
+              "column": 6
+            },
+            "end": {
+              "line": 1896,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "root"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "push",
+          "description": "Adds items onto the end of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "start": {
+              "line": 1913,
+              "column": 6
+            },
+            "end": {
+              "line": 1922,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "...items"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "pop",
+          "description": "Removes an item from the end of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "start": {
+              "line": 1938,
+              "column": 6
+            },
+            "end": {
+              "line": 1947,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "splice",
+          "description": "Starting from the start index specified, removes 0 or more items\nfrom the array and inserts 0 or more new items in their place.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.splice`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "start": {
+              "line": 1967,
+              "column": 6
+            },
+            "end": {
+              "line": 1984,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "start"
+            },
+            {
+              "name": "deleteCount"
+            },
+            {
+              "name": "...items"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "shift",
+          "description": "Removes an item from the beginning of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "start": {
+              "line": 2000,
+              "column": 6
+            },
+            "end": {
+              "line": 2009,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "unshift",
+          "description": "Adds items onto the beginning of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
+          "sourceRange": {
+            "start": {
+              "line": 2026,
+              "column": 6
+            },
+            "end": {
+              "line": 2034,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "...items"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "notifyPath",
+          "description": "Notify that a path has changed.\n\nExample:\n\n    this.item.user.name = 'Bob';\n    this.notifyPath('item.user.name');",
+          "sourceRange": {
+            "start": {
+              "line": 2048,
+              "column": 6
+            },
+            "end": {
+              "line": 2065,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createReadOnlyProperty",
+          "description": "Creates a read-only accessor for the given property.\n\nTo set the property, use the protected `_setProperty` API.\nTo create a custom protected setter (e.g. `_setMyProp()` for\nproperty `myProp`), pass `true` for `protectedSetter`.\n\nNote, if the property will have other property effects, this method\nshould be called first, before adding other effects.",
+          "sourceRange": {
+            "start": {
+              "line": 2082,
+              "column": 6
+            },
+            "end": {
+              "line": 2089,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "protectedSetter"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createPropertyObserver",
+          "description": "Creates a single-property observer for the given property.",
+          "sourceRange": {
+            "start": {
+              "line": 2100,
+              "column": 6
+            },
+            "end": {
+              "line": 2110,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "methodName"
+            },
+            {
+              "name": "dynamicFn"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createMethodObserver",
+          "description": "Creates a multi-property \"method observer\" based on the provided\nexpression, which should be a string in the form of a normal Javascript\nfunction signature: `'methodName(arg1, [..., argn])'`.  Each argument\nshould correspond to a property or path in the context of this\nprototype (or instance), or may be a literal string or number.",
+          "sourceRange": {
+            "start": {
+              "line": 2124,
+              "column": 6
+            },
+            "end": {
+              "line": 2130,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "expression"
+            },
+            {
+              "name": "dynamicFns"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createNotifyingProperty",
+          "description": "Causes the setter for the given property to dispatch `<property>-changed`\nevents to notify of changes to the property.",
+          "sourceRange": {
+            "start": {
+              "line": 2139,
+              "column": 6
+            },
+            "end": {
+              "line": 2147,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createReflectedProperty",
+          "description": "Causes the setter for the given property to reflect the property value\nto a (dash-cased) attribute of the same name.",
+          "sourceRange": {
+            "start": {
+              "line": 2156,
+              "column": 6
+            },
+            "end": {
+              "line": 2169,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_createComputedProperty",
+          "description": "Creates a computed property whose value is set to the result of the\nmethod described by the given `expression` each time one or more\narguments to the method changes.  The expression should be a string\nin the form of a normal Javascript function signature:\n`'methodName(arg1, [..., argn])'`",
+          "sourceRange": {
+            "start": {
+              "line": 2184,
+              "column": 6
+            },
+            "end": {
+              "line": 2190,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "expression"
+            },
+            {
+              "name": "dynamicFns"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_bindTemplate",
+          "description": "Creates \"binding\" property effects for all binding bindings\nin the provided template that forward host properties into DOM stamped\nfrom the template via `_stampTemplate`.",
+          "sourceRange": {
+            "start": {
+              "line": 2205,
+              "column": 6
+            },
+            "end": {
+              "line": 2224,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            },
+            {
+              "name": "dynamicFns"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1088,11 +4256,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 1234,
+          "line": 1205,
           "column": 2
         },
         "end": {
-          "line": 2242,
+          "line": 2229,
           "column": 4
         }
       },
@@ -1100,10 +4268,165 @@
     },
     {
       "description": "Element class mixin that provides the core API for Polymer's meta-programming\nfeatures including template stamping, data-binding, attribute deserialization,\nand property change observation.\n\nSubclassers may provide the following static getters to return metadata\nused to configure Polymer's features for the class:\n\n- `static get is()`: When the template is provided via a `dom-module`,\n  users should return the `dom-module` id from a static `is` getter.  If\n  no template is needed or the template is provided directly via the\n  `template` getter, there is no need to define `is` for the element.\n\n- `static get template()`: Users may provide the template directly (as\n  opposed to via `dom-module`) by implementing a static `template` getter.\n  The getter may return an `HTMLTemplateElement` or a string, which will\n  automatically be parsed into a template.\n\n- `static get properties()`: Should return an object describing\n  property-related metadata used by Polymer features (key: property name\n  value: object containing property metadata). Valid keys in per-property\n  metadata include:\n  - `type` (String|Number|Object|Array|...): Used by\n    `attributeChangedCallback` to determine how string-based attributes\n    are deserialized to JavaScript property values.\n  - `notify` (boolean): Causes a change in the property to fire a\n    non-bubbling event called `<property>-changed`. Elements that have\n    enabled two-way binding to the property use this event to observe changes.\n  - `readOnly` (boolean): Creates a getter for the property, but no setter.\n    To set a read-only property, use the private setter method\n    `_setProperty(property, value)`.\n  - `observer` (string): Observer method name that will be called when\n    the property changes. The arguments of the method are\n    `(value, previousValue)`.\n  - `computed` (string): String describing method and dependent properties\n    for computing the value of this property (e.g. `'computeFoo(bar, zot)'`).\n    Computed properties are read-only by default and can only be changed\n    via the return value of the computing method.\n\n- `static get observers()`: Array of strings describing multi-property\n  observer methods and their dependent properties (e.g.\n  `'observeABC(a, b, c)'`).\n\nThe base class provides default implementations for the following standard\ncustom element lifecycle callbacks; users may override these, but should\ncall the super method to ensure\n- `constructor`: Run when the element is created or upgraded\n- `connectedCallback`: Run each time the element is connected to the\n  document\n- `disconnectedCallback`: Run each time the element is disconnected from\n  the document\n- `attributeChangedCallback`: Run each time an attribute in\n  `observedAttributes` is set or removed (note: this element's default\n  `observedAttributes` implementation will automatically return an array\n  of dash-cased attributes based on `properties`)",
-      "summary": "",
+      "summary": "Element class mixin that provides the core API for Polymer's\nmeta-programming features.",
       "path": "lib/mixins/element-mixin.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
+          "sourceRange": {
+            "start": {
+              "line": 524,
+              "column": 6
+            },
+            "end": {
+              "line": 551,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "connectedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.",
+          "sourceRange": {
+            "start": {
+              "line": 563,
+              "column": 6
+            },
+            "end": {
+              "line": 568,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.",
+          "sourceRange": {
+            "start": {
+              "line": 576,
+              "column": 6
+            },
+            "end": {
+              "line": 576,
+              "column": 31
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_readyClients",
+          "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
+          "sourceRange": {
+            "start": {
+              "line": 587,
+              "column": 6
+            },
+            "end": {
+              "line": 592,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_attachDom",
+          "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
+          "sourceRange": {
+            "start": {
+              "line": 607,
+              "column": 6
+            },
+            "end": {
+              "line": 622,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
+          "sourceRange": {
+            "start": {
+              "line": 635,
+              "column": 6
+            },
+            "end": {
+              "line": 643,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "updateStyles",
+          "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
+          "sourceRange": {
+            "start": {
+              "line": 661,
+              "column": 6
+            },
+            "end": {
+              "line": 665,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "properties"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "resolveUrl",
+          "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
+          "sourceRange": {
+            "start": {
+              "line": 678,
+              "column": 6
+            },
+            "end": {
+              "line": 684,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "base"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1118,7 +4441,7 @@
           "column": 2
         },
         "end": {
-          "line": 651,
+          "line": 689,
           "column": 4
         }
       },
@@ -1126,10 +4449,11 @@
     },
     {
       "description": "Element class mixin that provides API for adding Polymer's cross-platform\ngesture events to nodes.\n\nThe API is designed to be compatible with override points implemented\nin `Polymer.TemplateStamp` such that declarative event listeners in\ntemplates will support gesture events when this mixin is applied along with\n`Polymer.TemplateStamp`.",
-      "summary": "",
+      "summary": "Element class mixin that provides API for adding Polymer's cross-platform\ngesture events to nodes",
       "path": "lib/mixins/gesture-event-listeners.html",
       "attributes": [],
       "properties": [],
+      "methods": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1152,10 +4476,1142 @@
     },
     {
       "description": "Element class mixin that provides Polymer's \"legacy\" API intended to be\nbackward-compatible to the greatest extent possible with the API\nfound on the Polymer 1.x `Polymer.Base` prototype applied to all elements\ndefined using the `Polymer({...})` function.",
-      "summary": "",
+      "summary": "Element class mixin that provides Polymer's \"legacy\" API",
       "path": "lib/legacy/legacy-element-mixin.html",
       "attributes": [],
       "properties": [],
+      "methods": [
+        {
+          "name": "created",
+          "description": "Legacy callback called during the `constructor`, for overriding\nby the user.",
+          "sourceRange": {
+            "start": {
+              "line": 64,
+              "column": 6
+            },
+            "end": {
+              "line": 64,
+              "column": 18
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "attached",
+          "description": "Legacy callback called during `connectedCallback`, for overriding\nby the user.",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 6
+            },
+            "end": {
+              "line": 76,
+              "column": 19
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "detached",
+          "description": "Legacy callback called during `disconnectedCallback`, for overriding\nby the user.",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 6
+            },
+            "end": {
+              "line": 88,
+              "column": 19
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "attributeChanged",
+          "description": "Legacy callback called during `attributeChangedChallback`, for overriding\nby the user.",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 6
+            },
+            "end": {
+              "line": 101,
+              "column": 27
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_initializeProperties",
+          "description": "Overrides the default `Polymer.PropertyEffects` implementation to\nadd support for one-time `registration` callback.",
+          "sourceRange": {
+            "start": {
+              "line": 109,
+              "column": 6
+            },
+            "end": {
+              "line": 112,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_registered",
+          "description": "Called automatically when an element is initializing.\nUsers may override this method to perform class registration time\nwork. The implementation should ensure the work is performed\nonly once for the class.",
+          "sourceRange": {
+            "start": {
+              "line": 121,
+              "column": 6
+            },
+            "end": {
+              "line": 121,
+              "column": 22
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "ready",
+          "description": "Overrides the default `Polymer.PropertyEffects` implementation to\nadd support for installing `hostAttributes` and `listeners`.",
+          "sourceRange": {
+            "start": {
+              "line": 129,
+              "column": 6
+            },
+            "end": {
+              "line": 133,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_ensureAttributes",
+          "description": "Ensures an element has required attributes. Called when the element\nis being readied via `ready`. Users should override to set the\nelement's required attributes. The implementation should be sure\nto check and not override existing attributes added by\nthe user of the element. Typically, setting attributes should be left\nto the element user and not done here; reasonable exceptions include\nsetting aria roles and focusability.",
+          "sourceRange": {
+            "start": {
+              "line": 145,
+              "column": 6
+            },
+            "end": {
+              "line": 145,
+              "column": 28
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "_applyListeners",
+          "description": "Adds element event listeners. Called when the element\nis being readied via `ready`. Users should override to\nadd any required element event listeners.\nIn performance critical elements, the work done here should be kept\nto a minimum since it is done before the element is rendered. In\nthese elements, consider adding listeners asychronously so as not to\nblock render.",
+          "sourceRange": {
+            "start": {
+              "line": 157,
+              "column": 6
+            },
+            "end": {
+              "line": 157,
+              "column": 26
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "serialize",
+          "description": "Converts a typed JavaScript value to a string.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features. To customize\nhow properties are serialized to attributes for attribute bindings and\n`reflectToAttribute: true` properties as well as this method, override\nthe `_serializeValue` method provided by `Polymer.PropertyAccessors`.",
+          "sourceRange": {
+            "start": {
+              "line": 171,
+              "column": 6
+            },
+            "end": {
+              "line": 173,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "deserialize",
+          "description": "Converts a string to a typed JavaScript value.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.  To customize\nhow attributes are deserialized to properties for in\n`attributeChangedCallback`, override `_deserializeValue` method\nprovided by `Polymer.PropertyAccessors`.",
+          "sourceRange": {
+            "start": {
+              "line": 187,
+              "column": 6
+            },
+            "end": {
+              "line": 189,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "type"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "reflectPropertyToAttribute",
+          "description": "Serializes a property to its associated attribute.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.",
+          "sourceRange": {
+            "start": {
+              "line": 201,
+              "column": 6
+            },
+            "end": {
+              "line": 203,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            },
+            {
+              "name": "attribute"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "serializeValueToAttribute",
+          "description": "Sets a typed value to an HTML attribute on a node.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.",
+          "sourceRange": {
+            "start": {
+              "line": 215,
+              "column": 6
+            },
+            "end": {
+              "line": 217,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "attribute"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "extend",
+          "description": "Copies own properties (including accessor descriptors) from a source\nobject to a target object.",
+          "sourceRange": {
+            "start": {
+              "line": 228,
+              "column": 6
+            },
+            "end": {
+              "line": 240,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "prototype"
+            },
+            {
+              "name": "api"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "mixin",
+          "description": "Copies props from a source object to a target object.\n\nNote, this method uses a simple `for...in` strategy for enumerating\nproperties.  To ensure only `ownProperties` are copied from source\nto target and that accessor implementations are copied, use `extend`.",
+          "sourceRange": {
+            "start": {
+              "line": 254,
+              "column": 6
+            },
+            "end": {
+              "line": 256,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "target"
+            },
+            {
+              "name": "source"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "chainObject",
+          "description": "Sets the prototype of an object.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.",
+          "sourceRange": {
+            "start": {
+              "line": 264,
+              "column": 6
+            },
+            "end": {
+              "line": 269,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "inherited"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "instanceTemplate",
+          "description": "Calls `importNode` on the `content` of the `template` specified and\nreturns a document fragment containing the imported content.",
+          "sourceRange": {
+            "start": {
+              "line": 282,
+              "column": 6
+            },
+            "end": {
+              "line": 286,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "template"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "fire",
+          "description": "Dispatches a custom event with an optional detail value.",
+          "sourceRange": {
+            "start": {
+              "line": 303,
+              "column": 6
+            },
+            "end": {
+              "line": 315,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "type"
+            },
+            {
+              "name": "detail"
+            },
+            {
+              "name": "options"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "listen",
+          "description": "Convenience method to add an event listener on a given element,\nlate bound to a named method on this element.",
+          "sourceRange": {
+            "start": {
+              "line": 326,
+              "column": 6
+            },
+            "end": {
+              "line": 340,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            },
+            {
+              "name": "eventName"
+            },
+            {
+              "name": "methodName"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "unlisten",
+          "description": "Convenience method to remove an event listener from a given element,\nlate bound to a named method on this element.",
+          "sourceRange": {
+            "start": {
+              "line": 352,
+              "column": 6
+            },
+            "end": {
+              "line": 361,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            },
+            {
+              "name": "eventName"
+            },
+            {
+              "name": "methodName"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "setScrollDirection",
+          "description": "Override scrolling behavior to all direction, one direction, or none.\n\nValid scroll directions:\n  - 'all': scroll in any direction\n  - 'x': scroll only in the 'x' direction\n  - 'y': scroll only in the 'y' direction\n  - 'none': disable scrolling for this node",
+          "sourceRange": {
+            "start": {
+              "line": 378,
+              "column": 6
+            },
+            "end": {
+              "line": 380,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "direction"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "$$",
+          "description": "Convenience method to run `querySelector` on this local DOM scope.\n\nThis function calls `Polymer.dom(this.root).querySelector(slctr)`.",
+          "sourceRange": {
+            "start": {
+              "line": 392,
+              "column": 6
+            },
+            "end": {
+              "line": 394,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "slctr"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "distributeContent",
+          "description": "Force this element to distribute its children to its local dom.\nThis is necessary only when ShadyDOM is used and only in cases that\nare not automatically handled. For example,\na user should call `distributeContent` if distribution has been\ninvalidated due to an element being added or removed from the shadowRoot\nthat contains an insertion point (<slot>) inside its subtree.",
+          "sourceRange": {
+            "start": {
+              "line": 415,
+              "column": 6
+            },
+            "end": {
+              "line": 419,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "getEffectiveChildNodes",
+          "description": "Returns a list of nodes that are the effective childNodes. The effective\nchildNodes list is the same as the element's childNodes except that\nany `<content>` elements are replaced with the list of nodes distributed\nto the `<content>`, the result of its `getDistributedNodes` method.",
+          "sourceRange": {
+            "start": {
+              "line": 430,
+              "column": 6
+            },
+            "end": {
+              "line": 432,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "queryDistributedElements",
+          "description": "Returns a list of nodes distributed within this element that match\n`selector`. These can be dom children or elements distributed to\nchildren that are insertion points.",
+          "sourceRange": {
+            "start": {
+              "line": 442,
+              "column": 6
+            },
+            "end": {
+              "line": 444,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "selector"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "getEffectiveChildren",
+          "description": "Returns a list of elements that are the effective children. The effective\nchildren list is the same as the element's children except that\nany `<content>` elements are replaced with the list of elements\ndistributed to the `<content>`.",
+          "sourceRange": {
+            "start": {
+              "line": 455,
+              "column": 6
+            },
+            "end": {
+              "line": 460,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "getEffectiveTextContent",
+          "description": "Returns a string of text content that is the concatenation of the\ntext content's of the element's effective childNodes (the elements\nreturned by <a href=\"#getEffectiveChildNodes>getEffectiveChildNodes</a>.",
+          "sourceRange": {
+            "start": {
+              "line": 470,
+              "column": 6
+            },
+            "end": {
+              "line": 479,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "queryEffectiveChildren",
+          "description": "Returns the first effective childNode within this element that\nmatch `selector`. These can be dom child nodes or elements distributed\nto children that are insertion points.",
+          "sourceRange": {
+            "start": {
+              "line": 489,
+              "column": 6
+            },
+            "end": {
+              "line": 492,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "selector"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "queryAllEffectiveChildren",
+          "description": "Returns a list of effective childNodes within this element that\nmatch `selector`. These can be dom child nodes or elements distributed\nto children that are insertion points.",
+          "sourceRange": {
+            "start": {
+              "line": 502,
+              "column": 6
+            },
+            "end": {
+              "line": 504,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "selector"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "getContentChildNodes",
+          "description": "Returns a list of nodes distributed to this element's `<slot>`.\n\nIf this element contains more than one `<slot>` in its local DOM,\nan optional selector may be passed to choose the desired content.",
+          "sourceRange": {
+            "start": {
+              "line": 517,
+              "column": 6
+            },
+            "end": {
+              "line": 520,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "slctr"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "getContentChildren",
+          "description": "Returns a list of element children distributed to this element's\n`<slot>`.\n\nIf this element contains more than one `<slot>` in its\nlocal DOM, an optional selector may be passed to choose the desired\ncontent.  This method differs from `getContentChildNodes` in that only\nelements are returned.",
+          "sourceRange": {
+            "start": {
+              "line": 537,
+              "column": 6
+            },
+            "end": {
+              "line": 541,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "slctr"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "isLightDescendant",
+          "description": "Checks whether an element is in this element's light DOM tree.",
+          "sourceRange": {
+            "start": {
+              "line": 550,
+              "column": 6
+            },
+            "end": {
+              "line": 553,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "isLocalDescendant",
+          "description": "Checks whether an element is in this element's local DOM tree.",
+          "sourceRange": {
+            "start": {
+              "line": 562,
+              "column": 6
+            },
+            "end": {
+              "line": 564,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "scopeSubtree",
+          "description": "NOTE: should now be handled by ShadyCss library.",
+          "sourceRange": {
+            "start": {
+              "line": 567,
+              "column": 6
+            },
+            "end": {
+              "line": 568,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "container"
+            },
+            {
+              "name": "shouldObserve"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "getComputedStyleValue",
+          "description": "Returns the computed style value for the given property.",
+          "sourceRange": {
+            "start": {
+              "line": 575,
+              "column": 6
+            },
+            "end": {
+              "line": 577,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "property"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "debounce",
+          "description": "Call `debounce` to collapse multiple requests for a named task into\none invocation which is made after the wait time has elapsed with\nno new request.  If no wait time is given, the callback will be called\nat microtask timing (guaranteed before paint).\n\n    debouncedClickAction(e) {\n      // will not call `processClick` more than once per 100ms\n      this.debounce('click', function() {\n       this.processClick();\n      } 100);\n    }",
+          "sourceRange": {
+            "start": {
+              "line": 601,
+              "column": 6
+            },
+            "end": {
+              "line": 607,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "jobName"
+            },
+            {
+              "name": "callback"
+            },
+            {
+              "name": "wait"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "isDebouncerActive",
+          "description": "Returns whether a named debouncer is active.",
+          "sourceRange": {
+            "start": {
+              "line": 616,
+              "column": 6
+            },
+            "end": {
+              "line": 620,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "jobName"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "flushDebouncer",
+          "description": "Immediately calls the debouncer `callback` and inactivates it.",
+          "sourceRange": {
+            "start": {
+              "line": 628,
+              "column": 6
+            },
+            "end": {
+              "line": 634,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "jobName"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "cancelDebouncer",
+          "description": "Cancels an active debouncer.  The `callback` will not be called.",
+          "sourceRange": {
+            "start": {
+              "line": 642,
+              "column": 6
+            },
+            "end": {
+              "line": 648,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "jobName"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "async",
+          "description": "Runs a callback function asyncronously.\n\nBy default (if no waitTime is specified), async callbacks are run at\nmicrotask timing, which will occur before paint.",
+          "sourceRange": {
+            "start": {
+              "line": 663,
+              "column": 6
+            },
+            "end": {
+              "line": 666,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "callback"
+            },
+            {
+              "name": "waitTime"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "cancelAsync",
+          "description": "Cancels an async operation started with `async`.",
+          "sourceRange": {
+            "start": {
+              "line": 675,
+              "column": 6
+            },
+            "end": {
+              "line": 678,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "handle"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "create",
+          "description": "Convenience method for creating an element and configuring it.",
+          "sourceRange": {
+            "start": {
+              "line": 691,
+              "column": 6
+            },
+            "end": {
+              "line": 703,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "tag"
+            },
+            {
+              "name": "props"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "importHref",
+          "description": "Convenience method for importing an HTML document imperatively.\n\nThis method creates a new `<link rel=\"import\">` element with\nthe provided URL and appends it to the document to start loading.\nIn the `onload` callback, the `import` property of the `link`\nelement will contain the imported document contents.",
+          "sourceRange": {
+            "start": {
+              "line": 723,
+              "column": 6
+            },
+            "end": {
+              "line": 727,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "href"
+            },
+            {
+              "name": "onload"
+            },
+            {
+              "name": "onerror"
+            },
+            {
+              "name": "optAsync"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "elementMatches",
+          "description": "Polyfill for Element.prototype.matches, which is sometimes still\nprefixed.",
+          "sourceRange": {
+            "start": {
+              "line": 738,
+              "column": 6
+            },
+            "end": {
+              "line": 740,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "selector"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "toggleAttribute",
+          "description": "Toggles an HTML attribute on or off.",
+          "sourceRange": {
+            "start": {
+              "line": 751,
+              "column": 6
+            },
+            "end": {
+              "line": 761,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "bool"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "toggleClass",
+          "description": "Toggles a CSS class on or off.",
+          "sourceRange": {
+            "start": {
+              "line": 773,
+              "column": 6
+            },
+            "end": {
+              "line": 783,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "bool"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "transform",
+          "description": "Cross-platform helper for setting an element's CSS `transform` property.",
+          "sourceRange": {
+            "start": {
+              "line": 792,
+              "column": 6
+            },
+            "end": {
+              "line": 796,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "transformText"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "translate3d",
+          "description": "Cross-platform helper for setting an element's CSS `translate3d`\nproperty.",
+          "sourceRange": {
+            "start": {
+              "line": 809,
+              "column": 6
+            },
+            "end": {
+              "line": 812,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "x"
+            },
+            {
+              "name": "y"
+            },
+            {
+              "name": "z"
+            },
+            {
+              "name": "node"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "arrayDelete",
+          "description": "Removes an item from an array, if it exists.\n\nIf the array is specified by path, a change notification is\ngenerated, so that observers, data bindings and computed\nproperties watching that path can update.\n\nIf the array is passed directly, **no change\nnotification is generated**.",
+          "sourceRange": {
+            "start": {
+              "line": 830,
+              "column": 6
+            },
+            "end": {
+              "line": 845,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "arrayOrPath"
+            },
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_logger",
+          "description": "Facades `console.log`/`warn`/`error` as override point.",
+          "sourceRange": {
+            "start": {
+              "line": 855,
+              "column": 6
+            },
+            "end": {
+              "line": 866,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "level"
+            },
+            {
+              "name": "args"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_log",
+          "description": "Facades `console.log` as an override point.",
+          "sourceRange": {
+            "start": {
+              "line": 873,
+              "column": 6
+            },
+            "end": {
+              "line": 875,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "...args"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_warn",
+          "description": "Facades `console.warn` as an override point.",
+          "sourceRange": {
+            "start": {
+              "line": 882,
+              "column": 6
+            },
+            "end": {
+              "line": 884,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "...args"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_error",
+          "description": "Facades `console.error` as an override point.",
+          "sourceRange": {
+            "start": {
+              "line": 891,
+              "column": 6
+            },
+            "end": {
+              "line": 893,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "...args"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "_logf",
+          "description": "Formats a message using the element type an a method name.",
+          "sourceRange": {
+            "start": {
+              "line": 903,
+              "column": 6
+            },
+            "end": {
+              "line": 905,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "...args"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -1170,7 +5626,7 @@
           "column": 2
         },
         "end": {
-          "line": 853,
+          "line": 909,
           "column": 4
         }
       },
@@ -1360,26 +5816,151 @@
           }
         }
       ],
+      "methods": [
+        {
+          "name": "clearSelection",
+          "description": "Clears the selection state.",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 6
+            },
+            "end": {
+              "line": 207,
+              "column": 7
+            }
+          },
+          "params": [],
+          "metadata": {}
+        },
+        {
+          "name": "isSelected",
+          "description": "Returns whether the item is currently selected.",
+          "sourceRange": {
+            "start": {
+              "line": 216,
+              "column": 6
+            },
+            "end": {
+              "line": 218,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "isIndexSelected",
+          "description": "Returns whether the item is currently selected.",
+          "sourceRange": {
+            "start": {
+              "line": 227,
+              "column": 6
+            },
+            "end": {
+              "line": 229,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "idx"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "deselect",
+          "description": "Deselects the given item if it is already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 256,
+              "column": 6
+            },
+            "end": {
+              "line": 271,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "deselectIndex",
+          "description": "Deselects the given index if it is already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 279,
+              "column": 6
+            },
+            "end": {
+              "line": 281,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "idx"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "select",
+          "description": "Selects the given item.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 290,
+              "column": 6
+            },
+            "end": {
+              "line": 292,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "metadata": {}
+        },
+        {
+          "name": "selectIndex",
+          "description": "Selects the given index.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
+          "sourceRange": {
+            "start": {
+              "line": 301,
+              "column": 6
+            },
+            "end": {
+              "line": 317,
+              "column": 7
+            }
+          },
+          "params": [
+            {
+              "name": "idx"
+            }
+          ],
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
       },
       "demos": [],
       "slots": [],
-      "events": [
-        {
-          "name": "selected-changed",
-          "description": "Fired when the `selected` property changes.",
-          "type": "CustomEvent",
-          "metadata": {}
-        },
-        {
-          "name": "selected-item-changed",
-          "description": "Fired when the `selectedItem` property changes.",
-          "type": "CustomEvent",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "metadata": {},
       "sourceRange": {
         "start": {
