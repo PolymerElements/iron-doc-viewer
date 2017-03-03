@@ -21,35 +21,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 16px 24px;
       }
 
+      .name {
+        @apply --paper-font-code2;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*width: 260px;*/
+        /*color: black;*/
+        height: 20px;
+      }
+
       [hidden] {
         display: none;
       }
 
-      .deeplink {
+      a {
         color: currentcolor;
+        font-size: 14px;
         text-decoration: none;
       }
 
-      .deeplink:hover {
+      a:hover {
         color: var(--paper-pink-500);
-      }
-
-      #name {
-        @apply --paper-font-code1;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 260px;
-        color: black;
-        height: 20px;
-      }
-
-      #name .name {
-        @apply --paper-font-code2;
-      }
-
-      .name {
-        font-size: 14px;
       }
     </style>
   </template>

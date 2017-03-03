@@ -16,6 +16,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../paper-styles/typography.html">
 <link rel="import" href="../prism-element/prism-highlighter.html">
 <link rel="import" href="../prism-element/prism-theme-default.html">
+
+<link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-property.html">
 <link rel="import" href="iron-doc-viewer-styles.html">
 
@@ -78,7 +80,7 @@ property.
         on-tap="_togglePrivate">[[_privateToggleLabel]]</paper-button>
     </nav>
 
-    <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.properties)]]">
+    <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor,'properties')]]">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
       <div hidden$="[[!descriptor.properties.length]]">
         <template is="dom-repeat" items="[[descriptor.properties]]">
@@ -87,14 +89,14 @@ property.
       </div>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,descriptor.methods)]]">
+    <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,descriptor,'methods')]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
       <template is="dom-repeat" items="[[descriptor.methods]]">
         <iron-doc-property anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-property>
       </template>
     </section>
 
-    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor.events)]]">
+    <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor,'events')]]">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
       <template is="dom-repeat" items="[[descriptor.events]]">
         <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property>
@@ -107,6 +109,8 @@ property.
     (function() {
       Polymer({
         is: 'iron-doc-mixin',
+
+        behaviors: [Polymer.IronDocBehavior],
 
         properties: {
           /**

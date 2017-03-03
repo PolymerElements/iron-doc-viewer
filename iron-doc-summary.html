@@ -10,43 +10,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-styles/typography.html">
+<link rel="import" href="iron-doc-summary-styles.html">
 
 <dom-module id="iron-doc-summary">
   <template>
-    <style include="">
-      :host {
-        @apply --paper-font-body1;
-
-        box-sizing: border-box;
-        display: block;
-        padding: 16px 24px;
-      }
-
-      #name {
-        @apply --paper-font-code2;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        /*width: 260px;*/
-        /*color: black;*/
-        height: 20px;
-      }
-
-      [hidden] {
-        display: none;
-      }
-
-      a {
-        color: currentcolor;
-        font-size: 14px;
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: var(--paper-pink-500);
-      }
-    </style>
-    <div id="name">
+    <style include="iron-doc-summary-styles"></style>
+    <div class="name">
       <a href$="[[href]]">{{name}}</a>
     </div>
     <div id="description" markdown="[[description]]" hidden$="[[!description]]">
