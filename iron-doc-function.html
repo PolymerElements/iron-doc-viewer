@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <span id="type" class="type">[[descriptor.type]]</span>
           <span class="annotation">[[_getAnnotation(descriptor)]]</span>
         </div>
-        <ol id="params" hidden$="[[_computeHideParams(descriptor)]]">
+        <!-- <ol id="params" hidden$="[[_computeHideParams(descriptor)]]">
           <template is="dom-repeat" items="[[descriptor.params]]">
             <li hidden$="[[!item.type]]">
               <span class="name">[[item.name]]</span>
@@ -44,7 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <div slot="markdown-html" class="markdown-html"></div>
             </marked-element>
           </li>
-        </ol>
+        </ol> -->
         <marked-element id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
           <div slot="markdown-html" class="markdown-html"></div>
         </marked-element>
