@@ -29,15 +29,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <prism-highlighter></prism-highlighter>
 
     <h1>Element [[_getElementName(descriptor)]]</h1>
-    <h2 hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</h2>
+    <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
     <div class="metadata code">
       class <span class="name">[[descriptor.classname]]</span>
-      extends 
-      <a class="name deeplink" 
-          target$="[[_superclassTarget(descriptor.superclass)]]" 
+      extends
+      <a class="name deeplink"
+          target$="[[_superclassTarget(descriptor.superclass)]]"
           href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
-      <span hidden$="[[!descriptor.mixins]]">with 
+      <span hidden$="[[!descriptor.mixins]]">with
         <template is="dom-repeat" items="[[descriptor.mixins]]">
           <a class="name deeplink" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
         </template>
@@ -92,16 +92,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     (function() {
       /**
        * Renders documentation describing an element's API.
-       * 
+       *
        * `iron-doc-viewer` renders element and behavior descriptions as extracted by
        * [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer). You can provide them
        * either via binding...
-       * 
+       *
        *     <iron-doc-element descriptor="[[elementDescriptor]]"></iron-doc-element>
-       * 
+       *
        * ...or by placing the element descriptor in JSON as the text content of an
        * `iron-doc-element`:
-       * 
+       *
        *     <iron-doc-element>
        *       {
        *         "is": "awesome-sauce",
@@ -110,12 +110,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *         ]
        *       }
        *     </iron-doc-element>
-       * 
+       *
        * However, be aware that due to current limitations in Polymer, _changes_ to
        * the text content will not be respected, only the initial value will be loaded.
        * If you wish to update the documented element, please set it via the `descriptor`
        * property.
-       * 
+       *
        * @demo demo/index.html Basic Demo
       */
       Polymer({
