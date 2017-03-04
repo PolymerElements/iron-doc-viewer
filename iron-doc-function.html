@@ -20,8 +20,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div id="transitionMask">
       <div id="signature" class="code">
-        <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a><span class="params">(<span>[[_paramText]]</span>)</span>
-        <span class="return" hidden$="[[!descriptor.return]]">➙ <span class="type">[[descriptor.return.type]]</span></span>
+        <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a><span class="params">(<span>[[_paramText]]</span>)</span><!--
+        --><span class="return" hidden$="[[!descriptor.return]]">: <span class="type">[[descriptor.return.type]]</span></span>
       </div>
       <div id="details">
         <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
@@ -60,6 +60,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'iron-doc-function',
 
+        properties: {
+          _paramText: {
+            computed: '_computeParamText(descriptor)',
+          }
+        },
+
+        _computeParamText: function(descriptor) {
+          return (descriptor.params || []).map(function(param) {
+            var text = param.name;
+            if (param.type) {
+              text += ': ' + param.type;
+            }
+            return text;
+          }).join(', ');
+        },
+
         /**
          * Resets any state that was set up for transitions.
          *
@@ -73,12 +89,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
         _descriptorChanged: function() {
-          this.toggleAttribute('private',       this.descriptor.private);
-          this.toggleAttribute('configuration', this.descriptor.configuration);
-          this.toggleAttribute('function',      this.descriptor.function);
-          this._paramText = (this.descriptor.params || []).map(function(param) {
-            return param.name;
-          }).join(', ');
+          // this.toggleAttribute('private',       this.descriptor.private);
+          // this.toggleAttribute('configuration', this.descriptor.configuration);
+          // this.toggleAttribute('function',      this.descriptor.function);
+          // this._paramText = (this.descriptor.params || []).map(function(param) {
+          //   return param.name;
+          // }).join(', ');
         },
 
         /**
