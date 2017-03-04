@@ -96,7 +96,7 @@
       },
 
       _noneToShow: function(showPrivate, descriptor, name) {
-        const items = descriptor[name];
+        var items = descriptor[name];
         if (showPrivate === undefined || items === undefined || items.length === 0) {
           return true;
         }
@@ -113,7 +113,7 @@
       },
 
       _getElementName(element) {
-        let name = '';
+        var name = '';
         if (element.tagname) {
           name += `<${element.tagname}>`;
           if (element.classname) {
@@ -129,7 +129,7 @@
         if (name == null) {
           return undefined;
         }
-        const lastDotIndex = name.lastIndexOf('.');
+        var lastDotIndex = name.lastIndexOf('.');
         if (lastDotIndex === -1) {
           return undefined;
         }
@@ -140,7 +140,7 @@
         if (name == null) {
           return undefined;
         }
-        const lastDotIndex = name.lastIndexOf('.');
+        var lastDotIndex = name.lastIndexOf('.');
         if (lastDotIndex === -1) {
           return name;
         }
