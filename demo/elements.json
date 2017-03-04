@@ -801,11 +801,11 @@
           "sourceRange": {
             "file": "lib/mixins/element-mixin.html",
             "start": {
-              "line": 728,
+              "line": 734,
               "column": 2
             },
             "end": {
-              "line": 760,
+              "line": 766,
               "column": 4
             }
           }
@@ -1183,11 +1183,11 @@
           "sourceRange": {
             "file": "lib/utils/templatize.html",
             "start": {
-              "line": 321,
+              "line": 323,
               "column": 4
             },
             "end": {
-              "line": 446,
+              "line": 448,
               "column": 5
             }
           },
@@ -1199,11 +1199,11 @@
               "sourceRange": {
                 "file": "lib/utils/templatize.html",
                 "start": {
-                  "line": 380,
+                  "line": 382,
                   "column": 6
                 },
                 "end": {
-                  "line": 403,
+                  "line": 405,
                   "column": 7
                 }
               },
@@ -1236,11 +1236,11 @@
               "sourceRange": {
                 "file": "lib/utils/templatize.html",
                 "start": {
-                  "line": 424,
+                  "line": 426,
                   "column": 6
                 },
                 "end": {
-                  "line": 445,
+                  "line": 447,
                   "column": 7
                 }
               },
@@ -1384,11 +1384,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1226,
+                  "line": 1225,
                   "column": 6
                 },
                 "end": {
-                  "line": 1248,
+                  "line": 1247,
                   "column": 7
                 }
               },
@@ -1403,11 +1403,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1257,
+                  "line": 1256,
                   "column": 6
                 },
                 "end": {
-                  "line": 1261,
+                  "line": 1260,
                   "column": 7
                 }
               },
@@ -1426,11 +1426,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1294,
+                  "line": 1293,
                   "column": 6
                 },
                 "end": {
-                  "line": 1310,
+                  "line": 1309,
                   "column": 7
                 }
               },
@@ -1455,11 +1455,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1321,
+                  "line": 1320,
                   "column": 6
                 },
                 "end": {
-                  "line": 1324,
+                  "line": 1323,
                   "column": 7
                 }
               },
@@ -1481,11 +1481,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1334,
+                  "line": 1333,
                   "column": 6
                 },
                 "end": {
-                  "line": 1336,
+                  "line": 1335,
                   "column": 7
                 }
               },
@@ -1504,11 +1504,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1346,
+                  "line": 1345,
                   "column": 6
                 },
                 "end": {
-                  "line": 1348,
+                  "line": 1347,
                   "column": 7
                 }
               },
@@ -1527,11 +1527,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1358,
+                  "line": 1357,
                   "column": 6
                 },
                 "end": {
-                  "line": 1360,
+                  "line": 1359,
                   "column": 7
                 }
               },
@@ -1550,11 +1550,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1370,
+                  "line": 1369,
                   "column": 6
                 },
                 "end": {
-                  "line": 1372,
+                  "line": 1371,
                   "column": 7
                 }
               },
@@ -1573,11 +1573,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1402,
+                  "line": 1401,
                   "column": 6
                 },
                 "end": {
-                  "line": 1435,
+                  "line": 1434,
                   "column": 7
                 }
               },
@@ -1605,11 +1605,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1457,
+                  "line": 1456,
                   "column": 6
                 },
                 "end": {
-                  "line": 1465,
+                  "line": 1464,
                   "column": 7
                 }
               },
@@ -1634,11 +1634,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1497,
+                  "line": 1496,
                   "column": 6
                 },
                 "end": {
-                  "line": 1525,
+                  "line": 1524,
                   "column": 7
                 }
               },
@@ -1663,11 +1663,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1533,
+                  "line": 1532,
                   "column": 6
                 },
                 "end": {
-                  "line": 1537,
+                  "line": 1536,
                   "column": 7
                 }
               },
@@ -1689,11 +1689,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1547,
+                  "line": 1546,
                   "column": 6
                 },
                 "end": {
-                  "line": 1551,
+                  "line": 1550,
                   "column": 7
                 }
               },
@@ -1708,11 +1708,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1561,
+                  "line": 1560,
                   "column": 6
                 },
                 "end": {
-                  "line": 1566,
+                  "line": 1565,
                   "column": 7
                 }
               },
@@ -1731,11 +1731,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1574,
+                  "line": 1573,
                   "column": 6
                 },
                 "end": {
-                  "line": 1589,
+                  "line": 1588,
                   "column": 7
                 }
               },
@@ -1750,11 +1750,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1602,
+                  "line": 1601,
                   "column": 6
                 },
                 "end": {
-                  "line": 1613,
+                  "line": 1612,
                   "column": 7
                 }
               },
@@ -1773,11 +1773,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1625,
+                  "line": 1624,
                   "column": 6
                 },
                 "end": {
-                  "line": 1635,
+                  "line": 1634,
                   "column": 7
                 }
               },
@@ -1792,11 +1792,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1652,
+                  "line": 1651,
                   "column": 6
                 },
                 "end": {
-                  "line": 1667,
+                  "line": 1666,
                   "column": 7
                 }
               },
@@ -1811,11 +1811,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1676,
+                  "line": 1675,
                   "column": 6
                 },
                 "end": {
-                  "line": 1678,
+                  "line": 1677,
                   "column": 7
                 }
               },
@@ -1830,11 +1830,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1698,
+                  "line": 1697,
                   "column": 6
                 },
                 "end": {
-                  "line": 1702,
+                  "line": 1701,
                   "column": 7
                 }
               },
@@ -1853,11 +1853,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1712,
+                  "line": 1711,
                   "column": 6
                 },
                 "end": {
-                  "line": 1743,
+                  "line": 1742,
                   "column": 7
                 }
               },
@@ -1882,11 +1882,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1754,
+                  "line": 1753,
                   "column": 6
                 },
                 "end": {
-                  "line": 1759,
+                  "line": 1758,
                   "column": 7
                 }
               },
@@ -1908,11 +1908,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1771,
+                  "line": 1770,
                   "column": 6
                 },
                 "end": {
-                  "line": 1776,
+                  "line": 1775,
                   "column": 7
                 }
               },
@@ -1931,11 +1931,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1807,
+                  "line": 1806,
                   "column": 6
                 },
                 "end": {
-                  "line": 1811,
+                  "line": 1810,
                   "column": 7
                 }
               },
@@ -1957,11 +1957,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1833,
+                  "line": 1832,
                   "column": 6
                 },
                 "end": {
-                  "line": 1835,
+                  "line": 1834,
                   "column": 7
                 }
               },
@@ -1983,11 +1983,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1858,
+                  "line": 1857,
                   "column": 6
                 },
                 "end": {
-                  "line": 1868,
+                  "line": 1867,
                   "column": 7
                 }
               },
@@ -2012,11 +2012,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1885,
+                  "line": 1884,
                   "column": 6
                 },
                 "end": {
-                  "line": 1894,
+                  "line": 1893,
                   "column": 7
                 }
               },
@@ -2038,11 +2038,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1910,
+                  "line": 1909,
                   "column": 6
                 },
                 "end": {
-                  "line": 1919,
+                  "line": 1918,
                   "column": 7
                 }
               },
@@ -2061,11 +2061,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1939,
+                  "line": 1938,
                   "column": 6
                 },
                 "end": {
-                  "line": 1956,
+                  "line": 1955,
                   "column": 7
                 }
               },
@@ -2093,11 +2093,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1972,
+                  "line": 1971,
                   "column": 6
                 },
                 "end": {
-                  "line": 1981,
+                  "line": 1980,
                   "column": 7
                 }
               },
@@ -2116,11 +2116,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 1998,
+                  "line": 1997,
                   "column": 6
                 },
                 "end": {
-                  "line": 2006,
+                  "line": 2005,
                   "column": 7
                 }
               },
@@ -2142,11 +2142,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2020,
+                  "line": 2019,
                   "column": 6
                 },
                 "end": {
-                  "line": 2037,
+                  "line": 2036,
                   "column": 7
                 }
               },
@@ -2168,11 +2168,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2054,
+                  "line": 2053,
                   "column": 6
                 },
                 "end": {
-                  "line": 2061,
+                  "line": 2060,
                   "column": 7
                 }
               },
@@ -2194,11 +2194,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2072,
+                  "line": 2071,
                   "column": 6
                 },
                 "end": {
-                  "line": 2082,
+                  "line": 2081,
                   "column": 7
                 }
               },
@@ -2223,11 +2223,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2096,
+                  "line": 2095,
                   "column": 6
                 },
                 "end": {
-                  "line": 2102,
+                  "line": 2101,
                   "column": 7
                 }
               },
@@ -2249,11 +2249,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2111,
+                  "line": 2110,
                   "column": 6
                 },
                 "end": {
-                  "line": 2119,
+                  "line": 2118,
                   "column": 7
                 }
               },
@@ -2272,11 +2272,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2128,
+                  "line": 2127,
                   "column": 6
                 },
                 "end": {
-                  "line": 2141,
+                  "line": 2140,
                   "column": 7
                 }
               },
@@ -2295,11 +2295,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2156,
+                  "line": 2155,
                   "column": 6
                 },
                 "end": {
-                  "line": 2162,
+                  "line": 2161,
                   "column": 7
                 }
               },
@@ -2324,11 +2324,11 @@
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
                 "start": {
-                  "line": 2177,
+                  "line": 2176,
                   "column": 6
                 },
                 "end": {
-                  "line": 2196,
+                  "line": 2195,
                   "column": 7
                 }
               },
@@ -2485,11 +2485,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 549,
+                  "line": 555,
                   "column": 6
                 },
                 "end": {
-                  "line": 583,
+                  "line": 589,
                   "column": 7
                 }
               },
@@ -2504,11 +2504,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 595,
+                  "line": 601,
                   "column": 6
                 },
                 "end": {
-                  "line": 600,
+                  "line": 606,
                   "column": 7
                 }
               },
@@ -2523,11 +2523,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 608,
+                  "line": 614,
                   "column": 6
                 },
                 "end": {
-                  "line": 608,
+                  "line": 614,
                   "column": 31
                 }
               },
@@ -2542,11 +2542,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 619,
+                  "line": 625,
                   "column": 6
                 },
                 "end": {
-                  "line": 624,
+                  "line": 630,
                   "column": 7
                 }
               },
@@ -2561,11 +2561,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 639,
+                  "line": 645,
                   "column": 6
                 },
                 "end": {
-                  "line": 654,
+                  "line": 660,
                   "column": 7
                 }
               },
@@ -2584,11 +2584,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 667,
+                  "line": 673,
                   "column": 6
                 },
                 "end": {
-                  "line": 675,
+                  "line": 681,
                   "column": 7
                 }
               },
@@ -2613,11 +2613,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 693,
+                  "line": 699,
                   "column": 6
                 },
                 "end": {
-                  "line": 697,
+                  "line": 703,
                   "column": 7
                 }
               },
@@ -2636,11 +2636,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 710,
+                  "line": 716,
                   "column": 6
                 },
                 "end": {
-                  "line": 715,
+                  "line": 721,
                   "column": 7
                 }
               },
@@ -3117,11 +3117,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 549,
+                  "line": 555,
                   "column": 6
                 },
                 "end": {
-                  "line": 583,
+                  "line": 589,
                   "column": 7
                 }
               },
@@ -3170,11 +3170,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 619,
+                  "line": 625,
                   "column": 6
                 },
                 "end": {
-                  "line": 624,
+                  "line": 630,
                   "column": 7
                 }
               },
@@ -3189,11 +3189,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 639,
+                  "line": 645,
                   "column": 6
                 },
                 "end": {
-                  "line": 654,
+                  "line": 660,
                   "column": 7
                 }
               },
@@ -3212,11 +3212,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 667,
+                  "line": 673,
                   "column": 6
                 },
                 "end": {
-                  "line": 675,
+                  "line": 681,
                   "column": 7
                 }
               },
@@ -3241,11 +3241,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 693,
+                  "line": 699,
                   "column": 6
                 },
                 "end": {
-                  "line": 697,
+                  "line": 703,
                   "column": 7
                 }
               },
@@ -3264,11 +3264,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 710,
+                  "line": 716,
                   "column": 6
                 },
                 "end": {
-                  "line": 715,
+                  "line": 721,
                   "column": 7
                 }
               },
@@ -3968,11 +3968,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 549,
+                  "line": 555,
                   "column": 6
                 },
                 "end": {
-                  "line": 583,
+                  "line": 589,
                   "column": 7
                 }
               },
@@ -4021,11 +4021,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 619,
+                  "line": 625,
                   "column": 6
                 },
                 "end": {
-                  "line": 624,
+                  "line": 630,
                   "column": 7
                 }
               },
@@ -4040,11 +4040,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 639,
+                  "line": 645,
                   "column": 6
                 },
                 "end": {
-                  "line": 654,
+                  "line": 660,
                   "column": 7
                 }
               },
@@ -4063,11 +4063,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 667,
+                  "line": 673,
                   "column": 6
                 },
                 "end": {
-                  "line": 675,
+                  "line": 681,
                   "column": 7
                 }
               },
@@ -4092,11 +4092,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 693,
+                  "line": 699,
                   "column": 6
                 },
                 "end": {
-                  "line": 697,
+                  "line": 703,
                   "column": 7
                 }
               },
@@ -4115,11 +4115,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 710,
+                  "line": 716,
                   "column": 6
                 },
                 "end": {
-                  "line": 715,
+                  "line": 721,
                   "column": 7
                 }
               },
@@ -4490,11 +4490,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 549,
+                  "line": 555,
                   "column": 6
                 },
                 "end": {
-                  "line": 583,
+                  "line": 589,
                   "column": 7
                 }
               },
@@ -4509,11 +4509,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 595,
+                  "line": 601,
                   "column": 6
                 },
                 "end": {
-                  "line": 600,
+                  "line": 606,
                   "column": 7
                 }
               },
@@ -4528,11 +4528,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 608,
+                  "line": 614,
                   "column": 6
                 },
                 "end": {
-                  "line": 608,
+                  "line": 614,
                   "column": 31
                 }
               },
@@ -4547,11 +4547,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 619,
+                  "line": 625,
                   "column": 6
                 },
                 "end": {
-                  "line": 624,
+                  "line": 630,
                   "column": 7
                 }
               },
@@ -4566,11 +4566,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 639,
+                  "line": 645,
                   "column": 6
                 },
                 "end": {
-                  "line": 654,
+                  "line": 660,
                   "column": 7
                 }
               },
@@ -4589,11 +4589,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 667,
+                  "line": 673,
                   "column": 6
                 },
                 "end": {
-                  "line": 675,
+                  "line": 681,
                   "column": 7
                 }
               },
@@ -4618,11 +4618,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 693,
+                  "line": 699,
                   "column": 6
                 },
                 "end": {
-                  "line": 697,
+                  "line": 703,
                   "column": 7
                 }
               },
@@ -4641,11 +4641,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 710,
+                  "line": 716,
                   "column": 6
                 },
                 "end": {
-                  "line": 715,
+                  "line": 721,
                   "column": 7
                 }
               },
@@ -5586,11 +5586,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1226,
+                  "line": 1225,
                   "column": 6
                 },
                 "end": {
-                  "line": 1248,
+                  "line": 1247,
                   "column": 7
                 }
               },
@@ -5603,11 +5603,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1257,
+                  "line": 1256,
                   "column": 6
                 },
                 "end": {
-                  "line": 1261,
+                  "line": 1260,
                   "column": 7
                 }
               },
@@ -5624,11 +5624,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1294,
+                  "line": 1293,
                   "column": 6
                 },
                 "end": {
-                  "line": 1310,
+                  "line": 1309,
                   "column": 7
                 }
               },
@@ -5651,11 +5651,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1321,
+                  "line": 1320,
                   "column": 6
                 },
                 "end": {
-                  "line": 1324,
+                  "line": 1323,
                   "column": 7
                 }
               },
@@ -5675,11 +5675,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1334,
+                  "line": 1333,
                   "column": 6
                 },
                 "end": {
-                  "line": 1336,
+                  "line": 1335,
                   "column": 7
                 }
               },
@@ -5696,11 +5696,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1346,
+                  "line": 1345,
                   "column": 6
                 },
                 "end": {
-                  "line": 1348,
+                  "line": 1347,
                   "column": 7
                 }
               },
@@ -5717,11 +5717,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1358,
+                  "line": 1357,
                   "column": 6
                 },
                 "end": {
-                  "line": 1360,
+                  "line": 1359,
                   "column": 7
                 }
               },
@@ -5738,11 +5738,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1370,
+                  "line": 1369,
                   "column": 6
                 },
                 "end": {
-                  "line": 1372,
+                  "line": 1371,
                   "column": 7
                 }
               },
@@ -5759,11 +5759,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1402,
+                  "line": 1401,
                   "column": 6
                 },
                 "end": {
-                  "line": 1435,
+                  "line": 1434,
                   "column": 7
                 }
               },
@@ -5789,11 +5789,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1457,
+                  "line": 1456,
                   "column": 6
                 },
                 "end": {
-                  "line": 1465,
+                  "line": 1464,
                   "column": 7
                 }
               },
@@ -5816,11 +5816,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1497,
+                  "line": 1496,
                   "column": 6
                 },
                 "end": {
-                  "line": 1525,
+                  "line": 1524,
                   "column": 7
                 }
               },
@@ -5843,11 +5843,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1533,
+                  "line": 1532,
                   "column": 6
                 },
                 "end": {
-                  "line": 1537,
+                  "line": 1536,
                   "column": 7
                 }
               },
@@ -5867,11 +5867,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1547,
+                  "line": 1546,
                   "column": 6
                 },
                 "end": {
-                  "line": 1551,
+                  "line": 1550,
                   "column": 7
                 }
               },
@@ -5884,11 +5884,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1561,
+                  "line": 1560,
                   "column": 6
                 },
                 "end": {
-                  "line": 1566,
+                  "line": 1565,
                   "column": 7
                 }
               },
@@ -5905,11 +5905,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1574,
+                  "line": 1573,
                   "column": 6
                 },
                 "end": {
-                  "line": 1589,
+                  "line": 1588,
                   "column": 7
                 }
               },
@@ -5922,11 +5922,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1602,
+                  "line": 1601,
                   "column": 6
                 },
                 "end": {
-                  "line": 1613,
+                  "line": 1612,
                   "column": 7
                 }
               },
@@ -5943,11 +5943,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1625,
+                  "line": 1624,
                   "column": 6
                 },
                 "end": {
-                  "line": 1635,
+                  "line": 1634,
                   "column": 7
                 }
               },
@@ -5960,11 +5960,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1652,
+                  "line": 1651,
                   "column": 6
                 },
                 "end": {
-                  "line": 1667,
+                  "line": 1666,
                   "column": 7
                 }
               },
@@ -5977,11 +5977,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1676,
+                  "line": 1675,
                   "column": 6
                 },
                 "end": {
-                  "line": 1678,
+                  "line": 1677,
                   "column": 7
                 }
               },
@@ -5994,11 +5994,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1698,
+                  "line": 1697,
                   "column": 6
                 },
                 "end": {
-                  "line": 1702,
+                  "line": 1701,
                   "column": 7
                 }
               },
@@ -6015,11 +6015,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 1712,
+                  "line": 1711,
                   "column": 6
                 },
                 "end": {
-                  "line": 1743,
+                  "line": 1742,
                   "column": 7
                 }
               },
@@ -6042,11 +6042,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1754,
+                  "line": 1753,
                   "column": 6
                 },
                 "end": {
-                  "line": 1759,
+                  "line": 1758,
                   "column": 7
                 }
               },
@@ -6066,11 +6066,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1771,
+                  "line": 1770,
                   "column": 6
                 },
                 "end": {
-                  "line": 1776,
+                  "line": 1775,
                   "column": 7
                 }
               },
@@ -6087,11 +6087,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1807,
+                  "line": 1806,
                   "column": 6
                 },
                 "end": {
-                  "line": 1811,
+                  "line": 1810,
                   "column": 7
                 }
               },
@@ -6111,11 +6111,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1833,
+                  "line": 1832,
                   "column": 6
                 },
                 "end": {
-                  "line": 1835,
+                  "line": 1834,
                   "column": 7
                 }
               },
@@ -6135,11 +6135,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1858,
+                  "line": 1857,
                   "column": 6
                 },
                 "end": {
-                  "line": 1868,
+                  "line": 1867,
                   "column": 7
                 }
               },
@@ -6162,11 +6162,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1885,
+                  "line": 1884,
                   "column": 6
                 },
                 "end": {
-                  "line": 1894,
+                  "line": 1893,
                   "column": 7
                 }
               },
@@ -6186,11 +6186,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1910,
+                  "line": 1909,
                   "column": 6
                 },
                 "end": {
-                  "line": 1919,
+                  "line": 1918,
                   "column": 7
                 }
               },
@@ -6207,11 +6207,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1939,
+                  "line": 1938,
                   "column": 6
                 },
                 "end": {
-                  "line": 1956,
+                  "line": 1955,
                   "column": 7
                 }
               },
@@ -6237,11 +6237,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1972,
+                  "line": 1971,
                   "column": 6
                 },
                 "end": {
-                  "line": 1981,
+                  "line": 1980,
                   "column": 7
                 }
               },
@@ -6258,11 +6258,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 1998,
+                  "line": 1997,
                   "column": 6
                 },
                 "end": {
-                  "line": 2006,
+                  "line": 2005,
                   "column": 7
                 }
               },
@@ -6282,11 +6282,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 2020,
+                  "line": 2019,
                   "column": 6
                 },
                 "end": {
-                  "line": 2037,
+                  "line": 2036,
                   "column": 7
                 }
               },
@@ -6306,11 +6306,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2054,
+                  "line": 2053,
                   "column": 6
                 },
                 "end": {
-                  "line": 2061,
+                  "line": 2060,
                   "column": 7
                 }
               },
@@ -6330,11 +6330,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2072,
+                  "line": 2071,
                   "column": 6
                 },
                 "end": {
-                  "line": 2082,
+                  "line": 2081,
                   "column": 7
                 }
               },
@@ -6357,11 +6357,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2096,
+                  "line": 2095,
                   "column": 6
                 },
                 "end": {
-                  "line": 2102,
+                  "line": 2101,
                   "column": 7
                 }
               },
@@ -6381,11 +6381,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2111,
+                  "line": 2110,
                   "column": 6
                 },
                 "end": {
-                  "line": 2119,
+                  "line": 2118,
                   "column": 7
                 }
               },
@@ -6402,11 +6402,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2128,
+                  "line": 2127,
                   "column": 6
                 },
                 "end": {
-                  "line": 2141,
+                  "line": 2140,
                   "column": 7
                 }
               },
@@ -6423,11 +6423,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2156,
+                  "line": 2155,
                   "column": 6
                 },
                 "end": {
-                  "line": 2162,
+                  "line": 2161,
                   "column": 7
                 }
               },
@@ -6450,11 +6450,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 2177,
+                  "line": 2176,
                   "column": 6
                 },
                 "end": {
-                  "line": 2196,
+                  "line": 2195,
                   "column": 7
                 }
               },
@@ -6479,11 +6479,11 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 1206,
+              "line": 1205,
               "column": 2
             },
             "end": {
-              "line": 2201,
+              "line": 2200,
               "column": 4
             }
           },
@@ -6492,7 +6492,7 @@
         },
         {
           "description": "Element class mixin that provides the core API for Polymer's meta-programming\nfeatures including template stamping, data-binding, attribute deserialization,\nand property change observation.\n\nSubclassers may provide the following static getters to return metadata\nused to configure Polymer's features for the class:\n\n- `static get is()`: When the template is provided via a `dom-module`,\n  users should return the `dom-module` id from a static `is` getter.  If\n  no template is needed or the template is provided directly via the\n  `template` getter, there is no need to define `is` for the element.\n\n- `static get template()`: Users may provide the template directly (as\n  opposed to via `dom-module`) by implementing a static `template` getter.\n  The getter may return an `HTMLTemplateElement` or a string, which will\n  automatically be parsed into a template.\n\n- `static get properties()`: Should return an object describing\n  property-related metadata used by Polymer features (key: property name\n  value: object containing property metadata). Valid keys in per-property\n  metadata include:\n  - `type` (String|Number|Object|Array|...): Used by\n    `attributeChangedCallback` to determine how string-based attributes\n    are deserialized to JavaScript property values.\n  - `notify` (boolean): Causes a change in the property to fire a\n    non-bubbling event called `<property>-changed`. Elements that have\n    enabled two-way binding to the property use this event to observe changes.\n  - `readOnly` (boolean): Creates a getter for the property, but no setter.\n    To set a read-only property, use the private setter method\n    `_setProperty(property, value)`.\n  - `observer` (string): Observer method name that will be called when\n    the property changes. The arguments of the method are\n    `(value, previousValue)`.\n  - `computed` (string): String describing method and dependent properties\n    for computing the value of this property (e.g. `'computeFoo(bar, zot)'`).\n    Computed properties are read-only by default and can only be changed\n    via the return value of the computing method.\n\n- `static get observers()`: Array of strings describing multi-property\n  observer methods and their dependent properties (e.g.\n  `'observeABC(a, b, c)'`).\n\nThe base class provides default implementations for the following standard\ncustom element lifecycle callbacks; users may override these, but should\ncall the super method to ensure\n- `constructor`: Run when the element is created or upgraded\n- `connectedCallback`: Run each time the element is connected to the\n  document\n- `disconnectedCallback`: Run each time the element is disconnected from\n  the document\n- `attributeChangedCallback`: Run each time an attribute in\n  `observedAttributes` is set or removed (note: this element's default\n  `observedAttributes` implementation will automatically return an array\n  of dash-cased attributes based on `properties`)",
-          "summary": "Element class mixin that provides the core API for Polymer's\nmeta-programming features.",
+          "summary": "",
           "path": "lib/mixins/element-mixin.html",
           "attributes": [],
           "properties": [],
@@ -6503,11 +6503,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 549,
+                  "line": 555,
                   "column": 6
                 },
                 "end": {
-                  "line": 583,
+                  "line": 589,
                   "column": 7
                 }
               },
@@ -6520,11 +6520,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 595,
+                  "line": 601,
                   "column": 6
                 },
                 "end": {
-                  "line": 600,
+                  "line": 606,
                   "column": 7
                 }
               },
@@ -6537,11 +6537,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 608,
+                  "line": 614,
                   "column": 6
                 },
                 "end": {
-                  "line": 608,
+                  "line": 614,
                   "column": 31
                 }
               },
@@ -6554,11 +6554,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 619,
+                  "line": 625,
                   "column": 6
                 },
                 "end": {
-                  "line": 624,
+                  "line": 630,
                   "column": 7
                 }
               },
@@ -6571,11 +6571,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 639,
+                  "line": 645,
                   "column": 6
                 },
                 "end": {
-                  "line": 654,
+                  "line": 660,
                   "column": 7
                 }
               },
@@ -6592,11 +6592,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 667,
+                  "line": 673,
                   "column": 6
                 },
                 "end": {
-                  "line": 675,
+                  "line": 681,
                   "column": 7
                 }
               },
@@ -6619,11 +6619,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 693,
+                  "line": 699,
                   "column": 6
                 },
                 "end": {
-                  "line": 697,
+                  "line": 703,
                   "column": 7
                 }
               },
@@ -6640,11 +6640,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 710,
+                  "line": 716,
                   "column": 6
                 },
                 "end": {
-                  "line": 715,
+                  "line": 721,
                   "column": 7
                 }
               },
@@ -6669,11 +6669,11 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 114,
               "column": 2
             },
             "end": {
-              "line": 720,
+              "line": 726,
               "column": 4
             }
           },
@@ -6765,7 +6765,7 @@
         },
         {
           "description": "Element class mixin that provides Polymer's \"legacy\" API intended to be\nbackward-compatible to the greatest extent possible with the API\nfound on the Polymer 1.x `Polymer.Base` prototype applied to all elements\ndefined using the `Polymer({...})` function.",
-          "summary": "Element class mixin that provides Polymer's \"legacy\" API",
+          "summary": "",
           "path": "lib/legacy/legacy-element-mixin.html",
           "attributes": [],
           "properties": [],
@@ -6776,11 +6776,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 64,
+                  "line": 66,
                   "column": 6
                 },
                 "end": {
-                  "line": 64,
+                  "line": 66,
                   "column": 18
                 }
               },
@@ -6793,11 +6793,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 66,
+                  "line": 68,
                   "column": 6
                 },
                 "end": {
-                  "line": 70,
+                  "line": 72,
                   "column": 7
                 }
               },
@@ -6810,11 +6810,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 76,
+                  "line": 78,
                   "column": 6
                 },
                 "end": {
-                  "line": 76,
+                  "line": 78,
                   "column": 19
                 }
               },
@@ -6827,11 +6827,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 78,
+                  "line": 80,
                   "column": 6
                 },
                 "end": {
-                  "line": 82,
+                  "line": 84,
                   "column": 7
                 }
               },
@@ -6844,11 +6844,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 88,
+                  "line": 90,
                   "column": 6
                 },
                 "end": {
-                  "line": 88,
+                  "line": 90,
                   "column": 19
                 }
               },
@@ -6861,11 +6861,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 90,
+                  "line": 92,
                   "column": 6
                 },
                 "end": {
-                  "line": 95,
+                  "line": 97,
                   "column": 7
                 }
               },
@@ -6888,11 +6888,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 101,
+                  "line": 103,
                   "column": 6
                 },
                 "end": {
-                  "line": 101,
+                  "line": 103,
                   "column": 27
                 }
               },
@@ -6905,11 +6905,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 109,
+                  "line": 111,
                   "column": 6
                 },
                 "end": {
-                  "line": 112,
+                  "line": 114,
                   "column": 7
                 }
               },
@@ -6922,11 +6922,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 121,
+                  "line": 123,
                   "column": 6
                 },
                 "end": {
-                  "line": 121,
+                  "line": 123,
                   "column": 22
                 }
               },
@@ -6939,11 +6939,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 129,
+                  "line": 131,
                   "column": 6
                 },
                 "end": {
-                  "line": 133,
+                  "line": 135,
                   "column": 7
                 }
               },
@@ -6956,11 +6956,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 145,
+                  "line": 147,
                   "column": 6
                 },
                 "end": {
-                  "line": 145,
+                  "line": 147,
                   "column": 28
                 }
               },
@@ -6973,11 +6973,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 157,
+                  "line": 159,
                   "column": 6
                 },
                 "end": {
-                  "line": 157,
+                  "line": 159,
                   "column": 26
                 }
               },
@@ -6990,11 +6990,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 171,
+                  "line": 173,
                   "column": 6
                 },
                 "end": {
-                  "line": 173,
+                  "line": 175,
                   "column": 7
                 }
               },
@@ -7011,11 +7011,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 187,
+                  "line": 189,
                   "column": 6
                 },
                 "end": {
-                  "line": 189,
+                  "line": 191,
                   "column": 7
                 }
               },
@@ -7035,11 +7035,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 201,
+                  "line": 203,
                   "column": 6
                 },
                 "end": {
-                  "line": 203,
+                  "line": 205,
                   "column": 7
                 }
               },
@@ -7062,11 +7062,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 215,
+                  "line": 217,
                   "column": 6
                 },
                 "end": {
-                  "line": 217,
+                  "line": 219,
                   "column": 7
                 }
               },
@@ -7089,11 +7089,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 228,
+                  "line": 230,
                   "column": 6
                 },
                 "end": {
-                  "line": 240,
+                  "line": 242,
                   "column": 7
                 }
               },
@@ -7113,11 +7113,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 254,
+                  "line": 256,
                   "column": 6
                 },
                 "end": {
-                  "line": 256,
+                  "line": 261,
                   "column": 7
                 }
               },
@@ -7137,11 +7137,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 264,
+                  "line": 269,
                   "column": 6
                 },
                 "end": {
-                  "line": 269,
+                  "line": 274,
                   "column": 7
                 }
               },
@@ -7161,11 +7161,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 282,
+                  "line": 287,
                   "column": 6
                 },
                 "end": {
-                  "line": 286,
+                  "line": 291,
                   "column": 7
                 }
               },
@@ -7182,11 +7182,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 303,
+                  "line": 308,
                   "column": 6
                 },
                 "end": {
-                  "line": 315,
+                  "line": 320,
                   "column": 7
                 }
               },
@@ -7209,11 +7209,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 326,
+                  "line": 331,
                   "column": 6
                 },
                 "end": {
-                  "line": 340,
+                  "line": 345,
                   "column": 7
                 }
               },
@@ -7236,11 +7236,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 352,
+                  "line": 357,
                   "column": 6
                 },
                 "end": {
-                  "line": 361,
+                  "line": 366,
                   "column": 7
                 }
               },
@@ -7263,11 +7263,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 378,
+                  "line": 383,
                   "column": 6
                 },
                 "end": {
-                  "line": 380,
+                  "line": 385,
                   "column": 7
                 }
               },
@@ -7287,11 +7287,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 392,
+                  "line": 397,
                   "column": 6
                 },
                 "end": {
-                  "line": 394,
+                  "line": 399,
                   "column": 7
                 }
               },
@@ -7308,11 +7308,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 415,
+                  "line": 420,
                   "column": 6
                 },
                 "end": {
-                  "line": 419,
+                  "line": 424,
                   "column": 7
                 }
               },
@@ -7325,11 +7325,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 430,
+                  "line": 435,
                   "column": 6
                 },
                 "end": {
-                  "line": 432,
+                  "line": 437,
                   "column": 7
                 }
               },
@@ -7342,11 +7342,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 442,
+                  "line": 447,
                   "column": 6
                 },
                 "end": {
-                  "line": 444,
+                  "line": 449,
                   "column": 7
                 }
               },
@@ -7363,11 +7363,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 455,
+                  "line": 460,
                   "column": 6
                 },
                 "end": {
-                  "line": 460,
+                  "line": 465,
                   "column": 7
                 }
               },
@@ -7380,11 +7380,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 470,
+                  "line": 475,
                   "column": 6
                 },
                 "end": {
-                  "line": 479,
+                  "line": 484,
                   "column": 7
                 }
               },
@@ -7397,11 +7397,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 489,
+                  "line": 494,
                   "column": 6
                 },
                 "end": {
-                  "line": 492,
+                  "line": 497,
                   "column": 7
                 }
               },
@@ -7418,11 +7418,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 502,
+                  "line": 507,
                   "column": 6
                 },
                 "end": {
-                  "line": 504,
+                  "line": 509,
                   "column": 7
                 }
               },
@@ -7439,11 +7439,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 517,
+                  "line": 522,
                   "column": 6
                 },
                 "end": {
-                  "line": 520,
+                  "line": 525,
                   "column": 7
                 }
               },
@@ -7460,11 +7460,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 537,
+                  "line": 542,
                   "column": 6
                 },
                 "end": {
-                  "line": 541,
+                  "line": 546,
                   "column": 7
                 }
               },
@@ -7481,11 +7481,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 550,
+                  "line": 555,
                   "column": 6
                 },
                 "end": {
-                  "line": 553,
+                  "line": 558,
                   "column": 7
                 }
               },
@@ -7502,11 +7502,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 562,
+                  "line": 567,
                   "column": 6
                 },
                 "end": {
-                  "line": 564,
+                  "line": 569,
                   "column": 7
                 }
               },
@@ -7523,11 +7523,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 567,
+                  "line": 572,
                   "column": 6
                 },
                 "end": {
-                  "line": 568,
+                  "line": 573,
                   "column": 7
                 }
               },
@@ -7547,11 +7547,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 575,
+                  "line": 580,
                   "column": 6
                 },
                 "end": {
-                  "line": 577,
+                  "line": 582,
                   "column": 7
                 }
               },
@@ -7568,11 +7568,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 601,
+                  "line": 606,
                   "column": 6
                 },
                 "end": {
-                  "line": 607,
+                  "line": 612,
                   "column": 7
                 }
               },
@@ -7595,11 +7595,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 616,
+                  "line": 621,
                   "column": 6
                 },
                 "end": {
-                  "line": 620,
+                  "line": 625,
                   "column": 7
                 }
               },
@@ -7616,11 +7616,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 628,
+                  "line": 633,
                   "column": 6
                 },
                 "end": {
-                  "line": 634,
+                  "line": 639,
                   "column": 7
                 }
               },
@@ -7637,11 +7637,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 642,
+                  "line": 647,
                   "column": 6
                 },
                 "end": {
-                  "line": 648,
+                  "line": 653,
                   "column": 7
                 }
               },
@@ -7658,11 +7658,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 663,
+                  "line": 668,
                   "column": 6
                 },
                 "end": {
-                  "line": 666,
+                  "line": 671,
                   "column": 7
                 }
               },
@@ -7682,11 +7682,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 675,
+                  "line": 680,
                   "column": 6
                 },
                 "end": {
-                  "line": 678,
+                  "line": 683,
                   "column": 7
                 }
               },
@@ -7703,11 +7703,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 691,
+                  "line": 696,
                   "column": 6
                 },
                 "end": {
-                  "line": 703,
+                  "line": 708,
                   "column": 7
                 }
               },
@@ -7727,11 +7727,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 723,
+                  "line": 728,
                   "column": 6
                 },
                 "end": {
-                  "line": 727,
+                  "line": 732,
                   "column": 7
                 }
               },
@@ -7757,11 +7757,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 738,
+                  "line": 743,
                   "column": 6
                 },
                 "end": {
-                  "line": 740,
+                  "line": 745,
                   "column": 7
                 }
               },
@@ -7781,11 +7781,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 751,
+                  "line": 756,
                   "column": 6
                 },
                 "end": {
-                  "line": 761,
+                  "line": 766,
                   "column": 7
                 }
               },
@@ -7808,11 +7808,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 773,
+                  "line": 778,
                   "column": 6
                 },
                 "end": {
-                  "line": 783,
+                  "line": 788,
                   "column": 7
                 }
               },
@@ -7835,11 +7835,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 792,
+                  "line": 797,
                   "column": 6
                 },
                 "end": {
-                  "line": 796,
+                  "line": 801,
                   "column": 7
                 }
               },
@@ -7859,11 +7859,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 809,
+                  "line": 814,
                   "column": 6
                 },
                 "end": {
-                  "line": 812,
+                  "line": 817,
                   "column": 7
                 }
               },
@@ -7889,11 +7889,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 830,
+                  "line": 835,
                   "column": 6
                 },
                 "end": {
-                  "line": 845,
+                  "line": 850,
                   "column": 7
                 }
               },
@@ -7913,11 +7913,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 855,
+                  "line": 860,
                   "column": 6
                 },
                 "end": {
-                  "line": 866,
+                  "line": 871,
                   "column": 7
                 }
               },
@@ -7937,11 +7937,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 873,
+                  "line": 878,
                   "column": 6
                 },
                 "end": {
-                  "line": 875,
+                  "line": 880,
                   "column": 7
                 }
               },
@@ -7958,11 +7958,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 882,
+                  "line": 887,
                   "column": 6
                 },
                 "end": {
-                  "line": 884,
+                  "line": 889,
                   "column": 7
                 }
               },
@@ -7979,11 +7979,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 891,
+                  "line": 896,
                   "column": 6
                 },
                 "end": {
-                  "line": 893,
+                  "line": 898,
                   "column": 7
                 }
               },
@@ -8000,11 +8000,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 903,
+                  "line": 908,
                   "column": 6
                 },
                 "end": {
-                  "line": 905,
+                  "line": 910,
                   "column": 7
                 }
               },
@@ -8026,11 +8026,11 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 40,
               "column": 2
             },
             "end": {
-              "line": 909,
+              "line": 914,
               "column": 4
             }
           },
@@ -8648,49 +8648,17 @@
       ],
       "functions": [
         {
-          "name": "Polymer.mixin",
-          "description": "Copies props from a source object to a target object.\n\nNote, this method uses a simple `for...in` strategy for enumerating\nproperties.  To ensure only `ownProperties` are copied from source\nto target and that accessor implementations are copied, use `extend`.",
-          "summary": "",
-          "sourceRange": {
-            "file": "lib/utils/mixin.html",
-            "start": {
-              "line": 53,
-              "column": 2
-            },
-            "end": {
-              "line": 58,
-              "column": 4
-            }
-          },
-          "params": [
-            {
-              "type": "Object",
-              "desc": "Target object to copy properties to.",
-              "name": "target"
-            },
-            {
-              "type": "Object",
-              "desc": "Source object to copy properties from.",
-              "name": "source"
-            }
-          ],
-          "return": {
-            "type": "Object",
-            "desc": "Target object that was passed as first argument."
-          }
-        },
-        {
           "name": "Polymer.dedupingMixin",
           "description": "Wraps an ES6 class expression mixin such that the mixin is only applied\nif it has not already been applied its base argument.  Also memoizes mixin\napplications.",
           "summary": "",
           "sourceRange": {
             "file": "lib/utils/mixin.html",
             "start": {
-              "line": 70,
+              "line": 50,
               "column": 2
             },
             "end": {
-              "line": 90,
+              "line": 70,
               "column": 4
             }
           },
