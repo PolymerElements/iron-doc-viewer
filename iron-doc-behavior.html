@@ -125,6 +125,28 @@
         return name;
       },
 
+      _getNamespaceName(name) {
+        if (name == null) {
+          return undefined;
+        }
+        const lastDotIndex = name.lastIndexOf('.');
+        if (lastDotIndex === -1) {
+          return undefined;
+        }
+        return name.substring(0, lastDotIndex);
+      },
+
+      _getName(name) {
+        if (name == null) {
+          return undefined;
+        }
+        const lastDotIndex = name.lastIndexOf('.');
+        if (lastDotIndex === -1) {
+          return name;
+        }
+        return name.substring(lastDotIndex, name.length);
+      },
+
       _getElementId(element) {
         return element.classname || element.tagname;
       },
