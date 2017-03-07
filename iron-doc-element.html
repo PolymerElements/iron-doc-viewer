@@ -123,14 +123,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         behaviors: [Polymer.IronDocBehavior],
 
-        _superclassUrl(superclass) {
+        _superclassUrl: function(superclass) {
           if (superclass === 'HTMLElement') {
             return 'https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement';
           }
           return  this.baseHref + '/mixins/' + superclass;
         },
 
-        _superclassTarget(superclass) {
+        _superclassTarget: function(superclass) {
           if (superclass === 'HTMLElement') {
             return '_blank';
           }
