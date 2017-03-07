@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../marked-element/marked-element.html">
-<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../paper-styles/color.html">
 <link rel="import" href="../paper-styles/shadow.html">
 <link rel="import" href="../paper-styles/typography.html">
@@ -59,14 +59,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <nav id="api">
       <header>API Reference</header>
-      <paper-button id="togglePrivate"
-        on-tap="_togglePrivate">[[_privateToggleLabel]]</paper-button>
+      <paper-checkbox
+          id="togglePrivate"
+          checked="{{_showPrivate}}">Show Private</paper-checkbox>
     </nav>
 
     <section id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor,'properties')]]">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
       <div hidden$="[[!descriptor.properties.length]]">
-        <template is="dom-repeat" items="[[descriptor.properties]]">
+        <template is="dom-repeat" items="[[_filterPrivate(descriptor.properties,_showPrivate)]]">
           <iron-doc-property anchor-id="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="[[item]]"></iron-doc-property>
         </template>
       </div>
@@ -74,14 +75,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,descriptor,'methods')]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
-      <template is="dom-repeat" items="[[descriptor.methods]]">
+      <template is="dom-repeat" items="[[_filterPrivate(descriptor.methods,_showPrivate)]]">
         <iron-doc-function anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
 
     <section id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,descriptor,'events')]]">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
-      <template is="dom-repeat" items="[[descriptor.events]]">
+      <template is="dom-repeat" items="[[_filterPrivate(descriptor.events,_showPrivate)]]">
         <iron-doc-property anchor-id="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property>
       </template>
     </section>

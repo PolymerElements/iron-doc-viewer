@@ -8,11 +8,11 @@
       "sourceRange": {
         "file": "lib/utils/boot.html",
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 3
         }
       },
@@ -24,11 +24,11 @@
           "sourceRange": {
             "file": "lib/utils/case-map.html",
             "start": {
-              "line": 26,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 58,
+              "line": 59,
               "column": 4
             }
           },
@@ -40,14 +40,15 @@
               "sourceRange": {
                 "file": "lib/utils/case-map.html",
                 "start": {
-                  "line": 36,
+                  "line": 37,
                   "column": 4
                 },
                 "end": {
-                  "line": 42,
+                  "line": 43,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -67,14 +68,15 @@
               "sourceRange": {
                 "file": "lib/utils/case-map.html",
                 "start": {
-                  "line": 52,
+                  "line": 53,
                   "column": 4
                 },
                 "end": {
-                  "line": 56,
+                  "line": 57,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -96,11 +98,11 @@
           "sourceRange": {
             "file": "lib/utils/resolve-url.html",
             "start": {
-              "line": 98,
+              "line": 99,
               "column": 4
             },
             "end": {
-              "line": 102,
+              "line": 103,
               "column": 6
             }
           },
@@ -112,14 +114,15 @@
               "sourceRange": {
                 "file": "lib/utils/resolve-url.html",
                 "start": {
-                  "line": 27,
+                  "line": 28,
                   "column": 4
                 },
                 "end": {
-                  "line": 60,
+                  "line": 61,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -144,14 +147,15 @@
               "sourceRange": {
                 "file": "lib/utils/resolve-url.html",
                 "start": {
-                  "line": 71,
+                  "line": 72,
                   "column": 4
                 },
                 "end": {
-                  "line": 77,
+                  "line": 78,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -176,14 +180,15 @@
               "sourceRange": {
                 "file": "lib/utils/resolve-url.html",
                 "start": {
-                  "line": 87,
+                  "line": 88,
                   "column": 4
                 },
                 "end": {
-                  "line": 89,
+                  "line": 90,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -229,6 +234,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -256,6 +262,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -283,6 +290,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "HTMLTemplateElement",
@@ -315,6 +323,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -336,11 +345,11 @@
           "sourceRange": {
             "file": "lib/utils/path.html",
             "start": {
-              "line": 22,
+              "line": 23,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 245,
               "column": 4
             }
           },
@@ -352,14 +361,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 38,
+                  "line": 39,
                   "column": 4
                 },
                 "end": {
-                  "line": 40,
+                  "line": 41,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -379,14 +389,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 56,
+                  "line": 57,
                   "column": 4
                 },
                 "end": {
-                  "line": 62,
+                  "line": 63,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -406,14 +417,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 80,
+                  "line": 81,
                   "column": 4
                 },
                 "end": {
-                  "line": 83,
+                  "line": 84,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -433,14 +445,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 98,
+                  "line": 99,
                   "column": 4
                 },
                 "end": {
-                  "line": 101,
+                  "line": 102,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": []
             },
             {
@@ -450,14 +463,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 121,
+                  "line": 122,
                   "column": 4
                 },
                 "end": {
-                  "line": 123,
+                  "line": 124,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "string",
@@ -487,14 +501,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 146,
+                  "line": 147,
                   "column": 4
                 },
                 "end": {
-                  "line": 159,
+                  "line": 160,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "(string|!Array.<(string|number)>)",
@@ -514,14 +529,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 176,
+                  "line": 177,
                   "column": 4
                 },
                 "end": {
-                  "line": 181,
+                  "line": 182,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "(string|!Array.<(string|number)>)",
@@ -541,14 +557,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 195,
+                  "line": 196,
                   "column": 4
                 },
                 "end": {
-                  "line": 210,
+                  "line": 211,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Object",
@@ -578,14 +595,15 @@
               "sourceRange": {
                 "file": "lib/utils/path.html",
                 "start": {
-                  "line": 222,
+                  "line": 223,
                   "column": 4
                 },
                 "end": {
-                  "line": 242,
+                  "line": 243,
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Object",
@@ -657,6 +675,7 @@
                       "column": 7
                     }
                   },
+                  "privacy": "public",
                   "params": [
                     {
                       "type": "number",
@@ -684,6 +703,7 @@
                       "column": 7
                     }
                   },
+                  "privacy": "public",
                   "params": [
                     {
                       "type": "Function",
@@ -711,6 +731,7 @@
                       "column": 7
                     }
                   },
+                  "privacy": "public",
                   "params": [
                     {
                       "type": "*",
@@ -734,6 +755,7 @@
                       "column": 7
                     }
                   },
+                  "privacy": "public",
                   "params": [
                     {
                       "type": "Function",
@@ -801,11 +823,11 @@
           "sourceRange": {
             "file": "lib/mixins/element-mixin.html",
             "start": {
-              "line": 734,
+              "line": 735,
               "column": 2
             },
             "end": {
-              "line": 766,
+              "line": 767,
               "column": 4
             }
           }
@@ -841,6 +863,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "number",
@@ -869,6 +892,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Node",
@@ -902,6 +926,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Node",
@@ -935,6 +960,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Object",
@@ -958,6 +984,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Node",
@@ -986,6 +1013,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": []
             },
             {
@@ -1003,6 +1031,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": []
             }
           ]
@@ -1038,6 +1067,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "*",
@@ -1071,6 +1101,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "*",
@@ -1122,6 +1153,7 @@
                   "column": 5
                 }
               },
+              "privacy": "public",
               "params": []
             }
           ]
@@ -1133,11 +1165,11 @@
           "sourceRange": {
             "file": "lib/legacy/polymer.dom.html",
             "start": {
-              "line": 290,
+              "line": 291,
               "column": 2
             },
             "end": {
-              "line": 297,
+              "line": 298,
               "column": 4
             }
           },
@@ -1149,14 +1181,15 @@
               "sourceRange": {
                 "file": "lib/legacy/polymer.dom.html",
                 "start": {
-                  "line": 29,
+                  "line": 30,
                   "column": 2
                 },
                 "end": {
-                  "line": 31,
+                  "line": 32,
                   "column": 3
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "Node",
@@ -1207,6 +1240,7 @@
                   "column": 7
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "HTMLTemplateElement",
@@ -1244,6 +1278,7 @@
                   "column": 7
                 }
               },
+              "privacy": "public",
               "params": [
                 {
                   "type": "HTMLElement",
@@ -1270,11 +1305,11 @@
               "description": "",
               "sourceRange": {
                 "start": {
-                  "line": 44,
+                  "line": 53,
                   "column": 46
                 },
                 "end": {
-                  "line": 44,
+                  "line": 53,
                   "column": 50
                 }
               },
@@ -1289,11 +1324,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 66,
+                  "line": 75,
                   "column": 4
                 },
                 "end": {
-                  "line": 70,
+                  "line": 79,
                   "column": 5
                 }
               },
@@ -1316,11 +1351,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 104,
+                  "line": 113,
                   "column": 4
                 },
                 "end": {
-                  "line": 115,
+                  "line": 124,
                   "column": 5
                 }
               },
@@ -1342,14 +1377,15 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 51,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 125,
               "column": 3
             }
           },
+          "privacy": "public",
           "tagname": "dom-module",
           "classname": "Polymer.DomModule",
           "superclass": "HTMLElement"
@@ -1364,11 +1400,11 @@
               "description": "",
               "sourceRange": {
                 "start": {
-                  "line": 37,
+                  "line": 38,
                   "column": 48
                 },
                 "end": {
-                  "line": 37,
+                  "line": 38,
                   "column": 62
                 }
               },
@@ -2349,11 +2385,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 40,
+                  "line": 41,
                   "column": 6
                 },
                 "end": {
-                  "line": 42,
+                  "line": 43,
                   "column": 7
                 }
               },
@@ -2366,11 +2402,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 44,
+                  "line": 45,
                   "column": 6
                 },
                 "end": {
-                  "line": 46,
+                  "line": 47,
                   "column": 7
                 }
               },
@@ -2383,11 +2419,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 48,
+                  "line": 49,
                   "column": 6
                 },
                 "end": {
-                  "line": 50,
+                  "line": 51,
                   "column": 7
                 }
               },
@@ -2400,11 +2436,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 52,
+                  "line": 53,
                   "column": 6
                 },
                 "end": {
-                  "line": 54,
+                  "line": 55,
                   "column": 7
                 }
               },
@@ -2417,11 +2453,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 56,
+                  "line": 57,
                   "column": 6
                 },
                 "end": {
-                  "line": 62,
+                  "line": 63,
                   "column": 7
                 }
               },
@@ -2434,11 +2470,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 68,
+                  "line": 69,
                   "column": 6
                 },
                 "end": {
-                  "line": 96,
+                  "line": 97,
                   "column": 7
                 }
               },
@@ -2456,14 +2492,15 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 35,
+              "line": 36,
               "column": 4
             },
             "end": {
-              "line": 98,
+              "line": 99,
               "column": 5
             }
           },
+          "privacy": "public",
           "tagname": "dom-bind",
           "classname": "Polymer.DomBind",
           "mixins": [
@@ -2485,11 +2522,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 555,
+                  "line": 556,
                   "column": 6
                 },
                 "end": {
-                  "line": 589,
+                  "line": 590,
                   "column": 7
                 }
               },
@@ -2504,11 +2541,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 601,
+                  "line": 602,
                   "column": 6
                 },
                 "end": {
-                  "line": 606,
+                  "line": 607,
                   "column": 7
                 }
               },
@@ -2523,11 +2560,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 614,
+                  "line": 615,
                   "column": 6
                 },
                 "end": {
-                  "line": 614,
+                  "line": 615,
                   "column": 31
                 }
               },
@@ -2542,11 +2579,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 625,
+                  "line": 626,
                   "column": 6
                 },
                 "end": {
-                  "line": 630,
+                  "line": 631,
                   "column": 7
                 }
               },
@@ -2561,11 +2598,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 645,
+                  "line": 646,
                   "column": 6
                 },
                 "end": {
-                  "line": 660,
+                  "line": 661,
                   "column": 7
                 }
               },
@@ -2584,11 +2621,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 673,
+                  "line": 674,
                   "column": 6
                 },
                 "end": {
-                  "line": 681,
+                  "line": 682,
                   "column": 7
                 }
               },
@@ -2613,11 +2650,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 699,
+                  "line": 700,
                   "column": 6
                 },
                 "end": {
-                  "line": 703,
+                  "line": 704,
                   "column": 7
                 }
               },
@@ -2636,11 +2673,11 @@
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
                 "start": {
-                  "line": 716,
+                  "line": 717,
                   "column": 6
                 },
                 "end": {
-                  "line": 721,
+                  "line": 722,
                   "column": 7
                 }
               },
@@ -2666,14 +2703,15 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 15,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 15,
+              "line": 27,
               "column": 52
             }
           },
+          "privacy": "public",
           "classname": "Polymer.Element",
           "mixins": [
             "Polymer.ElementMixin"
@@ -2681,7 +2719,7 @@
           "superclass": "HTMLElement"
         },
         {
-          "description": "The `<dom-repeat>` element will automatically stamp and binds one instance\nof template content to each object in a user-provided array.\n`dom-repeat` accepts an `items` property, and one instance of the template\nis stamped for each item into the DOM at the location of the `dom-repeat`\nelement.  The `item` property will be set on each instance's binding\nscope, thus templates should bind to sub-properties of `item`.\n\nExample:\n\n```html\n<dom-module id=\"employee-list\">\n\n  <template>\n\n    <div> Employee list: </div>\n    <template is=\"dom-repeat\" items=\"{{employees}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n    </template>\n\n  </template>\n\n  <script>\n    Polymer({\n      is: 'employee-list',\n      ready: function() {\n        this.employees = [\n            {first: 'Bob', last: 'Smith'},\n            {first: 'Sally', last: 'Johnson'},\n            ...\n        ];\n      }\n    });\n  &lt;/script&gt;\n\n</dom-module>\n```\n\nNotifications for changes to items sub-properties will be forwarded to template\ninstances, which will update via the normal structured data notification system.\n\nMutations to the `items` array itself should me made using the Array\nmutation API's on `Polymer.Base` (`push`, `pop`, `splice`, `shift`,\n`unshift`), and template instances will be kept in sync with the data in the\narray.\n\nEvents caught by event handlers within the `dom-repeat` template will be\ndecorated with a `model` property, which represents the binding scope for\neach template instance.  The model is an instance of Polymer.Base, and should\nbe used to manipulate data on the instance, for example\n`event.model.set('item.checked', true);`.\n\nAlternatively, the model for a template instance for an element stamped by\na `dom-repeat` can be obtained using the `modelForElement` API on the\n`dom-repeat` that stamped it, for example\n`this.$.domRepeat.modelForElement(event.target).set('item.checked', true);`.\nThis may be useful for manipulating instance data of event targets obtained\nby event handlers on parents of the `dom-repeat` (event delegation).\n\nA view-specific filter/sort may be applied to each `dom-repeat` by supplying a\n`filter` and/or `sort` property.  This may be a string that names a function on\nthe host, or a function may be assigned to the property directly.  The functions\nshould implemented following the standard `Array` filter/sort API.\n\nIn order to re-run the filter or sort functions based on changes to sub-fields\nof `items`, the `observe` property may be set as a space-separated list of\n`item` sub-fields that should cause a re-filter/sort when modified.  If\nthe filter or sort function depends on properties not contained in `items`,\nthe user should observe changes to those properties and call `render` to update\nthe view based on the dependency change.\n\nFor example, for an `dom-repeat` with a filter of the following:\n\n```js\nisEngineer: function(item) {\n    return item.type == 'engineer' || item.manager.type == 'engineer';\n}\n```\n\nThen the `observe` property should be configured as follows:\n\n```html\n<template is=\"dom-repeat\" items=\"{{employees}}\"\n          filter=\"isEngineer\" observe=\"type manager.type\">\n```",
+          "description": "The `<dom-repeat>` element will automatically stamp and binds one instance\nof template content to each object in a user-provided array.\n`dom-repeat` accepts an `items` property, and one instance of the template\nis stamped for each item into the DOM at the location of the `dom-repeat`\nelement.  The `item` property will be set on each instance's binding\nscope, thus templates should bind to sub-properties of `item`.\n\nExample:\n\n```html\n<dom-module id=\"employee-list\">\n\n  <template>\n\n    <div> Employee list: </div>\n    <template is=\"dom-repeat\" items=\"{{employees}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n    </template>\n\n  </template>\n\n  <script>\n    Polymer({\n      is: 'employee-list',\n      ready: function() {\n        this.employees = [\n            {first: 'Bob', last: 'Smith'},\n            {first: 'Sally', last: 'Johnson'},\n            ...\n        ];\n      }\n    });\n  < /script>\n\n</dom-module>\n```\n\nNotifications for changes to items sub-properties will be forwarded to template\ninstances, which will update via the normal structured data notification system.\n\nMutations to the `items` array itself should me made using the Array\nmutation API's on `Polymer.Base` (`push`, `pop`, `splice`, `shift`,\n`unshift`), and template instances will be kept in sync with the data in the\narray.\n\nEvents caught by event handlers within the `dom-repeat` template will be\ndecorated with a `model` property, which represents the binding scope for\neach template instance.  The model is an instance of Polymer.Base, and should\nbe used to manipulate data on the instance, for example\n`event.model.set('item.checked', true);`.\n\nAlternatively, the model for a template instance for an element stamped by\na `dom-repeat` can be obtained using the `modelForElement` API on the\n`dom-repeat` that stamped it, for example\n`this.$.domRepeat.modelForElement(event.target).set('item.checked', true);`.\nThis may be useful for manipulating instance data of event targets obtained\nby event handlers on parents of the `dom-repeat` (event delegation).\n\nA view-specific filter/sort may be applied to each `dom-repeat` by supplying a\n`filter` and/or `sort` property.  This may be a string that names a function on\nthe host, or a function may be assigned to the property directly.  The functions\nshould implemented following the standard `Array` filter/sort API.\n\nIn order to re-run the filter or sort functions based on changes to sub-fields\nof `items`, the `observe` property may be set as a space-separated list of\n`item` sub-fields that should cause a re-filter/sort when modified.  If\nthe filter or sort function depends on properties not contained in `items`,\nthe user should observe changes to those properties and call `render` to update\nthe view based on the dependency change.\n\nFor example, for an `dom-repeat` with a filter of the following:\n\n```js\nisEngineer: function(item) {\n    return item.type == 'engineer' || item.manager.type == 'engineer';\n}\n```\n\nThen the `observe` property should be configured as follows:\n\n```html\n<template is=\"dom-repeat\" items=\"{{employees}}\"\n          filter=\"isEngineer\" observe=\"type manager.type\">\n```",
           "summary": "Custom element for stamping instance of a template bound to\n  items in an array.",
           "path": "lib/elements/dom-repeat.html",
           "attributes": [
@@ -3117,11 +3155,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 555,
+                  "line": 556,
                   "column": 6
                 },
                 "end": {
-                  "line": 589,
+                  "line": 590,
                   "column": 7
                 }
               },
@@ -3170,11 +3208,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 625,
+                  "line": 626,
                   "column": 6
                 },
                 "end": {
-                  "line": 630,
+                  "line": 631,
                   "column": 7
                 }
               },
@@ -3189,11 +3227,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 645,
+                  "line": 646,
                   "column": 6
                 },
                 "end": {
-                  "line": 660,
+                  "line": 661,
                   "column": 7
                 }
               },
@@ -3212,11 +3250,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 673,
+                  "line": 674,
                   "column": 6
                 },
                 "end": {
-                  "line": 681,
+                  "line": 682,
                   "column": 7
                 }
               },
@@ -3241,11 +3279,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 699,
+                  "line": 700,
                   "column": 6
                 },
                 "end": {
-                  "line": 703,
+                  "line": 704,
                   "column": 7
                 }
               },
@@ -3264,11 +3302,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 716,
+                  "line": 717,
                   "column": 6
                 },
                 "end": {
-                  "line": 721,
+                  "line": 722,
                   "column": 7
                 }
               },
@@ -3290,11 +3328,11 @@
               "sourceRange": {
                 "file": "../mixins/mutable-data.html",
                 "start": {
-                  "line": 89,
+                  "line": 90,
                   "column": 6
                 },
                 "end": {
-                  "line": 91,
+                  "line": 92,
                   "column": 7
                 }
               },
@@ -3820,7 +3858,7 @@
             },
             {
               "name": "modelForElement",
-              "description": "Returns the template \"model\" associated with a given element, which\nserves as the binding scope for the template instance the element is\ncontained in. A template model is an instance of `Polymer.Base`, and\nshould be used to manipulate data associated with this template instance.\n\nExample:\n\n  var model = modelForElement(el);\n  if (model.index < 10) {\n    model.set('item.checked', true);\n  }\n\n@method modelForElement\n@param {HTMLElement} el Element for which to return a template model.\n@return {TemplateInstanceBase} Model representing the binding scope for\n  the element.",
+              "description": "Returns the template \"model\" associated with a given element, which\nserves as the binding scope for the template instance the element is\ncontained in. A template model is an instance of `Polymer.Base`, and\nshould be used to manipulate data associated with this template instance.\n\nExample:\n\n  let model = modelForElement(el);\n  if (model.index < 10) {\n    model.set('item.checked', true);\n  }\n\n@method modelForElement\n@param {HTMLElement} el Element for which to return a template model.\n@return {TemplateInstanceBase} Model representing the binding scope for\n  the element.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -3871,6 +3909,7 @@
               "column": 3
             }
           },
+          "privacy": "public",
           "tagname": "dom-repeat",
           "classname": "Polymer.DomRepeat",
           "mixins": [
@@ -3888,11 +3927,11 @@
               "description": "A boolean indicating whether this template should stamp.",
               "sourceRange": {
                 "start": {
-                  "line": 63,
+                  "line": 64,
                   "column": 8
                 },
                 "end": {
-                  "line": 66,
+                  "line": 67,
                   "column": 9
                 }
               },
@@ -3904,11 +3943,11 @@
               "description": "When true, elements will be removed from DOM and discarded when `if`\nbecomes false and re-created and added back to the DOM when `if`\nbecomes true.  By default, stamped elements will be hidden but left\nin the DOM when `if` becomes false, which is generally results\nin better performance.",
               "sourceRange": {
                 "start": {
-                  "line": 75,
+                  "line": 76,
                   "column": 8
                 },
                 "end": {
-                  "line": 78,
+                  "line": 79,
                   "column": 9
                 }
               },
@@ -3924,11 +3963,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 63,
+                  "line": 64,
                   "column": 8
                 },
                 "end": {
-                  "line": 66,
+                  "line": 67,
                   "column": 9
                 }
               },
@@ -3945,11 +3984,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 75,
+                  "line": 76,
                   "column": 8
                 },
                 "end": {
-                  "line": 78,
+                  "line": 79,
                   "column": 9
                 }
               },
@@ -3968,11 +4007,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 555,
+                  "line": 556,
                   "column": 6
                 },
                 "end": {
-                  "line": 589,
+                  "line": 590,
                   "column": 7
                 }
               },
@@ -3986,11 +4025,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 124,
+                  "line": 125,
                   "column": 4
                 },
                 "end": {
-                  "line": 129,
+                  "line": 130,
                   "column": 5
                 }
               },
@@ -4003,11 +4042,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 115,
+                  "line": 116,
                   "column": 4
                 },
                 "end": {
-                  "line": 122,
+                  "line": 123,
                   "column": 5
                 }
               },
@@ -4021,11 +4060,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 625,
+                  "line": 626,
                   "column": 6
                 },
                 "end": {
-                  "line": 630,
+                  "line": 631,
                   "column": 7
                 }
               },
@@ -4040,11 +4079,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 645,
+                  "line": 646,
                   "column": 6
                 },
                 "end": {
-                  "line": 660,
+                  "line": 661,
                   "column": 7
                 }
               },
@@ -4063,11 +4102,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 673,
+                  "line": 674,
                   "column": 6
                 },
                 "end": {
-                  "line": 681,
+                  "line": 682,
                   "column": 7
                 }
               },
@@ -4092,11 +4131,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 699,
+                  "line": 700,
                   "column": 6
                 },
                 "end": {
-                  "line": 703,
+                  "line": 704,
                   "column": 7
                 }
               },
@@ -4115,11 +4154,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 716,
+                  "line": 717,
                   "column": 6
                 },
                 "end": {
-                  "line": 721,
+                  "line": 722,
                   "column": 7
                 }
               },
@@ -4140,11 +4179,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 91,
+                  "line": 92,
                   "column": 4
                 },
                 "end": {
-                  "line": 113,
+                  "line": 114,
                   "column": 5
                 }
               },
@@ -4157,11 +4196,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 138,
+                  "line": 139,
                   "column": 4
                 },
                 "end": {
-                  "line": 140,
+                  "line": 141,
                   "column": 5
                 }
               },
@@ -4174,11 +4213,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 142,
+                  "line": 143,
                   "column": 4
                 },
                 "end": {
-                  "line": 159,
+                  "line": 160,
                   "column": 5
                 }
               },
@@ -4191,11 +4230,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 161,
+                  "line": 162,
                   "column": 4
                 },
                 "end": {
-                  "line": 218,
+                  "line": 219,
                   "column": 5
                 }
               },
@@ -4208,11 +4247,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 220,
+                  "line": 221,
                   "column": 4
                 },
                 "end": {
-                  "line": 229,
+                  "line": 230,
                   "column": 5
                 }
               },
@@ -4225,11 +4264,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 231,
+                  "line": 232,
                   "column": 4
                 },
                 "end": {
-                  "line": 244,
+                  "line": 245,
                   "column": 5
                 }
               },
@@ -4242,11 +4281,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 246,
+                  "line": 247,
                   "column": 4
                 },
                 "end": {
-                  "line": 251,
+                  "line": 252,
                   "column": 5
                 }
               },
@@ -4271,20 +4310,21 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 253,
+              "line": 254,
               "column": 3
             }
           },
+          "privacy": "public",
           "tagname": "dom-if",
           "classname": "Polymer.DomIf",
           "superclass": "HTMLElement"
         },
         {
-          "description": "Element implementing the `Polymer.ArraySelector` mixin, which records\ndynamic associations between item paths in a master `items` array and a\n`selected` array such that path changes to the master array (at the host)\nelement or elsewhere via data-binding) are correctly propagated to items\nin the selected array and vice-versa.\n\nThe `items` property accepts an array of user data, and via the\n`select(item)` and `deselect(item)` API, updates the `selected` property\nwhich may be bound to other parts of the application, and any changes to\nsub-fields of `selected` item(s) will be kept in sync with items in the\n`items` array.  When `multi` is false, `selected` is a property\nrepresenting the last selected item.  When `multi` is true, `selected`\nis an array of multiply selected items.\n\nExample:\n\n```html\n<dom-module id=\"employee-list\">\n\n  <template>\n\n    <div> Employee list: </div>\n    <template is=\"dom-repeat\" id=\"employeeList\" items=\"{{employees}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n        <button on-click=\"toggleSelection\">Select</button>\n    </template>\n\n    <array-selector id=\"selector\" items=\"{{employees}}\" selected=\"{{selected}}\" multi toggle></array-selector>\n\n    <div> Selected employees: </div>\n    <template is=\"dom-repeat\" items=\"{{selected}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n    </template>\n\n  </template>\n\n</dom-module>\n```\n\n```js\nPolymer({\n  is: 'employee-list',\n  ready() {\n    this.employees = [\n        {first: 'Bob', last: 'Smith'},\n        {first: 'Sally', last: 'Johnson'},\n        ...\n    ];\n  },\n  toggleSelection(e) {\n    var item = this.$.employeeList.itemForElement(e.target);\n    this.$.selector.select(item);\n  }\n});\n```",
+          "description": "Element implementing the `Polymer.ArraySelector` mixin, which records\ndynamic associations between item paths in a master `items` array and a\n`selected` array such that path changes to the master array (at the host)\nelement or elsewhere via data-binding) are correctly propagated to items\nin the selected array and vice-versa.\n\nThe `items` property accepts an array of user data, and via the\n`select(item)` and `deselect(item)` API, updates the `selected` property\nwhich may be bound to other parts of the application, and any changes to\nsub-fields of `selected` item(s) will be kept in sync with items in the\n`items` array.  When `multi` is false, `selected` is a property\nrepresenting the last selected item.  When `multi` is true, `selected`\nis an array of multiply selected items.\n\nExample:\n\n```html\n<dom-module id=\"employee-list\">\n\n  <template>\n\n    <div> Employee list: </div>\n    <template is=\"dom-repeat\" id=\"employeeList\" items=\"{{employees}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n        <button on-click=\"toggleSelection\">Select</button>\n    </template>\n\n    <array-selector id=\"selector\" items=\"{{employees}}\" selected=\"{{selected}}\" multi toggle></array-selector>\n\n    <div> Selected employees: </div>\n    <template is=\"dom-repeat\" items=\"{{selected}}\">\n        <div>First name: <span>{{item.first}}</span></div>\n        <div>Last name: <span>{{item.last}}</span></div>\n    </template>\n\n  </template>\n\n</dom-module>\n```\n\n```js\nPolymer({\n  is: 'employee-list',\n  ready() {\n    this.employees = [\n        {first: 'Bob', last: 'Smith'},\n        {first: 'Sally', last: 'Johnson'},\n        ...\n    ];\n  },\n  toggleSelection(e) {\n    let item = this.$.employeeList.itemForElement(e.target);\n    this.$.selector.select(item);\n  }\n});\n```",
           "summary": "Custom element that links paths between an input `items` array and\n  an output `selected` item or array based on calls to its selection API.",
           "path": "lib/elements/array-selector.html",
           "attributes": [
@@ -4293,11 +4333,11 @@
               "description": "An array containing items from which selection will be made.",
               "sourceRange": {
                 "start": {
-                  "line": 45,
+                  "line": 46,
                   "column": 10
                 },
                 "end": {
-                  "line": 47,
+                  "line": 48,
                   "column": 11
                 }
               },
@@ -4310,11 +4350,11 @@
               "description": "When `true`, multiple items may be selected at once (in this case,\n`selected` is an array of currently selected items).  When `false`,\nonly one item may be selected at a time.",
               "sourceRange": {
                 "start": {
-                  "line": 54,
+                  "line": 55,
                   "column": 10
                 },
                 "end": {
-                  "line": 57,
+                  "line": 58,
                   "column": 11
                 }
               },
@@ -4327,11 +4367,11 @@
               "description": "When `multi` is true, this is an array that contains any selected.\nWhen `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
               "sourceRange": {
                 "start": {
-                  "line": 64,
+                  "line": 65,
                   "column": 10
                 },
                 "end": {
-                  "line": 67,
+                  "line": 68,
                   "column": 11
                 }
               },
@@ -4344,11 +4384,11 @@
               "description": "When `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
               "sourceRange": {
                 "start": {
-                  "line": 73,
+                  "line": 74,
                   "column": 10
                 },
                 "end": {
-                  "line": 76,
+                  "line": 77,
                   "column": 11
                 }
               },
@@ -4361,11 +4401,11 @@
               "description": "When `true`, calling `select` on an item that is already selected\nwill deselect the item.",
               "sourceRange": {
                 "start": {
-                  "line": 82,
+                  "line": 83,
                   "column": 10
                 },
                 "end": {
-                  "line": 85,
+                  "line": 86,
                   "column": 11
                 }
               },
@@ -4382,11 +4422,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 45,
+                  "line": 46,
                   "column": 10
                 },
                 "end": {
-                  "line": 47,
+                  "line": 48,
                   "column": 11
                 }
               },
@@ -4402,11 +4442,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 54,
+                  "line": 55,
                   "column": 10
                 },
                 "end": {
-                  "line": 57,
+                  "line": 58,
                   "column": 11
                 }
               },
@@ -4423,11 +4463,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 64,
+                  "line": 65,
                   "column": 10
                 },
                 "end": {
-                  "line": 67,
+                  "line": 68,
                   "column": 11
                 }
               },
@@ -4445,11 +4485,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 73,
+                  "line": 74,
                   "column": 10
                 },
                 "end": {
-                  "line": 76,
+                  "line": 77,
                   "column": 11
                 }
               },
@@ -4467,11 +4507,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 82,
+                  "line": 83,
                   "column": 10
                 },
                 "end": {
-                  "line": 85,
+                  "line": 86,
                   "column": 11
                 }
               },
@@ -4490,11 +4530,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 555,
+                  "line": 556,
                   "column": 6
                 },
                 "end": {
-                  "line": 589,
+                  "line": 590,
                   "column": 7
                 }
               },
@@ -4509,11 +4549,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 601,
+                  "line": 602,
                   "column": 6
                 },
                 "end": {
-                  "line": 606,
+                  "line": 607,
                   "column": 7
                 }
               },
@@ -4528,11 +4568,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 614,
+                  "line": 615,
                   "column": 6
                 },
                 "end": {
-                  "line": 614,
+                  "line": 615,
                   "column": 31
                 }
               },
@@ -4547,11 +4587,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 625,
+                  "line": 626,
                   "column": 6
                 },
                 "end": {
-                  "line": 630,
+                  "line": 631,
                   "column": 7
                 }
               },
@@ -4566,11 +4606,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 645,
+                  "line": 646,
                   "column": 6
                 },
                 "end": {
-                  "line": 660,
+                  "line": 661,
                   "column": 7
                 }
               },
@@ -4589,11 +4629,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 673,
+                  "line": 674,
                   "column": 6
                 },
                 "end": {
-                  "line": 681,
+                  "line": 682,
                   "column": 7
                 }
               },
@@ -4618,11 +4658,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 699,
+                  "line": 700,
                   "column": 6
                 },
                 "end": {
-                  "line": 703,
+                  "line": 704,
                   "column": 7
                 }
               },
@@ -4641,11 +4681,11 @@
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
                 "start": {
-                  "line": 716,
+                  "line": 717,
                   "column": 6
                 },
                 "end": {
-                  "line": 721,
+                  "line": 722,
                   "column": 7
                 }
               },
@@ -4666,11 +4706,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 101,
+                  "line": 102,
                   "column": 6
                 },
                 "end": {
-                  "line": 131,
+                  "line": 132,
                   "column": 7
                 }
               },
@@ -4691,11 +4731,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 133,
+                  "line": 134,
                   "column": 6
                 },
                 "end": {
-                  "line": 172,
+                  "line": 173,
                   "column": 7
                 }
               },
@@ -4713,11 +4753,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 174,
+                  "line": 175,
                   "column": 6
                 },
                 "end": {
-                  "line": 189,
+                  "line": 190,
                   "column": 7
                 }
               },
@@ -4731,11 +4771,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 196,
+                  "line": 197,
                   "column": 6
                 },
                 "end": {
-                  "line": 207,
+                  "line": 208,
                   "column": 7
                 }
               },
@@ -4749,11 +4789,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 216,
+                  "line": 217,
                   "column": 6
                 },
                 "end": {
-                  "line": 218,
+                  "line": 219,
                   "column": 7
                 }
               },
@@ -4771,11 +4811,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 227,
+                  "line": 228,
                   "column": 6
                 },
                 "end": {
-                  "line": 229,
+                  "line": 230,
                   "column": 7
                 }
               },
@@ -4793,11 +4833,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 231,
+                  "line": 232,
                   "column": 6
                 },
                 "end": {
-                  "line": 241,
+                  "line": 242,
                   "column": 7
                 }
               },
@@ -4815,11 +4855,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 243,
+                  "line": 244,
                   "column": 6
                 },
                 "end": {
-                  "line": 248,
+                  "line": 249,
                   "column": 7
                 }
               },
@@ -4837,11 +4877,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 256,
+                  "line": 257,
                   "column": 6
                 },
                 "end": {
-                  "line": 271,
+                  "line": 272,
                   "column": 7
                 }
               },
@@ -4859,11 +4899,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 279,
+                  "line": 280,
                   "column": 6
                 },
                 "end": {
-                  "line": 281,
+                  "line": 282,
                   "column": 7
                 }
               },
@@ -4881,11 +4921,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 290,
+                  "line": 291,
                   "column": 6
                 },
                 "end": {
-                  "line": 292,
+                  "line": 293,
                   "column": 7
                 }
               },
@@ -4903,11 +4943,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 301,
+                  "line": 302,
                   "column": 6
                 },
                 "end": {
-                  "line": 317,
+                  "line": 318,
                   "column": 7
                 }
               },
@@ -4930,14 +4970,16 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 392,
+              "line": 393,
               "column": 2
             },
             "end": {
-              "line": 396,
+              "line": 397,
               "column": 3
             }
           },
+          "privacy": "public",
+          "tagname": "array-selector",
           "classname": "Polymer.ArraySelector",
           "mixins": [
             "Polymer.ArraySelectorMixin"
@@ -4987,6 +5029,7 @@
               "column": 3
             }
           },
+          "privacy": "public",
           "tagname": "custom-style",
           "classname": "Polymer.CustomStyle",
           "superclass": "HTMLElement"
@@ -5415,12 +5458,12 @@
               "column": 4
             }
           },
-          "name": "Polymer.PropertyAccessors",
-          "privacy": "public"
+          "privacy": "public",
+          "name": "Polymer.PropertyAccessors"
         },
         {
           "description": "Element mixin that provides basic template parsing and stamping, including\nthe following template-related features for stamped templates:\n\n- Declarative event listeners (`on-eventname=\"listener\"`)\n- Map of node id's to stamped node instances (`this.$.id`)\n- Nested template content caching/removal and re-installation (performance\n  optimization)\n- Relative URL's relative to original template location\n- Template binding annotation parsing (note that this library only parses\n  template bindings and provides annotation metadata; see\n  `Polymer.PropertyEffects` for a full implementation of data-binding)",
-          "summary": "Element mixin that provides basic template parsing and stamping",
+          "summary": "Element class mixin that provides basic template parsing and stamping",
           "path": "lib/mixins/template-stamp.html",
           "attributes": [],
           "properties": [],
@@ -5570,8 +5613,8 @@
               "column": 4
             }
           },
-          "name": "Polymer.TemplateStamp",
-          "privacy": "public"
+          "privacy": "public",
+          "name": "Polymer.TemplateStamp"
         },
         {
           "description": "Element class mixin that provides meta-programming for Polymer's template\nbinding and data observation (collectively, \"property effects\") system.\n\nThis mixin uses provides the following key methods for adding property effects\nto this element:\n- `_createPropertyObserver`\n- `_createMethodObserver`\n- `_createNotifyingProperty`\n- `_createReadOnlyProperty`\n- `_createReflectedProperty`\n- `_createComputedProperty`\n- `_bindTemplate`\n\nEach method creates one or more property accessors, along with metadata\nused by this mixin's implementation of `_propertiesChanged` to perform\nthe property effects.  These methods may be called on element instances,\nbut are designed to be called on element prototypes such that the work to\nset up accessors and effect metadata are done once per element class.",
@@ -6487,8 +6530,12 @@
               "column": 4
             }
           },
+          "privacy": "public",
           "name": "Polymer.PropertyEffects",
-          "privacy": "public"
+          "mixins": [
+            "Polymer.TemplateStamp",
+            "Polymer.PropertyAccessors"
+          ]
         },
         {
           "description": "Element class mixin that provides the core API for Polymer's meta-programming\nfeatures including template stamping, data-binding, attribute deserialization,\nand property change observation.\n\nSubclassers may provide the following static getters to return metadata\nused to configure Polymer's features for the class:\n\n- `static get is()`: When the template is provided via a `dom-module`,\n  users should return the `dom-module` id from a static `is` getter.  If\n  no template is needed or the template is provided directly via the\n  `template` getter, there is no need to define `is` for the element.\n\n- `static get template()`: Users may provide the template directly (as\n  opposed to via `dom-module`) by implementing a static `template` getter.\n  The getter may return an `HTMLTemplateElement` or a string, which will\n  automatically be parsed into a template.\n\n- `static get properties()`: Should return an object describing\n  property-related metadata used by Polymer features (key: property name\n  value: object containing property metadata). Valid keys in per-property\n  metadata include:\n  - `type` (String|Number|Object|Array|...): Used by\n    `attributeChangedCallback` to determine how string-based attributes\n    are deserialized to JavaScript property values.\n  - `notify` (boolean): Causes a change in the property to fire a\n    non-bubbling event called `<property>-changed`. Elements that have\n    enabled two-way binding to the property use this event to observe changes.\n  - `readOnly` (boolean): Creates a getter for the property, but no setter.\n    To set a read-only property, use the private setter method\n    `_setProperty(property, value)`.\n  - `observer` (string): Observer method name that will be called when\n    the property changes. The arguments of the method are\n    `(value, previousValue)`.\n  - `computed` (string): String describing method and dependent properties\n    for computing the value of this property (e.g. `'computeFoo(bar, zot)'`).\n    Computed properties are read-only by default and can only be changed\n    via the return value of the computing method.\n\n- `static get observers()`: Array of strings describing multi-property\n  observer methods and their dependent properties (e.g.\n  `'observeABC(a, b, c)'`).\n\nThe base class provides default implementations for the following standard\ncustom element lifecycle callbacks; users may override these, but should\ncall the super method to ensure\n- `constructor`: Run when the element is created or upgraded\n- `connectedCallback`: Run each time the element is connected to the\n  document\n- `disconnectedCallback`: Run each time the element is disconnected from\n  the document\n- `attributeChangedCallback`: Run each time an attribute in\n  `observedAttributes` is set or removed (note: this element's default\n  `observedAttributes` implementation will automatically return an array\n  of dash-cased attributes based on `properties`)",
@@ -6503,11 +6550,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 555,
+                  "line": 556,
                   "column": 6
                 },
                 "end": {
-                  "line": 589,
+                  "line": 590,
                   "column": 7
                 }
               },
@@ -6520,11 +6567,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 601,
+                  "line": 602,
                   "column": 6
                 },
                 "end": {
-                  "line": 606,
+                  "line": 607,
                   "column": 7
                 }
               },
@@ -6537,11 +6584,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 614,
+                  "line": 615,
                   "column": 6
                 },
                 "end": {
-                  "line": 614,
+                  "line": 615,
                   "column": 31
                 }
               },
@@ -6554,11 +6601,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 625,
+                  "line": 626,
                   "column": 6
                 },
                 "end": {
-                  "line": 630,
+                  "line": 631,
                   "column": 7
                 }
               },
@@ -6571,11 +6618,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 645,
+                  "line": 646,
                   "column": 6
                 },
                 "end": {
-                  "line": 660,
+                  "line": 661,
                   "column": 7
                 }
               },
@@ -6592,11 +6639,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 673,
+                  "line": 674,
                   "column": 6
                 },
                 "end": {
-                  "line": 681,
+                  "line": 682,
                   "column": 7
                 }
               },
@@ -6619,11 +6666,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 699,
+                  "line": 700,
                   "column": 6
                 },
                 "end": {
-                  "line": 703,
+                  "line": 704,
                   "column": 7
                 }
               },
@@ -6640,11 +6687,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 716,
+                  "line": 717,
                   "column": 6
                 },
                 "end": {
-                  "line": 721,
+                  "line": 722,
                   "column": 7
                 }
               },
@@ -6669,16 +6716,19 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 726,
+              "line": 727,
               "column": 4
             }
           },
+          "privacy": "public",
           "name": "Polymer.ElementMixin",
-          "privacy": "public"
+          "mixins": [
+            "Polymer.PropertyEffects"
+          ]
         },
         {
           "description": "Element class mixin that provides API for adding Polymer's cross-platform\ngesture events to nodes.\n\nThe API is designed to be compatible with override points implemented\nin `Polymer.TemplateStamp` such that declarative event listeners in\ntemplates will support gesture events when this mixin is applied along with\n`Polymer.TemplateStamp`.",
@@ -6760,8 +6810,8 @@
               "column": 4
             }
           },
-          "name": "Polymer.GestureEventListeners",
-          "privacy": "public"
+          "privacy": "public",
+          "name": "Polymer.GestureEventListeners"
         },
         {
           "description": "Element class mixin that provides Polymer's \"legacy\" API intended to be\nbackward-compatible to the greatest extent possible with the API\nfound on the Polymer 1.x `Polymer.Base` prototype applied to all elements\ndefined using the `Polymer({...})` function.",
@@ -8034,8 +8084,12 @@
               "column": 4
             }
           },
+          "privacy": "public",
           "name": "Polymer.LegacyElementMixin",
-          "privacy": "public"
+          "mixins": [
+            "Polymer.ElementMixin",
+            "Polymer.GestureEventListeners"
+          ]
         },
         {
           "description": "Element class mixin to skip strict dirty-checking for objects and arrays\n(always consider them to be \"dirty\"), for use on elements utilizing\n`Polymer.PropertyEffects`\n\nBy default, `Polymer.PropertyEffects` performs strict dirty checking on\nobjects, which means that any deep modifications to an object or array will\nnot be propagated unless \"immutable\" data patterns are used (i.e. all object\nreferences from the root to the mutation were changed).\n\nPolymer also provides a proprietary data mutation and path notification API\n(e.g. `notifyPath`, `set`, and array mutation API's) that allow efficient\nmutation and notification of deep changes in an object graph to all elements\nbound to the same object graph.\n\nIn cases where neither immutable patterns nor the data mutation API can be\nused, applying this mixin will cause Polymer to skip dirty checking for\nobjects and arrays (always consider them to be \"dirty\").  This allows a\nuser to make a deep modification to a bound object graph, and then either\nsimply re-set the object (e.g. `this.items = this.items`) or call `notifyPath`\n(e.g. `this.notifyPath('items')`) to update the tree.  Note that all\nelements that wish to be updated based on deep mutations must apply this\nmixin or otherwise skip strict dirty checking for objects/arrays.\n\nIn order to make the dirty check strategy configurable, see\n`Polymer.OptionalMutableData`.\n\nNote, the performance characteristics of propagating large object graphs\nwill be worse as opposed to using strict dirty checking with immutable\npatterns or Polymer's path notification API.",
@@ -8050,11 +8104,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 89,
+                  "line": 90,
                   "column": 6
                 },
                 "end": {
-                  "line": 91,
+                  "line": 92,
                   "column": 7
                 }
               },
@@ -8082,16 +8136,16 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 96,
               "column": 3
             }
           },
-          "name": "Polymer.MutableData",
-          "privacy": "public"
+          "privacy": "public",
+          "name": "Polymer.MutableData"
         },
         {
           "description": "Element class mixin to add the optional ability to skip strict\ndirty-checking for objects and arrays (always consider them to be\n\"dirty\") by setting a `mutable-data` attribute on an element instance.\n\nBy default, `Polymer.PropertyEffects` performs strict dirty checking on\nobjects, which means that any deep modifications to an object or array will\nnot be propagated unless \"immutable\" data patterns are used (i.e. all object\nreferences from the root to the mutation were changed).\n\nPolymer also provides a proprietary data mutation and path notification API\n(e.g. `notifyPath`, `set`, and array mutation API's) that allow efficient\nmutation and notification of deep changes in an object graph to all elements\nbound to the same object graph.\n\nIn cases where neither immutable patterns nor the data mutation API can be\nused, applying this mixin will allow Polymer to skip dirty checking for\nobjects and arrays (always consider them to be \"dirty\").  This allows a\nuser to make a deep modification to a bound object graph, and then either\nsimply re-set the object (e.g. `this.items = this.items`) or call `notifyPath`\n(e.g. `this.notifyPath('items')`) to update the tree.  Note that all\nelements that wish to be updated based on deep mutations must apply this\nmixin or otherwise skip strict dirty checking for objects/arrays.\n\nWhile this mixin adds the ability to forgo Object/Array dirty checking,\nthe `mutableData` flag defaults to false and must be set on the instance.\n\nNote, the performance characteristics of propagating large object graphs\nwill be worse by relying on `mutableData: true` as opposed to using\nstrict dirty checking with immutable patterns or Polymer's path notification\nAPI.",
@@ -8103,11 +8157,11 @@
               "description": "Instance-level flag for configuring the dirty-checking strategy\nfor this element.  When true, Objects and Arrays will skip dirty\nchecking, otherwise strict equality checking will be used.",
               "sourceRange": {
                 "start": {
-                  "line": 145,
+                  "line": 146,
                   "column": 10
                 },
                 "end": {
-                  "line": 145,
+                  "line": 146,
                   "column": 30
                 }
               },
@@ -8123,11 +8177,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 145,
+                  "line": 146,
                   "column": 10
                 },
                 "end": {
-                  "line": 145,
+                  "line": 146,
                   "column": 30
                 }
               },
@@ -8143,11 +8197,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 167,
+                  "line": 168,
                   "column": 6
                 },
                 "end": {
-                  "line": 169,
+                  "line": 170,
                   "column": 7
                 }
               },
@@ -8175,16 +8229,16 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 135,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 173,
               "column": 3
             }
           },
-          "name": "Polymer.OptionalMutableData",
-          "privacy": "public"
+          "privacy": "public",
+          "name": "Polymer.OptionalMutableData"
         },
         {
           "description": "Element mixin for recording  dynamic associations between item paths in a\nmaster `items` array and a `selected` array such that path changes to the\nmaster array (at the host) element or elsewhere via data-binding) are\ncorrectly propagated to items in the selected array and vice-versa.\n\nThe `items` property accepts an array of user data, and via the\n`select(item)` and `deselect(item)` API, updates the `selected` property\nwhich may be bound to other parts of the application, and any changes to\nsub-fields of `selected` item(s) will be kept in sync with items in the\n`items` array.  When `multi` is false, `selected` is a property\nrepresenting the last selected item.  When `multi` is true, `selected`\nis an array of multiply selected items.",
@@ -8196,11 +8250,11 @@
               "description": "An array containing items from which selection will be made.",
               "sourceRange": {
                 "start": {
-                  "line": 45,
+                  "line": 46,
                   "column": 10
                 },
                 "end": {
-                  "line": 47,
+                  "line": 48,
                   "column": 11
                 }
               },
@@ -8212,11 +8266,11 @@
               "description": "When `true`, multiple items may be selected at once (in this case,\n`selected` is an array of currently selected items).  When `false`,\nonly one item may be selected at a time.",
               "sourceRange": {
                 "start": {
-                  "line": 54,
+                  "line": 55,
                   "column": 10
                 },
                 "end": {
-                  "line": 57,
+                  "line": 58,
                   "column": 11
                 }
               },
@@ -8228,11 +8282,11 @@
               "description": "When `multi` is true, this is an array that contains any selected.\nWhen `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
               "sourceRange": {
                 "start": {
-                  "line": 64,
+                  "line": 65,
                   "column": 10
                 },
                 "end": {
-                  "line": 67,
+                  "line": 68,
                   "column": 11
                 }
               },
@@ -8244,11 +8298,11 @@
               "description": "When `multi` is false, this is the currently selected item, or `null`\nif no item is selected.",
               "sourceRange": {
                 "start": {
-                  "line": 73,
+                  "line": 74,
                   "column": 10
                 },
                 "end": {
-                  "line": 76,
+                  "line": 77,
                   "column": 11
                 }
               },
@@ -8260,11 +8314,11 @@
               "description": "When `true`, calling `select` on an item that is already selected\nwill deselect the item.",
               "sourceRange": {
                 "start": {
-                  "line": 82,
+                  "line": 83,
                   "column": 10
                 },
                 "end": {
-                  "line": 85,
+                  "line": 86,
                   "column": 11
                 }
               },
@@ -8280,11 +8334,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 45,
+                  "line": 46,
                   "column": 10
                 },
                 "end": {
-                  "line": 47,
+                  "line": 48,
                   "column": 11
                 }
               },
@@ -8299,11 +8353,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 54,
+                  "line": 55,
                   "column": 10
                 },
                 "end": {
-                  "line": 57,
+                  "line": 58,
                   "column": 11
                 }
               },
@@ -8319,11 +8373,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 64,
+                  "line": 65,
                   "column": 10
                 },
                 "end": {
-                  "line": 67,
+                  "line": 68,
                   "column": 11
                 }
               },
@@ -8340,11 +8394,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 73,
+                  "line": 74,
                   "column": 10
                 },
                 "end": {
-                  "line": 76,
+                  "line": 77,
                   "column": 11
                 }
               },
@@ -8361,11 +8415,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 82,
+                  "line": 83,
                   "column": 10
                 },
                 "end": {
-                  "line": 85,
+                  "line": 86,
                   "column": 11
                 }
               },
@@ -8382,11 +8436,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 101,
+                  "line": 102,
                   "column": 6
                 },
                 "end": {
-                  "line": 131,
+                  "line": 132,
                   "column": 7
                 }
               },
@@ -8406,11 +8460,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 133,
+                  "line": 134,
                   "column": 6
                 },
                 "end": {
-                  "line": 172,
+                  "line": 173,
                   "column": 7
                 }
               },
@@ -8427,11 +8481,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 174,
+                  "line": 175,
                   "column": 6
                 },
                 "end": {
-                  "line": 189,
+                  "line": 190,
                   "column": 7
                 }
               },
@@ -8444,11 +8498,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 196,
+                  "line": 197,
                   "column": 6
                 },
                 "end": {
-                  "line": 207,
+                  "line": 208,
                   "column": 7
                 }
               },
@@ -8461,11 +8515,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 216,
+                  "line": 217,
                   "column": 6
                 },
                 "end": {
-                  "line": 218,
+                  "line": 219,
                   "column": 7
                 }
               },
@@ -8482,11 +8536,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 227,
+                  "line": 228,
                   "column": 6
                 },
                 "end": {
-                  "line": 229,
+                  "line": 230,
                   "column": 7
                 }
               },
@@ -8503,11 +8557,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 231,
+                  "line": 232,
                   "column": 6
                 },
                 "end": {
-                  "line": 241,
+                  "line": 242,
                   "column": 7
                 }
               },
@@ -8524,11 +8578,11 @@
               "privacy": "private",
               "sourceRange": {
                 "start": {
-                  "line": 243,
+                  "line": 244,
                   "column": 6
                 },
                 "end": {
-                  "line": 248,
+                  "line": 249,
                   "column": 7
                 }
               },
@@ -8545,11 +8599,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 256,
+                  "line": 257,
                   "column": 6
                 },
                 "end": {
-                  "line": 271,
+                  "line": 272,
                   "column": 7
                 }
               },
@@ -8566,11 +8620,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 279,
+                  "line": 280,
                   "column": 6
                 },
                 "end": {
-                  "line": 281,
+                  "line": 282,
                   "column": 7
                 }
               },
@@ -8587,11 +8641,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 290,
+                  "line": 291,
                   "column": 6
                 },
                 "end": {
-                  "line": 292,
+                  "line": 293,
                   "column": 7
                 }
               },
@@ -8608,11 +8662,11 @@
               "privacy": "public",
               "sourceRange": {
                 "start": {
-                  "line": 301,
+                  "line": 302,
                   "column": 6
                 },
                 "end": {
-                  "line": 317,
+                  "line": 318,
                   "column": 7
                 }
               },
@@ -8634,16 +8688,16 @@
           "metadata": {},
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 35,
               "column": 2
             },
             "end": {
-              "line": 321,
+              "line": 322,
               "column": 5
             }
           },
-          "name": "Polymer.ArraySelectorMixin",
-          "privacy": "public"
+          "privacy": "public",
+          "name": "Polymer.ArraySelectorMixin"
         }
       ],
       "functions": [
@@ -8662,6 +8716,7 @@
               "column": 4
             }
           },
+          "privacy": "public",
           "params": [
             {
               "type": "function",
@@ -8689,6 +8744,7 @@
               "column": 4
             }
           },
+          "privacy": "public",
           "params": [
             {
               "type": "string",
@@ -8723,14 +8779,15 @@
           "sourceRange": {
             "file": "lib/utils/flush.html",
             "start": {
-              "line": 21,
+              "line": 22,
               "column": 2
             },
             "end": {
-              "line": 23,
+              "line": 24,
               "column": 3
             }
           },
+          "privacy": "public",
           "params": [
             {
               "type": "Polymer.Debouncer",
@@ -8746,14 +8803,15 @@
           "sourceRange": {
             "file": "lib/utils/flush.html",
             "start": {
-              "line": 46,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 55,
+              "line": 56,
               "column": 3
             }
           },
+          "privacy": "public",
           "params": []
         },
         {
@@ -8763,14 +8821,15 @@
           "sourceRange": {
             "file": "lib/legacy/polymer.dom.html",
             "start": {
-              "line": 290,
+              "line": 291,
               "column": 2
             },
             "end": {
-              "line": 297,
+              "line": 298,
               "column": 4
             }
           },
+          "privacy": "public",
           "params": [
             {
               "type": "(Node|Event)",
@@ -8798,6 +8857,7 @@
               "column": 5
             }
           },
+          "privacy": "public",
           "params": [
             {
               "type": "(Object|Array)",
@@ -8826,6 +8886,7 @@
               "column": 5
             }
           },
+          "privacy": "public",
           "params": [
             {
               "type": "Object",
