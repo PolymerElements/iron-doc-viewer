@@ -134,64 +134,6 @@ property.
 
         behaviors: [Polymer.IronDocBehavior],
 
-        /**
-         * Scrolls to the currently selected anchor, as identified
-         * by the URL hash. Whichever element or script is in charge
-         * of routing should call this method on initial page load and
-         * on hashchange events.
-         */
-        scrollToAnchor: function(hash) {
-          // ToDo: handle linking to private members
-          if (hash && hash.length > 1) {
-            // ensure all dom-repeats have rendered.
-            Polymer.dom.flush();
-            var anchorId = window.location.hash.slice(1);
-            var elementToFocus = this.$$('[anchor-id="' + anchorId + '"]');
-            if (elementToFocus) {
-              elementToFocus.scrollIntoView();
-            }
-          }
-        },
-
-        _collapsedChanged: function() {
-          this._collapseToggleLabel = this._collapsed ? 'expand' : 'collapse';
-
-          // Bound values aren't exposed to dom-repeat's scope.
-          var properties = this.querySelectorAll('iron-doc-property');
-          for (var i = 0, property; property = properties[i]; i++) {
-            property.collapsed = this._collapsed;
-          }
-        },
-
-        _toggleCollapsed: function() {
-          this._collapsed = !this._collapsed;
-        },
-
-        _showPrivateChanged: function() {
-          this._privateToggleLabel = (this._showPrivate ? 'hide' : 'show') + ' private API';
-          this.toggleClass('show-private', this._showPrivate);
-        },
-
-        _togglePrivate: function() {
-          this._showPrivate = !this._showPrivate;
-        },
-
-        _formatAnchor: function(prefix, type, membername) {
-          var suffix = membername ? '-' + membername : '';
-          return prefix + type + suffix;
-        },
-
-        _hideBehaviors: function(behaviors) {
-          if (behaviors === undefined) {
-            return true;
-          }
-
-          return behaviors === null || behaviors.length === 0;
-        },
-
-        _broadcastBehavior: function(ev) {
-          this.fire('iron-doc-viewer-component-selected', ev.target._templateInstance.item);
-        }
       });
     })();
   </script>

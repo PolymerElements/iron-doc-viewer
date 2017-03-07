@@ -44,7 +44,7 @@
         _privateToggleLabel: String,
       },
 
-      ready() {
+      ready: function() {
         var jsonDescriptor = this._loadJson();
         // Note that this is only an error during element creation. You are free
         // to stomp over the descriptor after it is ready.
@@ -85,8 +85,10 @@
         }
       },
 
-      _filterPrivate(items, showPrivate) {
-        return items.filter((i) => showPrivate || !(i.privacy === 'private' || i.privacy === 'protected'));
+      _filterPrivate: function(items, showPrivate) {
+        return items.filter(function(i) {
+          return showPrivate || !(i.privacy === 'private' || i.privacy === 'protected');
+        });
       },
 
       _noneToShow: function(showPrivate, descriptor, name) {
@@ -106,12 +108,12 @@
         return prefix + type + suffix;
       },
 
-      _getElementName(element) {
+      _getElementName: function(element) {
         var name = '';
         if (element.tagname) {
-          name += `<${element.tagname}>`;
+          name += '<' + element.tagname + '>';
           if (element.classname) {
-            name += ` (${element.classname})`;
+            name += ' (' + element.classname + ')';
           }
         } else if (element.classname) {
           name += element.classname;
@@ -119,7 +121,7 @@
         return name;
       },
 
-      _getNamespaceName(name) {
+      _getNamespaceName: function(name) {
         if (name == null) {
           return undefined;
         }
@@ -130,7 +132,7 @@
         return name.substring(0, lastDotIndex);
       },
 
-      _getName(name) {
+      _getName: function(name) {
         if (name == null) {
           return undefined;
         }
@@ -141,11 +143,11 @@
         return name.substring(lastDotIndex, name.length);
       },
 
-      _getElementId(element) {
+      _getElementId: function(element) {
         return element.classname || element.tagname;
       },
 
-      _compareElements(a, b) {
+      _compareElements: function(a, b) {
         if (a.tagname === b.tagname) {
           return a.classname == null ? -1 : a.classname.localeCompare(b.classname);
         }

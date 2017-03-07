@@ -28,23 +28,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <span id="type" class="type">[[descriptor.type]]</span>
           <span class="annotation">[[_getAnnotation(descriptor)]]</span>
         </div>
-        <!-- <ol id="params" hidden$="[[_computeHideParams(descriptor)]]">
-          <template is="dom-repeat" items="[[descriptor.params]]">
-            <li hidden$="[[!item.type]]">
-              <span class="name">[[item.name]]</span>
-              <span class="type">[[item.type]]</span>
-              <marked-element markdown="[[item.description]]">
-                <div slot="markdown-html" class="markdown-html"></div>
-              </marked-element>
-            </li>
-          </template>
-          <li class="return" hidden$="[[!descriptor.return]]">Returns
-            <span class="type">[[descriptor.return.type]]</span>
-            <marked-element markdown="[[descriptor.return.description]]">
-              <div slot="markdown-html" class="markdown-html"></div>
-            </marked-element>
-          </li>
-        </ol> -->
         <marked-element id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
           <div slot="markdown-html" class="markdown-html"></div>
         </marked-element>
@@ -86,15 +69,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _onTransitionEnd: function(event) {
           if (event.path[0] !== this.$.transitionMask) return;
           this.$.transitionMask.style.height = '';
-        },
-
-        _descriptorChanged: function() {
-          // this.toggleAttribute('private',       this.descriptor.private);
-          // this.toggleAttribute('configuration', this.descriptor.configuration);
-          // this.toggleAttribute('function',      this.descriptor.function);
-          // this._paramText = (this.descriptor.params || []).map(function(param) {
-          //   return param.name;
-          // }).join(', ');
         },
 
         /**

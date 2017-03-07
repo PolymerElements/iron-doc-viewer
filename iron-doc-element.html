@@ -126,16 +126,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         _superclassUrl(superclass) {
           if (superclass === 'HTMLElement') {
-            return `https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement`;
+            return 'https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement';
           }
-          return  `${this.baseHref}/mixins/${superclass}`;
+          return  this.baseHref + '/mixins/' + superclass;
         },
 
         _superclassTarget(superclass) {
           if (superclass === 'HTMLElement') {
-            return `_blank`;
+            return '_blank';
           }
-          return ``;
+          return '';
         },
 
         // TODO(justinfagnani): remove or move to IronDocBehavior?
