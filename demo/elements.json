@@ -1347,7 +1347,7 @@
             },
             {
               "name": "register",
-              "description": "Registers the dom-module at a given id. This method should only be called\nwhen a dom-module is imperatively created. For\nexample, `document.createElement('dom-module').register('foo')`.\n@method register\n@param {string=} id The id at which to register the dom-module.",
+              "description": "Registers the dom-module at a given id. This method should only be called\nwhen a dom-module is imperatively created. For\nexample, `document.createElement('dom-module').register('foo')`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -1415,7 +1415,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides `Polymer.PropertyAccessors` implementation to initialize\nadditional property-effect related properties.\n\n@override",
+              "description": "Overrides `Polymer.PropertyAccessors` implementation to initialize\nadditional property-effect related properties.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1434,7 +1434,7 @@
             },
             {
               "name": "_initializeProtoProperties",
-              "description": "Overrides `Polymer.PropertyAccessors` implementation to provide a\nmore efficient implementation of initializing properties from\nthe prototype on the instance.\n\n@override",
+              "description": "Overrides `Polymer.PropertyAccessors` implementation to provide a\nmore efficient implementation of initializing properties from\nthe prototype on the instance.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1457,7 +1457,7 @@
             },
             {
               "name": "_addPropertyEffect",
-              "description": "Ensures an accessor exists for the specified property, and adds\nto a list of \"property effects\" that will run when the accessor for\nthe specified property is set.  Effects are grouped by \"type\", which\nroughly corresponds to a phase in effect processing.  The effect\nmetadata should be in the following form:\n\n  {\n    fn: effectFunction, // Reference to function to call to perform effect\n    info: { ... }       // Effect metadata passed to function\n    // path: '...'      // Will be set by this method based on path arg\n  }\n\nEffect functions are called with the following signature:\n\n  effectFunction(inst, property, currentValue, oldValue, info)\n\nThis method may be called either on the prototype of a class\nusing the PropertyEffects mixin (for best performance), or on\nan instance to add dynamic effects.  When called on an instance or\nsubclass of a class that has already had property effects added to\nits prototype, the property effect lists will be cloned and added as\nown properties of the caller.\n\n@param {string} path Property (or path) that should trigger the effect\n@param {string} type Effect type, from this.PROPERTY_EFFECT_TYPES\n@param {Object=} effect Effect metadata object\n@protected",
+              "description": "Ensures an accessor exists for the specified property, and adds\nto a list of \"property effects\" that will run when the accessor for\nthe specified property is set.  Effects are grouped by \"type\", which\nroughly corresponds to a phase in effect processing.  The effect\nmetadata should be in the following form:\n\n  {\n    fn: effectFunction, // Reference to function to call to perform effect\n    info: { ... }       // Effect metadata passed to function\n    // path: '...'      // Will be set by this method based on path arg\n  }\n\nEffect functions are called with the following signature:\n\n  effectFunction(inst, property, currentValue, oldValue, info)\n\nThis method may be called either on the prototype of a class\nusing the PropertyEffects mixin (for best performance), or on\nan instance to add dynamic effects.  When called on an instance or\nsubclass of a class that has already had property effects added to\nits prototype, the property effect lists will be cloned and added as\nown properties of the caller.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1486,7 +1486,7 @@
             },
             {
               "name": "_hasPropertyEffect",
-              "description": "Returns whether the current prototype/instance has a property effect\nof a certain type.\n\n@param {string} property Property name\n@param {string=} type Effect type, from this.PROPERTY_EFFECT_TYPES\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a property effect\nof a certain type.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1512,7 +1512,7 @@
             },
             {
               "name": "_hasReadOnlyEffect",
-              "description": "Returns whether the current prototype/instance has a \"read only\"\naccessor for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"read only\"\naccessor for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1535,7 +1535,7 @@
             },
             {
               "name": "_hasNotifyEffect",
-              "description": "Returns whether the current prototype/instance has a \"notify\"\nproperty effect for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"notify\"\nproperty effect for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1558,7 +1558,7 @@
             },
             {
               "name": "_hasReflectEffect",
-              "description": "Returns whether the current prototype/instance has a \"reflect to attribute\"\nproperty effect for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"reflect to attribute\"\nproperty effect for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1581,7 +1581,7 @@
             },
             {
               "name": "_hasComputedEffect",
-              "description": "Returns whether the current prototype/instance has a \"computed\"\nproperty effect for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"computed\"\nproperty effect for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1604,7 +1604,7 @@
             },
             {
               "name": "_setPendingPropertyOrPath",
-              "description": "Sets a pending property or path.  If the root property of the path in\nquestion had no accessor, the path is set, otherwise it is enqueued\nvia `_setPendingProperty`.\n\nThis function isolates relatively expensive functionality necessary\nfor the public API (`set`, `setProperties`, `notifyPath`, and property\nchange listeners via {{...}} bindings), such that it is only done\nwhen paths enter the system, and not at every propagation step.  It\nalso sets a `__dataHasPaths` flag on the instance which is used to\nfast-path slower path-matching code in the property effects host paths.\n\n`path` can be a path string or array of path parts as accepted by the\npublic API.\n\n@param {string | !Array<number|string>} path Path to set\n@param {*} value Value to set\n@param {boolean=} isPathNotification If the path being set is a path\n  notification of an already changed value, as opposed to a request\n  to set and notify the change.  In the latter `false` case, a dirty\n  check is performed and then the value is set to the path before\n  enqueuing the pending property change.\n@return {boolean} Returns true if the property/path was enqueued in\n  the pending changes bag.\n@protected",
+              "description": "Sets a pending property or path.  If the root property of the path in\nquestion had no accessor, the path is set, otherwise it is enqueued\nvia `_setPendingProperty`.\n\nThis function isolates relatively expensive functionality necessary\nfor the public API (`set`, `setProperties`, `notifyPath`, and property\nchange listeners via {{...}} bindings), such that it is only done\nwhen paths enter the system, and not at every propagation step.  It\nalso sets a `__dataHasPaths` flag on the instance which is used to\nfast-path slower path-matching code in the property effects host paths.\n\n`path` can be a path string or array of path parts as accepted by the\npublic API.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1636,7 +1636,7 @@
             },
             {
               "name": "_setUnmanagedPropertyToNode",
-              "description": "Applies a value to a non-Polymer element/node's property.\n\nThe implementation makes a best-effort at binding interop:\nSome native element properties have side-effects when\nre-setting the same value (e.g. setting <input>.value resets the\ncursor position), so we do a dirty-check before setting the value.\nHowever, for better interop with non-Polymer custom elements that\naccept objects, we explicitly re-set object changes coming from the\nPolymer world (which may include deep object changes without the\ntop reference changing), erring on the side of providing more\ninformation.\n\nUsers may override this method to provide alternate approaches.\n\n@param {Node} node The node to set a property on\n@param {string} prop The property to set\n@param {*} value The value to set\n@protected",
+              "description": "Applies a value to a non-Polymer element/node's property.\n\nThe implementation makes a best-effort at binding interop:\nSome native element properties have side-effects when\nre-setting the same value (e.g. setting <input>.value resets the\ncursor position), so we do a dirty-check before setting the value.\nHowever, for better interop with non-Polymer custom elements that\naccept objects, we explicitly re-set object changes coming from the\nPolymer world (which may include deep object changes without the\ntop reference changing), erring on the side of providing more\ninformation.\n\nUsers may override this method to provide alternate approaches.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1665,7 +1665,7 @@
             },
             {
               "name": "_setPendingProperty",
-              "description": "Overrides the `PropertyAccessors` implementation to introduce special\ndirty check logic depending on the property & value being set:\n\n1. Any value set to a path (e.g. 'obj.prop': 42 or 'obj.prop': {...})\n   Stored in `__dataTemp`, dirty checked against `__dataTemp`\n2. Object set to simple property (e.g. 'prop': {...})\n   Stored in `__dataTemp` and `__data`, dirty checked against\n   `__dataTemp` by default implementation of `_shouldPropertyChange`\n3. Primitive value set to simple property (e.g. 'prop': 42)\n   Stored in `__data`, dirty checked against `__data`\n\nThe dirty-check is important to prevent cycles due to two-way\nnotification, but paths and objects are only dirty checked against any\nprevious value set during this turn via a \"temporary cache\" that is\ncleared when the last `_propertiesChaged` exits. This is so:\na. any cached array paths (e.g. 'array.3.prop') may be invalidated\n   due to array mutations like shift/unshift/splice; this is fine\n   since path changes are dirty-checked at user entry points like `set`\nb. dirty-checking for objects only lasts one turn to allow the user\n   to mutate the object in-place and re-set it with the same identity\n   and have all sub-properties re-propagated in a subsequent turn.\n\nThe temp cache is not necessarily sufficient to prevent invalid array\npaths, since a splice can happen during the same turn (with pathological\nuser code); we could introduce a \"fixup\" for temporarily cached array\npaths if needed: https://github.com/Polymer/polymer/issues/4227\n\n@override",
+              "description": "Overrides the `PropertyAccessors` implementation to introduce special\ndirty check logic depending on the property & value being set:\n\n1. Any value set to a path (e.g. 'obj.prop': 42 or 'obj.prop': {...})\n   Stored in `__dataTemp`, dirty checked against `__dataTemp`\n2. Object set to simple property (e.g. 'prop': {...})\n   Stored in `__dataTemp` and `__data`, dirty checked against\n   `__dataTemp` by default implementation of `_shouldPropertyChange`\n3. Primitive value set to simple property (e.g. 'prop': 42)\n   Stored in `__data`, dirty checked against `__data`\n\nThe dirty-check is important to prevent cycles due to two-way\nnotification, but paths and objects are only dirty checked against any\nprevious value set during this turn via a \"temporary cache\" that is\ncleared when the last `_propertiesChaged` exits. This is so:\na. any cached array paths (e.g. 'array.3.prop') may be invalidated\n   due to array mutations like shift/unshift/splice; this is fine\n   since path changes are dirty-checked at user entry points like `set`\nb. dirty-checking for objects only lasts one turn to allow the user\n   to mutate the object in-place and re-set it with the same identity\n   and have all sub-properties re-propagated in a subsequent turn.\n\nThe temp cache is not necessarily sufficient to prevent invalid array\npaths, since a splice can happen during the same turn (with pathological\nuser code); we could introduce a \"fixup\" for temporarily cached array\npaths if needed: https://github.com/Polymer/polymer/issues/4227",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1694,7 +1694,7 @@
             },
             {
               "name": "_setProperty",
-              "description": "Overrides base implementation to ensure all accessors set `shouldNotify`\nto true, for per-property notification tracking.\n\n@override",
+              "description": "Overrides base implementation to ensure all accessors set `shouldNotify`\nto true, for per-property notification tracking.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1720,7 +1720,7 @@
             },
             {
               "name": "_invalidateProperties",
-              "description": "Overrides `PropertyAccessor`'s default async queuing of\n`_propertiesChanged`: if `__dataInitialized` is false (has not yet been\nmanually flushed), the function no-ops; otherwise flushes\n`_propertiesChanged` synchronously.\n\n@override",
+              "description": "Overrides `PropertyAccessor`'s default async queuing of\n`_propertiesChanged`: if `__dataInitialized` is false (has not yet been\nmanually flushed), the function no-ops; otherwise flushes\n`_propertiesChanged` synchronously.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1739,7 +1739,7 @@
             },
             {
               "name": "_enqueueClient",
-              "description": "Enqueues the given client on a list of pending clients, whose\npending property changes can later be flushed via a call to\n`_flushClients`.\n\n@param {Object} client PropertyEffects client to enqueue\n@protected",
+              "description": "Enqueues the given client on a list of pending clients, whose\npending property changes can later be flushed via a call to\n`_flushClients`.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1762,7 +1762,7 @@
             },
             {
               "name": "_flushClients",
-              "description": "Flushes any clients previously enqueued via `_enqueueClient`, causing\ntheir `_flushProperties` method to run.\n\n@protected",
+              "description": "Flushes any clients previously enqueued via `_enqueueClient`, causing\ntheir `_flushProperties` method to run.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1781,7 +1781,7 @@
             },
             {
               "name": "setProperties",
-              "description": "Sets a bag of property changes to this instance, and\nsynchronously processes all effects of the properties as a batch.\n\nProperty names must be simple properties, not paths.  Batched\npath propagation is not supported.\n\n@param {Object} props Bag of one or more key-value pairs whose key is\n  a property and value is the new value to set for that property.\n@public",
+              "description": "Sets a bag of property changes to this instance, and\nsynchronously processes all effects of the properties as a batch.\n\nProperty names must be simple properties, not paths.  Batched\npath propagation is not supported.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1804,7 +1804,7 @@
             },
             {
               "name": "_flushProperties",
-              "description": "Overrides PropertyAccessor's default async queuing of\n`_propertiesChanged`, to instead synchronously flush\n`_propertiesChanged` unless the `this._asyncEffects` property is true.\n\nIf this is the first time properties are being flushed, the `ready`\ncallback will be called.\n\n@override",
+              "description": "Overrides PropertyAccessor's default async queuing of\n`_propertiesChanged`, to instead synchronously flush\n`_propertiesChanged` unless the `this._asyncEffects` property is true.\n\nIf this is the first time properties are being flushed, the `ready`\ncallback will be called.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1823,7 +1823,7 @@
             },
             {
               "name": "ready",
-              "description": "Polymer-specific lifecycle callback called the first time properties\nare being flushed.  Prior to `ready`, all property sets through\naccessors are queued and their effects are flushed after this method\nreturns.\n\nUsers may override this function to implement behavior that is\ndependent on the element having its properties initialized, e.g.\nfrom defaults (initialized from `constructor`, `_initializeProperties`),\n`attributeChangedCallback`, or binding values propagated from host\n\"binding effects\".  `super.ready()` must be called to ensure the\ndata system becomes enabled.\n\n@public",
+              "description": "Polymer-specific lifecycle callback called the first time properties\nare being flushed.  Prior to `ready`, all property sets through\naccessors are queued and their effects are flushed after this method\nreturns.\n\nUsers may override this function to implement behavior that is\ndependent on the element having its properties initialized, e.g.\nfrom defaults (initialized from `constructor`, `_initializeProperties`),\n`attributeChangedCallback`, or binding values propagated from host\n\"binding effects\".  `super.ready()` must be called to ensure the\ndata system becomes enabled.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1842,7 +1842,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Perform any initial setup on client dom. Called before the first\n`_flushProperties` call on client dom and before any element\nobservers are called.\n\n@protected",
+              "description": "Perform any initial setup on client dom. Called before the first\n`_flushProperties` call on client dom and before any element\nobservers are called.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1861,7 +1861,7 @@
             },
             {
               "name": "_stampTemplate",
-              "description": "Stamps the provided template and performs instance-time setup for\nPolymer template features, including data bindings, declarative event\nlisteners, and the `this.$` map of `id`'s to nodes.  A document fragment\nis returned containing the stamped DOM, ready for insertion into the\nDOM.\n\nNote that for host data to be bound into the stamped DOM, the template\nmust have been previously bound to the prototype via a call to\n`_bindTemplate`, which performs one-time template binding work.\n\nNote that this method currently only supports being called once per\ninstance.\n\n@param {HTMLTemplateElement} template Template to stamp\n@return {DocumentFragment} Cloned template content\n@protected",
+              "description": "Stamps the provided template and performs instance-time setup for\nPolymer template features, including data bindings, declarative event\nlisteners, and the `this.$` map of `id`'s to nodes.  A document fragment\nis returned containing the stamped DOM, ready for insertion into the\nDOM.\n\nNote that for host data to be bound into the stamped DOM, the template\nmust have been previously bound to the prototype via a call to\n`_bindTemplate`, which performs one-time template binding work.\n\nNote that this method currently only supports being called once per\ninstance.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1884,7 +1884,7 @@
             },
             {
               "name": "_propertiesChanged",
-              "description": "Implements `PropertyAccessors`'s properties changed callback.\n\nRuns each class of effects for the batch of changed properties in\na specific order (compute, propagate, reflect, observe, notify).\n\n@override",
+              "description": "Implements `PropertyAccessors`'s properties changed callback.\n\nRuns each class of effects for the batch of changed properties in\na specific order (compute, propagate, reflect, observe, notify).",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1913,7 +1913,7 @@
             },
             {
               "name": "linkPaths",
-              "description": "Aliases one data path as another, such that path notifications from one\nare routed to the other.\n\n@method linkPaths\n@param {string | !Array<string|number>} to Target path to link.\n@param {string | !Array<string|number>} from Source path to link.\n@public",
+              "description": "Aliases one data path as another, such that path notifications from one\nare routed to the other.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1939,7 +1939,7 @@
             },
             {
               "name": "unlinkPaths",
-              "description": "Removes a data path alias previously established with `_linkPaths`.\n\nNote, the path to unlink should be the target (`to`) used when\nlinking the paths.\n\n@method unlinkPaths\n@param {string | !Array<string|number>} path Target path to unlink.\n@public",
+              "description": "Removes a data path alias previously established with `_linkPaths`.\n\nNote, the path to unlink should be the target (`to`) used when\nlinking the paths.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1962,7 +1962,7 @@
             },
             {
               "name": "notifySplices",
-              "description": "Notify that an array has changed.\n\nExample:\n\n    this.items = [ {name: 'Jim'}, {name: 'Todd'}, {name: 'Bill'} ];\n    ...\n    this.items.splice(1, 1, {name: 'Sam'});\n    this.items.push({name: 'Bob'});\n    this.notifySplices('items', [\n      { index: 1, removed: [{name: 'Todd'}], addedCount: 1, obect: this.items, type: 'splice' },\n      { index: 3, removed: [], addedCount: 1, object: this.items, type: 'splice'}\n    ]);\n\n@param {string} path Path that should be notified.\n@param {Array} splices Array of splice records indicating ordered\n  changes that occurred to the array. Each record should have the\n  following fields:\n   * index: index at which the change occurred\n   * removed: array of items that were removed from this index\n   * addedCount: number of new items added at this index\n   * object: a reference to the array in question\n   * type: the string literal 'splice'\n\n  Note that splice records _must_ be normalized such that they are\n  reported in index order (raw results from `Object.observe` are not\n  ordered and must be normalized/merged before notifying).\n@public",
+              "description": "Notify that an array has changed.\n\nExample:\n\n    this.items = [ {name: 'Jim'}, {name: 'Todd'}, {name: 'Bill'} ];\n    ...\n    this.items.splice(1, 1, {name: 'Sam'});\n    this.items.push({name: 'Bob'});\n    this.notifySplices('items', [\n      { index: 1, removed: [{name: 'Todd'}], addedCount: 1, obect: this.items, type: 'splice' },\n      { index: 3, removed: [], addedCount: 1, object: this.items, type: 'splice'}\n    ]);",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -1988,7 +1988,7 @@
             },
             {
               "name": "get",
-              "description": "Convenience method for reading a value from a path.\n\nNote, if any part in the path is undefined, this method returns\n`undefined` (this method does not throw when dereferencing undefined\npaths).\n\n@method get\n@param {(string|!Array<(string|number)>)} path Path to the value\n  to read.  The path may be specified as a string (e.g. `foo.bar.baz`)\n  or an array of path parts (e.g. `['foo.bar', 'baz']`).  Note that\n  bracketed expressions are not supported; string-based path parts\n  *must* be separated by dots.  Note that when dereferencing array\n  indices, the index may be used as a dotted part directly\n  (e.g. `users.12.name` or `['users', 12, 'name']`).\n@param {Object=} root Root object from which the path is evaluated.\n@return {*} Value at the path, or `undefined` if any part of the path\n  is undefined.\n@public",
+              "description": "Convenience method for reading a value from a path.\n\nNote, if any part in the path is undefined, this method returns\n`undefined` (this method does not throw when dereferencing undefined\npaths).",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2014,7 +2014,7 @@
             },
             {
               "name": "set",
-              "description": "Convenience method for setting a value to a path and notifying any\nelements bound to the same path.\n\nNote, if any part in the path except for the last is undefined,\nthis method does nothing (this method does not throw when\ndereferencing undefined paths).\n\n@method set\n@param {(string|!Array<(string|number)>)} path Path to the value\n  to write.  The path may be specified as a string (e.g. `'foo.bar.baz'`)\n  or an array of path parts (e.g. `['foo.bar', 'baz']`).  Note that\n  bracketed expressions are not supported; string-based path parts\n  *must* be separated by dots.  Note that when dereferencing array\n  indices, the index may be used as a dotted part directly\n  (e.g. `'users.12.name'` or `['users', 12, 'name']`).\n@param {*} value Value to set at the specified path.\n@param {Object=} root Root object from which the path is evaluated.\n  When specified, no notification will occur.\n@public",
+              "description": "Convenience method for setting a value to a path and notifying any\nelements bound to the same path.\n\nNote, if any part in the path except for the last is undefined,\nthis method does nothing (this method does not throw when\ndereferencing undefined paths).",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2043,7 +2043,7 @@
             },
             {
               "name": "push",
-              "description": "Adds items onto the end of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method push\n@param {string} path Path to array.\n@param {...*} items Items to push onto array\n@return {number} New length of the array.\n@public",
+              "description": "Adds items onto the end of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2069,7 +2069,7 @@
             },
             {
               "name": "pop",
-              "description": "Removes an item from the end of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method pop\n@param {string} path Path to array.\n@return {*} Item that was removed.\n@public",
+              "description": "Removes an item from the end of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2092,7 +2092,7 @@
             },
             {
               "name": "splice",
-              "description": "Starting from the start index specified, removes 0 or more items\nfrom the array and inserts 0 or more new items in their place.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.splice`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method splice\n@param {string} path Path to array.\n@param {number} start Index from which to start removing/inserting.\n@param {number} deleteCount Number of items to remove.\n@param {...*} items Items to insert into array.\n@return {Array} Array of removed items.\n@public",
+              "description": "Starting from the start index specified, removes 0 or more items\nfrom the array and inserts 0 or more new items in their place.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.splice`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2124,7 +2124,7 @@
             },
             {
               "name": "shift",
-              "description": "Removes an item from the beginning of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method shift\n@param {string} path Path to array.\n@return {*} Item that was removed.\n@public",
+              "description": "Removes an item from the beginning of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2147,7 +2147,7 @@
             },
             {
               "name": "unshift",
-              "description": "Adds items onto the beginning of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method unshift\n@param {string} path Path to array.\n@param {...*} items Items to insert info array\n@return {number} New length of the array.\n@public",
+              "description": "Adds items onto the beginning of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2173,7 +2173,7 @@
             },
             {
               "name": "notifyPath",
-              "description": "Notify that a path has changed.\n\nExample:\n\n    this.item.user.name = 'Bob';\n    this.notifyPath('item.user.name');\n\n@param {string} path Path that should be notified.\n@param {*=} value Value at the path (optional).\n@public",
+              "description": "Notify that a path has changed.\n\nExample:\n\n    this.item.user.name = 'Bob';\n    this.notifyPath('item.user.name');",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2199,7 +2199,7 @@
             },
             {
               "name": "_createReadOnlyProperty",
-              "description": "Creates a read-only accessor for the given property.\n\nTo set the property, use the protected `_setProperty` API.\nTo create a custom protected setter (e.g. `_setMyProp()` for\nproperty `myProp`), pass `true` for `protectedSetter`.\n\nNote, if the property will have other property effects, this method\nshould be called first, before adding other effects.\n\n@param {string} property Property name\n@param {boolean=} protectedSetter Creates a custom protected setter\n  when `true`.\n@protected",
+              "description": "Creates a read-only accessor for the given property.\n\nTo set the property, use the protected `_setProperty` API.\nTo create a custom protected setter (e.g. `_setMyProp()` for\nproperty `myProp`), pass `true` for `protectedSetter`.\n\nNote, if the property will have other property effects, this method\nshould be called first, before adding other effects.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2225,7 +2225,7 @@
             },
             {
               "name": "_createPropertyObserver",
-              "description": "Creates a single-property observer for the given property.\n\n@param {string} property Property name\n@param {string} methodName Name of observer method to call\n@param {boolean=} dynamicFn Whether the method name should be included as\n  a dependency to the effect.\n@protected",
+              "description": "Creates a single-property observer for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2254,7 +2254,7 @@
             },
             {
               "name": "_createMethodObserver",
-              "description": "Creates a multi-property \"method observer\" based on the provided\nexpression, which should be a string in the form of a normal Javascript\nfunction signature: `'methodName(arg1, [..., argn])'`.  Each argument\nshould correspond to a property or path in the context of this\nprototype (or instance), or may be a literal string or number.\n\n@param {string} expression Method expression\n@param {Object=} dynamicFns Map indicating whether method names should\n  be included as a dependency to the effect.\n@protected",
+              "description": "Creates a multi-property \"method observer\" based on the provided\nexpression, which should be a string in the form of a normal Javascript\nfunction signature: `'methodName(arg1, [..., argn])'`.  Each argument\nshould correspond to a property or path in the context of this\nprototype (or instance), or may be a literal string or number.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2280,7 +2280,7 @@
             },
             {
               "name": "_createNotifyingProperty",
-              "description": "Causes the setter for the given property to dispatch `<property>-changed`\nevents to notify of changes to the property.\n\n@param {string} property Property name\n@protected",
+              "description": "Causes the setter for the given property to dispatch `<property>-changed`\nevents to notify of changes to the property.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2303,7 +2303,7 @@
             },
             {
               "name": "_createReflectedProperty",
-              "description": "Causes the setter for the given property to reflect the property value\nto a (dash-cased) attribute of the same name.\n\n@param {string} property Property name\n@protected",
+              "description": "Causes the setter for the given property to reflect the property value\nto a (dash-cased) attribute of the same name.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2326,7 +2326,7 @@
             },
             {
               "name": "_createComputedProperty",
-              "description": "Creates a computed property whose value is set to the result of the\nmethod described by the given `expression` each time one or more\narguments to the method changes.  The expression should be a string\nin the form of a normal Javascript function signature:\n`'methodName(arg1, [..., argn])'`\n\n@param {string} property Name of computed property to set\n@param {string} expression Method expression\n@param {Object=} dynamicFns Map indicating whether method names should\n  be included as a dependency to the effect.\n@protected",
+              "description": "Creates a computed property whose value is set to the result of the\nmethod described by the given `expression` each time one or more\narguments to the method changes.  The expression should be a string\nin the form of a normal Javascript function signature:\n`'methodName(arg1, [..., argn])'`",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2355,7 +2355,7 @@
             },
             {
               "name": "_bindTemplate",
-              "description": "Creates \"binding\" property effects for all binding bindings\nin the provided template that forward host properties into DOM stamped\nfrom the template via `_stampTemplate`.\n\n@param {HTMLTemplateElement} template Template containing binding\n  bindings\n@param {Object=} dynamicFns Map indicating whether method names should\n  be included as a dependency to the effect.\n@protected",
+              "description": "Creates \"binding\" property effects for all binding bindings\nin the provided template that forward host properties into DOM stamped\nfrom the template via `_stampTemplate`.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/property-effects.html",
@@ -2517,7 +2517,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2536,7 +2536,7 @@
             },
             {
               "name": "connectedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.",
               "privacy": "public",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2555,7 +2555,7 @@
             },
             {
               "name": "disconnectedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.",
               "privacy": "public",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2574,7 +2574,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.\n\n@override",
+              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2593,7 +2593,7 @@
             },
             {
               "name": "_attachDom",
-              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.\n\n@method _attachDom\n@throws {Error}\n@suppress {missingReturn}\n@param {NodeList} dom to attach to the element.\n@return {Node} node to which the dom has been attached.",
+              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2616,7 +2616,7 @@
             },
             {
               "name": "attributeChangedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
               "privacy": "public",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2645,7 +2645,7 @@
             },
             {
               "name": "updateStyles",
-              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.\n\n@param {Object=} properties Bag of custom property key/values to\n  apply to this element.",
+              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
               "privacy": "public",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -2668,7 +2668,7 @@
             },
             {
               "name": "resolveUrl",
-              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.\n\n@param {string} url URL to resolve.\n@param {string=} base Optional base URL to resolve against, defaults\nto the element's `importPath`\n@return {string} Rewritten URL relative to base",
+              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
               "privacy": "public",
               "sourceRange": {
                 "file": "lib/mixins/element-mixin.html",
@@ -3150,7 +3150,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -3203,7 +3203,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.\n\n@override",
+              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -3222,7 +3222,7 @@
             },
             {
               "name": "_attachDom",
-              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.\n\n@method _attachDom\n@throws {Error}\n@suppress {missingReturn}\n@param {NodeList} dom to attach to the element.\n@return {Node} node to which the dom has been attached.",
+              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -3245,7 +3245,7 @@
             },
             {
               "name": "attributeChangedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -3274,7 +3274,7 @@
             },
             {
               "name": "updateStyles",
-              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.\n\n@param {Object=} properties Bag of custom property key/values to\n  apply to this element.",
+              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -3297,7 +3297,7 @@
             },
             {
               "name": "resolveUrl",
-              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.\n\n@param {string} url URL to resolve.\n@param {string=} base Optional base URL to resolve against, defaults\nto the element's `importPath`\n@return {string} Rewritten URL relative to base",
+              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -3323,7 +3323,7 @@
             },
             {
               "name": "_shouldPropertyChange",
-              "description": "Overrides `Polymer.PropertyEffects` to provide option for skipping\nstrict equality checking for Objects and Arrays.\n\nThis method pulls the value to dirty check against from the `__dataTemp`\ncache (rather than the normal `__data` cache) for Objects.  Since the temp\ncache is cleared at the end of a turn, this implementation allows\nside-effects of deep object changes to be processed by re-setting the\nsame object (using the temp cache as an in-turn backstop to prevent\ncycles due to 2-way notification).\n\n@param {string} property Property name\n@param {*} value New property value\n@param {*} old Previous property value\n@return {boolean} Whether the property should be considered a change\n@protected",
+              "description": "Overrides `Polymer.PropertyEffects` to provide option for skipping\nstrict equality checking for Objects and Arrays.\n\nThis method pulls the value to dirty check against from the `__dataTemp`\ncache (rather than the normal `__data` cache) for Objects.  Since the temp\ncache is cleared at the end of a turn, this implementation allows\nside-effects of deep object changes to be processed by re-setting the\nsame object (using the temp cache as an in-turn backstop to prevent\ncycles due to 2-way notification).",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/mutable-data.html",
@@ -3576,7 +3576,7 @@
             },
             {
               "name": "__debounceRender",
-              "description": "@param {function()} fn\n@param {number=} delay",
+              "description": "",
               "privacy": "private",
               "sourceRange": {
                 "start": {
@@ -3816,7 +3816,7 @@
             },
             {
               "name": "itemForElement",
-              "description": "Returns the item associated with a given element stamped by\nthis `dom-repeat`.\n\nNote, to modify sub-properties of the item,\n`modelForElement(el).set('item.<sub-prop>', value)`\nshould be used.\n\n@method itemForElement\n@param {HTMLElement} el Element for which to return the item.\n@return {*} Item associated with the element.",
+              "description": "Returns the item associated with a given element stamped by\nthis `dom-repeat`.\n\nNote, to modify sub-properties of the item,\n`modelForElement(el).set('item.<sub-prop>', value)`\nshould be used.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -3837,7 +3837,7 @@
             },
             {
               "name": "indexForElement",
-              "description": "Returns the inst index for a given element stamped by this `dom-repeat`.\nIf `sort` is provided, the index will reflect the sorted order (rather\nthan the original array order).\n\n@method indexForElement\n@param {HTMLElement} el Element for which to return the index.\n@return {*} Row index associated with the element (note this may\n  not correspond to the array index if a user `sort` is applied).",
+              "description": "Returns the inst index for a given element stamped by this `dom-repeat`.\nIf `sort` is provided, the index will reflect the sorted order (rather\nthan the original array order).",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -3858,7 +3858,7 @@
             },
             {
               "name": "modelForElement",
-              "description": "Returns the template \"model\" associated with a given element, which\nserves as the binding scope for the template instance the element is\ncontained in. A template model is an instance of `Polymer.Base`, and\nshould be used to manipulate data associated with this template instance.\n\nExample:\n\n  let model = modelForElement(el);\n  if (model.index < 10) {\n    model.set('item.checked', true);\n  }\n\n@method modelForElement\n@param {HTMLElement} el Element for which to return a template model.\n@return {TemplateInstanceBase} Model representing the binding scope for\n  the element.",
+              "description": "Returns the template \"model\" associated with a given element, which\nserves as the binding scope for the template instance the element is\ncontained in. A template model is an instance of `Polymer.Base`, and\nshould be used to manipulate data associated with this template instance.\n\nExample:\n\n  let model = modelForElement(el);\n  if (model.index < 10) {\n    model.set('item.checked', true);\n  }",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4002,7 +4002,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4055,7 +4055,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.\n\n@override",
+              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4074,7 +4074,7 @@
             },
             {
               "name": "_attachDom",
-              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.\n\n@method _attachDom\n@throws {Error}\n@suppress {missingReturn}\n@param {NodeList} dom to attach to the element.\n@return {Node} node to which the dom has been attached.",
+              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4097,7 +4097,7 @@
             },
             {
               "name": "attributeChangedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4126,7 +4126,7 @@
             },
             {
               "name": "updateStyles",
-              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.\n\n@param {Object=} properties Bag of custom property key/values to\n  apply to this element.",
+              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4149,7 +4149,7 @@
             },
             {
               "name": "resolveUrl",
-              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.\n\n@param {string} url URL to resolve.\n@param {string=} base Optional base URL to resolve against, defaults\nto the element's `importPath`\n@return {string} Rewritten URL relative to base",
+              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4525,7 +4525,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4544,7 +4544,7 @@
             },
             {
               "name": "connectedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4563,7 +4563,7 @@
             },
             {
               "name": "disconnectedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4582,7 +4582,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.\n\n@override",
+              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4601,7 +4601,7 @@
             },
             {
               "name": "_attachDom",
-              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.\n\n@method _attachDom\n@throws {Error}\n@suppress {missingReturn}\n@param {NodeList} dom to attach to the element.\n@return {Node} node to which the dom has been attached.",
+              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
               "privacy": "protected",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4624,7 +4624,7 @@
             },
             {
               "name": "attributeChangedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4653,7 +4653,7 @@
             },
             {
               "name": "updateStyles",
-              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.\n\n@param {Object=} properties Bag of custom property key/values to\n  apply to this element.",
+              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4676,7 +4676,7 @@
             },
             {
               "name": "resolveUrl",
-              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.\n\n@param {string} url URL to resolve.\n@param {string=} base Optional base URL to resolve against, defaults\nto the element's `importPath`\n@return {string} Rewritten URL relative to base",
+              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
               "privacy": "public",
               "sourceRange": {
                 "file": "../mixins/element-mixin.html",
@@ -4767,7 +4767,7 @@
             },
             {
               "name": "clearSelection",
-              "description": "Clears the selection state.\n\n@method clearSelection",
+              "description": "Clears the selection state.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4785,7 +4785,7 @@
             },
             {
               "name": "isSelected",
-              "description": "Returns whether the item is currently selected.\n\n@method isSelected\n@param {*} item Item from `items` array to test\n@return {boolean} Whether the item is selected",
+              "description": "Returns whether the item is currently selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4807,7 +4807,7 @@
             },
             {
               "name": "isIndexSelected",
-              "description": "Returns whether the item is currently selected.\n\n@method isSelected\n@param {*} idx Index from `items` array to test\n@return {boolean} Whether the item is selected",
+              "description": "Returns whether the item is currently selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4873,7 +4873,7 @@
             },
             {
               "name": "deselect",
-              "description": "Deselects the given item if it is already selected.\n\n@method deselect\n@param {*} item Item from `items` array to deselect",
+              "description": "Deselects the given item if it is already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4895,7 +4895,7 @@
             },
             {
               "name": "deselectIndex",
-              "description": "Deselects the given index if it is already selected.\n\n@method deselect\n@param {number} idx Index from `items` array to deselect",
+              "description": "Deselects the given index if it is already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4917,7 +4917,7 @@
             },
             {
               "name": "select",
-              "description": "Selects the given item.  When `toggle` is true, this will automatically\ndeselect the item if already selected.\n\n@method select\n@param {*} item Item from `items` array to select",
+              "description": "Selects the given item.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4939,7 +4939,7 @@
             },
             {
               "name": "selectIndex",
-              "description": "Selects the given index.  When `toggle` is true, this will automatically\ndeselect the item if already selected.\n\n@method select\n@param {number} idx Index from `items` array to select",
+              "description": "Selects the given index.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -4995,7 +4995,7 @@
           "methods": [
             {
               "name": "getStyle",
-              "description": "Returns the light-DOM `<style>` child this element wraps.  Upon first\ncall any style modules referenced via the `include` attribute will be\nconcatenated to this element's `<style>`.\n\n@return {HTMLStyleElement} This element's light-DOM `<style>`",
+              "description": "Returns the light-DOM `<style>` child this element wraps.  Upon first\ncall any style modules referenced via the `include` attribute will be\nconcatenated to this element's `<style>`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -5072,7 +5072,7 @@
             },
             {
               "name": "_initializeProperties",
-              "description": "Initializes the local storage for property accessors.\n\nProvided as an override point for performing any setup work prior\nto initializing the property accessor system.\n\n@protected",
+              "description": "Initializes the local storage for property accessors.\n\nProvided as an override point for performing any setup work prior\nto initializing the property accessor system.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5089,7 +5089,7 @@
             },
             {
               "name": "_initializeProtoProperties",
-              "description": "Called at instance time with bag of properties that were overwritten\nby accessors on the prototype when accessors were created.\n\nThe default implementation sets these properties back into the\nsetter at instance time.  This method is provided as an override\npoint for customizing or providing more efficient initialization.\n\n@param {Object} props Bag of property values that were overwritten\n  when creating property accessors.\n@protected",
+              "description": "Called at instance time with bag of properties that were overwritten\nby accessors on the prototype when accessors were created.\n\nThe default implementation sets these properties back into the\nsetter at instance time.  This method is provided as an override\npoint for customizing or providing more efficient initialization.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5110,7 +5110,7 @@
             },
             {
               "name": "_ensureAttribute",
-              "description": "Ensures the element has the given attribute. If it does not,\nassigns the given value to the attribute.\n\n\n@method _ensureAttribute\n@param {string} attribute Name of attribute to ensure is set.\n@param {string} value of the attribute.",
+              "description": "Ensures the element has the given attribute. If it does not,\nassigns the given value to the attribute.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5134,7 +5134,7 @@
             },
             {
               "name": "_attributeToProperty",
-              "description": "Deserializes an attribute to its associated property.\n\nThis method calls the `_deserializeValue` method to convert the string to\na typed value.\n\n@method _attributeToProperty\n@param {string} attribute Name of attribute to deserialize.\n@param {string} value of the attribute.\n@param {*} type type to deserialize to.",
+              "description": "Deserializes an attribute to its associated property.\n\nThis method calls the `_deserializeValue` method to convert the string to\na typed value.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5161,7 +5161,7 @@
             },
             {
               "name": "_propertyToAttribute",
-              "description": "Serializes a property to its associated attribute.\n\n@method _propertyToAttribute\n@param {string} property Property name to reflect.\n@param {string=} attribute Attribute name to reflect.\n@param {*=} value Property value to refect.",
+              "description": "Serializes a property to its associated attribute.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5188,7 +5188,7 @@
             },
             {
               "name": "_valueToNodeAttribute",
-              "description": "Sets a typed value to an HTML attribute on a node.\n\nThis method calls the `_serializeValue` method to convert the typed\nvalue to a string.  If the `_serializeValue` method returns `undefined`,\nthe attribute will be removed (this is the default for boolean\ntype `false`).\n\n@method _valueToNodeAttribute\n@param {Element} node Element to set attribute to.\n@param {*} value Value to serialize.\n@param {string} attribute Attribute name to serialize to.",
+              "description": "Sets a typed value to an HTML attribute on a node.\n\nThis method calls the `_serializeValue` method to convert the typed\nvalue to a string.  If the `_serializeValue` method returns `undefined`,\nthe attribute will be removed (this is the default for boolean\ntype `false`).",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5215,7 +5215,7 @@
             },
             {
               "name": "_serializeValue",
-              "description": "Converts a typed JavaScript value to a string.\n\nThis method is called by Polymer when setting JS property values to\nHTML attributes.  Users may override this method on Polymer element\nprototypes to provide serialization for custom types.\n\n@method _serializeValue\n@param {*} value Property value to serialize.\n@return {string | undefined} String serialized from the provided property value.",
+              "description": "Converts a typed JavaScript value to a string.\n\nThis method is called by Polymer when setting JS property values to\nHTML attributes.  Users may override this method on Polymer element\nprototypes to provide serialization for custom types.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5236,7 +5236,7 @@
             },
             {
               "name": "_deserializeValue",
-              "description": "Converts a string to a typed JavaScript value.\n\nThis method is called by Polymer when reading HTML attribute values to\nJS properties.  Users may override this method on Polymer element\nprototypes to provide deserialization for custom `type`s.  Note,\nthe `type` argument is the value of the `type` field provided in the\n`properties` configuration object for a given property, and is\nby convention the constructor for the type to deserialize.\n\nNote: The return value of `undefined` is used as a sentinel value to\nindicate the attribute should be removed.\n\n@method _deserializeValue\n@param {string} value Attribute value to deserialize.\n@param {*} type Type to deserialize the string to.\n@return {*} Typed value deserialized from the provided string.",
+              "description": "Converts a string to a typed JavaScript value.\n\nThis method is called by Polymer when reading HTML attribute values to\nJS properties.  Users may override this method on Polymer element\nprototypes to provide deserialization for custom `type`s.  Note,\nthe `type` argument is the value of the `type` field provided in the\n`properties` configuration object for a given property, and is\nby convention the constructor for the type to deserialize.\n\nNote: The return value of `undefined` is used as a sentinel value to\nindicate the attribute should be removed.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5260,7 +5260,7 @@
             },
             {
               "name": "_createPropertyAccessor",
-              "description": "Creates a setter/getter pair for the named property with its own\nlocal storage.  The getter returns the value in the local storage,\nand the setter calls `_setProperty`, which updates the local storage\nfor the property and enqueues a `_propertiesChanged` callback.\n\nThis method may be called on a prototype or an instance.  Calling\nthis method may overwrite a property value that already exists on\nthe prototype/instance by creating the accessor.  When calling on\na prototype, any overwritten values are saved in `__dataProto`,\nand it is up to the subclasser to decide how/when to set those\nproperties back into the accessor.  When calling on an instance,\nthe overwritten value is set via `_setPendingProperty`, and the\nuser should call `_invalidateProperties` or `_flushProperties`\nfor the values to take effect.\n\n@param {string} property Name of the property\n@param {boolean=} readOnly When true, no setter is created; the\n  protected `_setProperty` function must be used to set the property\n@protected",
+              "description": "Creates a setter/getter pair for the named property with its own\nlocal storage.  The getter returns the value in the local storage,\nand the setter calls `_setProperty`, which updates the local storage\nfor the property and enqueues a `_propertiesChanged` callback.\n\nThis method may be called on a prototype or an instance.  Calling\nthis method may overwrite a property value that already exists on\nthe prototype/instance by creating the accessor.  When calling on\na prototype, any overwritten values are saved in `__dataProto`,\nand it is up to the subclasser to decide how/when to set those\nproperties back into the accessor.  When calling on an instance,\nthe overwritten value is set via `_setPendingProperty`, and the\nuser should call `_invalidateProperties` or `_flushProperties`\nfor the values to take effect.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5284,7 +5284,7 @@
             },
             {
               "name": "_setProperty",
-              "description": "Updates the local storage for a property (via `_setPendingProperty`)\nand enqueues a `_proeprtiesChanged` callback.\n\n@param {string} property Name of the property\n@param {*} value Value to set\n@protected",
+              "description": "Updates the local storage for a property (via `_setPendingProperty`)\nand enqueues a `_proeprtiesChanged` callback.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5308,7 +5308,7 @@
             },
             {
               "name": "_setPendingProperty",
-              "description": "Updates the local storage for a property, records the previous value,\nand adds it to the set of \"pending changes\" that will be passed to the\n`_propertiesChanged` callback.  This method does not enqueue the\n`_propertiesChanged` callback.\n\n@param {string} property Name of the property\n@param {*} value Value to set\n@protected",
+              "description": "Updates the local storage for a property, records the previous value,\nand adds it to the set of \"pending changes\" that will be passed to the\n`_propertiesChanged` callback.  This method does not enqueue the\n`_propertiesChanged` callback.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5332,7 +5332,7 @@
             },
             {
               "name": "_isPropertyPending",
-              "description": "Returns true if the specified property has a pending change.\n\n@param {string} prop Property name\n@return {boolean} True if property has a pending change\n@protected",
+              "description": "Returns true if the specified property has a pending change.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5353,7 +5353,7 @@
             },
             {
               "name": "_invalidateProperties",
-              "description": "Marks the properties as invalid, and enqueues an async\n`_propertiesChanged` callback.\n\n@protected",
+              "description": "Marks the properties as invalid, and enqueues an async\n`_propertiesChanged` callback.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5370,7 +5370,7 @@
             },
             {
               "name": "_flushProperties",
-              "description": "Calls the `_propertiesChanged` callback with the current set of\npending changes (and old values recorded when pending changes were\nset), and resets the pending set of changes.\n\n@protected",
+              "description": "Calls the `_propertiesChanged` callback with the current set of\npending changes (and old values recorded when pending changes were\nset), and resets the pending set of changes.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5387,7 +5387,7 @@
             },
             {
               "name": "_propertiesChanged",
-              "description": "Callback called when any properties with accessors created via\n`_createPropertyAccessor` have been set.\n\n@param {Object} currentProps Bag of all current accessor values\n@param {Object} changedProps Bag of properties changed since the last\n  call to `_propertiesChanged`\n@param {Object} oldProps Bag of previous values for each property\n  in `changedProps`\n@protected",
+              "description": "Callback called when any properties with accessors created via\n`_createPropertyAccessor` have been set.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5414,7 +5414,7 @@
             },
             {
               "name": "_shouldPropertyChange",
-              "description": "Method called to determine whether a property value should be\nconsidered as a change and cause the `_propertiesChanged` callback\nto be enqueued.\n\nThe default implementation returns `true` for primitive types if a\nstrict equality check fails, and returns `true` for all Object/Arrays.\nThe method always returns false for `NaN`.\n\nOverride this method to e.g. provide stricter checking for\nObjects/Arrays when using immutable patterns.\n\n@param {string} property Property name\n@param {*} value New property value\n@param {*} old Previous property value\n@return {boolean} Whether the property should be considered a change\n  and enqueue a `_proeprtiesChanged` callback\n@protected",
+              "description": "Method called to determine whether a property value should be\nconsidered as a change and cause the `_propertiesChanged` callback\nto be enqueued.\n\nThe default implementation returns `true` for primitive types if a\nstrict equality check fails, and returns `true` for all Object/Arrays.\nThe method always returns false for `NaN`.\n\nOverride this method to e.g. provide stricter checking for\nObjects/Arrays when using immutable patterns.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5470,7 +5470,7 @@
           "methods": [
             {
               "name": "_stampTemplate",
-              "description": "Clones the provided template content and returns a document fragment\ncontaining the cloned dom.\n\nThe template is parsed (once and memoized) using this library's\ntemplate parsing features, which identify nodes with declarative\nevent listeners (`on-...``), `id`'s, `<template>`s, and bindings\n(`{{...}}` and `[[...]]`).  This template metadata (\"notes\")\nare stored as `this.__templateNotes`, and any nodes identified in\nnotes are collected for this instance into `__templateNodes` in\nthe same order as the notes array.\n\nFinally, this method generates an \"id map\" for all nodes with id's\nunder `this.$`, passes template content back to templates as `_content`\n(a performance optimization to avoid deep template cloning), and\ninstalls declarative event listeners.\n\nNote that the memoized template parsing process is destructive to the\ntemplate: attributes for bindings and declarative event listeners are\nremoved after being noted in notes, and any nested <template>.content\nis removed and stored in notes as well.\n\nNote that this method may only be called once per instance (it does\nnot support stamping multiple templates per element instance).\n\n@param {HTMLTemplateElement} template Template to stamp",
+              "description": "Clones the provided template content and returns a document fragment\ncontaining the cloned dom.\n\nThe template is parsed (once and memoized) using this library's\ntemplate parsing features, which identify nodes with declarative\nevent listeners (`on-...``), `id`'s, `<template>`s, and bindings\n(`{{...}}` and `[[...]]`).  This template metadata (\"notes\")\nare stored as `this.__templateNotes`, and any nodes identified in\nnotes are collected for this instance into `__templateNodes` in\nthe same order as the notes array.\n\nFinally, this method generates an \"id map\" for all nodes with id's\nunder `this.$`, passes template content back to templates as `_content`\n(a performance optimization to avoid deep template cloning), and\ninstalls declarative event listeners.\n\nNote that the memoized template parsing process is destructive to the\ntemplate: attributes for bindings and declarative event listeners are\nremoved after being noted in notes, and any nested <template>.content\nis removed and stored in notes as well.\n\nNote that this method may only be called once per instance (it does\nnot support stamping multiple templates per element instance).",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5625,7 +5625,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides `Polymer.PropertyAccessors` implementation to initialize\nadditional property-effect related properties.\n\n@override",
+              "description": "Overrides `Polymer.PropertyAccessors` implementation to initialize\nadditional property-effect related properties.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5642,7 +5642,7 @@
             },
             {
               "name": "_initializeProtoProperties",
-              "description": "Overrides `Polymer.PropertyAccessors` implementation to provide a\nmore efficient implementation of initializing properties from\nthe prototype on the instance.\n\n@override",
+              "description": "Overrides `Polymer.PropertyAccessors` implementation to provide a\nmore efficient implementation of initializing properties from\nthe prototype on the instance.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5663,7 +5663,7 @@
             },
             {
               "name": "_addPropertyEffect",
-              "description": "Ensures an accessor exists for the specified property, and adds\nto a list of \"property effects\" that will run when the accessor for\nthe specified property is set.  Effects are grouped by \"type\", which\nroughly corresponds to a phase in effect processing.  The effect\nmetadata should be in the following form:\n\n  {\n    fn: effectFunction, // Reference to function to call to perform effect\n    info: { ... }       // Effect metadata passed to function\n    // path: '...'      // Will be set by this method based on path arg\n  }\n\nEffect functions are called with the following signature:\n\n  effectFunction(inst, property, currentValue, oldValue, info)\n\nThis method may be called either on the prototype of a class\nusing the PropertyEffects mixin (for best performance), or on\nan instance to add dynamic effects.  When called on an instance or\nsubclass of a class that has already had property effects added to\nits prototype, the property effect lists will be cloned and added as\nown properties of the caller.\n\n@param {string} path Property (or path) that should trigger the effect\n@param {string} type Effect type, from this.PROPERTY_EFFECT_TYPES\n@param {Object=} effect Effect metadata object\n@protected",
+              "description": "Ensures an accessor exists for the specified property, and adds\nto a list of \"property effects\" that will run when the accessor for\nthe specified property is set.  Effects are grouped by \"type\", which\nroughly corresponds to a phase in effect processing.  The effect\nmetadata should be in the following form:\n\n  {\n    fn: effectFunction, // Reference to function to call to perform effect\n    info: { ... }       // Effect metadata passed to function\n    // path: '...'      // Will be set by this method based on path arg\n  }\n\nEffect functions are called with the following signature:\n\n  effectFunction(inst, property, currentValue, oldValue, info)\n\nThis method may be called either on the prototype of a class\nusing the PropertyEffects mixin (for best performance), or on\nan instance to add dynamic effects.  When called on an instance or\nsubclass of a class that has already had property effects added to\nits prototype, the property effect lists will be cloned and added as\nown properties of the caller.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5690,7 +5690,7 @@
             },
             {
               "name": "_hasPropertyEffect",
-              "description": "Returns whether the current prototype/instance has a property effect\nof a certain type.\n\n@param {string} property Property name\n@param {string=} type Effect type, from this.PROPERTY_EFFECT_TYPES\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a property effect\nof a certain type.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5714,7 +5714,7 @@
             },
             {
               "name": "_hasReadOnlyEffect",
-              "description": "Returns whether the current prototype/instance has a \"read only\"\naccessor for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"read only\"\naccessor for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5735,7 +5735,7 @@
             },
             {
               "name": "_hasNotifyEffect",
-              "description": "Returns whether the current prototype/instance has a \"notify\"\nproperty effect for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"notify\"\nproperty effect for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5756,7 +5756,7 @@
             },
             {
               "name": "_hasReflectEffect",
-              "description": "Returns whether the current prototype/instance has a \"reflect to attribute\"\nproperty effect for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"reflect to attribute\"\nproperty effect for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5777,7 +5777,7 @@
             },
             {
               "name": "_hasComputedEffect",
-              "description": "Returns whether the current prototype/instance has a \"computed\"\nproperty effect for the given property.\n\n@param {string} property Property name\n@return {boolean} True if the prototype/instance has an effect of this type\n@protected",
+              "description": "Returns whether the current prototype/instance has a \"computed\"\nproperty effect for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5798,7 +5798,7 @@
             },
             {
               "name": "_setPendingPropertyOrPath",
-              "description": "Sets a pending property or path.  If the root property of the path in\nquestion had no accessor, the path is set, otherwise it is enqueued\nvia `_setPendingProperty`.\n\nThis function isolates relatively expensive functionality necessary\nfor the public API (`set`, `setProperties`, `notifyPath`, and property\nchange listeners via {{...}} bindings), such that it is only done\nwhen paths enter the system, and not at every propagation step.  It\nalso sets a `__dataHasPaths` flag on the instance which is used to\nfast-path slower path-matching code in the property effects host paths.\n\n`path` can be a path string or array of path parts as accepted by the\npublic API.\n\n@param {string | !Array<number|string>} path Path to set\n@param {*} value Value to set\n@param {boolean=} isPathNotification If the path being set is a path\n  notification of an already changed value, as opposed to a request\n  to set and notify the change.  In the latter `false` case, a dirty\n  check is performed and then the value is set to the path before\n  enqueuing the pending property change.\n@return {boolean} Returns true if the property/path was enqueued in\n  the pending changes bag.\n@protected",
+              "description": "Sets a pending property or path.  If the root property of the path in\nquestion had no accessor, the path is set, otherwise it is enqueued\nvia `_setPendingProperty`.\n\nThis function isolates relatively expensive functionality necessary\nfor the public API (`set`, `setProperties`, `notifyPath`, and property\nchange listeners via {{...}} bindings), such that it is only done\nwhen paths enter the system, and not at every propagation step.  It\nalso sets a `__dataHasPaths` flag on the instance which is used to\nfast-path slower path-matching code in the property effects host paths.\n\n`path` can be a path string or array of path parts as accepted by the\npublic API.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5828,7 +5828,7 @@
             },
             {
               "name": "_setUnmanagedPropertyToNode",
-              "description": "Applies a value to a non-Polymer element/node's property.\n\nThe implementation makes a best-effort at binding interop:\nSome native element properties have side-effects when\nre-setting the same value (e.g. setting <input>.value resets the\ncursor position), so we do a dirty-check before setting the value.\nHowever, for better interop with non-Polymer custom elements that\naccept objects, we explicitly re-set object changes coming from the\nPolymer world (which may include deep object changes without the\ntop reference changing), erring on the side of providing more\ninformation.\n\nUsers may override this method to provide alternate approaches.\n\n@param {Node} node The node to set a property on\n@param {string} prop The property to set\n@param {*} value The value to set\n@protected",
+              "description": "Applies a value to a non-Polymer element/node's property.\n\nThe implementation makes a best-effort at binding interop:\nSome native element properties have side-effects when\nre-setting the same value (e.g. setting <input>.value resets the\ncursor position), so we do a dirty-check before setting the value.\nHowever, for better interop with non-Polymer custom elements that\naccept objects, we explicitly re-set object changes coming from the\nPolymer world (which may include deep object changes without the\ntop reference changing), erring on the side of providing more\ninformation.\n\nUsers may override this method to provide alternate approaches.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5855,7 +5855,7 @@
             },
             {
               "name": "_setPendingProperty",
-              "description": "Overrides the `PropertyAccessors` implementation to introduce special\ndirty check logic depending on the property & value being set:\n\n1. Any value set to a path (e.g. 'obj.prop': 42 or 'obj.prop': {...})\n   Stored in `__dataTemp`, dirty checked against `__dataTemp`\n2. Object set to simple property (e.g. 'prop': {...})\n   Stored in `__dataTemp` and `__data`, dirty checked against\n   `__dataTemp` by default implementation of `_shouldPropertyChange`\n3. Primitive value set to simple property (e.g. 'prop': 42)\n   Stored in `__data`, dirty checked against `__data`\n\nThe dirty-check is important to prevent cycles due to two-way\nnotification, but paths and objects are only dirty checked against any\nprevious value set during this turn via a \"temporary cache\" that is\ncleared when the last `_propertiesChaged` exits. This is so:\na. any cached array paths (e.g. 'array.3.prop') may be invalidated\n   due to array mutations like shift/unshift/splice; this is fine\n   since path changes are dirty-checked at user entry points like `set`\nb. dirty-checking for objects only lasts one turn to allow the user\n   to mutate the object in-place and re-set it with the same identity\n   and have all sub-properties re-propagated in a subsequent turn.\n\nThe temp cache is not necessarily sufficient to prevent invalid array\npaths, since a splice can happen during the same turn (with pathological\nuser code); we could introduce a \"fixup\" for temporarily cached array\npaths if needed: https://github.com/Polymer/polymer/issues/4227\n\n@override",
+              "description": "Overrides the `PropertyAccessors` implementation to introduce special\ndirty check logic depending on the property & value being set:\n\n1. Any value set to a path (e.g. 'obj.prop': 42 or 'obj.prop': {...})\n   Stored in `__dataTemp`, dirty checked against `__dataTemp`\n2. Object set to simple property (e.g. 'prop': {...})\n   Stored in `__dataTemp` and `__data`, dirty checked against\n   `__dataTemp` by default implementation of `_shouldPropertyChange`\n3. Primitive value set to simple property (e.g. 'prop': 42)\n   Stored in `__data`, dirty checked against `__data`\n\nThe dirty-check is important to prevent cycles due to two-way\nnotification, but paths and objects are only dirty checked against any\nprevious value set during this turn via a \"temporary cache\" that is\ncleared when the last `_propertiesChaged` exits. This is so:\na. any cached array paths (e.g. 'array.3.prop') may be invalidated\n   due to array mutations like shift/unshift/splice; this is fine\n   since path changes are dirty-checked at user entry points like `set`\nb. dirty-checking for objects only lasts one turn to allow the user\n   to mutate the object in-place and re-set it with the same identity\n   and have all sub-properties re-propagated in a subsequent turn.\n\nThe temp cache is not necessarily sufficient to prevent invalid array\npaths, since a splice can happen during the same turn (with pathological\nuser code); we could introduce a \"fixup\" for temporarily cached array\npaths if needed: https://github.com/Polymer/polymer/issues/4227",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5882,7 +5882,7 @@
             },
             {
               "name": "_setProperty",
-              "description": "Overrides base implementation to ensure all accessors set `shouldNotify`\nto true, for per-property notification tracking.\n\n@override",
+              "description": "Overrides base implementation to ensure all accessors set `shouldNotify`\nto true, for per-property notification tracking.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5906,7 +5906,7 @@
             },
             {
               "name": "_invalidateProperties",
-              "description": "Overrides `PropertyAccessor`'s default async queuing of\n`_propertiesChanged`: if `__dataInitialized` is false (has not yet been\nmanually flushed), the function no-ops; otherwise flushes\n`_propertiesChanged` synchronously.\n\n@override",
+              "description": "Overrides `PropertyAccessor`'s default async queuing of\n`_propertiesChanged`: if `__dataInitialized` is false (has not yet been\nmanually flushed), the function no-ops; otherwise flushes\n`_propertiesChanged` synchronously.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5923,7 +5923,7 @@
             },
             {
               "name": "_enqueueClient",
-              "description": "Enqueues the given client on a list of pending clients, whose\npending property changes can later be flushed via a call to\n`_flushClients`.\n\n@param {Object} client PropertyEffects client to enqueue\n@protected",
+              "description": "Enqueues the given client on a list of pending clients, whose\npending property changes can later be flushed via a call to\n`_flushClients`.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5944,7 +5944,7 @@
             },
             {
               "name": "_flushClients",
-              "description": "Flushes any clients previously enqueued via `_enqueueClient`, causing\ntheir `_flushProperties` method to run.\n\n@protected",
+              "description": "Flushes any clients previously enqueued via `_enqueueClient`, causing\ntheir `_flushProperties` method to run.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5961,7 +5961,7 @@
             },
             {
               "name": "setProperties",
-              "description": "Sets a bag of property changes to this instance, and\nsynchronously processes all effects of the properties as a batch.\n\nProperty names must be simple properties, not paths.  Batched\npath propagation is not supported.\n\n@param {Object} props Bag of one or more key-value pairs whose key is\n  a property and value is the new value to set for that property.\n@public",
+              "description": "Sets a bag of property changes to this instance, and\nsynchronously processes all effects of the properties as a batch.\n\nProperty names must be simple properties, not paths.  Batched\npath propagation is not supported.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -5982,7 +5982,7 @@
             },
             {
               "name": "_flushProperties",
-              "description": "Overrides PropertyAccessor's default async queuing of\n`_propertiesChanged`, to instead synchronously flush\n`_propertiesChanged` unless the `this._asyncEffects` property is true.\n\nIf this is the first time properties are being flushed, the `ready`\ncallback will be called.\n\n@override",
+              "description": "Overrides PropertyAccessor's default async queuing of\n`_propertiesChanged`, to instead synchronously flush\n`_propertiesChanged` unless the `this._asyncEffects` property is true.\n\nIf this is the first time properties are being flushed, the `ready`\ncallback will be called.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -5999,7 +5999,7 @@
             },
             {
               "name": "ready",
-              "description": "Polymer-specific lifecycle callback called the first time properties\nare being flushed.  Prior to `ready`, all property sets through\naccessors are queued and their effects are flushed after this method\nreturns.\n\nUsers may override this function to implement behavior that is\ndependent on the element having its properties initialized, e.g.\nfrom defaults (initialized from `constructor`, `_initializeProperties`),\n`attributeChangedCallback`, or binding values propagated from host\n\"binding effects\".  `super.ready()` must be called to ensure the\ndata system becomes enabled.\n\n@public",
+              "description": "Polymer-specific lifecycle callback called the first time properties\nare being flushed.  Prior to `ready`, all property sets through\naccessors are queued and their effects are flushed after this method\nreturns.\n\nUsers may override this function to implement behavior that is\ndependent on the element having its properties initialized, e.g.\nfrom defaults (initialized from `constructor`, `_initializeProperties`),\n`attributeChangedCallback`, or binding values propagated from host\n\"binding effects\".  `super.ready()` must be called to ensure the\ndata system becomes enabled.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6016,7 +6016,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Perform any initial setup on client dom. Called before the first\n`_flushProperties` call on client dom and before any element\nobservers are called.\n\n@protected",
+              "description": "Perform any initial setup on client dom. Called before the first\n`_flushProperties` call on client dom and before any element\nobservers are called.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6033,7 +6033,7 @@
             },
             {
               "name": "_stampTemplate",
-              "description": "Stamps the provided template and performs instance-time setup for\nPolymer template features, including data bindings, declarative event\nlisteners, and the `this.$` map of `id`'s to nodes.  A document fragment\nis returned containing the stamped DOM, ready for insertion into the\nDOM.\n\nNote that for host data to be bound into the stamped DOM, the template\nmust have been previously bound to the prototype via a call to\n`_bindTemplate`, which performs one-time template binding work.\n\nNote that this method currently only supports being called once per\ninstance.\n\n@param {HTMLTemplateElement} template Template to stamp\n@return {DocumentFragment} Cloned template content\n@protected",
+              "description": "Stamps the provided template and performs instance-time setup for\nPolymer template features, including data bindings, declarative event\nlisteners, and the `this.$` map of `id`'s to nodes.  A document fragment\nis returned containing the stamped DOM, ready for insertion into the\nDOM.\n\nNote that for host data to be bound into the stamped DOM, the template\nmust have been previously bound to the prototype via a call to\n`_bindTemplate`, which performs one-time template binding work.\n\nNote that this method currently only supports being called once per\ninstance.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6054,7 +6054,7 @@
             },
             {
               "name": "_propertiesChanged",
-              "description": "Implements `PropertyAccessors`'s properties changed callback.\n\nRuns each class of effects for the batch of changed properties in\na specific order (compute, propagate, reflect, observe, notify).\n\n@override",
+              "description": "Implements `PropertyAccessors`'s properties changed callback.\n\nRuns each class of effects for the batch of changed properties in\na specific order (compute, propagate, reflect, observe, notify).",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6081,7 +6081,7 @@
             },
             {
               "name": "linkPaths",
-              "description": "Aliases one data path as another, such that path notifications from one\nare routed to the other.\n\n@method linkPaths\n@param {string | !Array<string|number>} to Target path to link.\n@param {string | !Array<string|number>} from Source path to link.\n@public",
+              "description": "Aliases one data path as another, such that path notifications from one\nare routed to the other.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6105,7 +6105,7 @@
             },
             {
               "name": "unlinkPaths",
-              "description": "Removes a data path alias previously established with `_linkPaths`.\n\nNote, the path to unlink should be the target (`to`) used when\nlinking the paths.\n\n@method unlinkPaths\n@param {string | !Array<string|number>} path Target path to unlink.\n@public",
+              "description": "Removes a data path alias previously established with `_linkPaths`.\n\nNote, the path to unlink should be the target (`to`) used when\nlinking the paths.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6126,7 +6126,7 @@
             },
             {
               "name": "notifySplices",
-              "description": "Notify that an array has changed.\n\nExample:\n\n    this.items = [ {name: 'Jim'}, {name: 'Todd'}, {name: 'Bill'} ];\n    ...\n    this.items.splice(1, 1, {name: 'Sam'});\n    this.items.push({name: 'Bob'});\n    this.notifySplices('items', [\n      { index: 1, removed: [{name: 'Todd'}], addedCount: 1, obect: this.items, type: 'splice' },\n      { index: 3, removed: [], addedCount: 1, object: this.items, type: 'splice'}\n    ]);\n\n@param {string} path Path that should be notified.\n@param {Array} splices Array of splice records indicating ordered\n  changes that occurred to the array. Each record should have the\n  following fields:\n   * index: index at which the change occurred\n   * removed: array of items that were removed from this index\n   * addedCount: number of new items added at this index\n   * object: a reference to the array in question\n   * type: the string literal 'splice'\n\n  Note that splice records _must_ be normalized such that they are\n  reported in index order (raw results from `Object.observe` are not\n  ordered and must be normalized/merged before notifying).\n@public",
+              "description": "Notify that an array has changed.\n\nExample:\n\n    this.items = [ {name: 'Jim'}, {name: 'Todd'}, {name: 'Bill'} ];\n    ...\n    this.items.splice(1, 1, {name: 'Sam'});\n    this.items.push({name: 'Bob'});\n    this.notifySplices('items', [\n      { index: 1, removed: [{name: 'Todd'}], addedCount: 1, obect: this.items, type: 'splice' },\n      { index: 3, removed: [], addedCount: 1, object: this.items, type: 'splice'}\n    ]);",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6150,7 +6150,7 @@
             },
             {
               "name": "get",
-              "description": "Convenience method for reading a value from a path.\n\nNote, if any part in the path is undefined, this method returns\n`undefined` (this method does not throw when dereferencing undefined\npaths).\n\n@method get\n@param {(string|!Array<(string|number)>)} path Path to the value\n  to read.  The path may be specified as a string (e.g. `foo.bar.baz`)\n  or an array of path parts (e.g. `['foo.bar', 'baz']`).  Note that\n  bracketed expressions are not supported; string-based path parts\n  *must* be separated by dots.  Note that when dereferencing array\n  indices, the index may be used as a dotted part directly\n  (e.g. `users.12.name` or `['users', 12, 'name']`).\n@param {Object=} root Root object from which the path is evaluated.\n@return {*} Value at the path, or `undefined` if any part of the path\n  is undefined.\n@public",
+              "description": "Convenience method for reading a value from a path.\n\nNote, if any part in the path is undefined, this method returns\n`undefined` (this method does not throw when dereferencing undefined\npaths).",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6174,7 +6174,7 @@
             },
             {
               "name": "set",
-              "description": "Convenience method for setting a value to a path and notifying any\nelements bound to the same path.\n\nNote, if any part in the path except for the last is undefined,\nthis method does nothing (this method does not throw when\ndereferencing undefined paths).\n\n@method set\n@param {(string|!Array<(string|number)>)} path Path to the value\n  to write.  The path may be specified as a string (e.g. `'foo.bar.baz'`)\n  or an array of path parts (e.g. `['foo.bar', 'baz']`).  Note that\n  bracketed expressions are not supported; string-based path parts\n  *must* be separated by dots.  Note that when dereferencing array\n  indices, the index may be used as a dotted part directly\n  (e.g. `'users.12.name'` or `['users', 12, 'name']`).\n@param {*} value Value to set at the specified path.\n@param {Object=} root Root object from which the path is evaluated.\n  When specified, no notification will occur.\n@public",
+              "description": "Convenience method for setting a value to a path and notifying any\nelements bound to the same path.\n\nNote, if any part in the path except for the last is undefined,\nthis method does nothing (this method does not throw when\ndereferencing undefined paths).",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6201,7 +6201,7 @@
             },
             {
               "name": "push",
-              "description": "Adds items onto the end of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method push\n@param {string} path Path to array.\n@param {...*} items Items to push onto array\n@return {number} New length of the array.\n@public",
+              "description": "Adds items onto the end of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6225,7 +6225,7 @@
             },
             {
               "name": "pop",
-              "description": "Removes an item from the end of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method pop\n@param {string} path Path to array.\n@return {*} Item that was removed.\n@public",
+              "description": "Removes an item from the end of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6246,7 +6246,7 @@
             },
             {
               "name": "splice",
-              "description": "Starting from the start index specified, removes 0 or more items\nfrom the array and inserts 0 or more new items in their place.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.splice`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method splice\n@param {string} path Path to array.\n@param {number} start Index from which to start removing/inserting.\n@param {number} deleteCount Number of items to remove.\n@param {...*} items Items to insert into array.\n@return {Array} Array of removed items.\n@public",
+              "description": "Starting from the start index specified, removes 0 or more items\nfrom the array and inserts 0 or more new items in their place.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.splice`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6276,7 +6276,7 @@
             },
             {
               "name": "shift",
-              "description": "Removes an item from the beginning of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method shift\n@param {string} path Path to array.\n@return {*} Item that was removed.\n@public",
+              "description": "Removes an item from the beginning of array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.pop`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6297,7 +6297,7 @@
             },
             {
               "name": "unshift",
-              "description": "Adds items onto the beginning of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.\n\n@method unshift\n@param {string} path Path to array.\n@param {...*} items Items to insert info array\n@return {number} New length of the array.\n@public",
+              "description": "Adds items onto the beginning of the array at the path specified.\n\nThe arguments after `path` and return value match that of\n`Array.prototype.push`.\n\nThis method notifies other paths to the same array that a\nsplice occurred to the array.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6321,7 +6321,7 @@
             },
             {
               "name": "notifyPath",
-              "description": "Notify that a path has changed.\n\nExample:\n\n    this.item.user.name = 'Bob';\n    this.notifyPath('item.user.name');\n\n@param {string} path Path that should be notified.\n@param {*=} value Value at the path (optional).\n@public",
+              "description": "Notify that a path has changed.\n\nExample:\n\n    this.item.user.name = 'Bob';\n    this.notifyPath('item.user.name');",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6345,7 +6345,7 @@
             },
             {
               "name": "_createReadOnlyProperty",
-              "description": "Creates a read-only accessor for the given property.\n\nTo set the property, use the protected `_setProperty` API.\nTo create a custom protected setter (e.g. `_setMyProp()` for\nproperty `myProp`), pass `true` for `protectedSetter`.\n\nNote, if the property will have other property effects, this method\nshould be called first, before adding other effects.\n\n@param {string} property Property name\n@param {boolean=} protectedSetter Creates a custom protected setter\n  when `true`.\n@protected",
+              "description": "Creates a read-only accessor for the given property.\n\nTo set the property, use the protected `_setProperty` API.\nTo create a custom protected setter (e.g. `_setMyProp()` for\nproperty `myProp`), pass `true` for `protectedSetter`.\n\nNote, if the property will have other property effects, this method\nshould be called first, before adding other effects.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6369,7 +6369,7 @@
             },
             {
               "name": "_createPropertyObserver",
-              "description": "Creates a single-property observer for the given property.\n\n@param {string} property Property name\n@param {string} methodName Name of observer method to call\n@param {boolean=} dynamicFn Whether the method name should be included as\n  a dependency to the effect.\n@protected",
+              "description": "Creates a single-property observer for the given property.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6396,7 +6396,7 @@
             },
             {
               "name": "_createMethodObserver",
-              "description": "Creates a multi-property \"method observer\" based on the provided\nexpression, which should be a string in the form of a normal Javascript\nfunction signature: `'methodName(arg1, [..., argn])'`.  Each argument\nshould correspond to a property or path in the context of this\nprototype (or instance), or may be a literal string or number.\n\n@param {string} expression Method expression\n@param {Object=} dynamicFns Map indicating whether method names should\n  be included as a dependency to the effect.\n@protected",
+              "description": "Creates a multi-property \"method observer\" based on the provided\nexpression, which should be a string in the form of a normal Javascript\nfunction signature: `'methodName(arg1, [..., argn])'`.  Each argument\nshould correspond to a property or path in the context of this\nprototype (or instance), or may be a literal string or number.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6420,7 +6420,7 @@
             },
             {
               "name": "_createNotifyingProperty",
-              "description": "Causes the setter for the given property to dispatch `<property>-changed`\nevents to notify of changes to the property.\n\n@param {string} property Property name\n@protected",
+              "description": "Causes the setter for the given property to dispatch `<property>-changed`\nevents to notify of changes to the property.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6441,7 +6441,7 @@
             },
             {
               "name": "_createReflectedProperty",
-              "description": "Causes the setter for the given property to reflect the property value\nto a (dash-cased) attribute of the same name.\n\n@param {string} property Property name\n@protected",
+              "description": "Causes the setter for the given property to reflect the property value\nto a (dash-cased) attribute of the same name.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6462,7 +6462,7 @@
             },
             {
               "name": "_createComputedProperty",
-              "description": "Creates a computed property whose value is set to the result of the\nmethod described by the given `expression` each time one or more\narguments to the method changes.  The expression should be a string\nin the form of a normal Javascript function signature:\n`'methodName(arg1, [..., argn])'`\n\n@param {string} property Name of computed property to set\n@param {string} expression Method expression\n@param {Object=} dynamicFns Map indicating whether method names should\n  be included as a dependency to the effect.\n@protected",
+              "description": "Creates a computed property whose value is set to the result of the\nmethod described by the given `expression` each time one or more\narguments to the method changes.  The expression should be a string\nin the form of a normal Javascript function signature:\n`'methodName(arg1, [..., argn])'`",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6489,7 +6489,7 @@
             },
             {
               "name": "_bindTemplate",
-              "description": "Creates \"binding\" property effects for all binding bindings\nin the provided template that forward host properties into DOM stamped\nfrom the template via `_stampTemplate`.\n\n@param {HTMLTemplateElement} template Template containing binding\n  bindings\n@param {Object=} dynamicFns Map indicating whether method names should\n  be included as a dependency to the effect.\n@protected",
+              "description": "Creates \"binding\" property effects for all binding bindings\nin the provided template that forward host properties into DOM stamped\nfrom the template via `_stampTemplate`.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6546,7 +6546,7 @@
           "methods": [
             {
               "name": "_initializeProperties",
-              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyAccessors` to ensure class\nmetaprogramming related to property accessors and effects has\ncompleted (calls `finalize`).\n\nIt also initializes any property defaults provided via `value` in\n`properties` metadata.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6563,7 +6563,7 @@
             },
             {
               "name": "connectedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`connectedCallback`.\n\nThe default implementation enables the property effects system and\nflushes any pending properties, and updates shimmed CSS properties\nwhen using the ShadyCSS scoping/custom properties polyfill.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6580,7 +6580,7 @@
             },
             {
               "name": "disconnectedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`disconnectedCallback`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6597,7 +6597,7 @@
             },
             {
               "name": "_readyClients",
-              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.\n\n@override",
+              "description": "Implements `PropertyEffects`'s `_readyClients` call. Attaches\nelement dom by calling `_attachDom` with the dom stamped from the\nelement's template via `_stampTemplate`. Note that this allows\nclient dom to be attached to the element prior to any observers\nrunning.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6614,7 +6614,7 @@
             },
             {
               "name": "_attachDom",
-              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.\n\n@method _attachDom\n@throws {Error}\n@suppress {missingReturn}\n@param {NodeList} dom to attach to the element.\n@return {Node} node to which the dom has been attached.",
+              "description": "Attaches an element's stamped dom to itself. By default,\nthis method creates a `shadowRoot` and adds the dom to it.\nHowever, this method may be overridden to allow an element\nto put its dom in another location.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6635,7 +6635,7 @@
             },
             {
               "name": "attributeChangedCallback",
-              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.\n\n@override",
+              "description": "Provides a default implementation of the standard Custom Elements\n`attributeChangedCallback`.\n\nBy default, attributes declared in `properties` metadata are\ndeserialized using their `type` information to properties of the\nsame name.  \"Dash-cased\" attributes are deserialzed to \"camelCase\"\nproperties.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6662,7 +6662,7 @@
             },
             {
               "name": "updateStyles",
-              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.\n\n@param {Object=} properties Bag of custom property key/values to\n  apply to this element.",
+              "description": "When using the ShadyCSS scoping and custom property shim, causes all\nshimmed styles in this element (and its subtree) to be updated\nbased on current custom property values.\n\nThe optional parameter overrides inline custom property styles with an\nobject of properties where the keys are CSS properties, and the values\nare strings.\n\nExample: `this.updateStyles({'--color': 'blue'})`\n\nThese properties are retained unless a value of `null` is set.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6683,7 +6683,7 @@
             },
             {
               "name": "resolveUrl",
-              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.\n\n@param {string} url URL to resolve.\n@param {string=} base Optional base URL to resolve against, defaults\nto the element's `importPath`\n@return {string} Rewritten URL relative to base",
+              "description": "Rewrites a given URL relative to a base URL. The base URL defaults to\nthe original location of the document containing the `dom-module` for\nthis element. This method will return the same URL before and after\nbundling.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -6951,7 +6951,7 @@
             },
             {
               "name": "_initializeProperties",
-              "description": "Overrides the default `Polymer.PropertyEffects` implementation to\nadd support for one-time `registration` callback.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyEffects` implementation to\nadd support for one-time `registration` callback.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6968,7 +6968,7 @@
             },
             {
               "name": "_registered",
-              "description": "Called automatically when an element is initializing.\nUsers may override this method to perform class registration time\nwork. The implementation should ensure the work is performed\nonly once for the class.\n@protected",
+              "description": "Called automatically when an element is initializing.\nUsers may override this method to perform class registration time\nwork. The implementation should ensure the work is performed\nonly once for the class.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -6985,7 +6985,7 @@
             },
             {
               "name": "ready",
-              "description": "Overrides the default `Polymer.PropertyEffects` implementation to\nadd support for installing `hostAttributes` and `listeners`.\n\n@override",
+              "description": "Overrides the default `Polymer.PropertyEffects` implementation to\nadd support for installing `hostAttributes` and `listeners`.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -7002,7 +7002,7 @@
             },
             {
               "name": "_ensureAttributes",
-              "description": "Ensures an element has required attributes. Called when the element\nis being readied via `ready`. Users should override to set the\nelement's required attributes. The implementation should be sure\nto check and not override existing attributes added by\nthe user of the element. Typically, setting attributes should be left\nto the element user and not done here; reasonable exceptions include\nsetting aria roles and focusability.\n@protected",
+              "description": "Ensures an element has required attributes. Called when the element\nis being readied via `ready`. Users should override to set the\nelement's required attributes. The implementation should be sure\nto check and not override existing attributes added by\nthe user of the element. Typically, setting attributes should be left\nto the element user and not done here; reasonable exceptions include\nsetting aria roles and focusability.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -7019,7 +7019,7 @@
             },
             {
               "name": "_applyListeners",
-              "description": "Adds element event listeners. Called when the element\nis being readied via `ready`. Users should override to\nadd any required element event listeners.\nIn performance critical elements, the work done here should be kept\nto a minimum since it is done before the element is rendered. In\nthese elements, consider adding listeners asychronously so as not to\nblock render.\n@protected",
+              "description": "Adds element event listeners. Called when the element\nis being readied via `ready`. Users should override to\nadd any required element event listeners.\nIn performance critical elements, the work done here should be kept\nto a minimum since it is done before the element is rendered. In\nthese elements, consider adding listeners asychronously so as not to\nblock render.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -7036,7 +7036,7 @@
             },
             {
               "name": "serialize",
-              "description": "Converts a typed JavaScript value to a string.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features. To customize\nhow properties are serialized to attributes for attribute bindings and\n`reflectToAttribute: true` properties as well as this method, override\nthe `_serializeValue` method provided by `Polymer.PropertyAccessors`.\n\n@param {*} value Value to deserialize\n@return {string} Serialized value",
+              "description": "Converts a typed JavaScript value to a string.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features. To customize\nhow properties are serialized to attributes for attribute bindings and\n`reflectToAttribute: true` properties as well as this method, override\nthe `_serializeValue` method provided by `Polymer.PropertyAccessors`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7057,7 +7057,7 @@
             },
             {
               "name": "deserialize",
-              "description": "Converts a string to a typed JavaScript value.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.  To customize\nhow attributes are deserialized to properties for in\n`attributeChangedCallback`, override `_deserializeValue` method\nprovided by `Polymer.PropertyAccessors`.\n\n@param {string} value String to deserialize\n@param {*} type Type to deserialize the string to",
+              "description": "Converts a string to a typed JavaScript value.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.  To customize\nhow attributes are deserialized to properties for in\n`attributeChangedCallback`, override `_deserializeValue` method\nprovided by `Polymer.PropertyAccessors`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7081,7 +7081,7 @@
             },
             {
               "name": "reflectPropertyToAttribute",
-              "description": "Serializes a property to its associated attribute.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.\n\n@param {string} property Property name to reflect.\n@param {string=} attribute Attribute name to reflect.\n@param {*=} value Property value to refect.",
+              "description": "Serializes a property to its associated attribute.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7108,7 +7108,7 @@
             },
             {
               "name": "serializeValueToAttribute",
-              "description": "Sets a typed value to an HTML attribute on a node.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.\n\n@param {*} value Value to serialize.\n@param {string} attribute Attribute name to serialize to.\n@param {Element} node Element to set attribute to.",
+              "description": "Sets a typed value to an HTML attribute on a node.\n\nNote this method is provided as backward-compatible legacy API\nonly.  It is not directly called by any Polymer features.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7135,7 +7135,7 @@
             },
             {
               "name": "extend",
-              "description": "Copies own properties (including accessor descriptors) from a source\nobject to a target object.\n\n@method extend\n@param {Object} prototype Target object to copy properties to.\n@param {Object} api Source object to copy properties from.\n@return {Object} prototype object that was passed as first argument.",
+              "description": "Copies own properties (including accessor descriptors) from a source\nobject to a target object.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7159,7 +7159,7 @@
             },
             {
               "name": "mixin",
-              "description": "Copies props from a source object to a target object.\n\nNote, this method uses a simple `for...in` strategy for enumerating\nproperties.  To ensure only `ownProperties` are copied from source\nto target and that accessor implementations are copied, use `extend`.\n\n@method mixin\n@param {Object} target Target object to copy properties to.\n@param {Object} source Source object to copy properties from.\n@return {Object} Target object that was passed as first argument.",
+              "description": "Copies props from a source object to a target object.\n\nNote, this method uses a simple `for...in` strategy for enumerating\nproperties.  To ensure only `ownProperties` are copied from source\nto target and that accessor implementations are copied, use `extend`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7207,7 +7207,7 @@
             },
             {
               "name": "instanceTemplate",
-              "description": "Calls `importNode` on the `content` of the `template` specified and\nreturns a document fragment containing the imported content.\n\n@method instanceTemplate\n@param {HTMLTemplateElement} template HTML template element to instance.\n@return {DocumentFragment} Document fragment containing the imported\n  template content.",
+              "description": "Calls `importNode` on the `content` of the `template` specified and\nreturns a document fragment containing the imported content.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7228,7 +7228,7 @@
             },
             {
               "name": "fire",
-              "description": "Dispatches a custom event with an optional detail value.\n\n@method fire\n@param {string} type Name of event type.\n@param {*=} detail Detail value containing event-specific\n  payload.\n@param {Object=} options Object specifying options.  These may include:\n `bubbles` (boolean, defaults to `true`),\n `cancelable` (boolean, defaults to false), and\n `node` on which to fire the event (HTMLElement, defaults to `this`).\n@return {Event} The new event that was fired.",
+              "description": "Dispatches a custom event with an optional detail value.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7255,7 +7255,7 @@
             },
             {
               "name": "listen",
-              "description": "Convenience method to add an event listener on a given element,\nlate bound to a named method on this element.\n\n@method listen\n@param {Element} node Element to add event listener to.\n@param {string} eventName Name of event to listen for.\n@param {string} methodName Name of handler method on `this` to call.",
+              "description": "Convenience method to add an event listener on a given element,\nlate bound to a named method on this element.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7282,7 +7282,7 @@
             },
             {
               "name": "unlisten",
-              "description": "Convenience method to remove an event listener from a given element,\nlate bound to a named method on this element.\n\n@method unlisten\n@param {Element} node Element to remove event listener from.\n@param {string} eventName Name of event to stop listening to.\n@param {string} methodName Name of handler method on `this` to not call\n       anymore.",
+              "description": "Convenience method to remove an event listener from a given element,\nlate bound to a named method on this element.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7309,7 +7309,7 @@
             },
             {
               "name": "setScrollDirection",
-              "description": "Override scrolling behavior to all direction, one direction, or none.\n\nValid scroll directions:\n  - 'all': scroll in any direction\n  - 'x': scroll only in the 'x' direction\n  - 'y': scroll only in the 'y' direction\n  - 'none': disable scrolling for this node\n\n@method setScrollDirection\n@param {String=} direction Direction to allow scrolling\nDefaults to `all`.\n@param {HTMLElement=} node Element to apply scroll direction setting.\nDefaults to `this`.",
+              "description": "Override scrolling behavior to all direction, one direction, or none.\n\nValid scroll directions:\n  - 'all': scroll in any direction\n  - 'x': scroll only in the 'x' direction\n  - 'y': scroll only in the 'y' direction\n  - 'none': disable scrolling for this node",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7333,7 +7333,7 @@
             },
             {
               "name": "$$",
-              "description": "Convenience method to run `querySelector` on this local DOM scope.\n\nThis function calls `Polymer.dom(this.root).querySelector(slctr)`.\n\n@method $$\n@param {string} slctr Selector to run on this local DOM scope\n@return {Element} Element found by the selector, or null if not found.",
+              "description": "Convenience method to run `querySelector` on this local DOM scope.\n\nThis function calls `Polymer.dom(this.root).querySelector(slctr)`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7354,7 +7354,7 @@
             },
             {
               "name": "distributeContent",
-              "description": "Force this element to distribute its children to its local dom.\nThis is necessary only when ShadyDOM is used and only in cases that\nare not automatically handled. For example,\na user should call `distributeContent` if distribution has been\ninvalidated due to an element being added or removed from the shadowRoot\nthat contains an insertion point (<slot>) inside its subtree.\n@method distributeContent",
+              "description": "Force this element to distribute its children to its local dom.\nThis is necessary only when ShadyDOM is used and only in cases that\nare not automatically handled. For example,\na user should call `distributeContent` if distribution has been\ninvalidated due to an element being added or removed from the shadowRoot\nthat contains an insertion point (<slot>) inside its subtree.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7371,7 +7371,7 @@
             },
             {
               "name": "getEffectiveChildNodes",
-              "description": "Returns a list of nodes that are the effective childNodes. The effective\nchildNodes list is the same as the element's childNodes except that\nany `<content>` elements are replaced with the list of nodes distributed\nto the `<content>`, the result of its `getDistributedNodes` method.\n\n@method getEffectiveChildNodes\n@return {Array<Node>} List of effctive child nodes.",
+              "description": "Returns a list of nodes that are the effective childNodes. The effective\nchildNodes list is the same as the element's childNodes except that\nany `<content>` elements are replaced with the list of nodes distributed\nto the `<content>`, the result of its `getDistributedNodes` method.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7388,7 +7388,7 @@
             },
             {
               "name": "queryDistributedElements",
-              "description": "Returns a list of nodes distributed within this element that match\n`selector`. These can be dom children or elements distributed to\nchildren that are insertion points.\n@method queryDistributedElements\n@param {string} selector Selector to run.\n@return {Array<Node>} List of distributed elements that match selector.",
+              "description": "Returns a list of nodes distributed within this element that match\n`selector`. These can be dom children or elements distributed to\nchildren that are insertion points.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7409,7 +7409,7 @@
             },
             {
               "name": "getEffectiveChildren",
-              "description": "Returns a list of elements that are the effective children. The effective\nchildren list is the same as the element's children except that\nany `<content>` elements are replaced with the list of elements\ndistributed to the `<content>`.\n\n@method getEffectiveChildren\n@return {Array<Node>} List of effctive children.",
+              "description": "Returns a list of elements that are the effective children. The effective\nchildren list is the same as the element's children except that\nany `<content>` elements are replaced with the list of elements\ndistributed to the `<content>`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7426,7 +7426,7 @@
             },
             {
               "name": "getEffectiveTextContent",
-              "description": "Returns a string of text content that is the concatenation of the\ntext content's of the element's effective childNodes (the elements\nreturned by <a href=\"#getEffectiveChildNodes>getEffectiveChildNodes</a>.\n\n@method getEffectiveTextContent\n@return {string} List of effctive children.",
+              "description": "Returns a string of text content that is the concatenation of the\ntext content's of the element's effective childNodes (the elements\nreturned by <a href=\"#getEffectiveChildNodes>getEffectiveChildNodes</a>.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7443,7 +7443,7 @@
             },
             {
               "name": "queryEffectiveChildren",
-              "description": "Returns the first effective childNode within this element that\nmatch `selector`. These can be dom child nodes or elements distributed\nto children that are insertion points.\n@method queryEffectiveChildren\n@param {string} selector Selector to run.\n@return {Object<Node>} First effective child node that matches selector.",
+              "description": "Returns the first effective childNode within this element that\nmatch `selector`. These can be dom child nodes or elements distributed\nto children that are insertion points.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7464,7 +7464,7 @@
             },
             {
               "name": "queryAllEffectiveChildren",
-              "description": "Returns a list of effective childNodes within this element that\nmatch `selector`. These can be dom child nodes or elements distributed\nto children that are insertion points.\n@method queryEffectiveChildren\n@param {string} selector Selector to run.\n@return {Array<Node>} List of effective child nodes that match selector.",
+              "description": "Returns a list of effective childNodes within this element that\nmatch `selector`. These can be dom child nodes or elements distributed\nto children that are insertion points.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7485,7 +7485,7 @@
             },
             {
               "name": "getContentChildNodes",
-              "description": "Returns a list of nodes distributed to this element's `<slot>`.\n\nIf this element contains more than one `<slot>` in its local DOM,\nan optional selector may be passed to choose the desired content.\n\n@method getContentChildNodes\n@param {String=} slctr CSS selector to choose the desired\n  `<slot>`.  Defaults to `content`.\n@return {Array<Node>} List of distributed nodes for the `<slot>`.",
+              "description": "Returns a list of nodes distributed to this element's `<slot>`.\n\nIf this element contains more than one `<slot>` in its local DOM,\nan optional selector may be passed to choose the desired content.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7506,7 +7506,7 @@
             },
             {
               "name": "getContentChildren",
-              "description": "Returns a list of element children distributed to this element's\n`<slot>`.\n\nIf this element contains more than one `<slot>` in its\nlocal DOM, an optional selector may be passed to choose the desired\ncontent.  This method differs from `getContentChildNodes` in that only\nelements are returned.\n\n@method getContentChildNodes\n@param {String=} slctr CSS selector to choose the desired\n  `<content>`.  Defaults to `content`.\n@return {Array<HTMLElement>} List of distributed nodes for the\n  `<slot>`.",
+              "description": "Returns a list of element children distributed to this element's\n`<slot>`.\n\nIf this element contains more than one `<slot>` in its\nlocal DOM, an optional selector may be passed to choose the desired\ncontent.  This method differs from `getContentChildNodes` in that only\nelements are returned.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7527,7 +7527,7 @@
             },
             {
               "name": "isLightDescendant",
-              "description": "Checks whether an element is in this element's light DOM tree.\n\n@method isLightDescendant\n@param {?Node} node The element to be checked.\n@return {Boolean} true if node is in this element's light DOM tree.",
+              "description": "Checks whether an element is in this element's light DOM tree.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7548,7 +7548,7 @@
             },
             {
               "name": "isLocalDescendant",
-              "description": "Checks whether an element is in this element's local DOM tree.\n\n@method isLocalDescendant\n@param {HTMLElement=} node The element to be checked.\n@return {boolean} true if node is in this element's local DOM tree.",
+              "description": "Checks whether an element is in this element's local DOM tree.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7593,7 +7593,7 @@
             },
             {
               "name": "getComputedStyleValue",
-              "description": "Returns the computed style value for the given property.\n@param {String} property\n@return {String} the computed value",
+              "description": "Returns the computed style value for the given property.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7614,7 +7614,7 @@
             },
             {
               "name": "debounce",
-              "description": "Call `debounce` to collapse multiple requests for a named task into\none invocation which is made after the wait time has elapsed with\nno new request.  If no wait time is given, the callback will be called\nat microtask timing (guaranteed before paint).\n\n    debouncedClickAction(e) {\n      // will not call `processClick` more than once per 100ms\n      this.debounce('click', function() {\n       this.processClick();\n      } 100);\n    }\n\n@method debounce\n@param {String} jobName String to indentify the debounce job.\n@param {function()} callback Function that is called (with `this`\n  context) when the wait time elapses.\n@param {number} wait Optional wait time in milliseconds (ms) after the\n  last signal that must elapse before invoking `callback`",
+              "description": "Call `debounce` to collapse multiple requests for a named task into\none invocation which is made after the wait time has elapsed with\nno new request.  If no wait time is given, the callback will be called\nat microtask timing (guaranteed before paint).\n\n    debouncedClickAction(e) {\n      // will not call `processClick` more than once per 100ms\n      this.debounce('click', function() {\n       this.processClick();\n      } 100);\n    }",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7641,7 +7641,7 @@
             },
             {
               "name": "isDebouncerActive",
-              "description": "Returns whether a named debouncer is active.\n\n@method isDebouncerActive\n@param {String} jobName The name of the debouncer started with `debounce`\n@return {boolean} Whether the debouncer is active (has not yet fired).",
+              "description": "Returns whether a named debouncer is active.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7662,7 +7662,7 @@
             },
             {
               "name": "flushDebouncer",
-              "description": "Immediately calls the debouncer `callback` and inactivates it.\n\n@method flushDebouncer\n@param {String} jobName The name of the debouncer started with `debounce`",
+              "description": "Immediately calls the debouncer `callback` and inactivates it.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7683,7 +7683,7 @@
             },
             {
               "name": "cancelDebouncer",
-              "description": "Cancels an active debouncer.  The `callback` will not be called.\n\n@method cancelDebouncer\n@param {String} jobName The name of the debouncer started with `debounce`",
+              "description": "Cancels an active debouncer.  The `callback` will not be called.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7704,7 +7704,7 @@
             },
             {
               "name": "async",
-              "description": "Runs a callback function asyncronously.\n\nBy default (if no waitTime is specified), async callbacks are run at\nmicrotask timing, which will occur before paint.\n\n@method async\n@param {Function} callback The callback function to run, bound to `this`.\n@param {number=} waitTime Time to wait before calling the\n  `callback`.  If unspecified or 0, the callback will be run at microtask\n  timing (before paint).\n@return {number} Handle that may be used to cancel the async job.",
+              "description": "Runs a callback function asyncronously.\n\nBy default (if no waitTime is specified), async callbacks are run at\nmicrotask timing, which will occur before paint.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7728,7 +7728,7 @@
             },
             {
               "name": "cancelAsync",
-              "description": "Cancels an async operation started with `async`.\n\n@method cancelAsync\n@param {number} handle Handle returned from original `async` call to\n  cancel.",
+              "description": "Cancels an async operation started with `async`.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7749,7 +7749,7 @@
             },
             {
               "name": "create",
-              "description": "Convenience method for creating an element and configuring it.\n\n@method create\n@param {string} tag HTML element tag to create.\n@param {Object} props Object of properties to configure on the\n   instance.\n@return {Element} Newly created and configured element.",
+              "description": "Convenience method for creating an element and configuring it.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7773,7 +7773,7 @@
             },
             {
               "name": "importHref",
-              "description": "Convenience method for importing an HTML document imperatively.\n\nThis method creates a new `<link rel=\"import\">` element with\nthe provided URL and appends it to the document to start loading.\nIn the `onload` callback, the `import` property of the `link`\nelement will contain the imported document contents.\n\n@method importHref\n@param {string} href URL to document to load.\n@param {Function} onload Callback to notify when an import successfully\n  loaded.\n@param {Function} onerror Callback to notify when an import\n  unsuccessfully loaded.\n@param {boolean} optAsync True if the import should be loaded `async`.\n  Defaults to `false`.\n@return {HTMLLinkElement} The link element for the URL to be loaded.",
+              "description": "Convenience method for importing an HTML document imperatively.\n\nThis method creates a new `<link rel=\"import\">` element with\nthe provided URL and appends it to the document to start loading.\nIn the `onload` callback, the `import` property of the `link`\nelement will contain the imported document contents.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7803,7 +7803,7 @@
             },
             {
               "name": "elementMatches",
-              "description": "Polyfill for Element.prototype.matches, which is sometimes still\nprefixed.\n\n@method elementMatches\n@param {string} selector Selector to test.\n@param {Element=} node Element to test the selector against.\n@return {boolean} Whether the element matches the selector.",
+              "description": "Polyfill for Element.prototype.matches, which is sometimes still\nprefixed.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7827,7 +7827,7 @@
             },
             {
               "name": "toggleAttribute",
-              "description": "Toggles an HTML attribute on or off.\n\n@method toggleAttribute\n@param {String} name HTML attribute name\n@param {boolean=} bool Boolean to force the attribute on or off.\n   When unspecified, the state of the attribute will be reversed.\n@param {HTMLElement=} node Node to target.  Defaults to `this`.",
+              "description": "Toggles an HTML attribute on or off.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7854,7 +7854,7 @@
             },
             {
               "name": "toggleClass",
-              "description": "Toggles a CSS class on or off.\n\n@method toggleClass\n@param {String} name CSS class name\n@param {boolean=} bool Boolean to force the class on or off.\n   When unspecified, the state of the class will be reversed.\n@param {HTMLElement=} node Node to target.  Defaults to `this`.",
+              "description": "Toggles a CSS class on or off.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7881,7 +7881,7 @@
             },
             {
               "name": "transform",
-              "description": "Cross-platform helper for setting an element's CSS `transform` property.\n\n@param {string} transformText Transform setting.\n@param {HTMLElement=} node Element to apply the transform to.\nDefaults to `this`",
+              "description": "Cross-platform helper for setting an element's CSS `transform` property.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7905,7 +7905,7 @@
             },
             {
               "name": "translate3d",
-              "description": "Cross-platform helper for setting an element's CSS `translate3d`\nproperty.\n\n@method translate3d\n@param {number} x X offset.\n@param {number} y Y offset.\n@param {number} z Z offset.\n@param {HTMLElement=} node Element to apply the transform to.\nDefaults to `this`.",
+              "description": "Cross-platform helper for setting an element's CSS `translate3d`\nproperty.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7935,7 +7935,7 @@
             },
             {
               "name": "arrayDelete",
-              "description": "Removes an item from an array, if it exists.\n\nIf the array is specified by path, a change notification is\ngenerated, so that observers, data bindings and computed\nproperties watching that path can update.\n\nIf the array is passed directly, **no change\nnotification is generated**.\n\n@method arrayDelete\n@param {string | !Array<number|string>} arrayOrPath Path to array from which to remove the item\n  (or the array itself).\n@param {*} item Item to remove.\n@return {Array} Array containing item removed.",
+              "description": "Removes an item from an array, if it exists.\n\nIf the array is specified by path, a change notification is\ngenerated, so that observers, data bindings and computed\nproperties watching that path can update.\n\nIf the array is passed directly, **no change\nnotification is generated**.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -7959,7 +7959,7 @@
             },
             {
               "name": "_logger",
-              "description": "Facades `console.log`/`warn`/`error` as override point.\n\n@param {string} level One of 'log', 'warn', 'error'\n@param {Array} args Array of strings or objects to log",
+              "description": "Facades `console.log`/`warn`/`error` as override point.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -7983,7 +7983,7 @@
             },
             {
               "name": "_log",
-              "description": "Facades `console.log` as an override point.\n\n@param {...*} var_args Array of strings or objects to log",
+              "description": "Facades `console.log` as an override point.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -8004,7 +8004,7 @@
             },
             {
               "name": "_warn",
-              "description": "Facades `console.warn` as an override point.\n\n@param {...*} var_args Array of strings or objects to log",
+              "description": "Facades `console.warn` as an override point.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -8025,7 +8025,7 @@
             },
             {
               "name": "_error",
-              "description": "Facades `console.error` as an override point.\n\n@param {...*} var_args Array of strings or objects to log",
+              "description": "Facades `console.error` as an override point.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -8046,7 +8046,7 @@
             },
             {
               "name": "_logf",
-              "description": "Formats a message using the element type an a method name.\n\n@param {string} methodName Method name to associate with message\n@param {...*} var_args Array of strings or objects to log\n@return {string} String with formatting information for `console`\n  logging.",
+              "description": "Formats a message using the element type an a method name.",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -8100,7 +8100,7 @@
           "methods": [
             {
               "name": "_shouldPropertyChange",
-              "description": "Overrides `Polymer.PropertyEffects` to provide option for skipping\nstrict equality checking for Objects and Arrays.\n\nThis method pulls the value to dirty check against from the `__dataTemp`\ncache (rather than the normal `__data` cache) for Objects.  Since the temp\ncache is cleared at the end of a turn, this implementation allows\nside-effects of deep object changes to be processed by re-setting the\nsame object (using the temp cache as an in-turn backstop to prevent\ncycles due to 2-way notification).\n\n@param {string} property Property name\n@param {*} value New property value\n@param {*} old Previous property value\n@return {boolean} Whether the property should be considered a change\n@protected",
+              "description": "Overrides `Polymer.PropertyEffects` to provide option for skipping\nstrict equality checking for Objects and Arrays.\n\nThis method pulls the value to dirty check against from the `__dataTemp`\ncache (rather than the normal `__data` cache) for Objects.  Since the temp\ncache is cleared at the end of a turn, this implementation allows\nside-effects of deep object changes to be processed by re-setting the\nsame object (using the temp cache as an in-turn backstop to prevent\ncycles due to 2-way notification).",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -8193,7 +8193,7 @@
           "methods": [
             {
               "name": "_shouldPropertyChange",
-              "description": "Overrides `Polymer.PropertyEffects` to provide option for skipping\nstrict equality checking for Objects and Arrays.\n\nWhen `this.mutableData` is true on this instance, this method\npulls the value to dirty check against from the `__dataTemp` cache\n(rather than the normal `__data` cache) for Objects.  Since the temp\ncache is cleared at the end of a turn, this implementation allows\nside-effects of deep object changes to be processed by re-setting the\nsame object (using the temp cache as an in-turn backstop to prevent\ncycles due to 2-way notification).\n\n@param {string} property Property name\n@param {*} value New property value\n@param {*} old Previous property value\n@return {boolean} Whether the property should be considered a change\n@protected",
+              "description": "Overrides `Polymer.PropertyEffects` to provide option for skipping\nstrict equality checking for Objects and Arrays.\n\nWhen `this.mutableData` is true on this instance, this method\npulls the value to dirty check against from the `__dataTemp` cache\n(rather than the normal `__data` cache) for Objects.  Since the temp\ncache is cleared at the end of a turn, this implementation allows\nside-effects of deep object changes to be processed by re-setting the\nsame object (using the temp cache as an in-turn backstop to prevent\ncycles due to 2-way notification).",
               "privacy": "protected",
               "sourceRange": {
                 "start": {
@@ -8494,7 +8494,7 @@
             },
             {
               "name": "clearSelection",
-              "description": "Clears the selection state.\n\n@method clearSelection",
+              "description": "Clears the selection state.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -8511,7 +8511,7 @@
             },
             {
               "name": "isSelected",
-              "description": "Returns whether the item is currently selected.\n\n@method isSelected\n@param {*} item Item from `items` array to test\n@return {boolean} Whether the item is selected",
+              "description": "Returns whether the item is currently selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -8532,7 +8532,7 @@
             },
             {
               "name": "isIndexSelected",
-              "description": "Returns whether the item is currently selected.\n\n@method isSelected\n@param {*} idx Index from `items` array to test\n@return {boolean} Whether the item is selected",
+              "description": "Returns whether the item is currently selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -8595,7 +8595,7 @@
             },
             {
               "name": "deselect",
-              "description": "Deselects the given item if it is already selected.\n\n@method deselect\n@param {*} item Item from `items` array to deselect",
+              "description": "Deselects the given item if it is already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -8616,7 +8616,7 @@
             },
             {
               "name": "deselectIndex",
-              "description": "Deselects the given index if it is already selected.\n\n@method deselect\n@param {number} idx Index from `items` array to deselect",
+              "description": "Deselects the given index if it is already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -8637,7 +8637,7 @@
             },
             {
               "name": "select",
-              "description": "Selects the given item.  When `toggle` is true, this will automatically\ndeselect the item if already selected.\n\n@method select\n@param {*} item Item from `items` array to select",
+              "description": "Selects the given item.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {
@@ -8658,7 +8658,7 @@
             },
             {
               "name": "selectIndex",
-              "description": "Selects the given index.  When `toggle` is true, this will automatically\ndeselect the item if already selected.\n\n@method select\n@param {number} idx Index from `items` array to select",
+              "description": "Selects the given index.  When `toggle` is true, this will automatically\ndeselect the item if already selected.",
               "privacy": "public",
               "sourceRange": {
                 "start": {

@@ -11,14 +11,14 @@
          *
          * Alternatively, the element descriptor can be provided as JSON via the text content
          * of this element.
-         *
-         * @type {hydrolysis.ElementDescriptor}
          */
         descriptor: {
           type: Object,
         },
 
-        /** The base href where this doc viewer is located */
+        /** 
+         * The base href where this doc viewer is located
+         */
         baseHref: {
           type: String,
           value: ''
@@ -34,14 +34,21 @@
           value: ''
         },
 
-        /** Whether private properties should be hidden or shown. */
+        /**
+         * Whether private members should be hidden or shown.
+         */
         _showPrivate: {
           type:     Boolean,
           value:    false,
         },
 
-        /** The label to show for the Private API toggle. */
-        _privateToggleLabel: String,
+        /**
+         * Whether inherited members should be hidden or shown.
+         */
+        _showInherited: {
+          type:     Boolean,
+          value:    true,
+        },
       },
 
       ready: function() {
@@ -66,8 +73,6 @@
       /**
        * Loads a hydrolysis element descriptor (as JSON) from the text content of
        * this element, if present.
-       *
-       * @return {hydrolysis.ElementDescriptor} The parsed descriptor, or `null`.
        */
       _loadJson: function() {
         var textContent = '';
@@ -85,22 +90,20 @@
         }
       },
 
-      _filterPrivate: function(items, showPrivate) {
+      _filterMembers: function(items, showPrivate, showInherited) {
         return items.filter(function(i) {
-          return showPrivate || !(i.privacy === 'private' || i.privacy === 'protected');
+          return (showPrivate || !(i.privacy === 'private' || i.privacy === 'protected'))
+              && (showInherited || (i.inheritedFrom == null));
         });
       },
 
-      _noneToShow: function(showPrivate, descriptor, name) {
+      _noneToShow: function(showPrivate, showInherited, descriptor, name) {
         var items = descriptor[name];
-        if (showPrivate === undefined || items === undefined || items.length === 0) {
+        if (!items) {
           return true;
         }
-
-        for (var i = 0; i < items.length; i++) {
-          if (showPrivate || !items[i].private) return false;
-        }
-        return true;
+        var filteredItems = this._filterMembers(items, showPrivate, showInherited);
+        return filteredItems.length === 0;
       },
 
       _formatAnchor: function(prefix, type, membername) {
