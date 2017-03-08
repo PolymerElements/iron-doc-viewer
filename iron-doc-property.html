@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../marked-element/marked-element.html">
-<link rel="import" href="iron-doc-viewer-styles.html">
+<link rel="import" href="iron-doc-property-styles.html">
 
 <!--
 Renders documentation describing a specific property of an element.
@@ -20,20 +20,37 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
 
 <dom-module id="iron-doc-property">
   <template>
-    <style include="iron-doc-viewer-styles"></style>
+    <style include="iron-doc-property-styles"></style>
 
     <div id="transitionMask">
       <div id="signature">
-        <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>
-        <span id="type" class="type" hidden$="[[!descriptor.type]]">: [[descriptor.type]]</span>
+        <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">{{descriptor.name}}</a><span class="params">(<span>{{_paramText}}</span>)</span>
+        <span class="return" hidden$="{{!descriptor.return}}">➙ <span class="type">{{descriptor.return.type}}</span></span>
       </div>
       <div id="details">
-        <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
-          
+        <div id="meta" hidden$="{{_computeHideMeta(descriptor)}}">
+          <span id="type" class="type">{{descriptor.type}}</span>
           <span class="annotation">[[_getAnnotation(descriptor)]]</span>
         </div>
-        <marked-element id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
-          <div slot="markdown-html" class="markdown-html"></div>
+        <ol id="params" hidden$="{{_computeHideParams(descriptor,return)}}">
+          <template is="dom-repeat" items="{{descriptor.params}}">
+            <li hidden$="{{!item.type}}">
+              <span class="name">{{item.name}}</span>
+              <span class="type">{{item.type}}</span>
+              <marked-element markdown="{{item.desc}}">
+                <div class="markdown-html"></div>
+              </marked-element>
+            </li>
+          </template>
+          <li class="return" hidden$="{{!descriptor.return}}">Returns
+            <span class="type">{{descriptor.return.type}}</span>
+            <marked-element markdown="{{descriptor.return.desc}}">
+              <div class="markdown-html"></div>
+            </marked-element>
+          </li>
+        </ol>
+        <marked-element id="desc" markdown="{{descriptor.desc}}" hidden$="{{!descriptor.desc}}">
+          <div class="markdown-html"></div>
         </marked-element>
       </div>
     </div>
@@ -57,11 +74,6 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
           descriptor: {
             type:     Object,
             observer: '_descriptorChanged',
-          },
-
-          function: {
-            type: Boolean,
-            reflectToAttrobute: true,
           },
 
           /**
@@ -170,8 +182,8 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         },
 
         // hidden if no params, and no return value
-        _computeHideParams: function(descriptor) {
-          return (!descriptor.params || descriptor.params.length === 0);
+        _computeHideParams: function(descriptor,ret) {
+          return (!descriptor.params || descriptor.params.length === 0) && !ret;
         },
 
         _computeHideDefault: function(def) {

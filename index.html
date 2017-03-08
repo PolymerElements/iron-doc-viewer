@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- <script src="../../webcomponentsjs/webcomponents-lite.js"></script> -->
     <link rel="import" href="/components/polymer/polymer.html">
-    <link rel="import" href="/components/iron-doc-viewer/iron-doc-viewer.html">
+    <link rel="import" href="/components/iron-doc-viewer/iron-doc-viewer-2.html">
     <link rel="import" href="/components/iron-ajax/iron-ajax.html">
 
     <style>
@@ -36,10 +36,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         auto
         url="/demo/elements.json"
         handle-as="json"></iron-ajax>
-    <iron-doc-viewer
+    <iron-doc-viewer-2
         id="doc-viewer"
         root-namespace="Polymer">
-    </iron-doc-viewer>
+    </iron-doc-viewer-2>
     <script>
       const ajax = document.querySelector('#ajax');
       const docViewer = document.querySelector('#doc-viewer');

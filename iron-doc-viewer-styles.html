@@ -9,19 +9,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../paper-styles/typography.html">
+<link rel="import" href="../paper-styles/color.html">
+
+<!--
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--iron-doc-viewer-text-color` | Default Text color | `--paper-grey-900`
+`--iron-doc-viewer-title-link` | Text color of title links | `currentcolor`
+`--iron-doc-viewer-title-link-hover` | Text hover color of title links | `--paper-pink-500`
+`--iron-doc-viewer-markdown-background` | Background color of the summary markdown | `--paper-grey-200`
+`--iron-doc-viewer-api-link-color` | Text color of links in api | `--paper-grey-800`
+`--iron-doc-viewer-code-color` | Text color of td in summary | `black`
+`--iron-doc-viewer-summary-link-color` | Text color of link in summary markdown | `--paper-indigo-a200`
+`--iron-doc-viewer-nav-border` | Border color of nav hr | `--paper-grey-200`
+`--iron-doc-viewer-property-background` | Background color of properties and methods | `--paper-grey-200`
+`--iron-doc-viewer-private-property-background` | Background color of private properties and methods | `--paper-grey-300`
+`--iron-doc-viewer-button-hover` | Button text hover color | `--paper-pink-500`
+
+-->
 
 <dom-module id="iron-doc-viewer-styles">
   <template>
     <style>
       :host {
-        @apply --paper-font-body1;
+        @apply(--paper-font-body1);
 
-        color: #212121;
+        color: var(--iron-doc-viewer-text-color, --paper-grey-900);
         display: block;
       }
 
-      :host > header, :host h1 {
-        @apply --paper-font-headline;
+      :host > header {
+        @apply(--paper-font-headline);
 
         margin-bottom: 18px;
       }
@@ -30,44 +52,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: none !important;
       }
 
-      .member, iron-doc-summary, iron-doc-property, iron-doc-function {
-        @apply --paper-font-body1;
-
-        box-sizing: border-box;
-        display: block;
-        padding: 24px;
-        border-bottom: solid 1px var(--paper-grey-300);
-      }
-
       .deeplink {
-        color: currentcolor;
+        color: var(--iron-doc-viewer-title-link, currentcolor);
         text-decoration: none;
       }
 
       .deeplink:hover {
-        color: var(--paper-pink-500);
-      }
-
-      .name {
-        @apply --paper-font-code2;
-      }
-
-      code {
-        color: #0d47a1;
-      }
-
-      .code {
-        @apply --paper-font-code1;
-        color: #0d47a1;
-      }
-
-      .metadata {
-        margin: 8px 0;
-      }
-
-      h2 {
-        @apply --paper-font-title;
-        font-weight: 400;
+        color: var(--iron-doc-viewer-title-link-hover, --paper-pink-500);
       }
 
       #api {
@@ -76,15 +67,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #api header {
-        @apply --paper-font-title;
+        @apply(--paper-font-title);
 
         flex: 1;
       }
 
       #api a {
-        @apply --paper-font-button;
+        @apply(--paper-font-button);
 
-        color: var(--paper-grey-800);
+        color: var(--iron-doc-viewer-api-link-color, --paper-grey-800);
         cursor: pointer;
         display: block;
         padding: 4px 16px;
@@ -92,16 +83,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       /* Common Formatting */
 
-      #description {
+      #summary {
         padding: 4px 0;
       }
 
-      #description marked-element {
-        display: block;
-      }
-
-      #description .markdown-html pre {
-        background-color: var(--paper-grey-200);
+      #summary .markdown-html pre {
+        background-color: var(--iron-doc-viewer-markdown-background, --paper-grey-200);
         border-radius: 3px;
         font-size: 15px;
         overflow-x: auto;
@@ -109,70 +96,70 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         word-wrap: break-word;
       }
 
-      #description .markdown-html table {
-        background-color: var(--paper-grey-200);
+      #summary .markdown-html table {
+        background-color: var(--iron-doc-viewer-markdown-background, --paper-grey-200);
         border-collapse: collapse;
         margin: 12px 0;
         width: 100%;
       }
 
-      #description .markdown-html tr {
+      #summary .markdown-html tr {
         padding: 0 18px;
       }
 
-      #description .markdown-html td,
-      #description .markdown-html th {
+      #summary .markdown-html td,
+      #summary .markdown-html th {
         padding: 6px 12px;
       }
 
-      #description .markdown-html td:first-child,
-      #description .markdown-html th:first-child {
+      #summary .markdown-html td:first-child,
+      #summary .markdown-html th:first-child {
         padding-left: 24px;
       }
 
-      #description .markdown-html td:last-child,
-      #description .markdown-html th:last-child {
+      #summary .markdown-html td:last-child,
+      #summary .markdown-html th:last-child {
         padding-right: 24px;
       }
 
-      #description .markdown-html td:first-child > code {
-        color: black;
+      #summary .markdown-html td:first-child > code {
+        color: var(--iron-doc-viewer-td-color, black);
         font-weight: bold;
       }
 
-      #description .markdown-html code {
-        @apply --paper-font-code1;
-        background: var(--paper-grey-200);
+      #summary .markdown-html code {
+        @apply(--paper-font-code1);
+        background: var(--iron-doc-viewer-markdown-background, --paper-grey-200);
         padding: 3px;
         border-radius: 3px;
       }
 
-      #description .markdown-html p {
+      #summary .markdown-html p {
         padding: 0;
       }
 
-      #description .markdown-html a {
+      #summary .markdown-html a {
         background: none;
-        @apply --paper-font-body1;
-        color: var(--paper-indigo-a200);
+        @apply(--paper-font-body1);
+        color: var(--iron-doc-viewer-summary-link-color, --paper-indigo-a200);
         font-weight: 500;
         text-decoration: none;
       }
 
-      #description .markdown-html h1 {
-        @apply --paper-font-display1;
+      #summary .markdown-html h1 {
+        @apply(--paper-font-display1);
       }
 
-      #description .markdown-html h2 {
-        @apply --paper-font-headline;
+      #summary .markdown-html h2 {
+        @apply(--paper-font-headline);
       }
 
-      #description .markdown-html h3 {
-        @apply --paper-font-title;
+      #summary .markdown-html h3 {
+        @apply(--paper-font-title);
       }
 
-      #description .markdown-html h4 {
-        @apply --paper-font-subhead;
+      #summary .markdown-html h4 {
+        @apply(--paper-font-subhead);
       }
 
       /* Property Sections */
@@ -189,11 +176,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .card > header {
-        @apply --iron-doc-viewer-header;
+        @apply(--iron-doc-viewer-header);
       }
 
       nav {
-        border-bottom: 1px solid var(--paper-grey-200);
+        border-bottom: 1px solid var(--iron-doc-viewer-nav-border, --paper-grey-200);
+      }
+
+      iron-doc-property {
+        background: var(--iron-doc-viewer-property-background, --paper-grey-200);
+      }
+
+      iron-doc-property:first-of-type {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+
+      iron-doc-property:last-of-type {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
       }
 
       /* Private Properties */
@@ -204,7 +205,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       :host(.show-private) iron-doc-property[private] {
         display: block;
-        background: var(--paper-grey-300);
+        background: var(--iron-doc-viewer-private-property-background, --paper-grey-300);
       }
 
       iron-doc-property[configuration] {
@@ -222,8 +223,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border-bottom: none;
       }
 
-      paper-checkbox {
-        margin-left: 16px;
+      paper-button:hover {
+        color: var(--iron-doc-viewer-button-hover, --paper-pink-500);
       }
     </style>
   </template>
