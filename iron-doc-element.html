@@ -38,7 +38,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           target$="[[_superclassTarget(descriptor.superclass)]]"
           href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
       <span hidden$="[[!descriptor.mixins]]">
-        with <template is="dom-repeat" items="[[descriptor.mixins]]">
+        with &#8203;
+        <template is="dom-repeat" items="[[descriptor.mixins]]">
           <a class="name deeplink" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
         </template>
       </span>
