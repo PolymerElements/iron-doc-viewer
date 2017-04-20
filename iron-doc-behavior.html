@@ -157,6 +157,10 @@
         return a.tagname == null ? -1 : b.tagname == null ? 1 : a.tagname.localeCompare(b.tagname);
       },
 
+      _compareMembers: function(a, b) {
+        return a.name == null ? -1 : a.name.localeCompare(b.name);
+      },
+
     };
 
   })();

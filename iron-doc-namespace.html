@@ -83,7 +83,7 @@ property.
 
     <section id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'mixins')]]">
       <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
-      <template is="dom-repeat" items="[[descriptor.mixins]]">
+      <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareMembers">
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
@@ -94,7 +94,7 @@ property.
 
     <section id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'behaviors')]]">
       <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
-      <template is="dom-repeat" items="[[descriptor.behaviors]]">
+      <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareMembers">
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
@@ -105,7 +105,7 @@ property.
 
     <section id$="[[_formatAnchor(prefix,'functions')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'functions')]]">
       <header><a href$="#[[_formatAnchor(prefix,'functions')]]" class="deeplink">Functions</a></header>
-      <template is="dom-repeat" items="[[descriptor.functions]]">
+      <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareMembers">
         <iron-doc-function descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
@@ -113,7 +113,7 @@ property.
     <section id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'namespaces')]]">
       <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
       <div hidden$="[[!descriptor.namespaces.length]]">
-        <template is="dom-repeat" items="[[descriptor.namespaces]]">
+        <template is="dom-repeat" items="[[descriptor.namespaces]]" sort="_compareMembers">
           <iron-doc-summary
             name="[[item.name]]"
             description="[[item.summary]]"
