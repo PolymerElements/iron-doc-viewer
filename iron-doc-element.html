@@ -38,7 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           target$="[[_superclassTarget(descriptor.superclass)]]"
           href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
       <span hidden$="[[!descriptor.mixins]]">
-        with <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareElements">
+        with <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
           <a class="name deeplink" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
         </template>
       </span>
@@ -46,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="metadata">Path: <span class="code">[[descriptor.path]]</span></div>
     <div class="metadata" hidden$="[[!descriptor.behaviors]]">Behaviors:
-      <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareDescriptors">
         <a class="name deeplink" href$="[[baseHref]]/behaviors/[[item]]">[[item]]</a>
       </template>
     </div>
@@ -66,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <section anchor-id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'properties')]]">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
       <div hidden$="[[!descriptor.properties.length]]">
-        <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showPrivate,_showInherited)]]" sort="_compareElements">
+        <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showPrivate,_showInherited)]]" sort="_compareDescriptors">
           <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
         </template>
       </div>
@@ -74,14 +74,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <section anchor-id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'methods')]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
-      <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showPrivate,_showInherited)]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showPrivate,_showInherited)]]" sort="_compareDescriptors">
         <iron-doc-function anchor-id$="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
 
     <section anchor-id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'events')]]">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
-      <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showPrivate,_showInherited)]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showPrivate,_showInherited)]]" sort="_compareDescriptors">
         <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
       </template>
     </section>

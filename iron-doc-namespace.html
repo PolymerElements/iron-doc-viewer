@@ -73,7 +73,7 @@ property.
       <header>
         <a href$="#[[_formatAnchor(prefix,'elements')]]" class="deeplink">Elements</a>
       </header>
-      <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[_getElementName(item)]]"
           description="[[item.summary]]"
@@ -84,7 +84,7 @@ property.
 
     <section anchor-id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'mixins')]]">
       <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
-      <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
@@ -95,7 +95,7 @@ property.
 
     <section anchor-id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'behaviors')]]">
       <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
-      <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
@@ -106,7 +106,7 @@ property.
 
     <section anchor-id$="[[_formatAnchor(prefix,'functions')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'functions')]]">
       <header><a href$="#[[_formatAnchor(prefix,'functions')]]" class="deeplink">Functions</a></header>
-      <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareElements">
+      <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
         <iron-doc-function anchor-id$="[[_formatAnchor(prefix,'function', item.name)]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
@@ -114,7 +114,7 @@ property.
     <section anchor-id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'namespaces')]]">
       <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
       <div hidden$="[[!descriptor.namespaces.length]]">
-        <template is="dom-repeat" items="[[descriptor.namespaces]]" sort="_compareElements">
+        <template is="dom-repeat" items="[[descriptor.namespaces]]" sort="_compareDescriptors">
           <iron-doc-summary
             name="[[item.name]]"
             description="[[item.summary]]"
