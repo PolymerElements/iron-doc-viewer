@@ -170,10 +170,16 @@
       },
 
       _compareElements: function(a, b) {
-        if (a.tagname === b.tagname) {
-          return a.classname == null ? -1 : a.classname.localeCompare(b.classname);
+        if (a.name && b.name && a.name !== b.name) {
+          return a.name.localeCompare(b.name);
         }
-        return a.tagname == null ? -1 : b.tagname == null ? 1 : a.tagname.localeCompare(b.tagname);
+        if (a.tagname && b.tagname && a.tagname !== b.tagname) {
+          return a.tagname.localeCompare(b.tagname);
+        }
+        if (a.classname && b.classname && a.classname !== b.classname) {
+          return a.classname.localeCompare(b.classname);
+        }
+        return -1;
       },
 
     };

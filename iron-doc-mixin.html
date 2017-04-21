@@ -63,7 +63,7 @@ property.
 
     <!-- TODO(justinfagnani): mixin signature, format more like element -->
     <div class="metadata" hidden$="[[!descriptor.mixins]]">Mixins:
-      <template is="dom-repeat" items="[[descriptor.mixins]]">
+      <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareElements">
         <a class="name deeplink" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
       </template>
     </div>
@@ -83,7 +83,7 @@ property.
     <section anchor-id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'properties')]]">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
       <div hidden$="[[!descriptor.properties.length]]">
-        <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showPrivate,_showInherited)]]">
+        <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showPrivate,_showInherited)]]" sort="_compareElements">
           <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
         </template>
       </div>
@@ -91,14 +91,14 @@ property.
 
     <section anchor-id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'methods')]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
-      <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showPrivate,_showInherited)]]">
+      <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showPrivate,_showInherited)]]" sort="_compareElements">
         <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
       </template>
     </section>
 
     <section anchor-id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'events')]]">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
-      <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showPrivate,_showInherited)]]">
+      <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showPrivate,_showInherited)]]" sort="_compareElements">
         <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
       </template>
     </section>
