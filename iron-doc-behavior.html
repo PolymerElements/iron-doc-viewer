@@ -177,10 +177,17 @@
        */
       _compareDescriptors: function(a, b) {
         // Elements display as "<tagname> (classname)" or "classname", while
-        // everything else displays as "name". Sort according to that format.
-        var aName = (a.name || '') + (a.tagname || '') + (a.classname || '');
-        var bName = (b.name || '') + (b.tagname || '') + (b.classname || '');
-        return aName.localeCompare(bName);
+        // everything else displays as "name".
+        if (a.name != b.name) {
+          return (a.name || '').localeCompare(b.name || '');
+        }
+        if (a.tagname != b.tagname) {
+          return (a.tagname || '').localeCompare(b.tagname || '');
+        }
+        if (a.classname != b.classname) {
+          return (a.classname || '').localeCompare(b.classname || '');
+        }
+        return 0;
       },
 
     };
