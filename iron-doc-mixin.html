@@ -18,6 +18,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-property-2.html">
+<link rel="import" href="iron-doc-function.html">
 <link rel="import" href="iron-doc-viewer-2-styles.html">
 
 <!--
@@ -91,7 +92,7 @@ property.
     <section id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'methods')]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
       <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showPrivate,_showInherited)]]">
-        <iron-doc-property-2 anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
+        <iron-doc-function anchor-id="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-function">
       </template>
     </section>
 
