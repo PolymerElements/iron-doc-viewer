@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div id="transitionMask">
       <div id="signature">
-        <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>(<span class="params code"><span>[[_paramText]]</span></span>)<!--
+        <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>(<span class="params code"><span>[[_paramText]]</span></span>)<!--
         --><span class="return" hidden$="[[!descriptor.return]]">: <span class="type code">[[descriptor.return.type]]</span></span>
       </div>
       <div id="details">
@@ -46,7 +46,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           _paramText: {
             computed: '_computeParamText(descriptor)',
-          }
+          },
+          anchorId: String
         },
 
         _computeParamText: function(descriptor) {
