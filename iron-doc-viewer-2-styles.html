@@ -175,6 +175,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply --paper-font-subhead;
       }
 
+      .name.mixin:not(:first-of-type)::before {
+        content: ', ';
+        color: #212121;
+      }
+
       /* Property Sections */
 
       .card {
