@@ -32,7 +32,7 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
           
           <span class="annotation">[[_getAnnotation(descriptor)]]</span>
         </div>
-        <marked-element id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
+        <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
           <div slot="markdown-html" class="markdown-html"></div>
         </marked-element>
       </div>
