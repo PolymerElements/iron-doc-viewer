@@ -62,9 +62,9 @@ property.
     <div class="metadata">Path: <span class="code">[[descriptor.path]]</span></div>
 
     <!-- TODO(justinfagnani): mixin signature, format more like element -->
-    <div class="metadata" hidden$="[[!descriptor.mixins]]">Mixins:
+    <div class="metadata" hidden$="[[!descriptor.mixins]]">Mixins: &#8203;
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
-        <a class="name deeplink" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
+        <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
       </template>
     </div>
 
