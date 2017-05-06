@@ -76,8 +76,8 @@ property.
 
     <nav id="api">
       <header>API Reference</header>
-      <paper-checkbox checked="{{_showInherited}}">Show Inherited</paper-checkbox>
-      <paper-checkbox checked="{{_showPrivate}}">Show Private</paper-checkbox>
+      <label class="checkbox"><input type="checkbox" checked="{{_showInherited::change}}">Show Inherited</label>
+      <label class="checkbox"><input type="checkbox" checked="{{_showPrivate::change}}">Show Private</label>
     </nav>
 
     <section anchor-id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'properties')]]">
