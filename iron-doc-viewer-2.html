@@ -174,7 +174,7 @@ property.
                 namespace.namespaces.filter((n) => n.name === name)[0];
           } else if (descriptorType === 'elements') {
             this._currentDescriptor = namespace.elements &&
-                namespace.elements.filter((e) => (e.classname || e.tagname) === name)[0];
+                namespace.elements.filter((e) => (e.name || e.tagname) === name)[0];
           } else if (descriptorType === 'mixins') {
             this._currentDescriptor = namespace.mixins &&
                 namespace.mixins.filter((m) => m.name === name)[0];
