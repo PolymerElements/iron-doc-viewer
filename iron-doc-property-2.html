@@ -29,7 +29,7 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
       </div>
       <div id="details">
         <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
-          
+
           <span class="annotation">[[_getAnnotation(descriptor)]]</span>
         </div>
         <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
@@ -110,7 +110,6 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         },
 
         _descriptorChanged: function() {
-          this.toggleAttribute('private',       this.descriptor.private);
           this.toggleAttribute('configuration', this.descriptor.configuration);
           this.toggleAttribute('function',      this.descriptor.function);
           this._paramText = (this.descriptor.params || []).map(function(param) {

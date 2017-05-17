@@ -16,7 +16,7 @@
           type: Object,
         },
 
-        /** 
+        /**
          * The base href where this doc viewer is located
          */
         baseHref: {
@@ -35,9 +35,9 @@
         },
 
         /**
-         * Whether private members should be hidden or shown.
+         * Whether protected members should be hidden or shown.
          */
-        _showPrivate: {
+        _showProtected: {
           type:     Boolean,
           value:    false,
         },
@@ -90,19 +90,23 @@
         }
       },
 
-      _filterMembers: function(items, showPrivate, showInherited) {
+      _filterMembers: function(items, showProtected, showInherited) {
         return items.filter(function(i) {
-          return (showPrivate || !(i.privacy === 'private' || i.privacy === 'protected'))
-              && (showInherited || (i.inheritedFrom == null));
+          var privacyOk = i.privacy === 'public';
+          if (showProtected) {
+            privacyOk = privacyOk || i.privacy === 'protected';
+          }
+          var inheritedOk = showInherited || (i.inheritedFrom == null);
+          return privacyOk && inheritedOk;
         });
       },
 
-      _noneToShow: function(showPrivate, showInherited, descriptor, name) {
+      _noneToShow: function(showProtected, showInherited, descriptor, name) {
         var items = descriptor[name];
         if (!items) {
           return true;
         }
-        var filteredItems = this._filterMembers(items, showPrivate, showInherited);
+        var filteredItems = this._filterMembers(items, showProtected, showInherited);
         return filteredItems.length === 0;
       },
 

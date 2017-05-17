@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: none !important;
       }
 
-      .member, iron-doc-summary, iron-doc-property, iron-doc-function {
+      .member, iron-doc-summary, iron-doc-function {
         @apply --paper-font-body1;
 
         box-sizing: border-box;
@@ -199,21 +199,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       nav {
         border-bottom: 1px solid var(--paper-grey-200);
-      }
-
-      /* Private Properties */
-
-      iron-doc-property[private] {
-        display: none;
-      }
-
-      :host(.show-private) iron-doc-property[private] {
-        display: block;
-        background: var(--paper-grey-300);
-      }
-
-      iron-doc-property[configuration] {
-        display: none !important; /* Never. */
       }
 
       #behaviors > p {
