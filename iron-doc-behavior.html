@@ -140,11 +140,11 @@
         var name = '';
         if (element.tagname) {
           name += '<' + element.tagname + '>';
-          if (element.classname) {
-            name += ' (' + element.classname + ')';
+          if (element.name) {
+            name += ' (' + element.name + ')';
           }
-        } else if (element.classname) {
-          name += element.classname;
+        } else if (element.name) {
+          name += element.name;
         }
         return name;
       },
@@ -172,7 +172,7 @@
       },
 
       _getElementId: function(element) {
-        return element.classname || element.tagname;
+        return element.name || element.tagname;
       },
 
       /**
@@ -180,7 +180,7 @@
        * display name.
        */
       _compareDescriptors: function(a, b) {
-        // Elements display as "<tagname> (classname)" or "classname", while
+        // Elements display as "<tagname> (name)" or "name", while
         // everything else displays as "name".
         if (a.name != b.name) {
           return (a.name || '').localeCompare(b.name || '');
@@ -188,8 +188,8 @@
         if (a.tagname != b.tagname) {
           return (a.tagname || '').localeCompare(b.tagname || '');
         }
-        if (a.classname != b.classname) {
-          return (a.classname || '').localeCompare(b.classname || '');
+        if (a.name != b.name) {
+          return (a.name || '').localeCompare(b.name || '');
         }
         return 0;
       },
