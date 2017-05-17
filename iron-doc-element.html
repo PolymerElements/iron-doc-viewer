@@ -59,28 +59,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <nav id="api">
       <header>API Reference</header>
       <label class="checkbox"><input type="checkbox" checked="{{_showInherited::change}}">Show Inherited</label>
-      <label class="checkbox"><input type="checkbox" checked="{{_showPrivate::change}}">Show Private</label>
+      <label class="checkbox"><input type="checkbox" checked="{{_showProtected::change}}">Show Protected</label>
     </nav>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'properties')]]">
+    <section anchor-id$="[[_formatAnchor(prefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'properties')]]">
       <header><a href$="#[[_formatAnchor(prefix,'properties')]]" class="deeplink">Properties</a></header>
       <div hidden$="[[!descriptor.properties.length]]">
-        <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showPrivate,_showInherited)]]" sort="_compareDescriptors">
+        <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showProtected,_showInherited)]]" sort="_compareDescriptors">
           <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'property',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
         </template>
       </div>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'methods')]]">
+    <section anchor-id$="[[_formatAnchor(prefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'methods')]]">
       <header><a href$="#[[_formatAnchor(prefix,'methods')]]" class="deeplink">Methods</a></header>
-      <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showPrivate,_showInherited)]]" sort="_compareDescriptors">
+      <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showProtected,_showInherited)]]" sort="_compareDescriptors">
         <iron-doc-function anchor-id$="[[_formatAnchor(prefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showPrivate,_showInherited,descriptor,'events')]]">
+    <section anchor-id$="[[_formatAnchor(prefix,'events')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'events')]]">
       <header><a href$="#[[_formatAnchor(prefix,'events')]]" class="deeplink">Events</a></header>
-      <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showPrivate,_showInherited)]]" sort="_compareDescriptors">
+      <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showProtected,_showInherited)]]" sort="_compareDescriptors">
         <iron-doc-property-2 anchor-id$="[[_formatAnchor(prefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property-2>
       </template>
     </section>
