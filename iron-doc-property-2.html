@@ -21,12 +21,33 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
 <dom-module id="iron-doc-property-2">
   <template>
     <style include="iron-doc-viewer-2-styles"></style>
+    <style>
+      #polymer {
+        margin-left: 12px;
+      }
+
+      #polymer > * {
+        background-color: #efefef;
+        color: #e91e63;
+        padding: 1px 6px;
+        margin-left: 8px;
+        border-radius: 8px;
+      }
+    </style>
 
     <div id="transitionMask">
       <div id="signature">
         <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>
-        <span id="type" class="type" hidden$="[[!descriptor.type]]">: [[descriptor.type]]</span>
+        <code id="type" hidden$="[[!descriptor.type]]">: [[descriptor.type]]</code>
+        <code id="default" hidden$="[[!descriptor.defaultValue]]">= [[descriptor.defaultValue]]</code>
+
+        <span id="polymer">
+          <code hidden$="[[!descriptor.metadata.polymer.notify]]">notifies</code>
+          <code hidden$="[[!descriptor.metadata.polymer.readOnly]]">readOnly</code>
+          <code hidden$="[[!descriptor.metadata.polymer.reflectToAttribute]]">reflectToAttribute</code>
+        </span>
       </div>
+
       <div id="details">
         <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
 
