@@ -92,9 +92,13 @@
 
       _filterMembers: function(items, showProtected, showInherited) {
         return items.filter(function(i) {
-          var privacyOk = i.privacy === 'public';
+          // If privacy not specified, better to err on the side of showing
+          // something instead of nothing. Also some things like namespaces
+          // don't have privacy anyway.
+          const privacy = i.privacy || 'public';
+          var privacyOk = privacy === 'public';
           if (showProtected) {
-            privacyOk = privacyOk || i.privacy === 'protected';
+            privacyOk = privacyOk || privacy === 'protected';
           }
           var inheritedOk = showInherited || (i.inheritedFrom == null);
           return privacyOk && inheritedOk;
