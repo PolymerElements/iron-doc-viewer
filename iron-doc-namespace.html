@@ -81,6 +81,19 @@ property.
       </template>
     </section>
 
+    <section anchor-id$="[[_formatAnchor(prefix,'classes')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
+      <header>
+        <a href$="#[[_formatAnchor(prefix,'classes')]]" class="deeplink">Classes</a>
+
+      <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
+        <iron-doc-summary
+          name="[[item.name]]"
+          description="[[item.summary]]"
+          href="[[baseHref]]/classes/[[_getElementId(item)]]">
+        </iron-doc-summary>
+      </template>
+    </section>
+
     <section anchor-id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
       <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
