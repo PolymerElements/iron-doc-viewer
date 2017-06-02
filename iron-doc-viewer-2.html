@@ -18,10 +18,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../prism-element/prism-highlighter.html">
 <link rel="import" href="../prism-element/prism-theme-default.html">
 
+<link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-namespace.html">
 <link rel="import" href="iron-doc-element.html">
 <link rel="import" href="iron-doc-class.html">
 <link rel="import" href="iron-doc-mixin.html">
+<link rel="import" href="iron-doc-polymer-behavior.html">
 
 <!--
 Renders documentation describing an element's API.
@@ -70,6 +72,9 @@ property.
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp="true">
       <iron-doc-mixin descriptor="[[_currentDescriptor]]"></iron-doc-mixin>
     </template>
+    <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp="true">
+      <iron-doc-polymer-behavior descriptor="[[_currentDescriptor]]"></iron-doc-polymer-behavior>
+    </template>
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp="true">
       <iron-doc-class descriptor="[[_currentDescriptor]]"></iron-doc-class>
     </template>
@@ -80,20 +85,9 @@ property.
       Polymer({
         is: 'iron-doc-viewer-2',
 
-        properties: {
-          /**
-           * The [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer)-generated
-           * element descriptor to display details for.
-           *
-           * Alternatively, the element descriptor can be provided as JSON via the text content
-           * of this element.
-           *
-           * @type {hydrolysis.ElementDescriptor}
-           */
-          descriptor: {
-            type: Object,
-          },
+        behaviors: [Polymer.IronDocBehavior],
 
+        properties: {
           rootNamespace: {
             type: String,
           },
@@ -185,6 +179,9 @@ property.
           } else if (descriptorType === 'mixins') {
             this._currentDescriptor = namespace.mixins &&
                 namespace.mixins.filter((m) => m.name === name)[0];
+          } else if (descriptorType === 'behaviors') {
+            this._currentDescriptor =
+              this._getPolymerBehaviors(namespace).filter((b) => b.name === name)[0];
           } else if (descriptorType === 'functions') {
             this._currentDescriptor = namespace.functions &&
                 namespace.functions.filter((f) => f.name === name)[0];

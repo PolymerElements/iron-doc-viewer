@@ -6,7 +6,7 @@
 
       properties: {
         /**
-         * The [Hydrolysis](https://github.com/PolymerLabs/hydrolysis)-generated
+         * The [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer)-generated
          * element descriptor to display details for.
          *
          * Alternatively, the element descriptor can be provided as JSON via the text content
@@ -106,11 +106,13 @@
       },
 
       _noneToShow: function(showProtected, showInherited, descriptor, name) {
-        var items = descriptor[name];
+        const items = (name === 'behaviors'
+          ? this._getPolymerBehaviors(descriptor)
+          : descriptor[name]);
         if (!items) {
           return true;
         }
-        var filteredItems = this._filterMembers(items, showProtected, showInherited);
+        const filteredItems = this._filterMembers(items, showProtected, showInherited);
         return filteredItems.length === 0;
       },
 
@@ -177,6 +179,10 @@
 
       _getElementId: function(element) {
         return element.name || element.tagname;
+      },
+
+      _getPolymerBehaviors: function(descriptor) {
+        return (((descriptor || {}).metadata || {}).polymer || {}).behaviors || [];
       },
 
       /**

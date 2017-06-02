@@ -107,7 +107,7 @@ property.
 
     <section anchor-id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
       <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
-      <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareDescriptors">
+      <template is="dom-repeat" items="[[_getPolymerBehaviors(descriptor)]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
           description="[[item.summary]]"
