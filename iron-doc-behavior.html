@@ -193,18 +193,31 @@
         // Elements display as "<tagname> (name)" or "name", while
         // everything else displays as "name".
         if (a.name != b.name) {
-          return (a.name || '').localeCompare(b.name || '');
+          return compareUnderscoresLast(a.name || '', b.name || '');
         }
         if (a.tagname != b.tagname) {
-          return (a.tagname || '').localeCompare(b.tagname || '');
-        }
-        if (a.name != b.name) {
-          return (a.name || '').localeCompare(b.name || '');
+          return compareUnderscoresLast(a.tagname || '', b.tagname || '');
         }
         return 0;
       },
 
     };
+
+    /**
+     * Compare two strings such that more leading underscores sort later.
+     */
+    function compareUnderscoresLast(a, b) {
+      const numA = numLeadingUnderscores(a);
+      const numB = numLeadingUnderscores(b);
+      if (numA !== numB) {
+        return numA - numB;
+      }
+      return a.localeCompare(b);
+    }
+
+    function numLeadingUnderscores(str) {
+      return str.match(/^_*/)[0].length;
+    }
 
   })();
 </script>
