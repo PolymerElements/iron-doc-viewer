@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="iron-doc-namespace.html">
 <link rel="import" href="iron-doc-element.html">
+<link rel="import" href="iron-doc-class.html">
 <link rel="import" href="iron-doc-mixin.html">
 
 <!--
@@ -68,6 +69,9 @@ property.
     </template>
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp="true">
       <iron-doc-mixin descriptor="[[_currentDescriptor]]"></iron-doc-mixin>
+    </template>
+    <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp="true">
+      <iron-doc-class descriptor="[[_currentDescriptor]]"></iron-doc-class>
     </template>
   </template>
 
@@ -175,6 +179,9 @@ property.
           } else if (descriptorType === 'elements') {
             this._currentDescriptor = namespace.elements &&
                 namespace.elements.filter((e) => (e.name || e.tagname) === name)[0];
+          } else if (descriptorType === 'classes') {
+            this._currentDescriptor = namespace.classes &&
+                namespace.classes.filter((e) => (e.name || e.tagname) === name)[0];
           } else if (descriptorType === 'mixins') {
             this._currentDescriptor = namespace.mixins &&
                 namespace.mixins.filter((m) => m.name === name)[0];
