@@ -17,12 +17,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="iron-doc-function">
   <template>
     <style include="iron-doc-viewer-2-styles"></style>
+    <style>
+      .paramName {
+        margin-right: 10px;
+      }
+    </style>
 
     <div id="transitionMask">
       <div id="signature">
         <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>(<span class="params code"><span>[[_paramText]]</span></span>)<!--
         --><span class="return" hidden$="[[!descriptor.return]]">: <span class="type code">[[descriptor.return.type]]</span></span>
       </div>
+
+      <ul id="params" hidden$="[[_empty(descriptor.params)]]">
+        <template is="dom-repeat"
+                  items="[[descriptor.params]]">
+          <li>
+            <code class="paramName">[[item.name]]</code>
+            <span>[[item.description]]</span>
+          </li>
+        </template>
+      </ul>
+
       <div id="details">
         <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
           <span id="type" class="type">[[descriptor.type]]</span>
@@ -151,6 +167,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             annotations.push('notifies');
           }
           return annotations.join(' – ');
+        },
+
+        _empty: function(items) {
+          return !items || !items.length;
         }
       });
     })();

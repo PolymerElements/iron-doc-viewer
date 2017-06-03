@@ -6,7 +6,7 @@
 
       properties: {
         /**
-         * The [Hydrolysis](https://github.com/PolymerLabs/hydrolysis)-generated
+         * The [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer)-generated
          * element descriptor to display details for.
          *
          * Alternatively, the element descriptor can be provided as JSON via the text content
@@ -106,11 +106,13 @@
       },
 
       _noneToShow: function(showProtected, showInherited, descriptor, name) {
-        var items = descriptor[name];
+        const items = (name === 'behaviors'
+          ? this._getPolymerBehaviors(descriptor)
+          : descriptor[name]);
         if (!items) {
           return true;
         }
-        var filteredItems = this._filterMembers(items, showProtected, showInherited);
+        const filteredItems = this._filterMembers(items, showProtected, showInherited);
         return filteredItems.length === 0;
       },
 
@@ -179,6 +181,10 @@
         return element.name || element.tagname;
       },
 
+      _getPolymerBehaviors: function(descriptor) {
+        return (((descriptor || {}).metadata || {}).polymer || {}).behaviors || [];
+      },
+
       /**
        * Compare two analysis descriptors (elements, functions, etc.) by
        * display name.
@@ -187,18 +193,31 @@
         // Elements display as "<tagname> (name)" or "name", while
         // everything else displays as "name".
         if (a.name != b.name) {
-          return (a.name || '').localeCompare(b.name || '');
+          return compareUnderscoresLast(a.name || '', b.name || '');
         }
         if (a.tagname != b.tagname) {
-          return (a.tagname || '').localeCompare(b.tagname || '');
-        }
-        if (a.name != b.name) {
-          return (a.name || '').localeCompare(b.name || '');
+          return compareUnderscoresLast(a.tagname || '', b.tagname || '');
         }
         return 0;
       },
 
     };
+
+    /**
+     * Compare two strings such that more leading underscores sort later.
+     */
+    function compareUnderscoresLast(a, b) {
+      const numA = numLeadingUnderscores(a);
+      const numB = numLeadingUnderscores(b);
+      if (numA !== numB) {
+        return numA - numB;
+      }
+      return a.localeCompare(b);
+    }
+
+    function numLeadingUnderscores(str) {
+      return str.match(/^_*/)[0].length;
+    }
 
   })();
 </script>
