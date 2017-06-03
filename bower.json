@@ -25,7 +25,6 @@
     "polymer": "Polymer/polymer#1.9 - 2",
     "app-route": "PolymerElements/app-route#1 - 2",
     "marked-element": "PolymerElements/marked-element#1 - 2",
-    "paper-button": "PolymerElements/paper-button#1 - 2",
     "paper-styles": "PolymerElements/paper-styles#1 - 2",
     "prism-element": "PolymerElements/prism-element#1 - 2"
   },
@@ -42,7 +41,6 @@
         "polymer": "Polymer/polymer#^1.9",
         "app-route": "PolymerElements/app-route#^1.0.0",
         "marked-element": "PolymerElements/marked-element#^1.0.0",
-        "paper-button": "PolymerElements/paper-button#^1.0.0",
         "paper-styles": "PolymerElements/paper-styles#^1.0.0",
         "prism-element": "PolymerElements/prism-element#^1.0.0"
       },
