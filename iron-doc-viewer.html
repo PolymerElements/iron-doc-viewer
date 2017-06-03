@@ -97,16 +97,6 @@ property.
           },
 
           _descriptorType: String,
-
-          /**
-           * Prefix for fragment identifiers used in anchors.
-           * For static routing `iron-component-page` can
-           * set this to a string identifying the current component.
-           */
-          fragmentPrefix: {
-            type: String,
-            value: ''
-          },
         },
 
         observers: ['_dataChanged(descriptor,route.path)'],
