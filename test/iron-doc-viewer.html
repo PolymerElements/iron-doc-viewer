@@ -27,7 +27,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <dom-module id="bound-fixture">
       <template>
-        <iron-doc-viewer id="doc" descriptor="{{descriptor}}" bound></iron-doc-viewer>
+        <iron-doc-viewer
+            id="doc"
+            descriptor="[[descriptor]]"
+            path="[[path]]">
+        </iron-doc-viewer>
       </template>
       <script>
         window.addEventListener('WebComponentsReady', function() {
@@ -72,10 +76,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script>
 
-      var ELEMENT = {
-        "is": "awesome-sauce",
-        "properties": [
-          {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
+      var descriptor = {
+        "elements": [
+          {
+            "name": "paper-button",
+            "description": "I'm a button"
+          }
         ]
       };
 
@@ -88,14 +94,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         describe('with a bound descriptor', function() {
 
-          beforeEach(function(){
+          beforeEach(function() {
             page = fixture('bound');
-            page.descriptor = ELEMENT;
+            page.descriptor = descriptor;
           });
 
-          it('loads the descriptor', function() {
-            expect(page.descriptor.is).to.eq('awesome-sauce');
-            expect(page.descriptor.properties.length).to.eq(1);
+          it('renders a namespace', function(done) {
+            page.path = '/';
+            flush(function() {
+              var summary = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-namespace')
+                  .$$('iron-doc-summary');
+              expect(Polymer.dom(summary.root).textContent)
+                .contains('paper-button');
+              done();
+            });
+          });
+
+          it('renders an element', function(done) {
+            page.path = '/elements/paper-button';
+            flush(function() {
+              var element = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-element');
+              expect(Polymer.dom(element.root).textContent)
+                .contains('Element paper-button');
+              done();
+            });
           });
 
         });

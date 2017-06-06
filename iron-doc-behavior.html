@@ -91,7 +91,7 @@
       },
 
       _filterMembers: function(items, showProtected, showInherited) {
-        return items.filter(function(i) {
+        return (items || []).filter(function(i) {
           // If privacy not specified, better to err on the side of showing
           // something instead of nothing. Also some things like namespaces
           // don't have privacy anyway.
