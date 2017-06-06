@@ -63,20 +63,37 @@ property.
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp="true">
       <iron-doc-namespace
           descriptor="[[_currentDescriptor]]"
-          root-namespace="[[rootNamespace]]">
+          fragment-prefix="[[fragmentPrefix]]"
+          base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
     <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp="true">
-      <iron-doc-element descriptor="[[_currentDescriptor]]"></iron-doc-element>
+      <iron-doc-element
+          descriptor="[[_currentDescriptor]]"
+          fragment-prefix="[[fragmentPrefix]]"
+          base-href="[[baseHref]]">
+      </iron-doc-element>
     </template>
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp="true">
-      <iron-doc-mixin descriptor="[[_currentDescriptor]]"></iron-doc-mixin>
+      <iron-doc-mixin
+          descriptor="[[_curentDescriptor]]"
+          fragment-prefix="[[fragmentPrefix]]"
+          base-href="[[baseHref]]">
+      </iron-doc-mixin>
     </template>
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp="true">
-      <iron-doc-polymer-behavior descriptor="[[_currentDescriptor]]"></iron-doc-polymer-behavior>
+      <iron-doc-polymer-behavior
+          descriptor="[[_curentDescriptor]]"
+          fragment-prefix="[[fragmentPrefix]]"
+          base-href="[[baseHref]]">
+      </iron-doc-polymer-behavior>
     </template>
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp="true">
-      <iron-doc-class descriptor="[[_currentDescriptor]]"></iron-doc-class>
+      <iron-doc-class
+          descriptor="[[_curentDescriptor]]"
+          fragment-prefix="[[fragmentPrefix]]"
+          base-href="[[baseHref]]">
+      </iron-doc-class>
     </template>
   </template>
 
@@ -108,6 +125,9 @@ property.
         _dataChanged: function(descriptor, routePath) {
           var descriptorType, name;
           if (routePath) {
+            if (this.baseHref && routePath.indexOf(this.baseHref) >= 0) {
+              routePath = routePath.substring(this.baseHref.length);
+            }
             var parts = routePath.split('/');
             if (parts.length > 1) {
               [, descriptorType, name] = parts;
