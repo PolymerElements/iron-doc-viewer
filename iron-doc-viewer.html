@@ -60,35 +60,35 @@ property.
 
     <app-location route="{{route}}"></app-location>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp="true">
+    <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
-    <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp="true">
+    <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
-    <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp="true">
+    <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin
           descriptor="[[_curentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
-    <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp="true">
+    <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-polymer-behavior
           descriptor="[[_curentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           base-href="[[baseHref]]">
       </iron-doc-polymer-behavior>
     </template>
-    <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp="true">
+    <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class
           descriptor="[[_curentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
