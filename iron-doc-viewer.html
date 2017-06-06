@@ -152,7 +152,7 @@ property.
             return;
           }
 
-          var namespace = getNamespace(this.descriptor, name);
+          var namespace = getNamespace(this.descriptor, name) || this.descriptor;
           if (namespace == null) {
             // 404?
             return;
