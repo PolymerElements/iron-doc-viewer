@@ -18,7 +18,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-summary.html">
-<link rel="import" href="iron-doc-viewer-2-styles.html">
+<link rel="import" href="iron-doc-viewer-styles.html">
 
 <!--
 Renders documentation describing an element's API.
@@ -51,7 +51,7 @@ property.
 
 <dom-module id="iron-doc-namespace">
   <template>
-    <style include="iron-doc-viewer-2-styles prism-theme-default"></style>
+    <style include="iron-doc-viewer-styles prism-theme-default"></style>
 
     <prism-highlighter></prism-highlighter>
 
@@ -68,9 +68,9 @@ property.
       <header>[[_namespaceName]] API Reference</header>
     </nav>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'elements')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'elements')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
       <header>
-        <a href$="#[[_formatAnchor(prefix,'elements')]]" class="deeplink">Elements</a>
+        <a href$="#[[_formatAnchor(fragmentPrefix,'elements')]]" class="deeplink">Elements</a>
       </header>
       <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareDescriptors">
         <iron-doc-summary
@@ -81,9 +81,9 @@ property.
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'classes')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'classes')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
       <header>
-        <a href$="#[[_formatAnchor(prefix,'classes')]]" class="deeplink">Classes</a>
+        <a href$="#[[_formatAnchor(fragmentPrefix,'classes')]]" class="deeplink">Classes</a>
 
       <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
         <iron-doc-summary
@@ -94,8 +94,8 @@ property.
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
-      <header><a href$="#[[_formatAnchor(prefix,'mixins')]]" class="deeplink">Mixins</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
+      <header><a href$="#[[_formatAnchor(fragmentPrefix,'mixins')]]" class="deeplink">Mixins</a></header>
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
@@ -105,8 +105,8 @@ property.
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
-      <header><a href$="#[[_formatAnchor(prefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
+      <header><a href$="#[[_formatAnchor(fragmentPrefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
       <template is="dom-repeat" items="[[_getPolymerBehaviors(descriptor)]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
@@ -116,15 +116,15 @@ property.
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'functions')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
-      <header><a href$="#[[_formatAnchor(prefix,'functions')]]" class="deeplink">Functions</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'functions')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
+      <header><a href$="#[[_formatAnchor(fragmentPrefix,'functions')]]" class="deeplink">Functions</a></header>
       <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
-        <iron-doc-function anchor-id$="[[_formatAnchor(prefix,'function', item.name)]]" descriptor="[[item]]"></iron-doc-function>
+        <iron-doc-function anchor-id$="[[_formatAnchor(fragmentPrefix,'function', item.name)]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(prefix,'namespaces')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'namespaces')]]">
-      <header><a href$="#[[_formatAnchor(prefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'namespaces')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'namespaces')]]">
+      <header><a href$="#[[_formatAnchor(fragmentPrefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
       <div hidden$="[[!descriptor.namespaces.length]]">
         <template is="dom-repeat" items="[[descriptor.namespaces]]" sort="_compareDescriptors">
           <iron-doc-summary

@@ -29,7 +29,7 @@
          * For static routing `iron-component-page` can
          * set this to a string identifying the current component.
          */
-        prefix: {
+        fragmentPrefix: {
           type: String,
           value: ''
         },
@@ -116,9 +116,9 @@
         return filteredItems.length === 0;
       },
 
-      _formatAnchor: function(prefix, type, membername) {
+      _formatAnchor: function(fragmentPrefix, type, membername) {
         var suffix = membername ? '-' + membername : '';
-        return prefix + type + suffix;
+        return fragmentPrefix + type + suffix;
       },
 
       /**

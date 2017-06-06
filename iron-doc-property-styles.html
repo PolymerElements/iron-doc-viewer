@@ -9,25 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../paper-styles/typography.html">
-<link rel="import" href="../paper-styles/color.html">
-
-<!--
-### Styling
-
-The following custom properties and mixins are available for styling:
-
-Custom property | Description | Default
-----------------|-------------|----------
-`--iron-doc-viewer-property-deeplink-color` | Text color of clickable properties and events names | `currentcolor`
-`--iron-doc-viewer-property-deeplink-color-hover` | Text hover color of properties and events names | `--paper-pink-500`
-`--iron-doc-viewer-property-signature-color` | Text color of properties and events names | `black`
-`--iron-doc-viewer-property-annotation-color` | Text color of annotations | `--paper-grey-700`
-`--iron-doc-viewer-property-default-value-color` | Text color of default value | `--paper-grey-500`
-`--iron-doc-viewer-property-markdown-link-color` | Text color of markdown links in desc | `--paper-indigo-a200`
-`--iron-doc-viewer-property-meta-color` | Text color of meta types | `--paper-blue-500`
-
--->
-
 
 <dom-module id="iron-doc-property-styles">
   <template>
@@ -50,12 +31,12 @@ Custom property | Description | Default
       }
 
       .deeplink {
-        color: var(--iron-doc-viewer-property-deeplink-color, currentcolor);
+        color: currentcolor;
         text-decoration: none;
       }
 
       .deeplink:hover {
-        color: var(--iron-doc-viewer-property-deeplink-color-hover, var(--paper-pink-500));
+        color: var(--paper-pink-500);
       }
 
       #signature {
@@ -65,24 +46,11 @@ Custom property | Description | Default
         overflow: hidden;
         text-overflow: ellipsis;
         width: 260px;
-        color: var(--iron-doc-viewer-property-signature-color, black);
+        color: black;
       }
 
       #signature .name {
         @apply --paper-font-code2;
-      }
-
-      :host([function]) #signature {
-        position: static;
-        width: 100%;
-      }
-
-      :host(:not([function])) #signature .params {
-        display: none;
-      }
-
-      :host([function]) #type {
-        display: none;
       }
 
       #details {
@@ -100,7 +68,7 @@ Custom property | Description | Default
       }
 
       .annotation {
-        color: var(--iron-doc-viewer-property-annotation-color, var(--paper-grey-700));
+        color: #666;
         float: right;
       }
 
@@ -113,7 +81,7 @@ Custom property | Description | Default
       }
 
       #default .value {
-        color: var(--iron-doc-viewer-property-default-value-color, var(--paper-grey-500));
+        color: #999;
         font-size: 12px;
       }
 
@@ -168,11 +136,6 @@ Custom property | Description | Default
         @apply --paper-font-code1;
       }
 
-      #desc .markdown-html a {
-        color: var(--iron-doc-viewer-property-markdown-link-color, var(--paper-indigo-a200));
-        text-decoration: none;
-      }
-
       .return {
         font-size: 14px;
       }
@@ -184,7 +147,7 @@ Custom property | Description | Default
       }
       #meta {
         transition: opacity ease-in-out 150ms;
-        color: var(--iron-doc-viewer-property-meta-color, var(--paper-blue-500));
+        color: var(--paper-blue-500);
       }
       #desc {
         transition: transform ease-in-out 150ms, opacity  ease-in-out 150ms;
