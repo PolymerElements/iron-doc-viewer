@@ -105,6 +105,9 @@
       },
 
       _noneToShow: function(showProtected, showInherited, descriptor, name) {
+        if (!descriptor) {
+          return true;
+        }
         var items = (name === 'behaviors'
           ? this._getPolymerBehaviors(descriptor)
           : descriptor[name]);

@@ -79,10 +79,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var descriptor = {
         "elements": [
           {
-            "name": "paper-button",
-            "description": "I'm a button"
+            "name": "my-element",
+            "description": "I am an element"
           }
-        ]
+        ],
+        "mixins": [
+          {
+            "name": "my-mixin",
+            "description": "I am a mixin"
+          }
+        ],
+        "classes": [
+          {
+            "name": "my-class",
+            "description": "I am a class"
+          }
+        ],
+        "metadata": {
+          "polymer": {
+            "behaviors": [
+              {
+                "name": "my-behavior",
+                "description": "I am a behavior"
+              }
+            ]
+          }
+        }
       };
 
       describe('<iron-doc-viewer>', function() {
@@ -99,27 +121,63 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             page.descriptor = descriptor;
           });
 
-          it('renders a namespace', function(done) {
+          it('renders top-level namespace', function(done) {
             page.path = '/';
             flush(function() {
-              var summary = page
+              var view = page
                   .$$('iron-doc-viewer')
                   .$$('iron-doc-namespace')
                   .$$('iron-doc-summary');
-              expect(Polymer.dom(summary.root).textContent)
-                .contains('paper-button');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('my-element');
               done();
             });
           });
 
-          it('renders an element', function(done) {
-            page.path = '/elements/paper-button';
+          it('renders element', function(done) {
+            page.path = '/elements/my-element';
             flush(function() {
-              var element = page
+              var view = page
                   .$$('iron-doc-viewer')
                   .$$('iron-doc-element');
-              expect(Polymer.dom(element.root).textContent)
-                .contains('Element paper-button');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am an element');
+              done();
+            });
+          });
+
+          it('renders mixin', function(done) {
+            page.path = '/mixins/my-mixin';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-mixin');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am a mixin');
+              done();
+            });
+          });
+
+          it('renders class', function(done) {
+            page.path = '/classes/my-class';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-class');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am a class');
+              done();
+            });
+          });
+
+          it('renders behavior', function(done) {
+            page.path = '/behaviors/my-behavior';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-behavior');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am a behavior');
               done();
             });
           });
