@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="iron-doc-element.html">
 <link rel="import" href="iron-doc-mixin.html">
 <link rel="import" href="iron-doc-namespace.html">
-<link rel="import" href="iron-doc-polymer-behavior.html">
+<link rel="import" href="iron-doc-viewer-behavior.html">
 
 <!--
 `iron-doc-viewer` renders documentation about elements, mixins, classes, and
@@ -87,11 +87,11 @@ by default is bound to the current `window.location` path.
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
-      <iron-doc-polymer-behavior
+      <iron-doc-behavior
           descriptor="[[_curentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           base-href="[[baseHref]]">
-      </iron-doc-polymer-behavior>
+      </iron-doc-behavior>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
@@ -108,7 +108,7 @@ by default is bound to the current `window.location` path.
       Polymer({
         is: 'iron-doc-viewer',
 
-        behaviors: [Polymer.IronDocBehavior],
+        behaviors: [Polymer.IronDocViewerBehavior],
 
         properties: {
           /**

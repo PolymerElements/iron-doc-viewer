@@ -16,9 +16,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../prism-element/prism-highlighter.html">
 <link rel="import" href="../prism-element/prism-theme-default.html">
 
-<link rel="import" href="iron-doc-behavior.html">
-<link rel="import" href="iron-doc-property.html">
 <link rel="import" href="iron-doc-function.html">
+<link rel="import" href="iron-doc-property.html">
+<link rel="import" href="iron-doc-viewer-behavior.html">
 <link rel="import" href="iron-doc-viewer-styles.html">
 
 <!--
@@ -110,7 +110,7 @@ property.
       Polymer({
         is: 'iron-doc-mixin',
 
-        behaviors: [Polymer.IronDocBehavior],
+        behaviors: [Polymer.IronDocViewerBehavior],
       });
     })();
   </script>

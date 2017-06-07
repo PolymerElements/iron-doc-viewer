@@ -16,9 +16,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../prism-element/prism-highlighter.html">
 <link rel="import" href="../prism-element/prism-theme-default.html">
 
-<link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-function.html">
 <link rel="import" href="iron-doc-property.html">
+<link rel="import" href="iron-doc-viewer-behavior.html">
 <link rel="import" href="iron-doc-viewer-styles.html">
 
 <dom-module id="iron-doc-element">
@@ -120,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'iron-doc-element',
 
-        behaviors: [Polymer.IronDocBehavior],
+        behaviors: [Polymer.IronDocViewerBehavior],
 
         _superclassUrl: function(superclass) {
           if (superclass === 'HTMLElement') {
