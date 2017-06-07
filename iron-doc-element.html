@@ -18,6 +18,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="iron-doc-viewer-behavior.html">
 <link rel="import" href="iron-doc-viewer-styles.html">
 
+<!--
+`iron-doc-element` renders documentation about a custom element from a JSON
+descriptor output by
+[Polymer Analyzer](https://github.com/Polymer/polymer-analyzer).
+-->
+
 <dom-module id="iron-doc-element">
   <template>
     <style include="iron-doc-viewer-styles prism-theme-default"></style>
@@ -86,34 +92,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     (function() {
-      /**
-       * Renders documentation describing an element's API.
-       *
-       * `iron-doc-viewer` renders element and behavior descriptions as extracted by
-       * [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer). You can provide them
-       * either via binding...
-       *
-       *     <iron-doc-element descriptor="[[elementDescriptor]]"></iron-doc-element>
-       *
-       * ...or by placing the element descriptor in JSON as the text content of an
-       * `iron-doc-element`:
-       *
-       *     <iron-doc-element>
-       *       {
-       *         "is": "awesome-sauce",
-       *         "properties": [
-       *           {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
-       *         ]
-       *       }
-       *     </iron-doc-element>
-       *
-       * However, be aware that due to current limitations in Polymer, _changes_ to
-       * the text content will not be respected, only the initial value will be loaded.
-       * If you wish to update the documented element, please set it via the `descriptor`
-       * property.
-       *
-       * @demo demo/index.html Basic Demo
-      */
       Polymer({
         is: 'iron-doc-element',
 

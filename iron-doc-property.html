@@ -13,9 +13,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="iron-doc-viewer-styles.html">
 
 <!--
-Renders documentation describing a specific property of an element.
-
-Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
+Renders documentation describing a specific property of an element, mixin,
+class, etc.
 -->
 
 <dom-module id="iron-doc-property">
@@ -64,15 +63,6 @@ Give it a hydrolysis `PropertyDescriptor` (via `descriptor`), and watch it go!
         is: 'iron-doc-property',
 
         properties: {
-          /**
-           * The [Hydrolysis](https://github.com/PolymerLabs/hydrolysis)-generated
-           * element descriptor to display details for.
-           *
-           * Alternatively, the element descriptor can be provided as JSON via the text content
-           * of this element.
-           *
-           * @type {hydrolysis.PropertyDescriptor}
-           */
           descriptor: {
             type:     Object,
             observer: '_descriptorChanged',
