@@ -8,13 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../paper-styles/typography.html">
-
 <dom-module id="iron-doc-property-styles">
   <template>
     <style>
       :host {
-        @apply --paper-font-body1;
+        @apply --iron-doc-font-body;
 
         box-sizing: border-box;
         display: block;
@@ -35,7 +33,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #signature {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
 
         float: left;
         overflow: hidden;
@@ -45,7 +43,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #signature .name {
-        @apply --paper-font-code2;
+        @apply --iron-doc-font-code;
+        font-weight: bold;
       }
 
       #details {
@@ -57,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       /* Metadata */
 
       #type {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
 
         font-style: italic;
       }
@@ -89,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #params .type {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
       }
 
       #params li {
@@ -128,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #desc .markdown-html code {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
       }
 
       .return {
@@ -137,6 +136,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .name {
         font-size: 14px;
+        font-weight: bold;
       }
 
       @media (max-width: 600px) {
