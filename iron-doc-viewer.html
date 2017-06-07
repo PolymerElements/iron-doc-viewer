@@ -18,39 +18,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../prism-element/prism-theme-default.html">
 
 <link rel="import" href="iron-doc-behavior.html">
-<link rel="import" href="iron-doc-namespace.html">
-<link rel="import" href="iron-doc-element.html">
 <link rel="import" href="iron-doc-class.html">
+<link rel="import" href="iron-doc-element.html">
 <link rel="import" href="iron-doc-mixin.html">
+<link rel="import" href="iron-doc-namespace.html">
 <link rel="import" href="iron-doc-polymer-behavior.html">
 
 <!--
-Renders documentation describing an element's API.
+`iron-doc-viewer` renders documentation about elements, mixins, classes, and
+more from the JSON descriptor output of
+[Polymer Analyzer](https://github.com/Polymer/polymer-analyzer).
 
-`iron-doc-viewer` renders element and behavior descriptions as extracted by
-[Hydrolysis](https://github.com/PolymerLabs/hydrolysis). You can provide them
-either via binding...
+Provide the descriptor JSON either as a data binding to `descriptor`:
 
-    <iron-doc-viewer descriptor="{{elementDescriptor}}"></iron-doc-viewer>
+    <iron-doc-viewer descriptor="[[descriptor]]"></iron-doc-viewer>
 
-...or by placing the element descriptor in JSON as the text content of an
-`iron-doc-viewer`:
+or as child text content:
 
     <iron-doc-viewer>
       {
-        "is": "awesome-sauce",
-        "properties": [
-          {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
+        "elements": [
+          {
+            "name": "my-component",
+            "descriptor": "I'm a Web Component."
+          }
         ]
       }
     </iron-doc-viewer>
 
-However, be aware that due to current limitations in Polymer 0.8, _changes_ to
-the text content will not be respected, only the initial value will be loaded.
-If you wish to update the documented element, please set it via the `descriptor`
-property.
+`iron-doc-viewer` will initially display all items contained in the given
+descriptor (e.g. elements, mixins, classes). `path` is used to display detail
+about specific items within the descriptor (e.g. "/elements/my-component"), and
+by default is bound to the current `window.location` path.
 
-@demo demo/index.html Basic Demo
+@demo demo/index.html
 -->
 
 <dom-module id="iron-doc-viewer">
@@ -68,6 +69,7 @@ property.
           base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
+
     <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element
           descriptor="[[_currentDescriptor]]"
@@ -75,6 +77,7 @@ property.
           base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
+
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin
           descriptor="[[_curentDescriptor]]"
@@ -82,6 +85,7 @@ property.
           base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
+
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-polymer-behavior
           descriptor="[[_curentDescriptor]]"
@@ -89,6 +93,7 @@ property.
           base-href="[[baseHref]]">
       </iron-doc-polymer-behavior>
     </template>
+
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class
           descriptor="[[_curentDescriptor]]"
@@ -106,10 +111,6 @@ property.
         behaviors: [Polymer.IronDocBehavior],
 
         properties: {
-          rootNamespace: {
-            type: String,
-          },
-
           /**
            * Path to the item in the descriptor to display.
            *
@@ -128,8 +129,12 @@ property.
             value: null
           },
 
-          _currentDescriptor: {
-            type: Object,
+          /**
+           * Instead of displaying items relative to the top level of
+           * `descriptor`, start from this namespace.
+           */
+          rootNamespace: {
+            type: String,
           },
 
           _descriptorType: String,
@@ -228,11 +233,10 @@ property.
       });
 
       /**
-       * Walks through the tree of namespaces to find the namespace
-       * containing `name`
+       * Walks through the tree of namespaces to find the namespace containing
+       * `name`.
        */
       function getNamespace(descriptor, name) {
-
         var parts = name.split('.');
         if (parts.length < 2) {
           return undefined;
