@@ -7,24 +7,10 @@
 more from a JSON descriptor output by
 [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer).
 
-Provide the descriptor JSON either as a data binding to `descriptor`:
+Provide the descriptor as a data binding to `descriptor`:
 
 ```html
 <iron-doc-viewer descriptor="[[descriptor]]"></iron-doc-viewer>
-```
-
-or as child text content:
-```html
-<iron-doc-viewer>
-  {
-    "elements": [
-      {
-        "name": "my-component",
-        "descriptor": "I'm a Web Component."
-      }
-    ]
-  }
-</iron-doc-viewer>
 ```
 
 `iron-doc-viewer` will initially display all items contained in the given

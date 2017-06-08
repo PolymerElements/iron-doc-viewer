@@ -7,9 +7,6 @@
         /**
          * The [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer)-generated
          * element descriptor to display details for.
-         *
-         * Alternatively, the element descriptor can be provided as JSON via the text content
-         * of this element.
          */
         descriptor: {
           type: Object,
@@ -48,45 +45,6 @@
           type:     Boolean,
           value:    true,
         },
-      },
-
-      ready: function() {
-        var jsonDescriptor = this._loadJson();
-        // Note that this is only an error during element creation. You are free
-        // to stomp over the descriptor after it is ready.
-        if (jsonDescriptor && this.descriptor) {
-          Polymer.Base._error(
-              this,
-              'received both a bound descriptor:', this.descriptor,
-              'and JSON descriptor:', this._jsonDescriptor,
-              'Please provide only one');
-          throw new Error(
-              '<iron-doc-viewer> accepts either a bound or JSON descriptor; not both');
-        }
-
-        if (jsonDescriptor) {
-          this.descriptor = jsonDescriptor;
-        }
-      },
-
-      /**
-       * Loads a JSON Analyzer descriptor from the text content of this
-       * element, if present.
-       */
-      _loadJson: function() {
-        var textContent = '';
-        Array.prototype.forEach.call(Polymer.dom(this).childNodes, function(node) {
-          textContent = textContent + node.textContent;
-        });
-        textContent = textContent.trim();
-        if (textContent === '') return null;
-
-        try {
-          return JSON.parse(textContent);
-        } catch(error) {
-          Polymer.Base._error('Failure when parsing JSON:', textContent, error);
-          throw error;
-        }
       },
 
       _filterMembers: function(items, showProtected, showInherited) {
