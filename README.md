@@ -3,6 +3,9 @@
 
 ## &lt;iron-doc-viewer&gt;
 
+⚠️ The published version of element will only document Polymer 1.0 elements. A new version is coming soon!
+See [this issue](https://github.com/PolymerElements/iron-component-page/issues/121) for status. ⚠️
+
 `iron-doc-viewer` renders documentation about elements, mixins, classes, and
 more from a JSON descriptor output by
 [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer).
