@@ -63,50 +63,50 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
-          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element
-          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin
-          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-behavior
-          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-behavior>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class
-          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-class>
     </template>
@@ -174,13 +174,9 @@ Custom property | Description | Default
           '_dataChanged(descriptor, path)'
         ],
 
-        scrollToAnchor: function(hash) {
-          // Forward scrolls to the active child component.
-          Polymer.dom.flush();
-          var active = this.$$('[active]');
-          if (active) {
-            active.scrollToAnchor(hash);
-          }
+        _scrollToChanged: function(hash) {
+          // We forward scroll changes to our child components via
+          // data-binding. Nothing to do here in the parent.
         },
 
         _equal: function(a, b) {
