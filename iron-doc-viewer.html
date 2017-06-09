@@ -197,6 +197,11 @@ Custom property | Description | Default
         },
 
         _dataChanged: function(descriptor, path) {
+          if (!this.descriptor) {
+            this._descriptorType = null;
+            return;
+          }
+
           var descriptorType, name;
           if (path) {
             if (this.baseHref && path.indexOf(this.baseHref) >= 0) {
@@ -206,9 +211,6 @@ Custom property | Description | Default
             if (parts.length > 1) {
               [, descriptorType, name] = parts;
             }
-          }
-          if (!this.descriptor) {
-            return;
           }
 
           if (!descriptorType) {
