@@ -54,7 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <ul>
           <template is="dom-repeat" items="[[section.items]]">
             <li>
-              <a href="#" on-tap="_select"
+              <a href="#" on-tap="_select" title$="[[item.name]]"
                  selected$="[[_eq(item.path, path)]]">
                 [[item.name]]
               </a>
@@ -117,6 +117,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
           sectionItems.push({name: name, path: pathPrefix + name});
         }
+        sectionItems.sort(function(a, b) {
+          return a.name.localeCompare(b.name);
+        });
         return {heading: heading, items: sectionItems};
       }
     })();
