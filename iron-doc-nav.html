@@ -87,11 +87,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _descriptorChanged(descriptor) {
           descriptor = descriptor || {};
           this._sections = [
+            _section('Namespaces', '/namespaces/', descriptor.namespaces),
             _section('Elements', '/elements/', descriptor.elements),
             _section('Behaviors', '/behaviors/',
                 ((descriptor.metadata || {}).polymer || {}).behaviors),
             _section('Mixins', '/mixins/', descriptor.mixins),
-            _section('Classes', '/classes/', descriptor.classes)
+            _section('Classes', '/classes/', descriptor.classes),
           ];
         },
 
