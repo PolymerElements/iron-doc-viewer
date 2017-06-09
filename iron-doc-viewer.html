@@ -63,6 +63,7 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
+          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
@@ -72,6 +73,7 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element
+          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
@@ -81,6 +83,7 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin
+          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
@@ -90,6 +93,7 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-behavior
+          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
@@ -99,6 +103,7 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class
+          active
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
           title="{{title}}"
@@ -168,6 +173,15 @@ Custom property | Description | Default
           '_ourPathChanged(_ourPath)',
           '_dataChanged(descriptor, path)'
         ],
+
+        scrollToAnchor: function(hash) {
+          // Forward scrolls to the active child component.
+          Polymer.dom.flush();
+          var active = this.$$('[active]');
+          if (active) {
+            active.scrollToAnchor(hash);
+          }
+        },
 
         _equal: function(a, b) {
           return a == b;
