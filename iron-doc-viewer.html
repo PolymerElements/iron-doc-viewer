@@ -65,6 +65,7 @@ Custom property | Description | Default
       <iron-doc-namespace
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
           base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
@@ -73,6 +74,7 @@ Custom property | Description | Default
       <iron-doc-element
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
           base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
@@ -81,6 +83,7 @@ Custom property | Description | Default
       <iron-doc-mixin
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
           base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
@@ -89,6 +92,7 @@ Custom property | Description | Default
       <iron-doc-behavior
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
           base-href="[[baseHref]]">
       </iron-doc-behavior>
     </template>
@@ -97,6 +101,7 @@ Custom property | Description | Default
       <iron-doc-class
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
           base-href="[[baseHref]]">
       </iron-doc-class>
     </template>
@@ -134,6 +139,14 @@ Custom property | Description | Default
            */
           rootNamespace: {
             type: String,
+          },
+
+          /**
+           * Display title for the currently selected item.
+           */
+          title: {
+            type: String,
+            notify: true
           },
 
           _descriptorType: String,

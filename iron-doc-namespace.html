@@ -25,11 +25,15 @@ JSON descriptor output by
 
 <dom-module id="iron-doc-namespace">
   <template>
-    <style include="iron-doc-viewer-styles prism-theme-default"></style>
+    <style include="iron-doc-viewer-styles prism-theme-default">
+      h1 {
+        @apply --iron-doc-title;
+      }
+    </style>
 
     <prism-highlighter></prism-highlighter>
 
-    <h1>Namespace [[descriptor.name]]</h1>
+    <h1>[[title]]</h1>
     <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
     <section id="description" class="card" hidden$="[[!descriptor.description]]">
@@ -119,6 +123,16 @@ JSON descriptor output by
 
         behaviors: [Polymer.IronDocViewerBehavior],
 
+        properties: {
+          title: {
+            computed: '_computeTitle(descriptor)',
+            notify: true
+          }
+        },
+
+        _computeTitle: function(descriptor) {
+          return descriptor && 'Namespace ' + descriptor.name;
+        }
       });
     })();
   </script>
