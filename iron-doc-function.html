@@ -10,45 +10,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../marked-element/marked-element.html">
+
+<link rel="import" href="iron-doc-summary-styles.html">
 <link rel="import" href="iron-doc-viewer-styles.html">
 
-<!--
-Renders documentation describing a specific property of an element, mixin,
-class, etc.
--->
-
-<dom-module id="iron-doc-property">
+<dom-module id="iron-doc-function">
   <template>
     <style include="iron-doc-viewer-styles"></style>
     <style>
-      #polymer {
-        margin-left: 12px;
-      }
-
-      #polymer > * {
-        background-color: #efefef;
-        color: #e91e63;
-        padding: 1px 6px;
-        margin-left: 8px;
-        border-radius: 8px;
+      .paramName {
+        margin-right: 10px;
       }
     </style>
 
     <div id="signature">
-      <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>
-      <code id="type" hidden$="[[!descriptor.type]]">: [[descriptor.type]]</code>
-      <code id="default" hidden$="[[!descriptor.defaultValue]]">= [[descriptor.defaultValue]]</code>
-
-      <span id="polymer">
-        <code hidden$="[[!descriptor.metadata.polymer.notify]]">notifies</code>
-        <code hidden$="[[!descriptor.metadata.polymer.readOnly]]">readOnly</code>
-        <code hidden$="[[!descriptor.metadata.polymer.reflectToAttribute]]">reflectToAttribute</code>
-      </span>
+      <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>(<span class="params code"><span>[[_paramText]]</span></span>)<!--
+      --><span class="return" hidden$="[[!descriptor.return]]">: <span class="type code">[[descriptor.return.type]]</span></span>
     </div>
+
+    <ul id="params" hidden$="[[_empty(descriptor.params)]]">
+      <template is="dom-repeat"
+                items="[[descriptor.params]]">
+        <li>
+          <code class="paramName">[[item.name]]</code>
+          <span>[[item.description]]</span>
+        </li>
+      </template>
+    </ul>
 
     <div id="details">
       <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
-
+        <span id="type" class="type">[[descriptor.type]]</span>
         <span class="annotation">[[_getAnnotation(descriptor)]]</span>
       </div>
       <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
@@ -59,40 +51,26 @@ class, etc.
 
   <script>
     (function() {
+      /**
+       * Renders documentation describing a function or method.
+       */
       Polymer({
-        is: 'iron-doc-property',
+        is: 'iron-doc-function',
 
         properties: {
-          descriptor: {
-            type:     Object,
-            observer: '_descriptorChanged',
+          _paramText: {
+            computed: '_computeParamText(descriptor)',
           },
-
-          function: {
-            type: Boolean,
-            reflectToAttribute: true,
-          },
-
-          /**
-           * Unique anchor ID for deep-linking.
-           */
-          anchorId: {
-            type: String,
-            reflectToAttribute: true,
-          },
-
-          _paramText: String,
+          anchorId: String
         },
 
-        ready: function() {
-          this._isReady = true;
-        },
-
-        _descriptorChanged: function() {
-          this.toggleAttribute('configuration', this.descriptor.configuration);
-          this.toggleAttribute('function',      this.descriptor.function);
-          this._paramText = (this.descriptor.params || []).map(function(param) {
-            return param.name;
+        _computeParamText: function(descriptor) {
+          return (descriptor.params || []).map(function(param) {
+            var text = param.name;
+            if (param.type) {
+              text += ': ' + param.type;
+            }
+            return text;
           }).join(', ');
         },
 
@@ -129,6 +107,10 @@ class, etc.
             annotations.push('notifies');
           }
           return annotations.join(' – ');
+        },
+
+        _empty: function(items) {
+          return !items || !items.length;
         }
       });
     })();

@@ -25,18 +25,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </head>
   <body>
 
-    <iron-doc-viewer>
-      {
-        "is": "awesome-sauce",
-        "properties": [
-          {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"}
-        ]
-      }
-    </iron-doc-viewer>
-
     <dom-module id="bound-fixture">
       <template>
-        <iron-doc-viewer id="doc" descriptor="{{descriptor}}" bound></iron-doc-viewer>
+        <iron-doc-viewer
+            id="doc"
+            descriptor="[[descriptor]]"
+            path="[[path]]">
+        </iron-doc-viewer>
       </template>
       <script>
         window.addEventListener('WebComponentsReady', function() {
@@ -53,39 +48,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
     </test-fixture>
 
-    <test-fixture id="json">
-      <template is="dom-template">
-        <iron-doc-viewer json>
-          {
-            "is": "awesome-sauce",
-            "properties": [
-              {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"}
-            ]
-          }
-        </iron-doc-viewer>
-      </template>
-    </test-fixture>
-
-    <test-fixture id="json-and-bound">
-      <template is="dom-template">
-        <iron-doc-viewer descriptor="{{descriptor}}" jsonbound>
-          {
-            "is": "awesome-sauce",
-            "properties": [
-              {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"}
-            ]
-          }
-        </iron-doc-viewer>
-      </template>
-    </test-fixture>
-
     <script>
 
-      var ELEMENT = {
-        "is": "awesome-sauce",
-        "properties": [
-          {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
-        ]
+      var descriptor = {
+        "elements": [
+          {
+            "name": "my-element",
+            "description": "I am an element"
+          }
+        ],
+        "mixins": [
+          {
+            "name": "my-mixin",
+            "description": "I am a mixin"
+          }
+        ],
+        "classes": [
+          {
+            "name": "my-class",
+            "description": "I am a class"
+          }
+        ],
+        "metadata": {
+          "polymer": {
+            "behaviors": [
+              {
+                "name": "my-behavior",
+                "description": "I am a behavior"
+              }
+            ]
+          }
+        }
       };
 
       describe('<iron-doc-viewer>', function() {
@@ -97,40 +90,73 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         describe('with a bound descriptor', function() {
 
-          beforeEach(function(){
+          beforeEach(function() {
             page = fixture('bound');
-            page.descriptor = ELEMENT;
+            page.descriptor = descriptor;
           });
 
-          it('loads the descriptor', function() {
-            expect(page.descriptor.is).to.eq('awesome-sauce');
-            expect(page.descriptor.properties.length).to.eq(1);
+          it('renders top-level namespace', function(done) {
+            page.path = '/';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-namespace')
+                  .$$('iron-doc-summary');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('my-element');
+              done();
+            });
+          });
+
+          it('renders element', function(done) {
+            page.path = '/elements/my-element';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-element');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am an element');
+              done();
+            });
+          });
+
+          it('renders mixin', function(done) {
+            page.path = '/mixins/my-mixin';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-mixin');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am a mixin');
+              done();
+            });
+          });
+
+          it('renders class', function(done) {
+            page.path = '/classes/my-class';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-class');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am a class');
+              done();
+            });
+          });
+
+          it('renders behavior', function(done) {
+            page.path = '/behaviors/my-behavior';
+            flush(function() {
+              var view = page
+                  .$$('iron-doc-viewer')
+                  .$$('iron-doc-behavior');
+              var text = Polymer.dom(view.root).textContent;
+              expect(text).contains('I am a behavior');
+              done();
+            });
           });
 
         });
-
-        describe('with a JSON descriptor', function() {
-
-          beforeEach(function() { page = fixture('json'); });
-
-          it('loads the descriptor', function() {
-            expect(page.descriptor.is).to.eq('awesome-sauce');
-            expect(page.descriptor.properties.length).to.eq(1);
-          });
-
-        });
-
-        describe('edge cases', function() {
-
-        //   // TODO(nevir): Cannot enable until https://github.com/Polymer/polymer/issues/1200
-        //   it.skip('throws when a bound and JSON descriptor are provided', function() {
-        //     expect(function() {
-        //       fixture('json-and-bound', {descriptor: ELEMENT});
-        //     }).to.throw(Error, /descriptor/i);
-        //   });
-
-        });
-
       });
 
     </script>

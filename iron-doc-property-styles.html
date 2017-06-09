@@ -8,41 +8,15 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../paper-styles/typography.html">
-<link rel="import" href="../paper-styles/color.html">
-
-<!--
-### Styling
-
-The following custom properties and mixins are available for styling:
-
-Custom property | Description | Default
-----------------|-------------|----------
-`--iron-doc-viewer-property-deeplink-color` | Text color of clickable properties and events names | `currentcolor`
-`--iron-doc-viewer-property-deeplink-color-hover` | Text hover color of properties and events names | `--paper-pink-500`
-`--iron-doc-viewer-property-signature-color` | Text color of properties and events names | `black`
-`--iron-doc-viewer-property-annotation-color` | Text color of annotations | `--paper-grey-700`
-`--iron-doc-viewer-property-default-value-color` | Text color of default value | `--paper-grey-500`
-`--iron-doc-viewer-property-markdown-link-color` | Text color of markdown links in desc | `--paper-indigo-a200`
-`--iron-doc-viewer-property-meta-color` | Text color of meta types | `--paper-blue-500`
-
--->
-
-
 <dom-module id="iron-doc-property-styles">
   <template>
     <style>
       :host {
-        @apply --paper-font-body1;
+        @apply --iron-doc-font-body;
 
         box-sizing: border-box;
         display: block;
         padding: 16px 24px;
-      }
-
-      #transitionMask {
-        overflow: hidden;
-        position: relative;
       }
 
       [hidden] {
@@ -50,39 +24,27 @@ Custom property | Description | Default
       }
 
       .deeplink {
-        color: var(--iron-doc-viewer-property-deeplink-color, currentcolor);
+        color: currentcolor;
         text-decoration: none;
       }
 
       .deeplink:hover {
-        color: var(--iron-doc-viewer-property-deeplink-color-hover, var(--paper-pink-500));
+        color: #e91e63;
       }
 
       #signature {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
 
         float: left;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 260px;
-        color: var(--iron-doc-viewer-property-signature-color, black);
+        color: black;
       }
 
       #signature .name {
-        @apply --paper-font-code2;
-      }
-
-      :host([function]) #signature {
-        position: static;
-        width: 100%;
-      }
-
-      :host(:not([function])) #signature .params {
-        display: none;
-      }
-
-      :host([function]) #type {
-        display: none;
+        @apply --iron-doc-font-code;
+        font-weight: bold;
       }
 
       #details {
@@ -94,13 +56,13 @@ Custom property | Description | Default
       /* Metadata */
 
       #type {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
 
         font-style: italic;
       }
 
       .annotation {
-        color: var(--iron-doc-viewer-property-annotation-color, var(--paper-grey-700));
+        color: #666;
         float: right;
       }
 
@@ -113,7 +75,7 @@ Custom property | Description | Default
       }
 
       #default .value {
-        color: var(--iron-doc-viewer-property-default-value-color, var(--paper-grey-500));
+        color: #999;
         font-size: 12px;
       }
 
@@ -126,7 +88,7 @@ Custom property | Description | Default
       }
 
       #params .type {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
       }
 
       #params li {
@@ -165,52 +127,16 @@ Custom property | Description | Default
       }
 
       #desc .markdown-html code {
-        @apply --paper-font-code1;
-      }
-
-      #desc .markdown-html a {
-        color: var(--iron-doc-viewer-property-markdown-link-color, var(--paper-indigo-200));
-        text-decoration: none;
+        @apply --iron-doc-font-code;
       }
 
       .return {
         font-size: 14px;
       }
 
-      /* State Transitions */
-
-      #transitionMask {
-        transition: height ease-in-out 150ms;
-      }
-      #meta {
-        transition: opacity ease-in-out 150ms;
-        color: var(--iron-doc-viewer-property-meta-color, var(--paper-blue-500));
-      }
-      #desc {
-        transition: transform ease-in-out 150ms, opacity  ease-in-out 150ms;
-      }
-
       .name {
         font-size: 14px;
-      }
-
-      /* Collapsed State */
-
-      :host([_collapsed]) #transitionMask {
-        height: 20px; /* 1 line of text */
-        overflow: hidden;
-      }
-
-      :host([_collapsed]) #meta {
-        opacity: 0;
-      }
-
-      :host([_collapsed]) #desc {
-        transform: translateY(-34px);
-      }
-
-      :host([_collapsed][function]) #desc {
-        opacity: 0;
+        font-weight: bold;
       }
 
       @media (max-width: 600px) {
