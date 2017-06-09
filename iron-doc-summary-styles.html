@@ -8,13 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../paper-styles/typography.html">
-
 <dom-module id="iron-doc-summary-styles">
   <template>
     <style>
       :host {
-        @apply --paper-font-body1;
+        @apply --iron-doc-font-code;
 
         box-sizing: border-box;
         display: block;
@@ -22,12 +20,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .name {
-        @apply --paper-font-code2;
+        @apply --iron-doc-font-code;
+        font-weight: bold;
 
         overflow: hidden;
         text-overflow: ellipsis;
-        /*width: 260px;*/
-        /*color: black;*/
         height: 20px;
       }
 
@@ -42,7 +39,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       a:hover {
-        color: var(--paper-pink-500);
+        color: #e91e63;
       }
     </style>
   </template>

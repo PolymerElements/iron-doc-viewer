@@ -10,43 +10,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../marked-element/marked-element.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="../paper-styles/typography.html">
 <link rel="import" href="../prism-element/prism-highlighter.html">
 <link rel="import" href="../prism-element/prism-theme-default.html">
 
-<link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-summary.html">
+<link rel="import" href="iron-doc-viewer-behavior.html">
 <link rel="import" href="iron-doc-viewer-styles.html">
 
 <!--
-Renders documentation describing an element's API.
-
-`iron-doc-viewer` renders element and behavior descriptions as extracted by
-[Hydrolysis](https://github.com/PolymerLabs/hydrolysis). You can provide them
-either via binding...
-
-    <iron-doc-viewer descriptor="[[elementDescriptor]]"></iron-doc-viewer>
-
-...or by placing the element descriptor in JSON as the text content of an
-`iron-doc-viewer`:
-
-    <iron-doc-viewer>
-      {
-        "is": "awesome-sauce",
-        "properties": [
-          {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
-        ]
-      }
-    </iron-doc-viewer>
-
-However, be aware that due to current limitations in Polymer 0.8, _changes_ to
-the text content will not be respected, only the initial value will be loaded.
-If you wish to update the documented element, please set it via the `descriptor`
-property.
-
-@demo demo/index.html Basic Demo
+`iron-doc-namespace` renders documentation about a JavaScript namespace from a
+JSON descriptor output by
+[Polymer Analyzer](https://github.com/Polymer/polymer-analyzer).
 -->
 
 <dom-module id="iron-doc-namespace">
@@ -143,7 +117,7 @@ property.
       Polymer({
         is: 'iron-doc-namespace',
 
-        behaviors: [Polymer.IronDocBehavior],
+        behaviors: [Polymer.IronDocViewerBehavior],
 
       });
     })();

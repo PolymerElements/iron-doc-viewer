@@ -8,22 +8,15 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../paper-styles/typography.html">
-
 <dom-module id="iron-doc-property-styles">
   <template>
     <style>
       :host {
-        @apply --paper-font-body1;
+        @apply --iron-doc-font-body;
 
         box-sizing: border-box;
         display: block;
         padding: 16px 24px;
-      }
-
-      #transitionMask {
-        overflow: hidden;
-        position: relative;
       }
 
       [hidden] {
@@ -36,11 +29,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .deeplink:hover {
-        color: var(--paper-pink-500);
+        color: #e91e63;
       }
 
       #signature {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
 
         float: left;
         overflow: hidden;
@@ -50,7 +43,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #signature .name {
-        @apply --paper-font-code2;
+        @apply --iron-doc-font-code;
+        font-weight: bold;
       }
 
       #details {
@@ -62,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       /* Metadata */
 
       #type {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
 
         font-style: italic;
       }
@@ -94,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #params .type {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
       }
 
       #params li {
@@ -133,47 +127,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #desc .markdown-html code {
-        @apply --paper-font-code1;
+        @apply --iron-doc-font-code;
       }
 
       .return {
         font-size: 14px;
       }
 
-      /* State Transitions */
-
-      #transitionMask {
-        transition: height ease-in-out 150ms;
-      }
-      #meta {
-        transition: opacity ease-in-out 150ms;
-        color: var(--paper-blue-500);
-      }
-      #desc {
-        transition: transform ease-in-out 150ms, opacity  ease-in-out 150ms;
-      }
-
       .name {
         font-size: 14px;
-      }
-
-      /* Collapsed State */
-
-      :host([_collapsed]) #transitionMask {
-        height: 20px; /* 1 line of text */
-        overflow: hidden;
-      }
-
-      :host([_collapsed]) #meta {
-        opacity: 0;
-      }
-
-      :host([_collapsed]) #desc {
-        transform: translateY(-34px);
-      }
-
-      :host([_collapsed][function]) #desc {
-        opacity: 0;
+        font-weight: bold;
       }
 
       @media (max-width: 600px) {
