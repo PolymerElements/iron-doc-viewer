@@ -57,9 +57,7 @@ Custom property | Description | Default
   <template>
     <style include="iron-doc-viewer-styles prism-theme-default"></style>
 
-    <template is="dom-if" if="[[!_pathSetExternally]]" restamp>
-      <iron-location path="{{_ourPath}}"></iron-location>
-    </template>
+    <iron-location path="{{_urlPath}}" hash="{{_urlHash}}"></iron-location>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
@@ -156,22 +154,16 @@ Custom property | Description | Default
 
           _descriptorType: String,
 
-          _pathSetExternally: {
-            type: Boolean,
-            value: false
-          },
+          _urlPath: String,
 
-          _ourPath: String,
-
-          _ourPathChanging: Boolean,
+          _urlHash: String,
 
           _currentDescriptor: Object,
         },
 
         observers: [
-          '_pathChanged(path)',
-          '_ourPathChanged(_ourPath)',
-          '_dataChanged(descriptor, path)'
+          '_routingChanged(baseHref, _urlPath, _urlHash)',
+          '_dataChanged(descriptor, path)',
         ],
 
         _scrollToChanged: function(hash) {
@@ -183,16 +175,22 @@ Custom property | Description | Default
           return a == b;
         },
 
-        _pathChanged: function(path) {
-          this._pathSetExternally = path && !this._ourPathChanging;
-        },
+        _routingChanged: function(baseHref, urlPath, urlHash) {
+          if (baseHref.indexOf('#') === 0) {
+            // URL fragment routing.
+            var parts = (urlHash || '').split('#');
+            this.path = parts[0];
+            this.scrollTo = parts[1];
+            this.fragmentPrefix = parts[0] + '#';
 
-        _ourPathChanged: function(ourPath) {
-          if (ourPath) {
-            // Prevent cycles updating internal/external paths.
-            this._ourPathChanging = true;
-            this.path = ourPath;
-            this._ourPathChanging = false;
+          } else {
+            // URL path routing.
+            if (baseHref && urlPath && urlPath.indexOf(baseHref) === 0) {
+              this.path = urlPath.substring(baseHref.length);
+            } else {
+              this.path = urlPath;
+            }
+            this.scrollTo = urlHash;
           }
         },
 
