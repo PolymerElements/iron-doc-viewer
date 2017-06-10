@@ -65,6 +65,8 @@ Custom property | Description | Default
       <iron-doc-namespace
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
@@ -73,6 +75,8 @@ Custom property | Description | Default
       <iron-doc-element
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
@@ -81,6 +85,8 @@ Custom property | Description | Default
       <iron-doc-mixin
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
@@ -89,6 +95,8 @@ Custom property | Description | Default
       <iron-doc-behavior
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-behavior>
     </template>
@@ -97,6 +105,8 @@ Custom property | Description | Default
       <iron-doc-class
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[fragmentPrefix]]"
+          title="{{title}}"
+          scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-class>
     </template>
@@ -136,6 +146,14 @@ Custom property | Description | Default
             type: String,
           },
 
+          /**
+           * Display title for the currently selected item.
+           */
+          title: {
+            type: String,
+            notify: true
+          },
+
           _descriptorType: String,
 
           _pathSetExternally: {
@@ -156,6 +174,11 @@ Custom property | Description | Default
           '_dataChanged(descriptor, path)'
         ],
 
+        _scrollToChanged: function(hash) {
+          // We forward scroll changes to our child components via
+          // data-binding. Nothing to do here in the parent.
+        },
+
         _equal: function(a, b) {
           return a == b;
         },
@@ -174,6 +197,11 @@ Custom property | Description | Default
         },
 
         _dataChanged: function(descriptor, path) {
+          if (!this.descriptor) {
+            this._descriptorType = null;
+            return;
+          }
+
           var descriptorType, name;
           if (path) {
             if (this.baseHref && path.indexOf(this.baseHref) >= 0) {
@@ -183,9 +211,6 @@ Custom property | Description | Default
             if (parts.length > 1) {
               [, descriptorType, name] = parts;
             }
-          }
-          if (!this.descriptor) {
-            return;
           }
 
           if (!descriptorType) {
@@ -214,7 +239,7 @@ Custom property | Description | Default
                 namespace.namespaces.filter((n) => n.name === name)[0];
           } else if (descriptorType === 'elements') {
             this._currentDescriptor = namespace.elements &&
-                namespace.elements.filter((e) => (e.name || e.tagname) === name)[0];
+                namespace.elements.filter((e) => e.name === name ||  e.tagname === name)[0];
           } else if (descriptorType === 'classes') {
             this._currentDescriptor = namespace.classes &&
                 namespace.classes.filter((e) => (e.name || e.tagname) === name)[0];

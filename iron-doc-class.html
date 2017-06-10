@@ -26,11 +26,15 @@ descriptor output by
 
 <dom-module id="iron-doc-class">
   <template>
-    <style include="iron-doc-viewer-styles prism-theme-default"></style>
+    <style include="iron-doc-viewer-styles prism-theme-default">
+      h1 {
+        @apply --iron-doc-title;
+      }
+    </style>
 
     <prism-highlighter></prism-highlighter>
 
-    <h1>Class [[descriptor.name]]</h1>
+    <h1>[[title]]</h1>
     <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
     <div class="metadata">Path: <span class="code">[[descriptor.path]]</span></div>
@@ -83,7 +87,19 @@ descriptor output by
       */
       Polymer({
         is: 'iron-doc-class',
+
         behaviors: [Polymer.IronDocViewerBehavior],
+
+        properties: {
+          title: {
+            computed: '_computeTitle(descriptor)',
+            notify: true
+          }
+        },
+
+        _computeTitle: function(descriptor) {
+          return descriptor && 'Class ' + descriptor.name;
+        }
       });
     })();
   </script>
