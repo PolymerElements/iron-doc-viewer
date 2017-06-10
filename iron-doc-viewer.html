@@ -19,7 +19,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="iron-doc-element.html">
 <link rel="import" href="iron-doc-mixin.html">
 <link rel="import" href="iron-doc-namespace.html">
-<link rel="import" href="iron-doc-viewer-behavior.html">
 
 <!--
 `iron-doc-viewer` renders documentation about elements, mixins, classes, and
@@ -62,7 +61,7 @@ Custom property | Description | Default
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
           descriptor="[[_currentDescriptor]]"
-          fragment-prefix="[[fragmentPrefix]]"
+          fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
           scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
@@ -72,7 +71,7 @@ Custom property | Description | Default
     <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element
           descriptor="[[_currentDescriptor]]"
-          fragment-prefix="[[fragmentPrefix]]"
+          fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
           scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
@@ -82,7 +81,7 @@ Custom property | Description | Default
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin
           descriptor="[[_currentDescriptor]]"
-          fragment-prefix="[[fragmentPrefix]]"
+          fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
           scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
@@ -92,7 +91,7 @@ Custom property | Description | Default
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-behavior
           descriptor="[[_currentDescriptor]]"
-          fragment-prefix="[[fragmentPrefix]]"
+          fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
           scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
@@ -102,7 +101,7 @@ Custom property | Description | Default
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class
           descriptor="[[_currentDescriptor]]"
-          fragment-prefix="[[fragmentPrefix]]"
+          fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
           scroll-to="[[scrollTo]]"
           base-href="[[baseHref]]">
@@ -115,9 +114,23 @@ Custom property | Description | Default
       Polymer({
         is: 'iron-doc-viewer',
 
-        behaviors: [Polymer.IronDocViewerBehavior],
-
         properties: {
+          /**
+           * The [Polymer Analyzer](https://github.com/Polymer/polymer-analyzer)-generated
+           * element descriptor to display details for.
+           */
+          descriptor: {
+            type: Object,
+          },
+
+          /**
+           * The base href where this doc viewer is located.
+           */
+          baseHref: {
+            type: String,
+            value: '#'
+          },
+
           /**
            * Path to the item in the descriptor to display.
            *
@@ -159,17 +172,16 @@ Custom property | Description | Default
           _urlHash: String,
 
           _currentDescriptor: Object,
+
+          _fragmentPrefix: String,
+
+          _scrollTo: String
         },
 
         observers: [
           '_routingChanged(baseHref, _urlPath, _urlHash)',
           '_dataChanged(descriptor, path)',
         ],
-
-        _scrollToChanged: function(hash) {
-          // We forward scroll changes to our child components via
-          // data-binding. Nothing to do here in the parent.
-        },
 
         _equal: function(a, b) {
           return a == b;
@@ -180,8 +192,8 @@ Custom property | Description | Default
             // URL fragment routing.
             var parts = (urlHash || '').split('#');
             this.path = parts[0];
-            this.scrollTo = parts[1];
-            this.fragmentPrefix = parts[0] + '#';
+            this._scrollTo = parts[1];
+            this._fragmentPrefix = parts[0] + '#';
 
           } else {
             // URL path routing.
@@ -190,7 +202,7 @@ Custom property | Description | Default
             } else {
               this.path = urlPath;
             }
-            this.scrollTo = urlHash;
+            this._scrollTo = urlHash;
           }
         },
 
@@ -245,8 +257,10 @@ Custom property | Description | Default
             this._currentDescriptor = namespace.mixins &&
                 namespace.mixins.filter((m) => m.name === name)[0];
           } else if (descriptorType === 'behaviors') {
-            this._currentDescriptor =
-              this._getPolymerBehaviors(namespace).filter((b) => b.name === name)[0];
+            var behaviors =
+                ((namespace.metadata || {}).polymer || {}).behaviors;
+            this._currentDescriptor = behaviors &&
+                behaviors.filter((b) => b.name === name)[0];
           } else if (descriptorType === 'functions') {
             this._currentDescriptor = namespace.functions &&
                 namespace.functions.filter((f) => f.name === name)[0];
