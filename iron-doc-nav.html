@@ -54,7 +54,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <ul>
           <template is="dom-repeat" items="[[section.items]]">
             <li>
-              <a href="#" on-tap="_select" title$="[[item.name]]"
+              <a href="[[baseHref]][[item.path]]"
+                 title$="[[item.name]]"
+                 on-tap="_select"
                  selected$="[[_eq(item.path, path)]]">
                 [[item.name]]
               </a>
@@ -76,9 +78,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             observer: '_descriptorChanged'
           },
 
-          path: {
+          path: String,
+
+          baseHref: {
             type: String,
-            notify: true
+            value: ''
           },
 
           _sections: Array
@@ -97,8 +101,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
         _select(event) {
-          event.preventDefault();
-          this.path = event.model.item.path;
           this.fire('select');
         },
 
