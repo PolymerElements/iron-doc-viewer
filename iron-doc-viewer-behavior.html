@@ -129,28 +129,6 @@
         return name;
       },
 
-      _getNamespaceName: function(name) {
-        if (name == null) {
-          return undefined;
-        }
-        var lastDotIndex = name.lastIndexOf('.');
-        if (lastDotIndex === -1) {
-          return undefined;
-        }
-        return name.substring(0, lastDotIndex);
-      },
-
-      _getName: function(name) {
-        if (name == null) {
-          return undefined;
-        }
-        var lastDotIndex = name.lastIndexOf('.');
-        if (lastDotIndex === -1) {
-          return name;
-        }
-        return name.substring(lastDotIndex, name.length);
-      },
-
       _getElementId: function(element) {
         return element.name || element.tagname;
       },
