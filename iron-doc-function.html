@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       --><span class="return" hidden$="[[!descriptor.return]]">: <span class="type code">[[descriptor.return.type]]</span></span>
     </div>
 
-    <ul id="params" hidden$="[[_empty(descriptor.params)]]">
+    <ul id="params" hidden$="[[!_showParamList]]">
       <template is="dom-repeat"
                 items="[[descriptor.params]]">
         <li>
@@ -48,10 +48,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'iron-doc-function',
 
         properties: {
+          anchorId: String,
+
           _paramText: {
+            type: String,
             computed: '_computeParamText(descriptor)',
           },
-          anchorId: String
+
+          _showParamList: {
+            type: Boolean,
+            computed: '_computeShowParamList(descriptor)'
+          }
         },
 
         _computeParamText: function(descriptor) {
@@ -62,6 +69,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
             return text;
           }).join(', ');
+        },
+
+        _computeShowParamList: function(descriptor) {
+          if (descriptor && descriptor.params) {
+            for (var i = 0; i < descriptor.params.length; i++) {
+              if (descriptor.params[i].description) {
+                return true;
+              }
+            }
+          }
+          return false;
         }
       });
     })();
