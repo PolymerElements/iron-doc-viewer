@@ -46,6 +46,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #e91e63;
       }
 
+      [anchor-id]:not(.scrolled) {
+        transition: all 0.3s linear;
+      }
+
+      [anchor-id].scrolled {
+        background-color: rgba(255, 210, 0, 0.25);
+      }
+
       .name {
         @apply --iron-doc-font-code;
         font-weight: bold;

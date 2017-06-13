@@ -116,6 +116,12 @@
             var element = this.$$('[anchor-id="' + anchor + '"]');
             if (element) {
               element.scrollIntoView();
+              // Highlight the section for a moment so we can tell where
+              // exactly we were deep-linked.
+              element.classList.add('scrolled');
+              this.async(function() {
+                element.classList.remove('scrolled');
+              }, 1000);
             }
           });
         }
