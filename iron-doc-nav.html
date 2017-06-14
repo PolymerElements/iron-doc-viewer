@@ -56,19 +56,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template is="dom-repeat" items="[[_sections]]" as="section">
       <section>
         <h3>[[section.heading]]</h3>
-        <ul>
-          <template is="dom-repeat" items="[[section.items]]" as="section">
+        <ul hidden$="[[!section.items.length]]">
+          <template is="dom-repeat" items="[[section.items]]">
             <li>
-              <a href="[[baseHref]][[section.path]]"
-                 title$="[[section.name]]"
+              <a href="[[baseHref]][[item.path]]"
+                 title$="[[item.name]]"
                  on-tap="_select"
-                 selected$="[[_eq(section.path, path)]]">
-                [[section.name]]
+                 selected$="[[_eq(item.path, path)]]">
+                [[item.name]]
               </a>
 
-              <template is="dom-if" if="[[section.demos.length]]">
+              <template is="dom-if" if="[[item.demos.length]]">
                 <ul class="demos">
-                  <template is="dom-repeat" items="[[section.demos]]" as="demo">
+                  <template is="dom-repeat" items="[[item.demos]]" as="demo">
                     <li>
                       <a href="[[baseHref]][[demo.path]]"
                          title$="[[demo.description]]"
@@ -154,11 +154,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             });
           }
 
-          sectionItems.push({ name: name, path: path, demos: demos});
+          sectionItems.push({name: name, path: path, demos: demos});
         }
+
         sectionItems.sort(function(a, b) {
           return a.name.localeCompare(b.name);
         });
+
         return {heading: heading, items: sectionItems};
       }
     })();
