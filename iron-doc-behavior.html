@@ -26,7 +26,11 @@ JSON descriptor output by
 
 <dom-module id="iron-doc-behavior">
   <template>
-    <style include="iron-doc-viewer-styles prism-theme-default"></style>
+    <style include="iron-doc-viewer-styles prism-theme-default">
+      :host {
+        @apply --iron-doc-docs;
+      }
+    </style>
 
     <prism-highlighter></prism-highlighter>
 

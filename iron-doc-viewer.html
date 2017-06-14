@@ -16,6 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="iron-doc-behavior.html">
 <link rel="import" href="iron-doc-class.html">
+<link rel="import" href="iron-doc-demo.html">
 <link rel="import" href="iron-doc-element.html">
 <link rel="import" href="iron-doc-mixin.html">
 <link rel="import" href="iron-doc-namespace.html">
@@ -54,9 +55,25 @@ Custom property | Description | Default
 
 <dom-module id="iron-doc-viewer">
   <template>
-    <style include="iron-doc-viewer-styles prism-theme-default"></style>
+    <style include="iron-doc-viewer-styles prism-theme-default">
+      :host {
+        display: flex;
+      }
+
+      iron-doc-demo {
+        flex-grow: 1;
+      }
+    </style>
 
     <iron-location path="{{_urlPath}}" hash="{{_urlHash}}"></iron-location>
+
+    <template is="dom-if" if="[[_equal(_descriptorType,'demos')]]" restamp>
+      <iron-doc-demo
+          demo="[[_demo]]"
+          src-prefix="[[demoSrcPrefix]]"
+          title="{{title}}">
+      </iron-doc-demo>
+    </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
@@ -132,6 +149,11 @@ Custom property | Description | Default
           },
 
           /**
+           * URL prefix for demo iframes.
+           */
+          demoSrcPrefix: String,
+
+          /**
            * Path to the item in the descriptor to display.
            *
            * Examples:
@@ -176,7 +198,9 @@ Custom property | Description | Default
 
           _fragmentPrefix: String,
 
-          _scrollTo: String
+          _scrollTo: String,
+
+          _demo: Object
         },
 
         observers: [
@@ -213,7 +237,7 @@ Custom property | Description | Default
             return;
           }
 
-          var descriptorType, name;
+          var descriptorType, name, demoName;
           if (path) {
             if (this.baseHref && path.indexOf(this.baseHref) >= 0) {
               path = path.substring(this.baseHref.length);
@@ -221,6 +245,9 @@ Custom property | Description | Default
             var parts = path.split('/');
             if (parts.length > 1) {
               [, descriptorType, name] = parts;
+            }
+            if (parts.length > 3 && parts[3] === 'demos') {
+              demoName = parts.slice(4).join('/');
             }
           }
 
@@ -265,6 +292,21 @@ Custom property | Description | Default
           } else if (descriptorType === 'functions') {
             this._currentDescriptor = namespace.functions &&
                 namespace.functions.filter((f) => f.name === name)[0];
+          }
+
+          this._demo = null;
+          if (demoName && this._currentDescriptor &&
+            this._currentDescriptor.demos) {
+            for (var i = 0; i < this._currentDescriptor.demos.length; i++) {
+              var demo = this._currentDescriptor.demos[i];
+              var shortName = demo.description &&
+                  demo.description.toLowerCase().replace(/\s+/g, '-');
+              if (demo.url === demoName || (shortName && shortName === demoName)) {
+                this._demo = demo;
+                this._descriptorType = 'demos';
+                break;
+              }
+            }
           }
         },
       });

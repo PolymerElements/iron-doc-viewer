@@ -27,6 +27,10 @@ descriptor output by
 <dom-module id="iron-doc-mixin">
   <template>
     <style include="iron-doc-viewer-styles prism-theme-default">
+      :host {
+        @apply --iron-doc-docs;
+      }
+
       h1 {
         @apply --iron-doc-title;
       }

@@ -46,20 +46,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       a[selected] {
         color: var(--iron-doc-accent-color2);
       }
+
+      .demos {
+        padding-left: 20px;
+        white-space: nowrap;
+      }
     </style>
 
     <template is="dom-repeat" items="[[_sections]]" as="section">
       <section>
         <h3>[[section.heading]]</h3>
         <ul>
-          <template is="dom-repeat" items="[[section.items]]">
+          <template is="dom-repeat" items="[[section.items]]" as="section">
             <li>
-              <a href="[[baseHref]][[item.path]]"
-                 title$="[[item.name]]"
+              <a href="[[baseHref]][[section.path]]"
+                 title$="[[section.name]]"
                  on-tap="_select"
-                 selected$="[[_eq(item.path, path)]]">
-                [[item.name]]
+                 selected$="[[_eq(section.path, path)]]">
+                [[section.name]]
               </a>
+
+              <template is="dom-if" if="[[section.demos.length]]">
+                <ul class="demos">
+                  <template is="dom-repeat" items="[[section.demos]]" as="demo">
+                    <li>
+                      <a href="[[baseHref]][[demo.path]]"
+                         title$="[[demo.description]]"
+                         on-tap="_select"
+                         selected$="[[_eq(demo.path, path)]]">
+                        [[demo.description]]
+                      </a>
+                    </li>
+                  </template>
+                </ul>
+              </template>
             </li>
           </template>
         </ul>
@@ -117,7 +137,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (!name) {
             continue;
           }
-          sectionItems.push({name: name, path: pathPrefix + name});
+          var path = pathPrefix + name;
+
+          var demos = [];
+          for (var d = 0; d < (item.demos || []).length; d++) {
+            var demo = item.demos[d];
+            if (!demo.url) {
+              continue;
+            }
+            var demoPath = demo.description
+                ? demo.description.toLowerCase().replace(/\s+/g, '-')
+                : demo.url;
+            demos.push({
+              path: path + '/demos/' + demoPath,
+              description: demo.description || 'Demo'
+            });
+          }
+
+          sectionItems.push({ name: name, path: path, demos: demos});
         }
         sectionItems.sort(function(a, b) {
           return a.name.localeCompare(b.name);
