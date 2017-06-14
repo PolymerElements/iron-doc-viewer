@@ -37,6 +37,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </li>
       </template>
     </ul>
+
+    <marked-element
+        sanitize markdown="[[descriptor.description]]"
+        hidden$="[[!descriptor.description]]">
+     <div slot="markdown-html" class="markdown-html"></div>
+   </marked-element>
   </template>
 
   <script>

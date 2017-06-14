@@ -64,6 +64,7 @@ Custom property | Description | Default
 `--iron-doc-font-code` | Mixin applied to code snippets. | `{}`
 `--iron-doc-font-body` | Mixin applied to non-code text. | `{}`
 `--iron-doc-title` | Mixin applied to titles. | `{}`
+`--iron-doc-docs` | Mixin applied to each doc view, except for demos. | `{}`
 
 ### Previous versions
 
