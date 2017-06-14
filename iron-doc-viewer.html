@@ -237,6 +237,10 @@ Custom property | Description | Default
             return;
           }
 
+          if (!this._scrollTo) {
+            this.scrollIntoView();
+          }
+
           var descriptorType, name, demoName;
           if (path) {
             if (this.baseHref && path.indexOf(this.baseHref) >= 0) {
