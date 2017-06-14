@@ -21,6 +21,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .paramName {
         margin-right: 10px;
       }
+
+      #params marked-element,
+      #params .markdown-html,
+      #params .markdown-html p {
+        display: inline;
+      }
     </style>
 
     <div id="signature">
@@ -33,7 +39,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 items="[[descriptor.params]]">
         <li>
           <code class="paramName">[[item.name]]</code>
-          <span>[[item.description]]</span>
+          <marked-element
+              sanitize markdown="[[item.description]]"
+              hidden$="[[!item.description]]">
+           <div slot="markdown-html" class="markdown-html"></div>
+         </marked-element>
         </li>
       </template>
     </ul>
