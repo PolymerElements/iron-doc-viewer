@@ -69,6 +69,7 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'demos')]]" restamp>
       <iron-doc-demo
+          class="active"
           demo="[[_demo]]"
           src-prefix="[[demoSrcPrefix]]"
           title="{{title}}">
@@ -77,50 +78,50 @@ Custom property | Description | Default
 
     <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace
+          class="active"
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
-          scroll-to="[[_scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element
+          class="active"
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
-          scroll-to="[[_scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin
+          class="active"
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
-          scroll-to="[[_scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-behavior
+          class="active"
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
-          scroll-to="[[_scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-behavior>
     </template>
 
     <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class
+          class="active"
           descriptor="[[_currentDescriptor]]"
           fragment-prefix="[[_fragmentPrefix]]"
           title="{{title}}"
-          scroll-to="[[_scrollTo]]"
           base-href="[[baseHref]]">
       </iron-doc-class>
     </template>
@@ -211,7 +212,7 @@ Custom property | Description | Default
 
         observers: [
           '_routingChanged(baseHref, _urlPath, _urlHash)',
-          '_dataChanged(descriptor, path)',
+          '_dataChanged(descriptor, path, _scrollTo)',
         ],
 
         _equal: function(a, b) {
@@ -237,14 +238,10 @@ Custom property | Description | Default
           }
         },
 
-        _dataChanged: function(descriptor, path) {
+        _dataChanged: function(descriptor, path, scrollAnchor) {
           if (!this.descriptor) {
             this._descriptorType = null;
             return;
-          }
-
-          if (!this._scrollTo) {
-            this.scrollIntoView();
           }
 
           var descriptorType, name, demoName;
@@ -317,6 +314,17 @@ Custom property | Description | Default
                 break;
               }
             }
+          }
+
+          if (scrollAnchor) {
+            Polymer.dom.flush();
+            var active = this.$$('.active');
+            if (active && active.scrollToAnchor) {
+              active.scrollToAnchor(scrollAnchor);
+            }
+          } else {
+            // Scroll to top when we navigate to a new view.
+            this.scrollIntoView();
           }
         },
       });
