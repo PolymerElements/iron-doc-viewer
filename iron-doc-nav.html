@@ -54,9 +54,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <template is="dom-repeat" items="[[_sections]]" as="section">
-      <section>
+      <section hidden$="[[!section.items.length]]">
         <h3>[[section.heading]]</h3>
-        <ul hidden$="[[!section.items.length]]">
+        <ul>
           <template is="dom-repeat" items="[[section.items]]">
             <li>
               <a href="[[baseHref]][[item.path]]"
