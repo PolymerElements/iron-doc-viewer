@@ -18,23 +18,55 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style include="iron-doc-viewer-styles"></style>
     <style>
-      .paramName {
-        margin-right: 10px;
+      #funcName {
+        color: #212121;
       }
 
-      #params marked-element,
-      #params .markdown-html,
-      #params .markdown-html p {
+      .paramName {
+        color: var(--iron-doc-accent-color1);
+      }
+
+      .paramType, .returnType {
+        color: var(--iron-doc-accent-color2);
+      }
+
+      #paramList .paramName {
+        color: var(--iron-doc-accent-color2);
+        margin-right: 5px;
+      }
+
+      #paramList marked-element,
+      #paramList .markdown-html,
+      #paramList .markdown-html p {
         display: inline;
       }
     </style>
 
-    <div id="signature">
-      <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>(<span class="params code"><span>[[_paramText]]</span></span>)<!--
-      --><span class="return" hidden$="[[!descriptor.return]]">: <span class="type code">[[descriptor.return.type]]</span></span>
-    </div>
+    <code id="signature">
+      <a href$="#[[anchorId]]" id="funcName" class="name deeplink">
+        [[descriptor.name]]<!--
+   --></a><!--
+   -->(<span class="funcParams"><!--
+     --><template is="dom-repeat" items="[[descriptor.params]]" as="p"><!--
+       --><span hidden$="[[!index]]">, </span><!--
+       --><span class="paramName">[[p.name]]</span><!--
+       --><span hidden$="[[!p.type]]">:
+            <span class="paramType">[[p.type]]</span><!--
+       --></span><!--
+     --></template><!--
+   --></span>)<!--
+   --><span hidden$="[[!descriptor.return]]">:
+        <span class="returnType">[[descriptor.return.type]]</span>
+      </span>
+    </code>
 
-    <ul id="params" hidden$="[[!_showParamList]]">
+    <marked-element
+        sanitize markdown="[[descriptor.description]]"
+        hidden$="[[!descriptor.description]]">
+      <div slot="markdown-html" class="markdown-html"></div>
+    </marked-element>
+
+    <ul id="paramList" hidden$="[[!_showParamList]]">
       <template is="dom-repeat"
                 items="[[descriptor.params]]">
         <li>
@@ -47,12 +79,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </li>
       </template>
     </ul>
-
-    <marked-element
-        sanitize markdown="[[descriptor.description]]"
-        hidden$="[[!descriptor.description]]">
-     <div slot="markdown-html" class="markdown-html"></div>
-   </marked-element>
   </template>
 
   <script>
@@ -66,25 +92,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           anchorId: String,
 
-          _paramText: {
-            type: String,
-            computed: '_computeParamText(descriptor)',
-          },
-
           _showParamList: {
             type: Boolean,
             computed: '_computeShowParamList(descriptor)'
           }
-        },
-
-        _computeParamText: function(descriptor) {
-          return (descriptor.params || []).map(function(param) {
-            var text = param.name;
-            if (param.type) {
-              text += ': ' + param.type;
-            }
-            return text;
-          }).join(', ');
         },
 
         _computeShowParamList: function(descriptor) {

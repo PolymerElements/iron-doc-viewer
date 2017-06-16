@@ -31,14 +31,6 @@
         },
 
         /**
-         * Set this property to scroll to the given anchor.
-         */
-        scrollTo: {
-          type: String,
-          observer: '_scrollToChanged'
-        },
-
-        /**
          * Whether protected members should be hidden or shown.
          */
         _showProtected: {
@@ -87,10 +79,6 @@
       _formatAnchor: function(fragmentPrefix, type, membername) {
         var suffix = membername ? '-' + membername : '';
         return fragmentPrefix + type + suffix;
-      },
-
-      _scrollToChanged: function(hash) {
-        this.scrollToAnchor(hash);
       },
 
       /**
