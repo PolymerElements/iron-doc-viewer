@@ -19,13 +19,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       section {
         @apply --iron-doc-font-body;
-        padding: 0 24px;
         border-bottom: 1px solid #e0e0e0;
       }
 
       h3 {
         @apply --paper-font-subhead;
         color: #3c3c3c;
+        padding: 0 24px;
       }
 
       ul {
@@ -33,13 +33,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 0;
       }
 
+      li {
+        line-height: 30px;
+      }
+
       a {
         color: #737373;
-        line-height: 26px;
+        padding: 0 24px;
+        display: block;
         text-decoration: none;
       }
 
-      a:hover, a[selected]:hover {
+      a:hover {
         color: var(--iron-doc-accent-color1);
       }
 
@@ -47,9 +52,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: var(--iron-doc-accent-color2);
       }
 
-      .demos {
-        padding-left: 20px;
+      .tray {
+        height: 0;
+        opacity: 0;
+        transition: height 180ms linear, opacity 180ms linear;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .tray[expanded] {
+        padding: 10px 0;
+        opacity: 1;
+      }
+
+      .tray ul {
+        padding: 10px 0;
         white-space: nowrap;
+        background-color: #eee;
+        border-top: 1px solid #dedede;
+        border-bottom: 1px solid white;
+      }
+
+      .tray a {
+        padding-left: 35px;
       }
     </style>
 
@@ -62,24 +87,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <a href="[[baseHref]][[item.path]]"
                  title$="[[item.name]]"
                  on-tap="_select"
-                 selected$="[[_eq(item.path, path)]]">
+                 selected$="[[_isSelected(item.path, path)]]">
                 [[item.name]]
               </a>
 
-              <template is="dom-if" if="[[item.demos.length]]">
-                <ul class="demos">
+              <div class="tray"
+                   expanded$="[[_isExpanded(item, path)]]"
+                   style$="height:[[_trayHeight(item, path)]]px;">
+                <ul>
                   <template is="dom-repeat" items="[[item.demos]]" as="demo">
                     <li>
                       <a href="[[baseHref]][[demo.path]]"
                          title$="[[demo.description]]"
                          on-tap="_select"
-                         selected$="[[_eq(demo.path, path)]]">
+                         selected$="[[_isSelected(demo.path, path)]]">
                         [[demo.description]]
                       </a>
                     </li>
                   </template>
                 </ul>
-              </template>
+              </div>
             </li>
           </template>
         </ul>
@@ -124,8 +151,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.fire('select');
         },
 
-        _eq(a, b) {
+        _isSelected(a, b) {
           return a === b;
+        },
+
+        _isExpanded(item, path) {
+          return (path === item.path || path.indexOf(item.path + '/') === 0)
+              && item.demos.length > 0;
+        },
+
+        _trayHeight(item, path) {
+          if (!this._isExpanded(item, path)) {
+            return 0;
+          }
+          // line-height of each item + padding + borders;
+          return (item.demos.length * 30) + 40 + 2;
         }
       });
 
