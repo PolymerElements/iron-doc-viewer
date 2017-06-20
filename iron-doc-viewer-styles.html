@@ -22,7 +22,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply --iron-doc-title;
       }
 
-      :host > header, :host h1 {
+      h2 {
+        @apply --iron-doc-heading;
+      }
+
+      :host > header {
         font-size: 24px;
         font-weight: 400;
         margin-bottom: 18px;
@@ -64,7 +68,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       code, .code {
         @apply --iron-doc-font-code;
-        color: #0d47a1;
       }
 
       .metadata {
@@ -191,17 +194,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       #behaviors > p:last-of-type {
         border-bottom: none;
-      }
-
-      .checkbox {
-        margin-left: 16px;
-        cursor: pointer;
-        display: flex;
-      }
-
-      .checkbox input {
-        width: 18px;
-        height: 18px;
       }
     </style>
   </template>
