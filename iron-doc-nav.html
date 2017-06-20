@@ -53,11 +53,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .tray {
-        height: 0;
-        opacity: 0;
         transition: height 180ms linear, opacity 180ms linear;
         box-sizing: border-box;
         overflow: hidden;
+      }
+
+      .tray:not([expanded]) {
+        height: 0 !important;
+        opacity: 0;
         visibility: hidden; /** Prevent keyboard etc. focus. */
       }
 
@@ -94,9 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 [[item.name]]
               </a>
 
-              <div class="tray"
-                   expanded$="[[_isExpanded(item, path)]]"
-                   style$="height:[[_trayHeight(item, path)]]px;">
+              <div class="tray" expanded$="[[_isExpanded(item, path)]]">
                 <ul>
                   <template is="dom-repeat" items="[[item.demos]]" as="demo">
                     <li>
@@ -148,6 +149,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             _section('Mixins', '/mixins/', descriptor.mixins),
             _section('Classes', '/classes/', descriptor.classes),
           ];
+
+          // Store the height of each expanding tray for transitions.
+          Polymer.dom.flush();
+          var trays = Polymer.dom(this.root).querySelectorAll('.tray');
+          for (var i = 0; i < trays.length; i++) {
+            var tray = trays[i];
+            var expanded = tray.hasAttribute('expanded');
+            if (!expanded) {
+              tray.setAttribute('expanded', '');
+            }
+            tray.style.height = 'auto';
+            tray.style.height = tray.offsetHeight + 'px';
+            if (!expanded) {
+              tray.removeAttribute('expanded', '');
+            }
+          }
         },
 
         _select(event) {
@@ -161,14 +178,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _isExpanded(item, path) {
           return (path === item.path || path.indexOf(item.path + '/') === 0)
               && item.demos.length > 0;
-        },
-
-        _trayHeight(item, path) {
-          if (!this._isExpanded(item, path)) {
-            return 0;
-          }
-          // line-height of each item + padding + borders;
-          return (item.demos.length * 30) + 40 + 2;
         }
       });
 
