@@ -58,11 +58,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         transition: height 180ms linear, opacity 180ms linear;
         box-sizing: border-box;
         overflow: hidden;
+        visibility: hidden; /** Prevent keyboard etc. focus. */
       }
 
       .tray[expanded] {
         padding: 10px 0;
         opacity: 1;
+        visibility: visible;
       }
 
       .tray ul {
