@@ -111,6 +111,13 @@
                 element.classList.remove('scrolled');
               }, 1000);
             });
+
+          } else {
+            // Maybe our API section has this anchor.
+            var api = this.$$('iron-doc-api');
+            if (api) {
+              api.scrollToAnchor(hash);
+            }
           }
         }
       },
