@@ -45,8 +45,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </label>
     </nav>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'properties')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'properties')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'properties')]]" class="deeplink">Properties</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'properties')]]" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'properties')]]">
+      <h2><a href$="#[[_formatAnchor(fragmentPrefix,'properties')]]" class="deeplink">Properties</a></h2>
       <div hidden$="[[!descriptor.properties.length]]">
         <template is="dom-repeat" items="[[_filterMembers(descriptor.properties,_showProtected,_showInherited)]]" sort="_compareDescriptors">
           <iron-doc-property anchor-id$="[[_formatAnchor(fragmentPrefix,'property',item.name)]]" descriptor="[[item]]"></iron-doc-property>
@@ -54,15 +54,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'methods')]]" class="card"  hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'methods')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'methods')]]" class="deeplink">Methods</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'methods')]]" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'methods')]]">
+      <h2><a href$="#[[_formatAnchor(fragmentPrefix,'methods')]]" class="deeplink">Methods</a></h2>
       <template is="dom-repeat" items="[[_filterMembers(descriptor.methods,_showProtected,_showInherited)]]" sort="_compareDescriptors">
         <iron-doc-function anchor-id$="[[_formatAnchor(fragmentPrefix,'method',item.name)]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'events')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'events')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'events')]]" class="deeplink">Events</a></header>
+    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'events')]]" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'events')]]">
+      <h2><a href$="#[[_formatAnchor(fragmentPrefix,'events')]]" class="deeplink">Events</a></h2>
       <template is="dom-repeat" items="[[_filterMembers(descriptor.events,_showProtected,_showInherited)]]" sort="_compareDescriptors">
         <iron-doc-property anchor-id$="[[_formatAnchor(fragmentPrefix,'event',item.name)]]" descriptor="[[item]]"></iron-doc-property>
       </template>
