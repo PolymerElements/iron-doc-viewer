@@ -96,11 +96,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
 
-      #description .markdown-html pre {
+      #description [slot=markdown-html] pre {
         @apply --iron-doc-font-body;
       }
 
-      #description .markdown-html pre {
+      #description [slot=markdown-html] pre {
         background-color: #eeeeee;
         border-radius: 3px;
         font-size: 15px;
@@ -109,49 +109,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         word-wrap: break-word;
       }
 
-      #description .markdown-html table {
+      #description [slot=markdown-html] table {
         background-color: #eeeeee;
         border-collapse: collapse;
         margin: 12px 0;
         width: 100%;
       }
 
-      #description .markdown-html tr {
+      #description [slot=markdown-html] tr {
         padding: 0 18px;
       }
 
-      #description .markdown-html td,
-      #description .markdown-html th {
+      #description [slot=markdown-html] td,
+      #description [slot=markdown-html] th {
         padding: 6px 12px;
       }
 
-      #description .markdown-html td:first-child,
-      #description .markdown-html th:first-child {
+      #description [slot=markdown-html] td:first-child,
+      #description [slot=markdown-html] th:first-child {
         padding-left: 24px;
       }
 
-      #description .markdown-html td:last-child,
-      #description .markdown-html th:last-child {
+      #description [slot=markdown-html] td:last-child,
+      #description [slot=markdown-html] th:last-child {
         padding-right: 24px;
       }
 
-      #description .markdown-html td:first-child > code {
+      #description [slot=markdown-html] td:first-child > code {
         color: black;
         font-weight: bold;
       }
 
-      #description .markdown-html code {
+      #description [slot=markdown-html] code {
         @apply --iron-doc-font-code;
         background: #eeeeee;
         padding: 3px;
         border-radius: 3px;
       }
 
-      #description .markdown-html p {
+      #description [slot=markdown-html] p {
         padding: 0;
       }
 
-      #description .markdown-html a {
+      #description [slot=markdown-html] a {
         @apply --iron-doc-font-body;
         background: none;
         color: #536dfe;
