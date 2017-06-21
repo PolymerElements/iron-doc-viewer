@@ -98,7 +98,7 @@
             // Don't scroll until we've drawn the next frame, otherwise our
             // element might not know it's final screen position yet.
             Polymer.RenderStatus.afterNextRender(this, function() {
-              element.scrollIntoView();
+              element.scrollIntoView({behavior: 'smooth'});
               // Highlight the section for a moment so we can tell where
               // exactly we were deep-linked.
               element.classList.add('scrolled');

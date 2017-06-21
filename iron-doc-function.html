@@ -35,9 +35,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       #paramList [slot=markdown-html] p {
         display: inline;
       }
+
+      .privacy {
+        color: #666;
+      }
     </style>
 
     <code id="signature">
+      <span class="privacy">[[_privacy]]</span>
+
       <a href$="#[[anchorId]]" id="funcName" class="name deeplink">
         [[descriptor.name]]<!--
    --></a><!--
@@ -87,10 +93,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           anchorId: String,
 
+          _privacy: {
+            type: String,
+            computed: '_computePrivacy(descriptor)'
+          },
+
           _showParamList: {
             type: Boolean,
             computed: '_computeShowParamList(descriptor)'
           }
+        },
+
+        _computePrivacy(descriptor) {
+          if (!descriptor || !descriptor.privacy
+              || descriptor.privacy === 'public') {
+            return '';
+          }
+          return descriptor.privacy;
         },
 
         _computeShowParamList: function(descriptor) {
