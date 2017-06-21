@@ -36,7 +36,7 @@ descriptor output by
     <h1>[[title]]</h1>
     <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
-    <div class="metadata code">
+    <div class="code">
       class <span class="name">[[descriptor.name]]</span>
       extends
       <a class="name deeplink"
@@ -49,14 +49,14 @@ descriptor output by
       </span>
     </div>
 
-    <div class="metadata">Path: <span class="code">[[descriptor.path]]</span></div>
-    <div class="metadata" hidden$="[[!descriptor.behaviors]]">Behaviors:
+    <div>Path: <span class="code">[[descriptor.path]]</span></div>
+    <div hidden$="[[!descriptor.behaviors]]">Behaviors:
       <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareDescriptors">
         <a class="name deeplink" href$="[[baseHref]]/behaviors/[[item]]">[[item]]</a>
       </template>
     </div>
 
-    <section id="description" class="card" hidden$="[[!descriptor.description]]">
+    <section id="description" hidden$="[[!descriptor.description]]">
       <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html"></div>
       </marked-element>
