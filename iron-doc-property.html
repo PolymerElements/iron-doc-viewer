@@ -18,7 +18,7 @@ class, etc.
 -->
 
 <dom-module id="iron-doc-property">
-  <template>
+  <template strip-whitespace>
     <style include="iron-doc-viewer-styles"></style>
     <style>
       #polymer {
@@ -32,12 +32,24 @@ class, etc.
         margin-left: 8px;
         border-radius: 8px;
       }
+
+      .type {
+        color: var(--iron-doc-type-color);
+      }
+
+      .default {
+        color: var(--iron-doc-default-value-color);
+      }
     </style>
 
     <div id="signature">
-      <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>
-      <code id="type" hidden$="[[!descriptor.type]]">: [[descriptor.type]]</code>
-      <code id="default" hidden$="[[!descriptor.defaultValue]]">= [[descriptor.defaultValue]]</code>
+      <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a><!--
+     --><code id="type" hidden$="[[!descriptor.type]]">:
+          <span class="type">[[descriptor.type]]</span>
+        </code>
+      <code id="default" hidden$="[[!descriptor.defaultValue]]"> =
+        <span class="default">[[descriptor.defaultValue]]</span>
+      </code>
 
       <span id="polymer">
         <code hidden$="[[!descriptor.metadata.polymer.notify]]">notify</code>
