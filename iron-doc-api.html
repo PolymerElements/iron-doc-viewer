@@ -32,13 +32,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <section anchor-id$="[[fragmentPrefix]]properties"
-             hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'properties')]]">
+             hidden$="[[!_anyVisible(descriptor.properties)]]">
       <h2>
         <a href$="#[[fragmentPrefix]]properties" class="deeplink">Properties</a>
       </h2>
 
       <template is="dom-repeat"
-                items="[[_filterMembers(descriptor.properties,_showProtected,_showInherited)]]"
+                items="[[_public(descriptor.properties)]]"
                 sort="_compareDescriptors">
         <iron-doc-property descriptor="[[item]]"
                            anchor-id$="[[fragmentPrefix]]property-[[item.name]]">
@@ -64,13 +64,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </section>
 
     <section anchor-id$="[[fragmentPrefix]]methods"
-             hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'methods')]]">
+             hidden$="[[!_anyVisible(descriptor.methods)]]">
       <h2>
         <a href$="#[[fragmentPrefix]]methods" class="deeplink">Methods</a>
       </h2>
 
       <template is="dom-repeat"
-                items="[[_filterMembers(descriptor.methods,_showProtected,_showInherited)]]"
+                items="[[_public(descriptor.methods)]]"
                 sort="_compareDescriptors">
         <iron-doc-function descriptor="[[item]]"
                            anchor-id$="[[fragmentPrefix]]method-[[item.name]]">
@@ -93,17 +93,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </template>
         </template>
       </template>
-
     </section>
 
     <section anchor-id$="[[fragmentPrefix]]events"
-             hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'events')]]">
+             hidden$="[[!_anyVisible(descriptor.events)]]">
       <h2>
         <a href$="#[[fragmentPrefix]]events" class="deeplink">Events</a>
       </h2>
 
       <template is="dom-repeat"
-                items="[[_filterMembers(descriptor.events,_showProtected,_showInherited)]]"
+                items="[[_public(descriptor.events)]]"
                 sort="_compareDescriptors">
         <iron-doc-property descriptor="[[item]]"
                            anchor-id$="[[fragmentPrefix]]event-[[item.name]]">
@@ -143,17 +142,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           _showProtectedEvents: Boolean
         },
 
-        _protectedCount(items) {
-          return this._protected(items).length;
+        _anyVisible(items) {
+          for (var i = 0; i < (items || []).length; i++) {
+            var item = items[i];
+            if (!item.privacy || item.privacy === 'public' || item.privacy === 'protected') {
+              return true;
+            }
+          };
+          return false;
         },
 
-        _toggleShowProtectedMethods(ev) {
-          ev.preventDefault();
-          this._showProtectedMethods = !this._showProtectedMethods;
-          Polymer.dom.flush();
-          Polymer.RenderStatus.afterNextRender(this, function() {
-            this.$.methodHider.scrollIntoView({behavior: 'smooth'});
-          });
+        _public(items) {
+          var filtered = [];
+          for (var i = 0; i < (items || []).length; i++) {
+            var item = items[i];
+            if (!item.privacy || item.privacy === 'public') {
+              filtered.push(item);
+            }
+          }
+          return filtered;
         },
 
         _protected(items) {
@@ -165,6 +172,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
           }
           return filtered;
+        },
+
+        _protectedCount(items) {
+          return this._protected(items).length;
         }
       });
     })();
