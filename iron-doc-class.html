@@ -42,7 +42,13 @@ descriptor output by
       <template is="dom-repeat" items="[[descriptor.mixins]]">[[item]]</template>
     </div>
 
-    <section id="description" hidden$="[[!descriptor.description]]">
+    <section id="description"
+             hidden$="[[!descriptor.description]]"
+             anchor-id$="[[fragmentPrefix]]description">
+      <h2>
+        <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
+      </h2>
+
       <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html"></div>
       </marked-element>
