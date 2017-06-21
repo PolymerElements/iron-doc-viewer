@@ -143,6 +143,9 @@
        * display name.
        */
       _compareDescriptors: function(a, b) {
+        if (a.inheritedFrom || '' !== b.inheritedFrom || '') {
+          return (a.inheritedFrom || '').localeCompare(b.inheritedFrom || '');
+        }
         // Elements display as "<tagname> (name)" or "name", while
         // everything else displays as "name".
         if (a.name != b.name) {
