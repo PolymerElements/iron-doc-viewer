@@ -42,7 +42,6 @@ JSON descriptor output by
       <h2>
         <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
-
       <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html"></div>
       </marked-element>
@@ -64,7 +63,7 @@ JSON descriptor output by
     <section anchor-id$="[[fragmentPrefix]]classes" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
       <h2>
         <a href$="#[[fragmentPrefix]]classes" class="deeplink">Classes</a>
-
+      </h2>
       <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
