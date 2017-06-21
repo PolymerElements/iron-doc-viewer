@@ -18,11 +18,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="iron-doc-viewer-styles"></style>
     <style>
       .paramName {
-        color: var(--iron-doc-accent-color1);
+        color: var(--iron-doc-param-color);
       }
 
       .paramType, .returnType {
-        color: #666;
+        color: var(--iron-doc-type-color);
       }
 
       #paramList .paramName {
@@ -31,13 +31,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #paramList marked-element,
-      #paramList .markdown-html,
-      #paramList .markdown-html p {
+      #paramList [slot=markdown-html],
+      #paramList [slot=markdown-html] p {
         display: inline;
+      }
+
+      .privacy {
+        color: #666;
       }
     </style>
 
     <code id="signature">
+      <span class="privacy">[[_privacy]]</span>
+
       <a href$="#[[anchorId]]" id="funcName" class="name deeplink">
         [[descriptor.name]]<!--
    --></a><!--
@@ -55,10 +61,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </span>
     </code>
 
+    <p hidden$="[[!descriptor.inheritedFrom]]" class="inheritedFrom">
+      Inherited from <code>[[descriptor.inheritedFrom]]</code>
+    </p>
+
     <marked-element
         sanitize markdown="[[descriptor.description]]"
         hidden$="[[!descriptor.description]]">
-      <div slot="markdown-html" class="markdown-html"></div>
+      <div slot="markdown-html"></div>
     </marked-element>
 
     <ul id="paramList" hidden$="[[!_showParamList]]">
@@ -69,7 +79,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <marked-element
               sanitize markdown="[[item.description]]"
               hidden$="[[!item.description]]">
-           <div slot="markdown-html" class="markdown-html"></div>
+           <div slot="markdown-html"></div>
          </marked-element>
         </li>
       </template>
@@ -87,10 +97,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           anchorId: String,
 
+          _privacy: {
+            type: String,
+            computed: '_computePrivacy(descriptor)'
+          },
+
           _showParamList: {
             type: Boolean,
             computed: '_computeShowParamList(descriptor)'
           }
+        },
+
+        _computePrivacy(descriptor) {
+          if (!descriptor || !descriptor.privacy
+              || descriptor.privacy === 'public') {
+            return '';
+          }
+          return descriptor.privacy;
         },
 
         _computeShowParamList: function(descriptor) {

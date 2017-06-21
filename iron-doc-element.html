@@ -24,7 +24,7 @@ descriptor output by
 -->
 
 <dom-module id="iron-doc-element">
-  <template>
+  <template strip-whitespace>
     <style include="iron-doc-viewer-styles prism-theme-default">
       :host {
         @apply --iron-doc-docs;
@@ -36,29 +36,37 @@ descriptor output by
     <h1>[[title]]</h1>
     <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
-    <div class="metadata code">
-      class <span class="name">[[descriptor.name]]</span>
-      extends
-      <a class="name deeplink"
-          target$="[[_superclassTarget(descriptor.superclass)]]"
-          href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
-      <span hidden$="[[!descriptor.mixins]]">
-        with &#8203;<template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
-          <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
-        </template>
-      </span>
+    <div>
+      <code>
+        class <span class="name">[[descriptor.name]]</span>
+        extends
+        <a class="name deeplink"
+            target$="[[_superclassTarget(descriptor.superclass)]]"
+            href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
+        <span hidden$="[[!descriptor.mixins]]">
+          with &#8203;<template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
+            <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
+          </template>
+        </span>
+      </code>
     </div>
 
-    <div class="metadata">Path: <span class="code">[[descriptor.path]]</span></div>
-    <div class="metadata" hidden$="[[!descriptor.behaviors]]">Behaviors:
+    <div>Path: <code>[[descriptor.path]]</code></div>
+    <div hidden$="[[!descriptor.behaviors]]">Behaviors:
       <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareDescriptors">
         <a class="name deeplink" href$="[[baseHref]]/behaviors/[[item]]">[[item]]</a>
       </template>
     </div>
 
-    <section id="description" class="card" hidden$="[[!descriptor.description]]">
+    <section id="description"
+             hidden$="[[!descriptor.description]]"
+             anchor-id$="[[fragmentPrefix]]description">
+      <h2>
+        <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
+      </h2>
+
       <marked-element sanitize markdown="[[descriptor.description]]">
-        <div slot="markdown-html" class="markdown-html"></div>
+        <div slot="markdown-html"></div>
       </marked-element>
     </section>
 

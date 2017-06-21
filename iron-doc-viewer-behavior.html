@@ -76,11 +76,6 @@
         return filteredItems.length === 0;
       },
 
-      _formatAnchor: function(fragmentPrefix, type, membername) {
-        var suffix = membername ? '-' + membername : '';
-        return fragmentPrefix + type + suffix;
-      },
-
       /**
        * Scroll to the descriptor (element, function, etc.) with an `anchor-id`
        * matching the given URL hash (`#` optional). If no hash is specified,
@@ -103,7 +98,7 @@
             // Don't scroll until we've drawn the next frame, otherwise our
             // element might not know it's final screen position yet.
             Polymer.RenderStatus.afterNextRender(this, function() {
-              element.scrollIntoView();
+              element.scrollIntoView({behavior: 'smooth'});
               // Highlight the section for a moment so we can tell where
               // exactly we were deep-linked.
               element.classList.add('scrolled');
@@ -148,6 +143,9 @@
        * display name.
        */
       _compareDescriptors: function(a, b) {
+        if (a.inheritedFrom || '' !== b.inheritedFrom || '') {
+          return (a.inheritedFrom || '').localeCompare(b.inheritedFrom || '');
+        }
         // Elements display as "<tagname> (name)" or "name", while
         // everything else displays as "name".
         if (a.name != b.name) {

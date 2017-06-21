@@ -18,7 +18,7 @@ class, etc.
 -->
 
 <dom-module id="iron-doc-property">
-  <template>
+  <template strip-whitespace>
     <style include="iron-doc-viewer-styles"></style>
     <style>
       #polymer {
@@ -32,12 +32,30 @@ class, etc.
         margin-left: 8px;
         border-radius: 8px;
       }
+
+      .type {
+        color: var(--iron-doc-type-color);
+      }
+
+      .default {
+        color: var(--iron-doc-default-value-color);
+      }
+
+      .privacy {
+        color: #666;
+      }
     </style>
 
     <div id="signature">
-      <a id$="[[anchorId]]" href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a>
-      <code id="type" hidden$="[[!descriptor.type]]">: [[descriptor.type]]</code>
-      <code id="default" hidden$="[[!descriptor.defaultValue]]">= [[descriptor.defaultValue]]</code>
+      <code class="privacy">[[_privacy]] </code>
+
+      <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a><!--
+     --><code id="type" hidden$="[[!descriptor.type]]">:
+          <span class="type">[[descriptor.type]]</span>
+        </code>
+      <code id="default" hidden$="[[!descriptor.defaultValue]]"> =
+        <span class="default">[[descriptor.defaultValue]]</span>
+      </code>
 
       <span id="polymer">
         <code hidden$="[[!descriptor.metadata.polymer.notify]]">notify</code>
@@ -46,13 +64,13 @@ class, etc.
       </span>
     </div>
 
-    <div id="details">
-      <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
+    <p hidden$="[[!descriptor.inheritedFrom]]" class="inheritedFrom">
+      Inherited from <code>[[descriptor.inheritedFrom]]</code>
+    </p>
 
-        <span class="annotation">[[_getAnnotation(descriptor)]]</span>
-      </div>
+    <div id="details">
       <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
-        <div slot="markdown-html" class="markdown-html"></div>
+        <div slot="markdown-html"></div>
       </marked-element>
     </div>
   </template>
@@ -64,8 +82,12 @@ class, etc.
 
         properties: {
           descriptor: {
-            type:     Object,
-            observer: '_descriptorChanged',
+            type:     Object
+          },
+
+          _privacy: {
+            type: String,
+            computed: '_computePrivacy(descriptor)'
           },
 
           function: {
@@ -79,56 +101,15 @@ class, etc.
           anchorId: {
             type: String,
             reflectToAttribute: true,
-          },
-
-          _paramText: String,
-        },
-
-        ready: function() {
-          this._isReady = true;
-        },
-
-        _descriptorChanged: function() {
-          this.toggleAttribute('configuration', this.descriptor.configuration);
-          this.toggleAttribute('function',      this.descriptor.function);
-          this._paramText = (this.descriptor.params || []).map(function(param) {
-            return param.name;
-          }).join(', ');
-        },
-
-        // hidden if no type and no defaults
-        _computeHideMeta: function(descriptor) {
-          return descriptor.type === undefined &&  descriptor.default === undefined;
-        },
-
-        // hidden if no params, and no return value
-        _computeHideParams: function(descriptor) {
-          return (!descriptor.params || descriptor.params.length === 0);
-        },
-
-        _computeHideDefault: function(def) {
-          return def === undefined;
-        },
-
-        _computeDefaultDisplay: function(def) {
-          if (def === '')
-            return "''";
-          return def;
-        },
-
-        _getAnnotation: function(descriptor) {
-          var annotations = [];
-
-          if (descriptor['default'] !== undefined) {
-            annotations.push('Default: ' + descriptor['default']);
           }
-          if (descriptor.readOnly) {
-            annotations.push('readOnly');
+        },
+
+        _computePrivacy(descriptor) {
+          if (!descriptor || !descriptor.privacy
+              || descriptor.privacy === 'public') {
+            return '';
           }
-          if (descriptor.notify) {
-            annotations.push('notifies');
-          }
-          return annotations.join(' – ');
+          return descriptor.privacy;
         }
       });
     })();
