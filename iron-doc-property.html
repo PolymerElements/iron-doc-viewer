@@ -47,10 +47,6 @@ class, etc.
     </div>
 
     <div id="details">
-      <div id="meta" hidden$="[[_computeHideMeta(descriptor)]]">
-
-        <span class="annotation">[[_getAnnotation(descriptor)]]</span>
-      </div>
       <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
@@ -79,56 +75,7 @@ class, etc.
           anchorId: {
             type: String,
             reflectToAttribute: true,
-          },
-
-          _paramText: String,
-        },
-
-        ready: function() {
-          this._isReady = true;
-        },
-
-        _descriptorChanged: function() {
-          this.toggleAttribute('configuration', this.descriptor.configuration);
-          this.toggleAttribute('function',      this.descriptor.function);
-          this._paramText = (this.descriptor.params || []).map(function(param) {
-            return param.name;
-          }).join(', ');
-        },
-
-        // hidden if no type and no defaults
-        _computeHideMeta: function(descriptor) {
-          return descriptor.type === undefined &&  descriptor.default === undefined;
-        },
-
-        // hidden if no params, and no return value
-        _computeHideParams: function(descriptor) {
-          return (!descriptor.params || descriptor.params.length === 0);
-        },
-
-        _computeHideDefault: function(def) {
-          return def === undefined;
-        },
-
-        _computeDefaultDisplay: function(def) {
-          if (def === '')
-            return "''";
-          return def;
-        },
-
-        _getAnnotation: function(descriptor) {
-          var annotations = [];
-
-          if (descriptor['default'] !== undefined) {
-            annotations.push('Default: ' + descriptor['default']);
           }
-          if (descriptor.readOnly) {
-            annotations.push('readOnly');
-          }
-          if (descriptor.notify) {
-            annotations.push('notifies');
-          }
-          return annotations.join(' – ');
         }
       });
     })();
