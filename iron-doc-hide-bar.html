@@ -37,7 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <a href="" on-tap="_toggle">
       <span hidden$="[[visible]]">Show</span>
       <span hidden$="[[!visible]]">Hide</span>
-      [[_count]] [[label]].
+      <slot></slot>
     </a>
 
   </template>
@@ -52,25 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             type: Boolean,
             value: false,
             notify: true
-          },
-
-          items: {
-            type: Array
-          },
-
-          label: {
-            type: String,
-            value: 'items'
-          },
-
-          _count: {
-            type: Number,
-            computed: '_computeCount(items)'
           }
-        },
-
-        _computeCount(items) {
-          return (items || []).length;
         },
 
         _toggle(ev) {
