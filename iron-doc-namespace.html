@@ -46,9 +46,9 @@ JSON descriptor output by
       <header>[[_namespaceName]] API Reference</header>
     </nav>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'elements')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
+    <section anchor-id$="[[fragmentPrefix]]elements" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
       <header>
-        <a href$="#[[_formatAnchor(fragmentPrefix,'elements')]]" class="deeplink">Elements</a>
+        <a href$="#[[fragmentPrefix]]elements" class="deeplink">Elements</a>
       </header>
       <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareDescriptors">
         <iron-doc-summary
@@ -59,9 +59,9 @@ JSON descriptor output by
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'classes')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
+    <section anchor-id$="[[fragmentPrefix]]classes" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
       <header>
-        <a href$="#[[_formatAnchor(fragmentPrefix,'classes')]]" class="deeplink">Classes</a>
+        <a href$="#[[fragmentPrefix]]classes" class="deeplink">Classes</a>
 
       <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
         <iron-doc-summary
@@ -72,8 +72,8 @@ JSON descriptor output by
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'mixins')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'mixins')]]" class="deeplink">Mixins</a></header>
+    <section anchor-id$="[[fragmentPrefix]]mixins" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
+      <header><a href$="#[[fragmentPrefix]]mixins" class="deeplink">Mixins</a></header>
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
@@ -83,8 +83,8 @@ JSON descriptor output by
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'behaviors')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'behaviors')]]" class="deeplink">Behaviors</a></header>
+    <section anchor-id$="[[fragmentPrefix]]behaviors" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
+      <header><a href$="#[[fragmentPrefix]]behaviors" class="deeplink">Behaviors</a></header>
       <template is="dom-repeat" items="[[_getPolymerBehaviors(descriptor)]]" sort="_compareDescriptors">
         <iron-doc-summary
           name="[[item.name]]"
@@ -94,15 +94,15 @@ JSON descriptor output by
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'functions')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'functions')]]" class="deeplink">Functions</a></header>
+    <section anchor-id$="[[fragmentPrefix]]functions" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
+      <header><a href$="#[[fragmentPrefix]]functions" class="deeplink">Functions</a></header>
       <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
-        <iron-doc-function anchor-id$="[[_formatAnchor(fragmentPrefix,'function', item.name)]]" descriptor="[[item]]"></iron-doc-function>
+        <iron-doc-function anchor-id$="[[fragmentPrefix]]function-[[item.name]]" descriptor="[[item]]"></iron-doc-function>
       </template>
     </section>
 
-    <section anchor-id$="[[_formatAnchor(fragmentPrefix,'namespaces')]]" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'namespaces')]]">
-      <header><a href$="#[[_formatAnchor(fragmentPrefix,'namespaces')]]" class="deeplink">Namespaces</a></header>
+    <section anchor-id$="[[fragmentPrefix]]namespaces" class="card" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'namespaces')]]">
+      <header><a href$="#[[fragmentPrefix]]namespaces" class="deeplink">Namespaces</a></header>
       <div hidden$="[[!descriptor.namespaces.length]]">
         <template is="dom-repeat" items="[[descriptor.namespaces]]" sort="_compareDescriptors">
           <iron-doc-summary

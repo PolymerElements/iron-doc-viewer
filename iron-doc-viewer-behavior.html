@@ -76,11 +76,6 @@
         return filteredItems.length === 0;
       },
 
-      _formatAnchor: function(fragmentPrefix, type, membername) {
-        var suffix = membername ? '-' + membername : '';
-        return fragmentPrefix + type + suffix;
-      },
-
       /**
        * Scroll to the descriptor (element, function, etc.) with an `anchor-id`
        * matching the given URL hash (`#` optional). If no hash is specified,
