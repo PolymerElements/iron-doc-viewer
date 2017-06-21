@@ -36,6 +36,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: inline;
       }
 
+      .static {
+        color: #666;
+      }
+
       .privacy {
         color: #666;
       }
@@ -43,6 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <code id="signature">
       <span class="privacy">[[_privacy]]</span>
+      <span class="static" hidden$="[[!static]]">static</span>
 
       <a href$="#[[anchorId]]" id="funcName" class="name deeplink">
         [[descriptor.name]]<!--
@@ -96,6 +101,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         properties: {
           anchorId: String,
+
+          static: {
+            type: Boolean,
+            value: false
+          },
 
           _privacy: {
             type: String,

@@ -46,9 +46,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
 
       <template is="dom-if" if="[[_protectedCount(descriptor.properties)]]">
-        <iron-doc-hide-bar visible="{{_showProtectedProperties}}"
-                           items="[[_protected(descriptor.properties)]]"
-                           label="protected properties">
+        <iron-doc-hide-bar visible="{{_showProtectedProperties}}">
+          [[_protectedCount(descriptor.properties)]] protected properties
         </iron-doc-hide-bar>
 
         <template is="dom-if" if="[[_showProtectedProperties]]">
@@ -70,6 +69,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </h2>
 
       <template is="dom-repeat"
+                items="[[_public(descriptor.staticMethods)]]"
+                sort="_compareDescriptors">
+        <iron-doc-function descriptor="[[item]]" static
+                           anchor-id$="[[fragmentPrefix]]staticmethod-[[item.name]]">
+        </iron-doc-function>
+      </template>
+
+      <template is="dom-repeat"
                 items="[[_public(descriptor.methods)]]"
                 sort="_compareDescriptors">
         <iron-doc-function descriptor="[[item]]"
@@ -77,13 +84,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-doc-function>
       </template>
 
-      <template is="dom-if" if="[[_protectedCount(descriptor.methods)]]">
-        <iron-doc-hide-bar visible="{{_showProtectedMethods}}"
-                           items="[[_protected(descriptor.methods)]]"
-                           label="protected methods">
+      <template is="dom-if" if="[[_protectedCount(descriptor.methods, descriptor.staticMethods)]]">
+        <iron-doc-hide-bar visible="{{_showProtectedMethods}}">
+          [[_protectedCount(descriptor.methods, descriptor.staticMethods)]]
+          protected methods
         </iron-doc-hide-bar>
 
         <template is="dom-if" if="[[_showProtectedMethods]]">
+          <template is="dom-repeat"
+                    items="[[_protected(descriptor.staticMethods)]]"
+                    sort="_compareDescriptors">
+            <iron-doc-function descriptor="[[item]]" static
+                               anchor-id$="[[fragmentPrefix]]method-[[item.name]]">
+            </iron-doc-function>
+          </template>
+
           <template is="dom-repeat"
                     items="[[_protected(descriptor.methods)]]"
                     sort="_compareDescriptors">
@@ -110,9 +125,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
 
       <template is="dom-if" if="[[_protectedCount(descriptor.events)]]">
-        <iron-doc-hide-bar visible="{{_showProtectedEvents}}"
-                           items="[[_protected(descriptor.events)]]"
-                           label="protected events">
+        <iron-doc-hide-bar visible="{{_showProtectedEvents}}">
+          [[_protectedCount(descriptor.events)]] protected events
         </iron-doc-hide-bar>
 
         <template is="dom-if" if="[[_showProtectedEvents]]">
@@ -174,8 +188,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return filtered;
         },
 
-        _protectedCount(items) {
-          return this._protected(items).length;
+        _protectedCount(/** arguments */) {
+          var sum = 0;
+          for (var i = 0; i < arguments.length; i++) {
+            sum += this._protected(arguments[i]).length
+          }
+          return sum;
         }
       });
     })();
