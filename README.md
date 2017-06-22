@@ -3,13 +3,6 @@
 
 ## &lt;iron-doc-viewer&gt;
 
-***
-⚠️ The version of iron-doc-viewer described below is coming soon, but not quite
-yet tagged for release. See [this
-issue](https://github.com/PolymerElements/iron-component-page/issues/121) for
-status. ⚠️
-***
-
 A collection of elements that display documentation about custom elements,
 mixins, classes, and more using the JSON descriptor format produced by [Polymer
 Analyzer](https://github.com/Polymer/polymer-analyzer).
@@ -68,10 +61,10 @@ Custom property | Description | Default
 
 ### Previous versions
 
-The 3.x iron-doc elements described here have major breaking API and behavioral
-changes versus the 1.x and 2.x versions. Previous versions were based on
-*Hydrolysis*, the predecessor to Polymer Analyzer. Hydrolysis is no longer
-maintained and does not support analysis of Polymer 2 elements.
+The 3.x `iron-doc` elements described here have major breaking changes versus
+the 1.x and 2.x versions. Previous versions were based on *Hydrolysis*, the
+predecessor to Polymer Analyzer. Hydrolysis is no longer maintained and does
+not support analysis of Polymer 2 elements.
 
 If you still need the previous version, see the
 [2.x branch](https://github.com/PolymerElements/iron-doc-viewer/tree/2.x).
