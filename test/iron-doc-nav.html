@@ -85,13 +85,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         it('shows sections', function() {
           var headings =
-              Array.from(
-                  Polymer.dom(nav.root)
-                  .querySelectorAll(':not([hidden]) > h3'))
-              .map(function(h) {
-                return h.textContent;
-              });
-          expect(headings).to.deep.equals([
+              Polymer.dom(nav.root).querySelectorAll(':not([hidden]) > h3');
+          var text = [];
+          for (var i = 0; i < headings.length; i++) {
+            text.push(headings[i].textContent);
+          }
+          expect(text).to.deep.equals([
             'Namespaces', 'Elements', 'Behaviors', 'Mixins', 'Classes',
           ]);
         });
