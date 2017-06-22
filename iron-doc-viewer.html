@@ -220,7 +220,7 @@ Custom property | Description | Default
             // URL fragment routing.
             var parts = (urlHash || '').split('#');
             this.path = parts[0];
-            this._scrollTo = parts[1];
+            this._scrollTo = parts[1] || null;
             this._fragmentPrefix = parts[0] + '#';
 
           } else {
