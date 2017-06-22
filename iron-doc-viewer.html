@@ -256,7 +256,8 @@ Custom property | Description | Default
           }
           var parts = path.split('/');
           if (parts.length > 1) {
-            [, descriptorType, name] = parts;
+            descriptorType = parts[1];
+            name = parts[2];
           }
           if (parts.length > 3 && parts[3] === 'demos') {
             demoName = parts.slice(4).join('/');
