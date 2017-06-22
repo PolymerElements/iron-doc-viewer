@@ -240,33 +240,27 @@ Custom property | Description | Default
             return;
           }
 
-          var descriptorType, name, demoName;
-          if (path) {
-            if (this.baseHref && path.indexOf(this.baseHref) >= 0) {
-              path = path.substring(this.baseHref.length);
+          if (!path) {
+            if (this.rootNamespace) {
+              this.path = '/namespaces/' + this.rootNamespace;
+            } else {
+              this._descriptorType = 'namespaces';
+              this._currentDescriptor = descriptor;
             }
-            var parts = path.split('/');
-            if (parts.length > 1) {
-              [, descriptorType, name] = parts;
-            }
-            if (parts.length > 3 && parts[3] === 'demos') {
-              demoName = parts.slice(4).join('/');
-            }
+            return;
           }
 
-          if (!descriptorType) {
-            // If we don't have a route, display either the top-level namespace
-            // or the rootNamespace if set.
-            this._descriptorType = 'namespaces';
-            if (this.rootNamespace && descriptor.namespaces) {
-              var matches = descriptor.namespaces.filter((n) => n.name === this.rootNamespace);
-              if (matches && matches.length > 0) {
-                this._currentDescriptor = matches[0];
-              }
-              return;
-            }
-            this._currentDescriptor = descriptor;
-            return;
+          var descriptorType, name, demoName;
+          if (this.baseHref && path.indexOf(this.baseHref) >= 0) {
+            path = path.substring(this.baseHref.length);
+          }
+          var parts = path.split('/');
+          if (parts.length > 1) {
+            descriptorType = parts[1];
+            name = parts[2];
+          }
+          if (parts.length > 3 && parts[3] === 'demos') {
+            demoName = parts.slice(4).join('/');
           }
 
           var namespace = getNamespace(this.descriptor, name) || this.descriptor;

@@ -60,12 +60,11 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--iron-doc-accent-color1` | Color for emphasis (e.g. hyperlinks). | `black`
-`--iron-doc-accent-color2` | Color for bright emphasis (e.g. hyperlink hover). | `black`
-`--iron-doc-font-code` | Mixin applied to code snippets. | `{}`
+`--iron-doc-accent-color` | Color for emphasis (e.g. hyperlink hover). | ``
 `--iron-doc-font-body` | Mixin applied to non-code text. | `{}`
-`--iron-doc-title` | Mixin applied to titles. | `{}`
-`--iron-doc-docs` | Mixin applied to each doc view, except for demos. | `{}`
+`--iron-doc-font-code` | Mixin applied to code snippets. | `{}`
+`--iron-doc-title` | Mixin applied to page titles. | `{}`
+`--iron-doc-heading` | Mixin applied to section headings. | `{}`
 
 ### Previous versions
 

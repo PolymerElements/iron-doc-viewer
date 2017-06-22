@@ -21,24 +21,28 @@ class, etc.
   <template strip-whitespace>
     <style include="iron-doc-viewer-styles"></style>
     <style>
+      :host {
+        display: block;
+      }
+
       #polymer {
         margin-left: 12px;
       }
 
       #polymer > * {
         background-color: #efefef;
-        color: var(--iron-doc-accent-color1);
+        color: var(--iron-doc-accent-color);
         padding: 1px 6px;
         margin-left: 8px;
         border-radius: 8px;
       }
 
       .type {
-        color: var(--iron-doc-type-color);
+        color: #666;
       }
 
       .default {
-        color: var(--iron-doc-default-value-color);
+        color: var(--iron-doc-accent-color);
       }
 
       .privacy {

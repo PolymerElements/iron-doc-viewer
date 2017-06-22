@@ -15,17 +15,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style>
       html, :host {
+        --iron-doc-accent-color: var(--paper-pink-600);
+
         --iron-doc-font-body: {
           @apply --paper-font-body1;
         };
 
         --iron-doc-font-code: {
           @apply --paper-font-code1;
-        };
-
-        --iron-doc-docs: {
-          max-width: 56em;
-          padding: 5px 20px 20px 20px;
         };
 
         --iron-doc-title: {
@@ -36,18 +33,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           @apply --paper-font-title;
           font-weight: 400;
         };
-
-        --iron-doc-accent-color1: var(--paper-pink-600);
-        --iron-doc-accent-color2: var(--paper-blue-800);
-
-        /** Property/parameter/return signature type. */
-        --iron-doc-type-color: #666;
-
-        /** Property default value. */
-        --iron-doc-default-value-color: var(--iron-doc-accent-color1);
-
-        /** Function/method signature parameter. */
-        --iron-doc-param-color: var(--iron-doc-accent-color1);
       }
     </style>
   </template>

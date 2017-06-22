@@ -13,9 +13,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
       :host {
         @apply --iron-doc-font-body;
+        font-family: sans-serif;
 
         color: #212121;
         display: block;
+
+        --iron-doc-docs: {
+          max-width: 56em;
+          padding: 5px 20px 20px 20px;
+        };
       }
 
       h1 {
@@ -24,6 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       h2 {
         @apply --iron-doc-heading;
+        padding-top: 12px;
       }
 
       :host > header {
@@ -42,15 +49,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .inheritedFrom code {
-        color: var(--iron-doc-accent-color1);
+        color: var(--iron-doc-accent-color);
       }
 
-      .member, iron-doc-summary, iron-doc-function, iron-doc-property {
-        @apply --iron-doc-font-body;
-
-        box-sizing: border-box;
-        display: block;
-        padding: 16px;
+      iron-doc-summary, iron-doc-function, iron-doc-property {
+        padding: 12px 16px;
       }
 
       .deeplink {
@@ -59,11 +62,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .deeplink:hover {
-        color: #e91e63;
+        color: var(--iron-doc-accent-color);
       }
 
       [anchor-id]:not(.scrolled) {
-        transition: all 0.3s linear;
+        transition: background-color 0.3s linear;
       }
 
       [anchor-id].scrolled {
@@ -72,6 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .name {
         @apply --iron-doc-font-code;
+        font-family: monospace;
         font-weight: bold;
       }
 
@@ -130,7 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       [slot=markdown-html] code {
         @apply --iron-doc-font-code;
         background-color: #f5f5f5;
-        padding: 1px 5px;
+        padding: 0 5px;
         border-radius: 3px;
       }
 
