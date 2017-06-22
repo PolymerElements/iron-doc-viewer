@@ -60,7 +60,7 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--iron-doc-accent-color1` | Color for emphasis (e.g. hyperlink hover). | ``
+`--iron-doc-accent-color` | Color for emphasis (e.g. hyperlink hover). | ``
 `--iron-doc-font-body` | Mixin applied to non-code text. | `{}`
 `--iron-doc-font-code` | Mixin applied to code snippets. | `{}`
 `--iron-doc-title` | Mixin applied to page titles. | `{}`
