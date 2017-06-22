@@ -112,7 +112,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               .$$('iron-doc-viewer')
               .$$('iron-doc-element');
           var text = Polymer.dom(view.root).textContent;
-          expect(text).contains('I am an element');
+          expect(text).contains('my-element');
         });
 
         it('renders mixin', function() {
@@ -122,7 +122,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               .$$('iron-doc-viewer')
               .$$('iron-doc-mixin');
           var text = Polymer.dom(view.root).textContent;
-          expect(text).contains('I am a mixin');
+          expect(text).contains('my-mixin');
         });
 
         it('renders class', function() {
@@ -132,7 +132,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               .$$('iron-doc-viewer')
               .$$('iron-doc-class');
           var text = Polymer.dom(view.root).textContent;
-          expect(text).contains('I am a class');
+          expect(text).contains('my-class');
         });
 
         it('renders behavior', function() {
@@ -142,7 +142,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               .$$('iron-doc-viewer')
               .$$('iron-doc-behavior');
           var text = Polymer.dom(view.root).textContent;
-          expect(text).contains('I am a behavior');
+          expect(text).contains('my-behavior');
         });
 
         it('renders demo by short name', function() {
