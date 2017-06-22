@@ -240,7 +240,7 @@ Custom property | Description | Default
             return;
           }
 
-          if (!path) {
+          if (!path || path === '/') {
             if (this.rootNamespace) {
               this.path = '/namespaces/' + this.rootNamespace;
             } else {
