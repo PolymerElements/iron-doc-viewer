@@ -177,8 +177,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
         _isExpanded(item, path) {
-          return (path === item.path || path.indexOf(item.path + '/') === 0)
-              && item.demos.length > 0;
+          return item && path && item.path && item.demos && item.demos.length > 0
+              && (path === item.path || path.indexOf(item.path + '/') === 0);
         }
       });
 

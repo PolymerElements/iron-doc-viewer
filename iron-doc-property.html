@@ -86,17 +86,12 @@ class, etc.
 
         properties: {
           descriptor: {
-            type:     Object
+            type: Object
           },
 
           _privacy: {
             type: String,
             computed: '_computePrivacy(descriptor)'
-          },
-
-          function: {
-            type: Boolean,
-            reflectToAttribute: true,
           },
 
           /**
@@ -105,6 +100,7 @@ class, etc.
           anchorId: {
             type: String,
             reflectToAttribute: true,
+            value: ''
           }
         },
 
