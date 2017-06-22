@@ -13,9 +13,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
       :host {
         @apply --iron-doc-font-body;
+        font-family: sans-serif;
 
         color: #212121;
         display: block;
+
+        --iron-doc-docs: {
+          max-width: 56em;
+          padding: 5px 20px 20px 20px;
+        };
       }
 
       h1 {
@@ -69,6 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .name {
         @apply --iron-doc-font-code;
+        font-family: monospace;
         font-weight: bold;
       }
 
