@@ -43,8 +43,8 @@ descriptor output by
         <a class="name deeplink"
             target$="[[_superclassTarget(descriptor.superclass)]]"
             href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
-        <span hidden$="[[!descriptor.mixins]]">
-          with &#8203;<template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
+        <span hidden$="[[!descriptor.mixins]]">&#8203; with &#8203;
+          <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
             <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
           </template>
         </span>
@@ -66,7 +66,7 @@ descriptor output by
       </h2>
 
       <marked-element sanitize markdown="[[descriptor.description]]">
-        <div slot="markdown-html"></div>
+        <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
 

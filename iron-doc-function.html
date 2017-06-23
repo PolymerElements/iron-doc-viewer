@@ -35,8 +35,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       #paramList marked-element,
-      #paramList [slot=markdown-html],
-      #paramList [slot=markdown-html] p {
+      #paramList .markdown-html,
+      #paramList .markdown-html p {
         display: inline;
       }
 
@@ -77,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <marked-element
         sanitize markdown="[[descriptor.description]]"
         hidden$="[[!descriptor.description]]">
-      <div slot="markdown-html"></div>
+      <div slot="markdown-html" class="markdown-html"></div>
     </marked-element>
 
     <ul id="paramList" hidden$="[[!_showParamList]]">
@@ -88,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <marked-element
               sanitize markdown="[[item.description]]"
               hidden$="[[!item.description]]">
-           <div slot="markdown-html"></div>
+           <div slot="markdown-html" class="markdown-html"></div>
          </marked-element>
         </li>
       </template>
