@@ -32,12 +32,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding-top: 12px;
       }
 
-      :host > header {
-        font-size: 24px;
-        font-weight: 400;
-        margin-bottom: 18px;
-      }
-
       [hidden] {
         display: none !important;
       }
@@ -77,7 +71,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
 
-      code {
+      code, pre {
         @apply --iron-doc-font-code;
       }
 
@@ -86,13 +80,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .markdown-html pre {
-        @apply --iron-doc-font-body;
-      }
-
-      .markdown-html pre {
         background-color: #f5f5f5;
         border-radius: 3px;
-        font-size: 15px;
         overflow-x: auto;
         padding: 12px 24px;
         word-wrap: break-word;
@@ -132,7 +121,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .markdown-html code {
         @apply --iron-doc-font-code;
         background-color: #f5f5f5;
-        padding: 0 5px;
         border-radius: 3px;
       }
 
