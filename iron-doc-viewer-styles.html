@@ -21,6 +21,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           max-width: 56em;
           padding: 5px 20px 20px 20px;
         };
+
+        --iron-doc-accent-color-internal: var(--iron-doc-accent-color, #1565c0);
       }
 
       h1 {
@@ -42,7 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .inheritedFrom code {
-        color: var(--iron-doc-accent-color);
+        color: var(--iron-doc-accent-color-internal);
       }
 
       iron-doc-summary, iron-doc-function, iron-doc-property {
@@ -55,7 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .deeplink:hover {
-        color: var(--iron-doc-accent-color);
+        color: var(--iron-doc-accent-color-internal);
       }
 
       [anchor-id]:not(.scrolled) {

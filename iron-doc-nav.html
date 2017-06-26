@@ -10,9 +10,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 
+<link rel="import" href="iron-doc-viewer-styles.html">
+
 <dom-module id="iron-doc-nav">
   <template>
-    <style>
+    <style include="iron-doc-viewer-styles">
       :host {
         display: block;
       }
@@ -45,11 +47,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       a:hover {
-        color: var(--iron-doc-accent-color, #1565c0) !important;
+        color: var(--iron-doc-accent-color-internal) !important;
       }
 
       a[selected] {
-        color: var(--iron-doc-accent-color, #1565c0);
+        color: var(--iron-doc-accent-color-internal);
       }
 
       .tray {
