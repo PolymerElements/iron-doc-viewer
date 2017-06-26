@@ -306,17 +306,21 @@ Custom property | Description | Default
             }
           }
 
+          this.fire('view-changed');
+
           if (scrollAnchor) {
             Polymer.dom.flush();
             var active = this.$$('.active');
             if (active && active.scrollToAnchor) {
               active.scrollToAnchor(scrollAnchor);
             }
-          } else {
-            // Scroll to top when we navigate to a new view.
-            this.scrollIntoView();
           }
-        },
+        }
+
+        /**
+         * Fired when the active view changes.
+         * @event view-change
+         */
       });
 
       /**
