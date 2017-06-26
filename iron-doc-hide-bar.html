@@ -58,10 +58,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _toggle(ev) {
           ev.preventDefault();
           this.visible = !this.visible;
-          Polymer.dom.flush();
-          Polymer.RenderStatus.afterNextRender(this, function() {
-            this.scrollIntoView({behavior: 'smooth'});
-          });
         }
       });
     })();
