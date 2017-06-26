@@ -191,6 +191,15 @@ Custom property | Description | Default
             notify: true
           },
 
+          /**
+           * True if the viewer is currently displaying a demo.
+           */
+          demo: {
+            type: Boolean,
+            computed: '_computeDemo(_demo)',
+            reflectToAttribute: true
+          },
+
           _descriptorType: String,
 
           _urlPath: String,
@@ -213,6 +222,10 @@ Custom property | Description | Default
 
         _equal: function(a, b) {
           return a == b;
+        },
+
+        _computeDemo: function(demo) {
+          return !!demo;
         },
 
         _routingChanged: function(baseHref, urlPath, urlHash) {
