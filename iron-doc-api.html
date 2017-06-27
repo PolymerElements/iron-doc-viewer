@@ -156,7 +156,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           _showProtectedEvents: Boolean
         },
 
-        _anyVisible(items) {
+        _anyVisible: function(items) {
           for (var i = 0; i < (items || []).length; i++) {
             var item = items[i];
             if (!item.privacy || item.privacy === 'public' || item.privacy === 'protected') {
@@ -166,7 +166,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return false;
         },
 
-        _public(items) {
+        _public: function(items) {
           var filtered = [];
           for (var i = 0; i < (items || []).length; i++) {
             var item = items[i];
@@ -177,7 +177,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return filtered;
         },
 
-        _protected(items) {
+        _protected: function(items) {
           var filtered = [];
           for (var i = 0; i < (items || []).length; i++) {
             var item = items[i];
@@ -188,7 +188,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return filtered;
         },
 
-        _protectedCount(/** arguments */) {
+        _protectedCount: function(/** arguments */) {
           var sum = 0;
           for (var i = 0; i < arguments.length; i++) {
             sum += this._protected(arguments[i]).length
