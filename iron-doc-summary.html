@@ -40,12 +40,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       a:hover {
         color: var(--iron-doc-accent-color-internal);
       }
+
+      #description {
+        margin-top: 6px;
+      }
     </style>
 
     <div class="name">
       <a href$="[[href]]">{{name}}</a>
     </div>
-    <div id="description" markdown="[[description]]" hidden$="[[!description]]">
+    <div id="description" hidden$="[[!description]]">
       [[description]]
     </div>
   </template>
