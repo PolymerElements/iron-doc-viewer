@@ -284,24 +284,36 @@ Custom property | Description | Default
           this._descriptorType = descriptorType;
           if (descriptorType === 'namespaces') {
             this._currentDescriptor = namespace.namespaces &&
-                namespace.namespaces.filter((n) => n.name === name)[0];
+                namespace.namespaces.filter(function (n) {
+                  n.name === name
+                })[0];
           } else if (descriptorType === 'elements') {
             this._currentDescriptor = namespace.elements &&
-                namespace.elements.filter((e) => e.name === name ||  e.tagname === name)[0];
+                namespace.elements.filter(function (e) {
+                  e.name === name ||  e.tagname === name
+                })[0];
           } else if (descriptorType === 'classes') {
             this._currentDescriptor = namespace.classes &&
-                namespace.classes.filter((e) => (e.name || e.tagname) === name)[0];
+                namespace.classes.filter(function (e) {
+                  (e.name || e.tagname) === name
+                })[0];
           } else if (descriptorType === 'mixins') {
             this._currentDescriptor = namespace.mixins &&
-                namespace.mixins.filter((m) => m.name === name)[0];
+                namespace.mixins.filter(function (m) {
+                  m.name === name
+                })[0];
           } else if (descriptorType === 'behaviors') {
             var behaviors =
                 ((namespace.metadata || {}).polymer || {}).behaviors;
             this._currentDescriptor = behaviors &&
-                behaviors.filter((b) => b.name === name)[0];
+                behaviors.filter(function (b) {
+                  b.name === name
+                })[0];
           } else if (descriptorType === 'functions') {
             this._currentDescriptor = namespace.functions &&
-                namespace.functions.filter((f) => f.name === name)[0];
+                namespace.functions.filter(function (f) {
+                  f.name === name
+                })[0];
           }
 
           this._demo = null;
@@ -348,16 +360,18 @@ Custom property | Description | Default
         parts = parts.slice(0, parts.length - 1);
         var namespace = descriptor;
 
-        for (var part of parts) {
+        parts.forEach(function(part) {
           if (!namespace.namespaces) {
             return undefined;
           }
-          var matches = namespace.namespaces.filter((n) => n.name === part);
+          var matches = namespace.namespaces.filter(function(n) {
+            n.name === part
+          });
           if (matches.length === 0) {
             return undefined;
           }
           namespace = matches[0];
-        }
+        });
         return namespace;
       }
     })();

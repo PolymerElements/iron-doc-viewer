@@ -104,7 +104,7 @@ class, etc.
           }
         },
 
-        _computePrivacy(descriptor) {
+        _computePrivacy: function(descriptor) {
           if (!descriptor || !descriptor.privacy
               || descriptor.privacy === 'public') {
             return '';
