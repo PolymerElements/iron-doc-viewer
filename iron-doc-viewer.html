@@ -285,34 +285,34 @@ Custom property | Description | Default
           if (descriptorType === 'namespaces') {
             this._currentDescriptor = namespace.namespaces &&
                 namespace.namespaces.filter(function (n) {
-                  n.name === name
+                  return n.name === name;
                 })[0];
           } else if (descriptorType === 'elements') {
             this._currentDescriptor = namespace.elements &&
                 namespace.elements.filter(function (e) {
-                  e.name === name ||  e.tagname === name
+                  return e.name === name ||  e.tagname === name;
                 })[0];
           } else if (descriptorType === 'classes') {
             this._currentDescriptor = namespace.classes &&
                 namespace.classes.filter(function (e) {
-                  (e.name || e.tagname) === name
+                  return (e.name || e.tagname) === name;
                 })[0];
           } else if (descriptorType === 'mixins') {
             this._currentDescriptor = namespace.mixins &&
                 namespace.mixins.filter(function (m) {
-                  m.name === name
+                  return m.name === name;
                 })[0];
           } else if (descriptorType === 'behaviors') {
             var behaviors =
                 ((namespace.metadata || {}).polymer || {}).behaviors;
             this._currentDescriptor = behaviors &&
                 behaviors.filter(function (b) {
-                  b.name === name
+                  return b.name === name;
                 })[0];
           } else if (descriptorType === 'functions') {
             this._currentDescriptor = namespace.functions &&
                 namespace.functions.filter(function (f) {
-                  f.name === name
+                  return f.name === name;
                 })[0];
           }
 
