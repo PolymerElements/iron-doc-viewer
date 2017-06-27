@@ -39,9 +39,12 @@ descriptor output by
     <div>Path: <code>[[descriptor.path]]</code></div>
 
     <div hidden$="[[!descriptor.mixins]]">Mixins:
-      <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
-        <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
-      </template>
+      <span>
+        <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors"><!--
+       --><span hidden$="[[!index]]">, </span>
+          <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a><!--
+     --></template>
+      </span>
     </div>
 
     <section id="description"
