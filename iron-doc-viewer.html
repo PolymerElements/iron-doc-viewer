@@ -197,7 +197,8 @@ Custom property | Description | Default
           demo: {
             type: Boolean,
             computed: '_computeDemo(_demo)',
-            reflectToAttribute: true
+            reflectToAttribute: true,
+            notify: true
           },
 
           _descriptorType: String,
@@ -332,7 +333,7 @@ Custom property | Description | Default
 
         /**
          * Fired when the active view changes.
-         * @event view-change
+         * @event view-changed
          */
       });
 
