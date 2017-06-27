@@ -366,7 +366,7 @@ Custom property | Description | Default
             return undefined;
           }
           var matches = namespace.namespaces.filter(function(n) {
-            return n.name === part;
+            return n.name === parts[i];
           });
           if (matches.length === 0) {
             return undefined;
