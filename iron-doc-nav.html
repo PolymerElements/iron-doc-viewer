@@ -10,16 +10,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 
+<link rel="import" href="iron-doc-viewer-styles.html">
+
 <dom-module id="iron-doc-nav">
   <template>
-    <style>
+    <style include="iron-doc-viewer-styles">
       :host {
         display: block;
       }
 
       section {
         @apply --iron-doc-font-body;
-        font-family: sans-serif;
         border-bottom: 1px solid #e0e0e0;
       }
 
@@ -46,11 +47,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       a:hover {
-        color: var(--iron-doc-accent-color, #1565c0) !important;
+        color: var(--iron-doc-accent-color-internal) !important;
       }
 
       a[selected] {
-        color: var(--iron-doc-accent-color, #1565c0);
+        color: var(--iron-doc-accent-color-internal);
       }
 
       .tray {
@@ -186,11 +187,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var sectionItems = [];
         for (var i = 0; i < (descriptorItems || []).length; i++) {
           var item = descriptorItems[i];
-          var name = item.tagname || item.name;
+          var name = item.tagname ? '<' + item.tagname + '>' : item.name;
           if (!name) {
             continue;
           }
-          var path = pathPrefix + name;
+          var path = pathPrefix + (item.tagname || item.name);
 
           var demos = [];
           for (var d = 0; d < (item.demos || []).length; d++) {

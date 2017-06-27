@@ -30,14 +30,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       a:hover {
-        color: var(--iron-doc-accent-color);
+        color: var(--iron-doc-accent-color-internal);
       }
     </style>
 
     <a href="" on-tap="_toggle">
       <span hidden$="[[visible]]">Show</span>
       <span hidden$="[[!visible]]">Hide</span>
-      &#8203;<slot></slot>
+      <span><slot></slot></span>
     </a>
 
   </template>
@@ -58,10 +58,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _toggle(ev) {
           ev.preventDefault();
           this.visible = !this.visible;
-          Polymer.dom.flush();
-          Polymer.RenderStatus.afterNextRender(this, function() {
-            this.scrollIntoView({behavior: 'smooth'});
-          });
         }
       });
     })();

@@ -13,15 +13,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
       :host {
         @apply --iron-doc-font-body;
-        font-family: sans-serif;
 
         color: #212121;
         display: block;
 
-        --iron-doc-docs: {
-          max-width: 56em;
-          padding: 5px 20px 20px 20px;
-        };
+        --iron-doc-accent-color-internal: var(--iron-doc-accent-color, #1565c0);
       }
 
       h1 {
@@ -31,12 +27,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       h2 {
         @apply --iron-doc-heading;
         padding-top: 12px;
-      }
-
-      :host > header {
-        font-size: 24px;
-        font-weight: 400;
-        margin-bottom: 18px;
       }
 
       [hidden] {
@@ -49,7 +39,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .inheritedFrom code {
-        color: var(--iron-doc-accent-color);
+        color: var(--iron-doc-accent-color-internal);
       }
 
       iron-doc-summary, iron-doc-function, iron-doc-property {
@@ -62,7 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .deeplink:hover {
-        color: var(--iron-doc-accent-color);
+        color: var(--iron-doc-accent-color-internal);
       }
 
       [anchor-id]:not(.scrolled) {
@@ -75,11 +65,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .name {
         @apply --iron-doc-font-code;
-        font-family: monospace;
         font-weight: bold;
       }
 
-      code {
+      code, pre {
         @apply --iron-doc-font-code;
       }
 
@@ -88,13 +77,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .markdown-html pre {
-        @apply --iron-doc-font-body;
-      }
-
-      .markdown-html pre {
         background-color: #f5f5f5;
         border-radius: 3px;
-        font-size: 15px;
         overflow-x: auto;
         padding: 12px 24px;
         word-wrap: break-word;
@@ -134,7 +118,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .markdown-html code {
         @apply --iron-doc-font-code;
         background-color: #f5f5f5;
-        padding: 0 5px;
         border-radius: 3px;
       }
 
