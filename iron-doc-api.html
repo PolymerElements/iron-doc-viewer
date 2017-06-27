@@ -84,7 +84,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-doc-function>
       </template>
 
-      <template is="dom-if" if="[[_protectedCount(descriptor.methods, descriptor.staticMethods)]]">
+      <template is="dom-if" if="[[_protectedCount(descriptor.methods, _staticMethods)]]">
         <template is="dom-if" if="[[_showProtectedMethods]]">
           <template is="dom-repeat"
                     items="[[_protected(descriptor.staticMethods)]]"
@@ -104,7 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </template>
 
         <iron-doc-hide-bar visible="{{_showProtectedMethods}}">
-          [[_protectedCount(descriptor.methods, descriptor.staticMethods)]]
+          [[_protectedCount(descriptor.methods, _staticMethods)]]
           protected methods
         </iron-doc-hide-bar>
       </template>
@@ -153,7 +153,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           _showProtectedProperties: Boolean,
           _showProtectedMethods: Boolean,
-          _showProtectedEvents: Boolean
+          _showProtectedEvents: Boolean,
+
+          _staticMethods: {
+            computed: '_computeStaticMethods(descriptor)'
+          }
         },
 
         _anyVisible: function(items) {
@@ -194,7 +198,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             sum += this._protected(arguments[i]).length
           }
           return sum;
-        }
+        },
+
+        _computeStaticMethods: function(descriptor) {
+          return descriptor.staticMethods || [];
+        },
       });
     })();
   </script>
