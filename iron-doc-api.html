@@ -71,7 +71,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat"
                 items="[[_public(descriptor.staticMethods)]]"
                 sort="_compareDescriptors">
-        <iron-doc-function descriptor="[[item]]" static
+        <iron-doc-function hidden$="[[_shouldHideInherited(_showInheritedMethods, item.inheritedFrom)]]" descriptor="[[item]]" static
                            anchor-id="[[fragmentPrefix]]staticmethod-[[item.name]]">
         </iron-doc-function>
       </template>
@@ -79,7 +79,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat"
                 items="[[_public(descriptor.methods)]]"
                 sort="_compareDescriptors">
-        <iron-doc-function descriptor="[[item]]"
+        <iron-doc-function hidden$="[[_shouldHideInherited(_showInheritedMethods, item.inheritedFrom)]]" descriptor="[[item]]"
                            anchor-id="[[fragmentPrefix]]method-[[item.name]]">
         </iron-doc-function>
       </template>
@@ -89,7 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <template is="dom-repeat"
                     items="[[_protected(descriptor.staticMethods)]]"
                     sort="_compareDescriptors">
-            <iron-doc-function descriptor="[[item]]" static
+            <iron-doc-function hidden$="[[_shouldHideInherited(_showInheritedMethods, item.inheritedFrom)]]" descriptor="[[item]]" static
                                anchor-id="[[fragmentPrefix]]method-[[item.name]]">
             </iron-doc-function>
           </template>
@@ -97,12 +97,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <template is="dom-repeat"
                     items="[[_protected(descriptor.methods)]]"
                     sort="_compareDescriptors">
-            <iron-doc-function descriptor="[[item]]"
+            <iron-doc-function hidden$="[[_shouldHideInherited(_showInheritedMethods, item.inheritedFrom)]]" descriptor="[[item]]"
                                anchor-id="[[fragmentPrefix]]method-[[item.name]]">
             </iron-doc-function>
           </template>
         </template>
-
+        
+        <iron-doc-hide-bar visible="{{_showInheritedMethods}}">
+          inherited methods
+        </iron-doc-hide-bar>
+        
         <iron-doc-hide-bar visible="{{_showProtectedMethods}}">
           [[_protectedCount(descriptor.methods, _staticMethods)]]
           protected methods
@@ -154,6 +158,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           _showProtectedProperties: Boolean,
           _showProtectedMethods: Boolean,
           _showProtectedEvents: Boolean,
+          _showInheritedMethods: {
+            type: Boolean,
+            value: false
+          },
 
           _staticMethods: {
             computed: '_computeStaticMethods(descriptor)'
@@ -202,6 +210,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         _computeStaticMethods: function(descriptor) {
           return descriptor.staticMethods || [];
+        },
+        _shouldHideInherited: function(showInheritedMethods, inheritedFrom){
+          return !showInheritedMethods && inheritedFrom !== undefined;
         },
       });
     })();
