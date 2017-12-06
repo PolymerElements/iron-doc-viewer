@@ -1,0 +1,34 @@
+{
+  "name": "@polymer/iron-doc-viewer",
+  "flat": true,
+  "version": "3.0.0-pre.1",
+  "description": "Elements for rendering Polymer component documentation.",
+  "contributors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer"
+  ],
+  "main": "iron-doc-viewer.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-doc-viewer.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/PolymerElements/iron-doc-viewer/",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0-pre.1",
+    "@polymer/iron-location": "^3.0.0-pre.1",
+    "@polymer/marked-element": "^3.0.0-pre.1",
+    "@polymer/paper-styles": "^3.0.0-pre.1",
+    "@polymer/prism-element": "^3.0.0-pre.1"
+  },
+  "devDependencies": {
+    "@polymer/iron-ajax": "^3.0.0-pre.1",
+    "@polymer/test-fixture": "^3.0.0-pre.1",
+    "wct-browser-legacy": "0.0.1-pre.10",
+    "@webcomponents/webcomponentsjs": "^1.0.0"
+  }
+}
