@@ -1,0 +1,10 @@
+{
+  "name": "@polymer/iron-doc-viewer",
+  "private": true,
+  "description": "Elements for rendering Polymer component documentation.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-doc-viewer.git"
+  },
+  "license": "BSD-3-Clause"
+}
