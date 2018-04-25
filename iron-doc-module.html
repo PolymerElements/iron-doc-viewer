@@ -123,6 +123,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       behaviors: [Polymer.IronDocViewerBehavior],
 
       properties: {
+        /**
+         * The module specifier of this module, used to give an example of
+         * how to import it. So if this is 'foo' we will tell users to do:
+         * `import {} from 'foo';`
+         */
         moduleSpecifier: String,
       },
     });
