@@ -1,5 +1,7 @@
 language: node_js
 sudo: required
+node_js:
+  - "8"
 before_script:
   - npm install -g polymer-cli
   - polymer install --variants
@@ -16,7 +18,6 @@ env:
         JibMotHxRDu0L2Fe4raETzvCmvO1CQ0gG7O0XhfGArhuwTC+IW7MLlO/wYpVUkfCLoSKDvIiLSYKpPtUPJ+kZy04VENNc/axKcPdr4iu54se+qe61mRmAunMBVrS21SKlxnqflO1iPFyJ71IyD0/hGBY76Chj4AMUDWhrHJ0WjE=
     - secure: >-
         qEULPMDsjwPoNkedrd9azBPPTxckC5hWGKAD8hceTOhoFTxNKKkQmB/Hpx+DomAWXq9yFflB9nRqSTnw9la+Py2bHPWohD9tz+YVsZPvhJmTugrOL+i8B7IzCtncCm7WfWDyjxQFYaHg+UIiEcg9Ci29sNAsWnKakl82e1FJ8oU=
-node_js: stable
 addons:
   firefox: latest
   apt:
