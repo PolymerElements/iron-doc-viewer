@@ -30,6 +30,12 @@
  * down to contain only the exported contents of a single module.
  */
 interface IronDocModuleElement extends Polymer.Element, Polymer.IronDocViewerBehavior {
+
+  /**
+   * The module specifier of this module, used to give an example of
+   * how to import it. So if this is 'foo' we will tell users to do:
+   * `import {} from 'foo';`
+   */
   moduleSpecifier: string|null|undefined;
 }
 
