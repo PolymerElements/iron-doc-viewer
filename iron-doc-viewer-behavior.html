@@ -85,33 +85,45 @@
      */
     scrollToAnchor: function(hash) {
       hash = hash || window.location.hash;
-      if (hash && hash.length > 0) {
-        if (hash.indexOf('#') === 0) {
-          hash = hash.substring(1);
-        }
-        // Ensure dom-repeats have stamped.
-        Polymer.dom.flush();
-        var anchor = this.fragmentPrefix + hash;
-        var element = this.$$('[anchor-id="' + anchor + '"]');
-        if (element) {
-          // Don't scroll until we've drawn the next frame, otherwise our
-          // element might not know it's final screen position yet.
-          Polymer.RenderStatus.afterNextRender(this, function() {
-            element.scrollIntoView({behavior: 'smooth'});
-            // Highlight the section for a moment so we can tell where
-            // exactly we were deep-linked.
-            element.classList.add('scrolled');
-            this.async(function() {
-              element.classList.remove('scrolled');
-            }, 1000);
-          });
+      if (!hash || hash.length === 0) {
+        return;
+      }
+      if (hash.indexOf('#') === 0) {
+        hash = hash.substring(1);
+      }
+      // Ensure dom-repeats have stamped.
+      Polymer.dom.flush();
+      var anchor = this.fragmentPrefix + hash;
+      var element = this.$$('[anchor-id="' + anchor + '"]');
+      if (element) {
+        // Don't scroll until we've drawn the next frame, otherwise our
+        // element might not know it's final screen position yet.
+        Polymer.RenderStatus.afterNextRender(this, function() {
+          element.scrollIntoView({behavior: 'smooth'});
+          // Highlight the section for a moment so we can tell where
+          // exactly we were deep-linked.
+          element.classList.add('scrolled');
+          this.async(function() {
+            element.classList.remove('scrolled');
+          }, 1000);
+        });
+        return;
+      }
+      // Maybe our API section has this anchor.
+      var api = this.$$('iron-doc-api');
+      if (api) {
+        api.scrollToAnchor(hash);
+        return;
+      }
 
-        } else {
-          // Maybe our API section has this anchor.
-          var api = this.$$('iron-doc-api');
-          if (api) {
-            api.scrollToAnchor(hash);
-          }
+      // Maybe some other subsection has the anchor.
+      var subElements = this.root.querySelectorAll('*');
+      for (var i = 0; i < subElements.length; i++) {
+        var element = subElements[i];
+        if (element.fragmentPrefix && element.scrollToAnchor &&
+            hash.indexOf(element.fragmentPrefix) === 0) {
+          element.scrollToAnchor(hash.slice(element.fragmentPrefix.length));
+          return;
         }
       }
     },
