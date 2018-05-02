@@ -55,7 +55,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareDescriptors">
         <iron-doc-element
             descriptor="[[item]]"
-            anchor-id="[[fragmentPrefix]]element-[[item.name]]">
+            anchor-id="[[fragmentPrefix]][[item.name]]"
+            fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         </iron-doc-element>
       </template>
     </section>
@@ -65,7 +66,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
         <iron-doc-class
           descriptor="{{item}}"
-          anchor-id="[[fragmentPrefix]]class-[[item.name]]">
+          anchor-id="[[fragmentPrefix]][[item.name]]"
+          fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         </iron-doc-summary>
       </template>
     </section>
@@ -75,7 +77,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
         <iron-doc-mixin
             descriptor="[[item]]"
-            anchor-id="[[fragmentPrefix]]mixin-[[item.name]]">
+            anchor-id="[[fragmentPrefix]][[item.name]]"
+            fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         </iron-doc-mixin>
       </template>
     </section>
@@ -85,7 +88,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat" items="[[_getPolymerBehaviors(descriptor)]]" sort="_compareDescriptors">
         <iron-doc-behavior
           descriptor="[[item]]"
-          anchor-id="[[fragmentPrefix]]behavior-[[item.name]]">
+          anchor-id="[[fragmentPrefix]][[item.name]]"
+          fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         </iron-doc-summary>
       </template>
     </section>
@@ -99,7 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </h2>
       <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
         <iron-doc-function
-            anchor-id="[[fragmentPrefix]]function-[[item.name]]"
+            anchor-id="[[fragmentPrefix]][[item.name]]"
             descriptor="[[item]]">
         </iron-doc-function>
       </template>
