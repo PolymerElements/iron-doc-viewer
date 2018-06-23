@@ -14,14 +14,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>iron-doc-api tests</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../../../wct-browser-legacy/browser.js"></script>
     <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
-    <link rel="import" href="../../polymer/polymer.html">
-    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <script type="module" src="../../polymer/polymer-legacy.js"></script>
+    <script type="module" src="../../test-fixture/test-fixture.js"></script>
 
-    <link rel="import" href="../iron-doc-api.html">
+    <script type="module" src="../iron-doc-api.js"></script>
   </head>
   <body>
 
@@ -31,22 +31,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
     </test-fixture>
 
-    <script>
-      describe('<iron-doc-api>', function() {
-        var api;
-        beforeEach(function() {
-          api = fixture('iron-doc-api-fixture');
-        });
+    <script type="module">
+import '@polymer/polymer/polymer-legacy.js';
+import '@polymer/test-fixture/test-fixture.js';
+import '../iron-doc-api.js';
+import { flush, dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+describe('<iron-doc-api>', function() {
+  var api;
+  beforeEach(function() {
+    api = fixture('iron-doc-api-fixture');
+  });
 
-        it('shows static methods even when no regular methods', function() {
-          api.descriptor = {'staticMethods': [{'name': 'foo'}, {'name': 'bar'}]};
-          Polymer.dom.flush();
-          expect(api.$$('#methods').hidden).to.be.false;
-          var methods = Polymer.dom(api.root).querySelectorAll('iron-doc-function');
-          expect(methods.length).equals(2);
-        });
-      });
-    </script>
+  it('shows static methods even when no regular methods', function() {
+    api.descriptor = {'staticMethods': [{'name': 'foo'}, {'name': 'bar'}]};
+    flush();
+    expect(api.$$('#methods').hidden).to.be.false;
+    var methods = dom(api.root).querySelectorAll('iron-doc-function');
+    expect(methods.length).equals(2);
+  });
+});
+</script>
 
   </body>
 </html>
