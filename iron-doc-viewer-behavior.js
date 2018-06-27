@@ -1,5 +1,5 @@
-import { flush } from '@polymer/polymer/lib/legacy/polymer.dom.js';
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+import {flush} from '@polymer/polymer/lib/legacy/polymer.dom.js';
+import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
 
 /**
  * @polymerBehavior
