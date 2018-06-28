@@ -26,53 +26,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </test-fixture>
 
     <script type="module">
-import '@polymer/polymer/polymer-legacy.js';
-import '@polymer/test-fixture/test-fixture.js';
-import '../iron-doc-nav.js';
-import { flush, dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
-var descriptor = {
-  'elements': [{
-    'name': 'my-element',
-    'description': 'I am an element',
-    'demos':
-        [{'url': 'demo/fancy-demo.html', 'description': 'My Fancy Demo'}]
-  }],
-  'mixins': [{'name': 'my-mixin', 'description': 'I am a mixin'}],
-  'classes': [{'name': 'my-class', 'description': 'I am a class'}],
-  'metadata': {
-    'polymer': {
-      'behaviors':
-          [{'name': 'my-behavior', 'description': 'I am a behavior'}]
-    }
-  },
-  'namespaces': [{'name': 'my-namespace', 'description': 'I am a namespace'}],
-};
+      import '@polymer/polymer/polymer-legacy.js';
+      import '@polymer/test-fixture/test-fixture.js';
+      import '../iron-doc-nav.js';
 
-describe('<iron-doc-nav>', function() {
-  var nav;
-  beforeEach(function() {
-    nav = fixture('nav-fixture');
-    nav.descriptor = descriptor;
-    flush();
-  });
+      import {dom, flush} from '@polymer/polymer/lib/legacy/polymer.dom.js';
 
-  it('shows sections', function() {
-    var headings =
-        dom(nav.root).querySelectorAll(':not([hidden]) > h3');
-    var text = [];
-    for (var i = 0; i < headings.length; i++) {
-      text.push(headings[i].textContent);
-    }
-    expect(text).to.deep.equals([
-      'Namespaces',
-      'Elements',
-      'Behaviors',
-      'Mixins',
-      'Classes',
-    ]);
-  });
-});
-</script>
+      var descriptor = {
+        'elements': [{
+          'name': 'my-element',
+          'description': 'I am an element',
+          'demos':
+              [{'url': 'demo/fancy-demo.html', 'description': 'My Fancy Demo'}]
+        }],
+        'mixins': [{'name': 'my-mixin', 'description': 'I am a mixin'}],
+        'classes': [{'name': 'my-class', 'description': 'I am a class'}],
+        'metadata': {
+          'polymer': {
+            'behaviors':
+                [{'name': 'my-behavior', 'description': 'I am a behavior'}]
+          }
+        },
+        'namespaces': [{'name': 'my-namespace', 'description': 'I am a namespace'}],
+      };
+
+      describe('<iron-doc-nav>', function() {
+        var nav;
+        beforeEach(function() {
+          nav = fixture('nav-fixture');
+          nav.descriptor = descriptor;
+          flush();
+        });
+
+        it('shows sections', function() {
+          var headings = dom(nav.root).querySelectorAll(':not([hidden]) > h3');
+          var text = [];
+          for (var i = 0; i < headings.length; i++) {
+            text.push(headings[i].textContent);
+          }
+          expect(text).to.deep.equals([
+            'Namespaces',
+            'Elements',
+            'Behaviors',
+            'Mixins',
+            'Classes',
+          ]);
+        });
+      });
+    </script>
 
   </body>
 </html>

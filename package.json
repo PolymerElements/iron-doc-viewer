@@ -14,6 +14,7 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "webmat": "^0.2.0",
+    "@polymer/iron-ajax": "^3.0.0-pre.20",
     "@polymer/test-fixture": "^3.0.0-pre.20",
     "wct-browser-legacy": "^1.0.1",
     "@webcomponents/webcomponentsjs": "^2.0.0"

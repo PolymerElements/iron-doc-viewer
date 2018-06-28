@@ -29,12 +29,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-doc-viewer>
       </template>
       <script type="module">
-import '@polymer/polymer/polymer-legacy.js';
-import '@polymer/test-fixture/test-fixture.js';
-import '../iron-doc-viewer.js';
-import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
-Polymer({is: 'bound-fixture'});
-</script>
+        import '@polymer/polymer/polymer-legacy.js';
+        import '@polymer/test-fixture/test-fixture.js';
+        import '../iron-doc-viewer.js';
+        import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn.js';
+        Polymer({is: 'bound-fixture'});
+      </script>
     </dom-module>
 
     <test-fixture id="bound">
@@ -44,91 +44,93 @@ Polymer({is: 'bound-fixture'});
     </test-fixture>
 
     <script type="module">
-import '@polymer/polymer/polymer-legacy.js';
-import '@polymer/test-fixture/test-fixture.js';
-import '../iron-doc-viewer.js';
-import { flush, dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
-var descriptor = {
-  'elements': [{
-    'name': 'my-element',
-    'description': 'I am an element',
-    'demos':
-        [{'url': 'demo/fancy-demo.html', 'description': 'My Fancy Demo'}]
-  }],
-  'mixins': [{'name': 'my-mixin', 'description': 'I am a mixin'}],
-  'classes': [{'name': 'my-class', 'description': 'I am a class'}],
-  'metadata': {
-    'polymer': {
-      'behaviors':
-          [{'name': 'my-behavior', 'description': 'I am a behavior'}]
-    }
-  }
-};
+      import '@polymer/polymer/polymer-legacy.js';
+      import '@polymer/test-fixture/test-fixture.js';
+      import '../iron-doc-viewer.js';
 
-describe('<iron-doc-viewer>', function() {
-  var page;
-  beforeEach(function() {
-    page = fixture('bound');
-    page.descriptor = descriptor;
-  });
+      import {dom, flush} from '@polymer/polymer/lib/legacy/polymer.dom.js';
 
-  it('renders top-level namespace', function() {
-    page.path = '/';
-    flush();
-    var view = page.$$('iron-doc-viewer')
-                   .$$('iron-doc-namespace')
-                   .$$('iron-doc-summary');
-    var text = dom(view.root).textContent;
-    expect(text).contains('my-element');
-  });
+      var descriptor = {
+        'elements': [{
+          'name': 'my-element',
+          'description': 'I am an element',
+          'demos':
+              [{'url': 'demo/fancy-demo.html', 'description': 'My Fancy Demo'}]
+        }],
+        'mixins': [{'name': 'my-mixin', 'description': 'I am a mixin'}],
+        'classes': [{'name': 'my-class', 'description': 'I am a class'}],
+        'metadata': {
+          'polymer': {
+            'behaviors':
+                [{'name': 'my-behavior', 'description': 'I am a behavior'}]
+          }
+        }
+      };
 
-  it('renders element', function() {
-    page.path = '/elements/my-element';
-    flush();
-    var view = page.$$('iron-doc-viewer').$$('iron-doc-element');
-    var text = dom(view.root).textContent;
-    expect(text).contains('my-element');
-  });
+      describe('<iron-doc-viewer>', function() {
+        var page;
+        beforeEach(function() {
+          page = fixture('bound');
+          page.descriptor = descriptor;
+        });
 
-  it('renders mixin', function() {
-    page.path = '/mixins/my-mixin';
-    flush();
-    var view = page.$$('iron-doc-viewer').$$('iron-doc-mixin');
-    var text = dom(view.root).textContent;
-    expect(text).contains('my-mixin');
-  });
+        it('renders top-level namespace', function() {
+          page.path = '/';
+          flush();
+          var view = page.$$('iron-doc-viewer')
+                         .$$('iron-doc-namespace')
+                         .$$('iron-doc-summary');
+          var text = dom(view.root).textContent;
+          expect(text).contains('my-element');
+        });
 
-  it('renders class', function() {
-    page.path = '/classes/my-class';
-    flush();
-    var view = page.$$('iron-doc-viewer').$$('iron-doc-class');
-    var text = dom(view.root).textContent;
-    expect(text).contains('my-class');
-  });
+        it('renders element', function() {
+          page.path = '/elements/my-element';
+          flush();
+          var view = page.$$('iron-doc-viewer').$$('iron-doc-element');
+          var text = dom(view.root).textContent;
+          expect(text).contains('my-element');
+        });
 
-  it('renders behavior', function() {
-    page.path = '/behaviors/my-behavior';
-    flush();
-    var view = page.$$('iron-doc-viewer').$$('iron-doc-behavior');
-    var text = dom(view.root).textContent;
-    expect(text).contains('my-behavior');
-  });
+        it('renders mixin', function() {
+          page.path = '/mixins/my-mixin';
+          flush();
+          var view = page.$$('iron-doc-viewer').$$('iron-doc-mixin');
+          var text = dom(view.root).textContent;
+          expect(text).contains('my-mixin');
+        });
 
-  it('renders demo by short name', function() {
-    page.path = '/elements/my-element/demos/my-fancy-demo';
-    flush();
-    var iframe = page.$$('iron-doc-viewer').$$('iron-doc-demo').$$('iframe');
-    expect(iframe.getAttribute('src')).equals('/demo-dir/demo/fancy-demo.html');
-  });
+        it('renders class', function() {
+          page.path = '/classes/my-class';
+          flush();
+          var view = page.$$('iron-doc-viewer').$$('iron-doc-class');
+          var text = dom(view.root).textContent;
+          expect(text).contains('my-class');
+        });
 
-  it('renders demo by path', function() {
-    page.path = '/elements/my-element/demos/demo/fancy-demo.html';
-    flush();
-    var iframe = page.$$('iron-doc-viewer').$$('iron-doc-demo').$$('iframe');
-    expect(iframe.getAttribute('src')).equals('/demo-dir/demo/fancy-demo.html');
-  });
-});
-</script>
+        it('renders behavior', function() {
+          page.path = '/behaviors/my-behavior';
+          flush();
+          var view = page.$$('iron-doc-viewer').$$('iron-doc-behavior');
+          var text = dom(view.root).textContent;
+          expect(text).contains('my-behavior');
+        });
+
+        it('renders demo by short name', function() {
+          page.path = '/elements/my-element/demos/my-fancy-demo';
+          flush();
+          var iframe = page.$$('iron-doc-viewer').$$('iron-doc-demo').$$('iframe');
+          expect(iframe.getAttribute('src')).equals('/demo-dir/demo/fancy-demo.html');
+        });
+
+        it('renders demo by path', function() {
+          page.path = '/elements/my-element/demos/demo/fancy-demo.html';
+          flush();
+          var iframe = page.$$('iron-doc-viewer').$$('iron-doc-demo').$$('iframe');
+          expect(iframe.getAttribute('src')).equals('/demo-dir/demo/fancy-demo.html');
+        });
+      });
+    </script>
 
   </body>
 </html>
