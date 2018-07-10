@@ -1,6 +1,6 @@
 [![Published on NPM](https://img.shields.io/npm/v/@polymer/iron-doc-viewer.svg)](https://www.npmjs.com/package/@polymer/iron-doc-viewer)
 [![Build status](https://travis-ci.org/PolymerElements/iron-doc-viewer.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-doc-viewer)
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://beta.webcomponents.org/element/PolymerElements/iron-doc-viewer)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://webcomponents.org/element/@polymer/iron-doc-viewer)
 
 ## &lt;iron-doc-viewer&gt;
 
