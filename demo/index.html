@@ -13,6 +13,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
+    <script type="module">
+      import '@polymer/polymer/lib/elements/dom-bind.js';
+      import '@polymer/iron-ajax/iron-ajax.js';
+      import '../default-theme.js';
+      import '../iron-doc-viewer.js';
+    </script>
+
     <custom-style>
       <style is="custom-style" include="iron-doc-default-theme"></style>
     </custom-style>
@@ -30,26 +37,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </head>
 
   <body>
-    <iron-ajax id="ajax" auto="" url="../demo/analysis.json" handle-as="json"></iron-ajax>
-    <iron-doc-viewer id="doc-viewer" root-namespace="Polymer"> </iron-doc-viewer>
+    <dom-bind>
+      <template>
+        <iron-ajax
+          auto
+          url="../demo/analysis.json"
+          last-response="{{descriptor}}">
+        </iron-ajax>
 
-    <script type="module">
-      import '@polymer/polymer/polymer-legacy.js';
-      import '@polymer/iron-ajax/iron-ajax.js';
-      import '../default-theme.js';
-      import '../iron-doc-viewer.js';
-
-      const ajax = document.querySelector('#ajax');
-      const docViewer = document.querySelector('#doc-viewer');
-
-      function handleResponse() {
-        docViewer.descriptor = ajax.lastResponse;
-      }
-      if (ajax.lastResponse) {
-        handleResponse();
-      } else {
-        ajax.addEventListener('iron-ajax-response', handleResponse);
-      }
-    </script>
+        <iron-doc-viewer
+          descriptor="[[descriptor]]"
+          root-namespace="Polymer">
+        </iron-doc-viewer>
+      </template>
+    </dom-bind>
   </body>
 </html>
