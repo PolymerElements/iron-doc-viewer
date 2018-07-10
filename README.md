@@ -31,7 +31,7 @@ browser.
 
 ### Installation
 ```
-npm install --save @polymer/paper-input
+npm install --save @polymer/iron-doc-viewer
 ```
 
 ### In an html file
