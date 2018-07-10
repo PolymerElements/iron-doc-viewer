@@ -140,7 +140,7 @@ the instructions for running the tests and demo locally:
 ### Installation
 ```sh
 git clone https://github.com/PolymerElements/iron-doc-viewer
-cd paper-input
+cd iron-doc-viewer
 npm install
 npm install -g polymer-cli
 ```
