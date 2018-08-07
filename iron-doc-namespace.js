@@ -43,7 +43,7 @@ Polymer({
       <h2>
         <a href\$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
-      <marked-element sanitize="" markdown="[[descriptor.description]]">
+      <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
@@ -93,7 +93,7 @@ Polymer({
         <a href\$="#[[fragmentPrefix]]functions" class="deeplink">Functions</a>
       </h2>
       <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
-        <iron-doc-function add-import-path="" anchor-id="[[fragmentPrefix]]function-[[item.name]]" descriptor="[[item]]">
+        <iron-doc-function add-import-path anchor-id="[[fragmentPrefix]]function-[[item.name]]" descriptor="[[item]]">
         </iron-doc-function>
       </template>
     </section>
