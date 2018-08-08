@@ -66,32 +66,32 @@ Polymer({
 
     <iron-location path="{{_urlPath}}" hash="{{_urlHash}}"></iron-location>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'demos')]]" restamp="">
+    <template is="dom-if" if="[[_equal(_descriptorType,'demos')]]" restamp>
       <iron-doc-demo class="active" demo="[[_demo]]" src-prefix="[[demoSrcPrefix]]" title="{{title}}">
       </iron-doc-demo>
     </template>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp="">
+    <template is="dom-if" if="[[_equal(_descriptorType,'namespaces')]]" restamp>
       <iron-doc-namespace class="active" descriptor="[[_currentDescriptor]]" fragment-prefix="[[_fragmentPrefix]]" title="{{title}}" base-href="[[baseHref]]">
       </iron-doc-namespace>
     </template>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp="">
+    <template is="dom-if" if="[[_equal(_descriptorType,'elements')]]" restamp>
       <iron-doc-element class="active" descriptor="[[_currentDescriptor]]" fragment-prefix="[[_fragmentPrefix]]" title="{{title}}" base-href="[[baseHref]]">
       </iron-doc-element>
     </template>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp="">
+    <template is="dom-if" if="[[_equal(_descriptorType,'mixins')]]" restamp>
       <iron-doc-mixin class="active" descriptor="[[_currentDescriptor]]" fragment-prefix="[[_fragmentPrefix]]" title="{{title}}" base-href="[[baseHref]]">
       </iron-doc-mixin>
     </template>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp="">
+    <template is="dom-if" if="[[_equal(_descriptorType,'behaviors')]]" restamp>
       <iron-doc-behavior class="active" descriptor="[[_currentDescriptor]]" fragment-prefix="[[_fragmentPrefix]]" title="{{title}}" base-href="[[baseHref]]">
       </iron-doc-behavior>
     </template>
 
-    <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp="">
+    <template is="dom-if" if="[[_equal(_descriptorType,'classes')]]" restamp>
       <iron-doc-class class="active" descriptor="[[_currentDescriptor]]" fragment-prefix="[[_fragmentPrefix]]" title="{{title}}" base-href="[[baseHref]]">
       </iron-doc-class>
     </template>

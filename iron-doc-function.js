@@ -85,7 +85,7 @@ Polymer({
 
     <div class="import-path" hidden\$="[[!addImportPath]]">Requires import: <code>[[descriptor.sourceRange.file]]</code></div>
 
-    <marked-element sanitize="" markdown="[[descriptor.description]]" hidden\$="[[!descriptor.description]]">
+    <marked-element sanitize markdown="[[descriptor.description]]" hidden\$="[[!descriptor.description]]">
       <div slot="markdown-html" class="markdown-html"></div>
     </marked-element>
 
@@ -93,7 +93,7 @@ Polymer({
       <template is="dom-repeat" items="[[descriptor.params]]">
         <li>
           <code class="paramName">[[item.name]]</code>
-          <marked-element sanitize="" markdown="[[item.description]]" hidden\$="[[!item.description]]">
+          <marked-element sanitize markdown="[[item.description]]" hidden\$="[[!item.description]]">
            <div slot="markdown-html" class="markdown-html"></div>
          </marked-element>
         </li>

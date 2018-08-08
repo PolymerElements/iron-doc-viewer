@@ -17,7 +17,7 @@ const $_documentContainer = document.createElement('template');
 $_documentContainer.setAttribute('style', 'display: none;');
 
 $_documentContainer.innerHTML = `<dom-module id="iron-doc-property">
-  <template strip-whitespace="">
+  <template strip-whitespace>
     <style include="iron-doc-viewer-styles"></style>
     <style>
       :host {
@@ -72,7 +72,7 @@ $_documentContainer.innerHTML = `<dom-module id="iron-doc-property">
     </p>
 
     <div id="details">
-      <marked-element sanitize="" id="desc" markdown="[[descriptor.description]]" hidden\$="[[!descriptor.description]]">
+      <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden\$="[[!descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </div>

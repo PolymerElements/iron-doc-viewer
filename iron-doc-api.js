@@ -64,7 +64,7 @@ Polymer({
       </h2>
 
       <template is="dom-repeat" items="[[_public(descriptor.staticMethods)]]" sort="_compareDescriptors">
-        <iron-doc-function descriptor="[[item]]" static="" anchor-id="[[fragmentPrefix]]staticmethod-[[item.name]]">
+        <iron-doc-function descriptor="[[item]]" static anchor-id="[[fragmentPrefix]]staticmethod-[[item.name]]">
         </iron-doc-function>
       </template>
 
@@ -76,7 +76,7 @@ Polymer({
       <template is="dom-if" if="[[_protectedCount(descriptor.methods, _staticMethods)]]">
         <template is="dom-if" if="[[_showProtectedMethods]]">
           <template is="dom-repeat" items="[[_protected(descriptor.staticMethods)]]" sort="_compareDescriptors">
-            <iron-doc-function descriptor="[[item]]" static="" anchor-id="[[fragmentPrefix]]method-[[item.name]]">
+            <iron-doc-function descriptor="[[item]]" static anchor-id="[[fragmentPrefix]]method-[[item.name]]">
             </iron-doc-function>
           </template>
 

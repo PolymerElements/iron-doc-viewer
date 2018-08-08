@@ -47,7 +47,7 @@ Polymer({
         <a href\$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
 
-      <marked-element sanitize="" markdown="[[descriptor.description]]">
+      <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
