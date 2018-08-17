@@ -43,7 +43,9 @@ by default is bound to the current `window.location` path.
 
 Most users should include the default theme alongside this element:
 
-    <link rel="import" href="bower_components/iron-doc-viewer/default.html">
+    <script type="module">
+      import '@polymer/iron-doc-viewer/default-theme.js';
+    </script>
 
     <custom-style>
       <style is="custom-style" include="iron-doc-default-theme"></style>
