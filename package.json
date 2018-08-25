@@ -14,24 +14,24 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "webmat": "^0.2.0",
-    "@polymer/iron-ajax": "^3.0.0-pre.20",
-    "@polymer/test-fixture": "^3.0.0-pre.20",
+    "@polymer/iron-ajax": "^3.0.0-pre.22",
+    "@polymer/test-fixture": "^4.0.0-pre.0",
     "wct-browser-legacy": "^1.0.1",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "@polymer/gen-typescript-declarations": "^1.5.0"
   },
   "scripts": {
     "format": "webmat",
-    "generate-types": "gen-typescript-declarations --deleteExisting --outDir .",
+    "generate-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
     "prepack": "npm run generate-types"
   },
   "version": "4.0.0-pre.0",
   "author": "The Polymer Authors",
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
-    "@polymer/iron-location": "^3.0.0-pre.20",
-    "@polymer/marked-element": "^3.0.0-pre.20",
-    "@polymer/paper-styles": "^3.0.0-pre.20",
-    "@polymer/prism-element": "^3.0.0-pre.20"
+    "@polymer/iron-location": "^3.0.0-pre.22",
+    "@polymer/marked-element": "^3.0.0-pre.22",
+    "@polymer/paper-styles": "^3.0.0-pre.22",
+    "@polymer/prism-element": "^3.0.0-pre.22"
   }
 }
