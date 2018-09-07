@@ -23,7 +23,7 @@
   "scripts": {
     "format": "webmat",
     "generate-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
-    "prepack": "npm run generate-types"
+    "prepare": "npm run generate-types"
   },
   "version": "4.0.0-pre.3",
   "author": "The Polymer Authors",
