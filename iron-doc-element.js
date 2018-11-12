@@ -36,17 +36,17 @@ Polymer({
     <prism-highlighter></prism-highlighter>
 
     <h1>[[title]]</h1>
-    <p hidden\$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
+    <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
     <div>
       <code>
         class <span class="name">[[descriptor.name]]</span>
         extends
-        <a class="name deeplink" target\$="[[_superclassTarget(descriptor.superclass)]]" href\$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
-        <span hidden\$="[[!descriptor.mixins]]"> with
+        <a class="name deeplink" target$="[[_superclassTarget(descriptor.superclass)]]" href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
+        <span hidden$="[[!descriptor.mixins]]"> with
           <span>
             <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
-              <a class="name deeplink mixin" href\$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
+              <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
             </template>
           </span>
         </span>
@@ -54,15 +54,15 @@ Polymer({
     </div>
 
     <div>Path: <code>[[descriptor.path]]</code></div>
-    <div hidden\$="[[!descriptor.behaviors]]">Behaviors:
+    <div hidden$="[[!descriptor.behaviors]]">Behaviors:
       <template is="dom-repeat" items="[[descriptor.behaviors]]" sort="_compareDescriptors">
-        <a class="name deeplink" href\$="[[baseHref]]/behaviors/[[item]]">[[item]]</a>
+        <a class="name deeplink" href$="[[baseHref]]/behaviors/[[item]]">[[item]]</a>
       </template>
     </div>
 
-    <section id="description" hidden\$="[[!descriptor.description]]" anchor-id\$="[[fragmentPrefix]]description">
+    <section id="description" hidden$="[[!descriptor.description]]" anchor-id$="[[fragmentPrefix]]description">
       <h2>
-        <a href\$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
+        <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
 
       <marked-element sanitize markdown="[[descriptor.description]]">

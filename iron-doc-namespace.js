@@ -37,20 +37,20 @@ Polymer({
     <prism-highlighter></prism-highlighter>
 
     <h1>[[title]]</h1>
-    <p hidden\$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
+    <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
-    <section id="description" anchor-id\$="[[fragmentPrefix]]description" hidden\$="[[!descriptor.description]]">
+    <section id="description" anchor-id$="[[fragmentPrefix]]description" hidden$="[[!descriptor.description]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
+        <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
       <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]elements" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
+    <section anchor-id$="[[fragmentPrefix]]elements" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]elements" class="deeplink">Elements</a>
+        <a href$="#[[fragmentPrefix]]elements" class="deeplink">Elements</a>
       </h2>
       <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareDescriptors">
         <iron-doc-summary name="[[_getElementName(item)]]" description="[[item.summary]]" href="[[baseHref]]/elements/[[_getElementId(item)]]">
@@ -58,9 +58,9 @@ Polymer({
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]classes" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
+    <section anchor-id$="[[fragmentPrefix]]classes" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]classes" class="deeplink">Classes</a>
+        <a href$="#[[fragmentPrefix]]classes" class="deeplink">Classes</a>
       </h2>
       <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
         <iron-doc-summary name="[[item.name]]" description="[[item.summary]]" href="[[baseHref]]/classes/[[_getElementId(item)]]">
@@ -68,9 +68,9 @@ Polymer({
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]mixins" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
+    <section anchor-id$="[[fragmentPrefix]]mixins" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]mixins" class="deeplink">Mixins</a>
+        <a href$="#[[fragmentPrefix]]mixins" class="deeplink">Mixins</a>
       </h2>
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
         <iron-doc-summary name="[[item.name]]" description="[[item.summary]]" href="[[baseHref]]/mixins/[[item.name]]">
@@ -78,9 +78,9 @@ Polymer({
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]behaviors" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
+    <section anchor-id$="[[fragmentPrefix]]behaviors" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]behaviors" class="deeplink">Behaviors</a>
+        <a href$="#[[fragmentPrefix]]behaviors" class="deeplink">Behaviors</a>
       </h2>
       <template is="dom-repeat" items="[[_getPolymerBehaviors(descriptor)]]" sort="_compareDescriptors">
         <iron-doc-summary name="[[item.name]]" description="[[item.summary]]" href="[[baseHref]]/behaviors/[[item.name]]">
@@ -88,9 +88,9 @@ Polymer({
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]functions" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
+    <section anchor-id$="[[fragmentPrefix]]functions" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]functions" class="deeplink">Functions</a>
+        <a href$="#[[fragmentPrefix]]functions" class="deeplink">Functions</a>
       </h2>
       <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
         <iron-doc-function add-import-path anchor-id="[[fragmentPrefix]]function-[[item.name]]" descriptor="[[item]]">
@@ -98,11 +98,11 @@ Polymer({
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]namespaces" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'namespaces')]]">
+    <section anchor-id$="[[fragmentPrefix]]namespaces" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'namespaces')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]namespaces" class="deeplink">Namespaces</a>
+        <a href$="#[[fragmentPrefix]]namespaces" class="deeplink">Namespaces</a>
       </h2>
-      <div hidden\$="[[!descriptor.namespaces.length]]">
+      <div hidden$="[[!descriptor.namespaces.length]]">
         <template is="dom-repeat" items="[[descriptor.namespaces]]" sort="_compareDescriptors">
           <iron-doc-summary name="[[item.name]]" description="[[item.summary]]" href="[[baseHref]]/namespaces/[[item.name]]">
           </iron-doc-summary>

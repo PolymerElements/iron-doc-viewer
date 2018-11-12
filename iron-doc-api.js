@@ -34,9 +34,9 @@ Polymer({
       }
     </style>
 
-    <section anchor-id\$="[[fragmentPrefix]]properties" hidden\$="[[!_anyVisible(descriptor.properties)]]">
+    <section anchor-id$="[[fragmentPrefix]]properties" hidden$="[[!_anyVisible(descriptor.properties)]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]properties" class="deeplink">Properties</a>
+        <a href$="#[[fragmentPrefix]]properties" class="deeplink">Properties</a>
       </h2>
 
       <template is="dom-repeat" items="[[_public(descriptor.properties)]]" sort="_compareDescriptors">
@@ -58,9 +58,9 @@ Polymer({
       </template>
     </section>
 
-    <section id="methods" anchor-id\$="[[fragmentPrefix]]methods" hidden\$="[[!_hasMethods]]">
+    <section id="methods" anchor-id$="[[fragmentPrefix]]methods" hidden$="[[!_hasMethods]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]methods" class="deeplink">Methods</a>
+        <a href$="#[[fragmentPrefix]]methods" class="deeplink">Methods</a>
       </h2>
 
       <template is="dom-repeat" items="[[_public(descriptor.staticMethods)]]" sort="_compareDescriptors">
@@ -93,9 +93,9 @@ Polymer({
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]events" hidden\$="[[!_anyVisible(descriptor.events)]]">
+    <section anchor-id$="[[fragmentPrefix]]events" hidden$="[[!_anyVisible(descriptor.events)]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]events" class="deeplink">Events</a>
+        <a href$="#[[fragmentPrefix]]events" class="deeplink">Events</a>
       </h2>
 
       <template is="dom-repeat" items="[[_public(descriptor.events)]]" sort="_compareDescriptors">

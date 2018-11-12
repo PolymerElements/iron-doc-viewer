@@ -90,20 +90,20 @@ Polymer({
     </style>
 
     <template is="dom-repeat" items="[[_sections]]" as="section">
-      <section hidden\$="[[!section.items.length]]">
+      <section hidden$="[[!section.items.length]]">
         <h3>[[section.heading]]</h3>
         <ul>
           <template is="dom-repeat" items="[[section.items]]">
             <li>
-              <a href="[[baseHref]][[item.path]]" title\$="[[item.name]]" on-tap="_select" selected\$="[[_isSelected(item.path, path)]]">
+              <a href="[[baseHref]][[item.path]]" title$="[[item.name]]" on-tap="_select" selected$="[[_isSelected(item.path, path)]]">
                 [[item.name]]
               </a>
 
-              <div class="tray" expanded\$="[[_isExpanded(item, path)]]">
+              <div class="tray" expanded$="[[_isExpanded(item, path)]]">
                 <ul>
                   <template is="dom-repeat" items="[[item.demos]]" as="demo">
                     <li>
-                      <a href="[[baseHref]][[demo.path]]" title\$="[[demo.description]]" on-tap="_select" selected\$="[[_isSelected(demo.path, path)]]">
+                      <a href="[[baseHref]][[demo.path]]" title$="[[demo.description]]" on-tap="_select" selected$="[[_isSelected(demo.path, path)]]">
                         [[demo.description]]
                       </a>
                     </li>
