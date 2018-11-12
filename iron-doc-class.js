@@ -34,17 +34,17 @@ Polymer({
     <prism-highlighter></prism-highlighter>
 
     <h1>[[title]]</h1>
-    <p hidden\$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
+    <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
     <div>Path: <code>[[descriptor.path]]</code></div>
 
-    <div hidden\$="[[!descriptor.mixins]]">Mixins:
+    <div hidden$="[[!descriptor.mixins]]">Mixins:
       <template is="dom-repeat" items="[[descriptor.mixins]]">[[item]]</template>
     </div>
 
-    <section id="description" hidden\$="[[!descriptor.description]]" anchor-id\$="[[fragmentPrefix]]description">
+    <section id="description" hidden$="[[!descriptor.description]]" anchor-id$="[[fragmentPrefix]]description">
       <h2>
-        <a href\$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
+        <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
 
       <marked-element sanitize markdown="[[descriptor.description]]">

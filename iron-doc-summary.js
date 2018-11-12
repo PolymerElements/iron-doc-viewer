@@ -49,9 +49,9 @@ Polymer({
     </style>
 
     <div class="name">
-      <a href\$="[[href]]">{{name}}</a>
+      <a href$="[[href]]">{{name}}</a>
     </div>
-    <div id="description" hidden\$="[[!description]]">
+    <div id="description" hidden$="[[!description]]">
       [[description]]
     </div>
 `,

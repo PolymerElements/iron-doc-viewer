@@ -60,40 +60,40 @@ Polymer({
 
     <code id="signature">
       <span class="privacy">[[_privacy]]</span>
-      <span class="static" hidden\$="[[!static]]">static</span>
+      <span class="static" hidden$="[[!static]]">static</span>
 
-      <a href\$="#[[anchorId]]" id="funcName" class="name deeplink">
+      <a href$="#[[anchorId]]" id="funcName" class="name deeplink">
         [[descriptor.name]]<!--
    --></a><!--
    -->(<span class="funcParams"><!--
      --><template is="dom-repeat" items="[[descriptor.params]]" as="p"><!--
-       --><span hidden\$="[[!index]]">, </span><!--
+       --><span hidden$="[[!index]]">, </span><!--
        --><span class="paramName">[[p.name]]</span><!--
-       --><span hidden\$="[[!p.type]]">:
+       --><span hidden$="[[!p.type]]">:
             <span class="paramType">[[p.type]]</span><!--
        --></span><!--
      --></template><!--
    --></span>)<!--
-   --><span hidden\$="[[!descriptor.return]]">:
+   --><span hidden$="[[!descriptor.return]]">:
         <span class="returnType">[[descriptor.return.type]]</span>
       </span>
     </code>
 
-    <p hidden\$="[[!descriptor.inheritedFrom]]" class="inheritedFrom">
+    <p hidden$="[[!descriptor.inheritedFrom]]" class="inheritedFrom">
       Inherited from <code>[[descriptor.inheritedFrom]]</code>
     </p>
 
-    <div class="import-path" hidden\$="[[!addImportPath]]">Requires import: <code>[[descriptor.sourceRange.file]]</code></div>
+    <div class="import-path" hidden$="[[!addImportPath]]">Requires import: <code>[[descriptor.sourceRange.file]]</code></div>
 
-    <marked-element sanitize markdown="[[descriptor.description]]" hidden\$="[[!descriptor.description]]">
+    <marked-element sanitize markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
       <div slot="markdown-html" class="markdown-html"></div>
     </marked-element>
 
-    <ul id="paramList" hidden\$="[[!_showParamList]]">
+    <ul id="paramList" hidden$="[[!_showParamList]]">
       <template is="dom-repeat" items="[[descriptor.params]]">
         <li>
           <code class="paramName">[[item.name]]</code>
-          <marked-element sanitize markdown="[[item.description]]" hidden\$="[[!item.description]]">
+          <marked-element sanitize markdown="[[item.description]]" hidden$="[[!item.description]]">
            <div slot="markdown-html" class="markdown-html"></div>
          </marked-element>
         </li>

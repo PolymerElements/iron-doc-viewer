@@ -48,53 +48,53 @@ Polymer({
     </template>
 
     <h1>[[title]]</h1>
-    <p hidden\$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
+    <p hidden$="[[!descriptor.summary]]">[[descriptor.summary]]</p>
 
-    <section id="description" anchor-id\$="[[fragmentPrefix]]description" hidden\$="[[!descriptor.description]]">
+    <section id="description" anchor-id$="[[fragmentPrefix]]description" hidden$="[[!descriptor.description]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
+        <a href$="#[[fragmentPrefix]]description" class="deeplink">Description</a>
       </h2>
       <marked-element sanitize markdown="[[descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]elements" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
+    <section anchor-id$="[[fragmentPrefix]]elements" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'elements')]]">
       <template is="dom-repeat" items="[[descriptor.elements]]" sort="_compareDescriptors">
-        <iron-doc-element descriptor="[[item]]" anchor-id\$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
+        <iron-doc-element descriptor="[[item]]" anchor-id$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         </iron-doc-element>
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]classes" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
+    <section anchor-id$="[[fragmentPrefix]]classes" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'classes')]]">
       <template is="dom-repeat" items="[[descriptor.classes]]" sort="_compareDescriptors">
-        <iron-doc-class descriptor="{{item}}" anchor-id\$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
+        <iron-doc-class descriptor="{{item}}" anchor-id$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         
       </iron-doc-class></template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]mixins" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
+    <section anchor-id$="[[fragmentPrefix]]mixins" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'mixins')]]">
       <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
-        <iron-doc-mixin descriptor="[[item]]" anchor-id\$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
+        <iron-doc-mixin descriptor="[[item]]" anchor-id$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         </iron-doc-mixin>
       </template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]behaviors" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
+    <section anchor-id$="[[fragmentPrefix]]behaviors" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'behaviors')]]">
       <template is="dom-repeat" items="[[_getPolymerBehaviors(descriptor)]]" sort="_compareDescriptors">
-        <iron-doc-behavior descriptor="[[item]]" anchor-id\$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
+        <iron-doc-behavior descriptor="[[item]]" anchor-id$="[[fragmentPrefix]][[item.name]]" fragment-prefix="[[fragmentPrefix]][[item.name]]-">
         
       </iron-doc-behavior></template>
     </section>
 
-    <section anchor-id\$="[[fragmentPrefix]]functions" hidden\$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
+    <section anchor-id$="[[fragmentPrefix]]functions" hidden$="[[_noneToShow(_showProtected,_showInherited,descriptor,'functions')]]">
       <h2>
-        <a href\$="#[[fragmentPrefix]]functions" class="deeplink">
+        <a href$="#[[fragmentPrefix]]functions" class="deeplink">
           Exported Functions
         </a>
       </h2>
       <template is="dom-repeat" items="[[descriptor.functions]]" sort="_compareDescriptors">
-        <iron-doc-function anchor-id\$="[[fragmentPrefix]][[item.name]]" descriptor="[[item]]">
+        <iron-doc-function anchor-id$="[[fragmentPrefix]][[item.name]]" descriptor="[[item]]">
         </iron-doc-function>
       </template>
     </section>

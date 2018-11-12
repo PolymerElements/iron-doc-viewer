@@ -29,7 +29,7 @@ Polymer({
 
     <h1>[[title]]</h1>
 
-    <iframe src\$="[[srcPrefix]][[demo.url]]"></iframe>
+    <iframe src$="[[srcPrefix]][[demo.url]]"></iframe>
 `,
 
   is: 'iron-doc-demo',

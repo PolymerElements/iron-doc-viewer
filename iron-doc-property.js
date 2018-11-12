@@ -52,27 +52,27 @@ $_documentContainer.innerHTML = `<dom-module id="iron-doc-property">
     <div id="signature">
       <code class="privacy">[[_privacy]] </code>
 
-      <a href\$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a><!--
-     --><code id="type" hidden\$="[[!descriptor.type]]">:
+      <a href$="#[[anchorId]]" class="name deeplink">[[descriptor.name]]</a><!--
+     --><code id="type" hidden$="[[!descriptor.type]]">:
           <span class="type">[[descriptor.type]]</span>
         </code>
-      <code id="default" hidden\$="[[!descriptor.defaultValue]]"> =
+      <code id="default" hidden$="[[!descriptor.defaultValue]]"> =
         <span class="default">[[descriptor.defaultValue]]</span>
       </code>
 
       <span id="polymer">
-        <code hidden\$="[[!descriptor.metadata.polymer.notify]]">notify</code>
-        <code hidden\$="[[!descriptor.metadata.polymer.readOnly]]">readOnly</code>
-        <code hidden\$="[[!descriptor.metadata.polymer.reflectToAttribute]]">reflectToAttribute</code>
+        <code hidden$="[[!descriptor.metadata.polymer.notify]]">notify</code>
+        <code hidden$="[[!descriptor.metadata.polymer.readOnly]]">readOnly</code>
+        <code hidden$="[[!descriptor.metadata.polymer.reflectToAttribute]]">reflectToAttribute</code>
       </span>
     </div>
 
-    <p hidden\$="[[!descriptor.inheritedFrom]]" class="inheritedFrom">
+    <p hidden$="[[!descriptor.inheritedFrom]]" class="inheritedFrom">
       Inherited from <code>[[descriptor.inheritedFrom]]</code>
     </p>
 
     <div id="details">
-      <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden\$="[[!descriptor.description]]">
+      <marked-element sanitize id="desc" markdown="[[descriptor.description]]" hidden$="[[!descriptor.description]]">
         <div slot="markdown-html" class="markdown-html"></div>
       </marked-element>
     </div>

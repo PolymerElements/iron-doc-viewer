@@ -36,8 +36,8 @@ Polymer({
     </style>
 
     <a href on-tap="_toggle">
-      <span hidden\$="[[visible]]">Show</span>
-      <span hidden\$="[[!visible]]">Hide</span>
+      <span hidden$="[[visible]]">Show</span>
+      <span hidden$="[[!visible]]">Hide</span>
       <span><slot></slot></span>
     </a>
 `,
